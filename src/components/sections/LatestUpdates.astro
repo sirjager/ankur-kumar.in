@@ -1,0 +1,45 @@
+---
+import SectionHeading from '@/components/sections/SectionHeading.astro';
+import TimelineCard from '@/components/cards/TimelineCard.astro';
+
+const posts = [
+	{
+		title: 'Difference between Server Side Rendering and Client Side Rendering',
+		slug: '1',
+		description:
+			'Server-side rendering (SSR) generates the HTML on the server and sends it to the client, while client-side rendering (CSR) generates the HTML on the client-side using JavaScript. Server-side rendering (SSR) generates the HTML on the server and sends it to the client, while client-side rendering (CSR) generates the HTML on the client-side using JavaScript.',
+		link: '#',
+	},
+	{
+		title: 'Difference between Server Side Rendering and Client Side Rendering',
+		description:
+			'Server-side rendering (SSR) generates the HTML on the server and sends it to the client, while client-side rendering (CSR) generates the HTML on the client-side using JavaScript. Server-side rendering (SSR) generates the HTML on the server and sends it to the client, while client-side rendering (CSR) generates the HTML on the client-side using JavaScript.',
+		slug: '2',
+		link: '#',
+	},
+	{
+		title: 'Difference between Server Side Rendering and Client Side Rendering',
+		description:
+			'Server-side rendering (SSR) generates the HTML on the server and sends it to the client, while client-side rendering (CSR) generates the HTML on the client-side using JavaScript. Server-side rendering (SSR) generates the HTML on the server and sends it to the client, while client-side rendering (CSR) generates the HTML on the client-side using JavaScript.',
+		link: '#',
+		slug: '3',
+	},
+];
+---
+
+<section>
+	<SectionHeading
+		text="Recent"
+		colored="Updates"
+		description="Here are some of my latest updates"
+	/>
+
+	<div class="relative space-y-10 max-w-6xl mx-auto p-4">
+		{
+			posts.map((post, index) => {
+				const invert = index % 2 === 0;
+				return <TimelineCard post={post} invert={invert} />;
+			})
+		}
+	</div>
+</section>

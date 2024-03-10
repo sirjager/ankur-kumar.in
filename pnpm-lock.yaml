@@ -32,6 +32,9 @@ dependencies:
   '@tailwindcss/typography':
     specifier: 0.5.10
     version: 0.5.10(tailwindcss@3.4.1)
+  '@unpic/qwik':
+    specifier: ^0.0.44
+    version: 0.0.44(@builder.io/qwik@1.5.1)
   '@urql/core':
     specifier: ^4.2.3
     version: 4.3.0
@@ -3772,6 +3775,18 @@ packages:
       {
         integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==,
       }
+
+  /@unpic/qwik@0.0.44(@builder.io/qwik@1.5.1):
+    resolution:
+      {
+        integrity: sha512-4NtYyg3mYSu45c/skngkAulXOcFe7Yo3ZARBrZt8Iy8fxs0SK8KEbdy09CvdQcvr5cvLX8T9jDA+CU0Crm/cAg==,
+      }
+    engines: {node: '>=15.0.0'}
+    peerDependencies:
+      '@builder.io/qwik': '*'
+    dependencies:
+      '@builder.io/qwik': 1.5.1(@types/node@20.11.25)(undici@6.7.1)
+    dev: false
 
   /@urql/core@4.3.0:
     resolution:

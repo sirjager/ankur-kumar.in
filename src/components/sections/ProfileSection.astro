@@ -1,5 +1,40 @@
 ---
-
+import Image from '@/components/images/QwikImage';
+import FillAniButton from '@/components/buttons/FillAniButton.astro';
+import Link from '@/components/Link.astro';
+const img = 'https://avatars.githubusercontent.com/u/18713058?v=4';
 ---
 
-<section class="h-screen w-full bg-red-100"></section>
+<section class="h-screen">
+	<div
+		class:list={[
+			'@container relative p-8 flex flex-col gap-8 items-center mt-[8vw] lg:mt-32',
+			'md:flex-row-reverse md:items-center md:justify-center max-w-6xl mx-auto',
+		]}
+	>
+		<Image src={img} alt="Ankur" class:list={['w-[60%] sm:w-[50%] max-w-sm']} />
+
+		<div class="space-y-8 flex-1 h-full">
+			<h1
+				class:list={[
+					'text-4xl text-center md:text-left font-rocksalt',
+					'@3xl:text-5xl',
+				]}
+			>
+				Ankur Kumar
+			</h1>
+
+			<p class:list={['text-lg sm:text-xl lg:text-2xl']}>
+				A self-driven full-stack developer with a strong focus on developing
+				high performance backend APIs and microservices using latest and
+				greatest technologies.
+			</p>
+
+			<div class="flex items-center">
+				<Link href="#contact">
+					<FillAniButton> Contact Me </FillAniButton>
+				</Link>
+			</div>
+		</div>
+	</div>
+</section>

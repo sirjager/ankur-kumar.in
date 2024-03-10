@@ -3,6 +3,7 @@ import '@/styles.css';
 import Head from '@/layouts/Head.astro';
 import Scripts from '@/layouts/Scripts.astro';
 import Navbar from '@/components/navbar/Navbar.astro';
+import ScrollWatcher from '@/components/ScrollWatcher.astro';
 ---
 
 <!doctype html>
@@ -13,11 +14,11 @@ import Navbar from '@/components/navbar/Navbar.astro';
 	<body
 		class:list={[
 			'bg-base-100 text-base-content antialiased font-light font-roboto',
-			'duration-300 ease-in transition',
 		]}
 	>
+		<ScrollWatcher />
 		<Navbar />
 		<slot />
-		<!-- <Scripts /> -->
+		<Scripts />
 	</body>
 </html>
