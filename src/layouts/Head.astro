@@ -1,0 +1,62 @@
+---
+
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<meta name="generator" content={Astro.generator} />
+<link rel="sitemap" href="/sitemap-index.xml" />
+
+<link
+	href="/fonts/rock-salt.woff2"
+	as="font"
+	rel="preload prefetch"
+	type="font/woff2"
+	crossorigin="anonymous"
+/>
+
+<!-- This needs to be inlinded to avoid FOUC (Flash of unstyled content) -->
+<script is:inline lang="js">
+	const __apply__ = (th, mo) => {
+		document.documentElement.setAttribute('data-theme', th);
+		document.documentElement.setAttribute('data-theme-mode', mo);
+		if (mo === 'dark') document.documentElement.classList.add('dark');
+		else document.documentElement.classList.remove('dark');
+	};
+	const __theming__ = () => {
+		const _s = localStorage.getItem('theme');
+		let [th, mo] = ['light', 'light'];
+		if (typeof localStorage !== 'undefined') {
+			if (_s) [th, mo] = _s.split('@');
+			else localStorage.setItem('theme', `${th}@${mo}`);
+		}
+		__apply__(th, mo);
+	};
+	__theming__();
+</script>
+
+<link
+	href="/fonts/roboto-100.woff2"
+	as="font"
+	rel="preload prefetch"
+	type="font/woff2"
+	crossorigin="anonymous"
+/>
+<link
+	href="/fonts/roboto-300.woff2"
+	as="font"
+	rel="preload prefetch"
+	type="font/woff2"
+	crossorigin="anonymous"
+/>
+<link
+	href="/fonts/roboto-300.woff2"
+	as="font"
+	rel="preload prefetch"
+	type="font/woff2"
+	crossorigin="anonymous"
+/>
+
+<script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"
+></script>

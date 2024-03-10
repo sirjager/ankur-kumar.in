@@ -1,0 +1,23 @@
+---
+import '@/styles.css';
+import Head from '@/layouts/Head.astro';
+import Scripts from '@/layouts/Scripts.astro';
+import Navbar from '@/components/navbar/Navbar.astro';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<Head />
+	</head>
+	<body
+		class:list={[
+			'bg-base-100 text-base-content antialiased font-light font-roboto',
+			'duration-300 ease-in transition',
+		]}
+	>
+		<Navbar />
+		<slot />
+		<!-- <Scripts /> -->
+	</body>
+</html>

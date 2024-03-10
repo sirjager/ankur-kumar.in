@@ -1,0 +1,25 @@
+---
+interface Props {
+	className?: string;
+}
+
+const {className = ''} = Astro.props;
+---
+
+<button
+	aria-label="change theme"
+	class:list={[
+		'group/tgthm relative px-5 py-3 overflow-clip rounded-btn',
+		'text-base-content hover:text-base-200',
+		'transition-all duration-300 ease-in-out',
+		'border border-neutral/20 dark:border-neutral-content/40',
+		'after:transition-all after:duration-300 after:ease-in-out',
+		"after:rounded-btn after:bg-base-content after:absolute after:h-full after:w-full after:content-['']",
+		'after:-bottom-full after:left-0 hover:after:bottom-0',
+		className,
+	]}
+>
+	<span class="z-[1] relative">
+		<slot>Button</slot>
+	</span>
+</button>

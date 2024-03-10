@@ -1,0 +1,35 @@
+{
+	"$schema": "./node_modules/nx/schemas/nx-schema.json",
+	"affected": {
+		"defaultBase": "master"
+	},
+	"plugins": [
+		{
+			"plugin": "@nx/eslint/plugin",
+			"options": {
+				"targetName": "lint"
+			}
+		}
+	],
+	"tasksRunnerOptions": {
+		"default": {
+			"runner": "nx/tasks-runners/default",
+			"options": {
+				"cacheableOperations": ["build", "lint", "test"]
+			}
+		}
+	},
+	"namedInputs": {
+		"noMd": ["!{projectRoot}/**/*.md", "!{projectRoot}/**/*.mdx"]
+	},
+	"targetDefaults": {
+		"build": {
+			"dependsOn": ["^build"],
+			"inputs": ["noMd", "^noMd"]
+		},
+		"dev": {
+			"dependsOn": ["^build"]
+		}
+	},
+	"nxCloudAccessToken": "YzYwMDFhMTQtMjdmMi00ZDJlLWIxNDMtZTI5MWM0YjQ4ZWE4fHJlYWQtd3JpdGU="
+}
