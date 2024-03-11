@@ -45,16 +45,23 @@ const published = postedOn.split(' ');
 		<div
 			class:list={[
 				'flex gap-3 h-full p-3 flex-col @sm:flex-row',
-				'rounded-box relative',
-				'border border-base-content/15',
+				'rounded-box relative group/tmcard',
+				'border border-base-content/15 select-none',
 				'max-w-full @xl:max-w-md @2xl:max-w-lg @4xl:min-w-96 @4xl:max-w-xl',
 			]}
 		>
-			<Link href={`/blog/${post.slug}`}>
+			<Link
+				href={`/blog/${post.slug}`}
+				class:list={['relative overflow-clip rounded-box']}
+			>
 				<Image
 					src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
 					alt={post.title}
-					class:list={['rounded-box w-full @sm:w-52 @sm:max-w-52']}
+					class:list={[
+						'rounded-box w-full @sm:w-52 @sm:max-w-52',
+						'duration-700 transition-all ease-in-out',
+						'group-hover/tmcard:scale-110',
+					]}
 				/>
 			</Link>
 			<div class="flex-1 max-w-7xl">
