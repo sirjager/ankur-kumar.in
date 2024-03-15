@@ -1,27 +1,27 @@
-export function themeMode(theme: string | undefined): 'dark' | 'light' {
+export function themeMode(theme: string | undefined): "dark" | "light" {
 	switch (theme) {
-		case 'dracula':
-		case 'business':
-		case 'synthwave':
-		case 'halloween':
-		case 'forest':
-		case 'black':
-		case 'luxury':
-		case 'night':
-		case 'coffee':
-		case 'dark':
-		case 'dim':
-		case 'sunset':
-			return 'dark';
+		case "dracula":
+		case "business":
+		case "synthwave":
+		case "halloween":
+		case "forest":
+		case "black":
+		case "luxury":
+		case "night":
+		case "coffee":
+		case "dark":
+		case "dim":
+		case "sunset":
+			return "dark";
 		default:
-			return 'light';
+			return "light";
 	}
 }
 
 export const themes = [
 	// "light",
 	// "dark",
-	'cupcake',
+	"cupcake",
 	// "business",
 	// "bumblebee",
 	// "emerald",
@@ -43,7 +43,7 @@ export const themes = [
 	// "dracula",
 	// "cmyk",
 	// "autumn",
-	'business',
+	"business",
 	// "acid",
 	// "lemonade",
 	// "night",

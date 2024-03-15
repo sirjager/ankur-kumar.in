@@ -1,9 +1,9 @@
 export const toNormalString = (content: string) => {
-	if (!content) return '';
+	if (!content) return "";
 	return content
-		.replaceAll('-', ' ')
-		.replace(/^[\s_]+|[\s_]+$/g, '')
-		.replace(/[_\s]+/g, ' ')
+		.replaceAll("-", " ")
+		.replace(/^[\s_]+|[\s_]+$/g, "")
+		.replace(/[_\s]+/g, " ")
 		.replace(/^[a-z]/, function (m) {
 			return m.toUpperCase();
 		});

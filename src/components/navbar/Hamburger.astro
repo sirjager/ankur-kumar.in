@@ -4,14 +4,14 @@
 
 <label
 	class:list={[
-		'md:hidden z-[1]',
-		'group/tgham relative px-5 py-3 overflow-clip rounded-btn',
-		'text-base-content hover:text-base-200',
-		'border-neutral/20 dark:border-neutral-content/40 border transition-all duration-300 ease-in-out',
-		'after:transition-all after:duration-300 after:ease-in-out',
+		"md:hidden z-[1]",
+		"group/tgham relative px-5 py-3 overflow-clip rounded-btn",
+		"text-base-content hover:text-base-200",
+		"border-neutral/20 dark:border-neutral-content/40 border transition-all duration-300 ease-in-out",
+		"after:transition-all after:duration-300 after:ease-in-out",
 		"after:rounded-btn after:bg-base-content after:absolute after:h-full after:w-full after:content-['']",
-		'after:-bottom-full after:left-0 hover:after:bottom-0',
-		'swap swap-rotate flex items-center',
+		"after:-bottom-full after:left-0 hover:after:bottom-0",
+		"swap swap-rotate flex items-center",
 	]}
 >
 	<input id="tgham" type="checkbox" />
@@ -24,8 +24,8 @@
 		stroke-linecap="round"
 		stroke-linejoin="round"
 		class:list={[
-			'swap-off absolute left-4 fill-current h-5 w-5 z-[1]',
-			'transition-all duration-300 ease-in-out stroke-base-content group-hover/tgham:stroke-base-200',
+			"swap-off absolute left-4 fill-current h-5 w-5 z-[1]",
+			"transition-all duration-300 ease-in-out stroke-base-content group-hover/tgham:stroke-base-200",
 		]}
 	>
 		<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -41,8 +41,8 @@
 		stroke-linecap="round"
 		stroke-linejoin="round"
 		class:list={[
-			'swap-on absolute left-4 fill-current h-5 w-5 z-[1]',
-			'transition-all duration-300 ease-in-out stroke-base-content group-hover/tgham:stroke-base-200',
+			"swap-on absolute left-4 fill-current h-5 w-5 z-[1]",
+			"transition-all duration-300 ease-in-out stroke-base-content group-hover/tgham:stroke-base-200",
 		]}
 	>
 		<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -54,25 +54,25 @@
 </label>
 
 <script>
-	const nm = document.getElementById('navmenu');
-	const tg = document.getElementById('tgham') as any;
-	tg?.addEventListener('click', () => {
-		if (nm?.classList.contains('-top-[100vh]')) {
-			nm?.classList.remove('-top-[100vh]');
-			nm?.classList.add('top-0');
+	const nm = document.getElementById("navmenu");
+	const tg = document.getElementById("tgham") as any;
+	tg?.addEventListener("click", () => {
+		if (nm?.classList.contains("-top-[100vh]")) {
+			nm?.classList.remove("-top-[100vh]");
+			nm?.classList.add("top-0");
 		} else {
-			nm?.classList.add('-top-[100vh]');
-			nm?.classList.remove('top-0');
+			nm?.classList.add("-top-[100vh]");
+			nm?.classList.remove("top-0");
 		}
 	});
-	nm?.addEventListener('click', () => {
+	nm?.addEventListener("click", () => {
 		tg.checked = false;
-		if (nm?.classList.contains('-top-[100vh]')) {
-			nm?.classList.remove('-top-[100vh]');
-			nm?.classList.add('top-0');
+		if (nm?.classList.contains("-top-[100vh]")) {
+			nm?.classList.remove("-top-[100vh]");
+			nm?.classList.add("top-0");
 		} else {
-			nm?.classList.add('-top-[100vh]');
-			nm?.classList.remove('top-0');
+			nm?.classList.add("-top-[100vh]");
+			nm?.classList.remove("top-0");
 		}
 	});
 </script>

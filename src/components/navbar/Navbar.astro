@@ -1,25 +1,25 @@
 ---
-import Link from '@/components/Link.astro';
-import Logo from '@/components/Logo.astro';
-import ToggleTheme from '@/components/ToggleTheme';
-import Hamburger from '@/components/navbar/Hamburger.astro';
+import Link from "@/components/Link.astro";
+import Logo from "@/components/Logo.astro";
+import ToggleTheme from "@/components/ToggleTheme";
+import Hamburger from "@/components/navbar/Hamburger.astro";
 
 const links = [
 	{
-		label: 'Blog',
-		href: '#blog',
+		label: "Blog",
+		href: "#blog",
 	},
 	{
-		label: 'Projects',
-		href: '#projects',
+		label: "Projects",
+		href: "#projects",
 	},
 	{
-		label: 'Contact',
-		href: '#contact',
+		label: "Contact",
+		href: "#contact",
 	},
 	{
-		label: 'About',
-		href: '#about',
+		label: "About",
+		href: "#about",
 	},
 ];
 ---
@@ -27,55 +27,56 @@ const links = [
 <div>
 	<div
 		class:list={[
-			'max-w-6xl mx-auto py-5 px-4 md:px-8 relative',
-			'flex items-center justify-between',
+			"w-full max-w-6xl mx-auto py-5 px-4 md:px-8 relative",
+			"flex items-center justify-between z-[99999]",
 		]}
 	>
-		<Link href="/" class="z-50">
+		<Link href="/" class="z-[99999]">
 			<Logo />
 		</Link>
 
 		<div
 			class:list={[
-				'flex left-0 w-full justify-end',
-				'md:relative md:left-auto md:top-auto md:h-auto',
-				'md:justify-end gap-3',
+				"flex left-0 w-full justify-end",
+				"md:relative md:left-auto md:top-auto md:h-auto",
+				"md:justify-end gap-3",
 			]}
 		>
 			<div
 				id="navmenu"
 				class:list={[
-					'fixed md:relative',
-					'w-full md:w-fit h-screen md:h-auto',
-					'-top-[100vh] left-0 md:left-auto md:top-auto',
-					'duration-300 ease-in-out transition-all',
+					"fixed md:relative",
+					"w-full md:w-fit h-screen md:h-auto",
+					"-top-[100vh] left-0 md:left-auto md:top-auto",
+					"duration-300 ease-in-out transition-all",
 				]}
 			>
 				<nav
 					class:list={[
-						'md:relative gap-3',
-						'w-full md:w-fit md:h-auto',
-						'flex flex-col md:flex-row items-end md:items-center md:justify-end',
-						'pt-28 md:pt-0 pb-4 md:pb-0 pr-[5vw] md:pr-0',
-						'duration-300 ease-in-out transition-all',
-						'rounded-br-[13vw] md:rounded-br-none',
-						'bg-base-100 md:bg-transparent',
+						"md:relative gap-3",
+						"w-full md:w-fit md:h-auto",
+						"flex flex-col md:flex-row items-end md:items-center md:justify-end",
+						"pt-28 md:pt-0 pb-4 md:pb-0 pr-[5vw] md:pr-0",
+						"duration-300 ease-in-out transition-all",
+						"rounded-br-[13vw] md:rounded-br-none",
+						"bg-base-100 md:bg-transparent",
 					]}
 				>
 					{
 						links.map((link) => {
 							return (
 								<Link
+									key={link.label}
 									href={link.href}
 									class:list={[
-										'group/tgthm relative px-5 py-3 overflow-clip rounded-btn',
-										'text-base-content md:hover:text-base-200',
-										'transition-all duration-300 ease-in-out',
-										'md:border md:border-neutral/20 md:dark:border-neutral-content/40',
-										'md:after:transition-all md:after:duration-300 md:after:ease-in-out',
+										"group/tgthm relative px-5 py-3 overflow-clip rounded-btn",
+										"text-base-content md:hover:text-base-200",
+										"transition-all duration-300 ease-in-out",
+										"md:border md:border-neutral/20 md:dark:border-neutral-content/40",
+										"md:after:transition-all md:after:duration-300 md:after:ease-in-out",
 										"md:after:rounded-btn md:after:bg-base-content md:after:absolute md:after:h-full after:w-full after:content-['']",
-										'md:after:-bottom-full md:after:left-0 md:hover:after:bottom-0',
-										'text-[7vw] md:text-base font-bold md:font-light',
+										"md:after:-bottom-full md:after:left-0 md:hover:after:bottom-0",
+										"text-[7vw] md:text-base font-bold md:font-light",
 									]}
 								>
 									<span class="z-[1] relative">{link.label}</span>

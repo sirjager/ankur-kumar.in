@@ -19,17 +19,17 @@
 <!-- This needs to be inlinded to avoid FOUC (Flash of unstyled content) -->
 <script is:inline lang="js">
 	const __apply__ = (th, mo) => {
-		document.documentElement.setAttribute('data-theme', th);
-		document.documentElement.setAttribute('data-theme-mode', mo);
-		if (mo === 'dark') document.documentElement.classList.add('dark');
-		else document.documentElement.classList.remove('dark');
+		document.documentElement.setAttribute("data-theme", th);
+		document.documentElement.setAttribute("data-theme-mode", mo);
+		if (mo === "dark") document.documentElement.classList.add("dark");
+		else document.documentElement.classList.remove("dark");
 	};
 	const __theming__ = () => {
-		const _s = localStorage.getItem('theme');
-		let [th, mo] = ['light', 'light'];
-		if (typeof localStorage !== 'undefined') {
-			if (_s) [th, mo] = _s.split('@');
-			else localStorage.setItem('theme', `${th}@${mo}`);
+		const _s = localStorage.getItem("theme");
+		let [th, mo] = ["light", "light"];
+		if (typeof localStorage !== "undefined") {
+			if (_s) [th, mo] = _s.split("@");
+			else localStorage.setItem("theme", `${th}@${mo}`);
 		}
 		__apply__(th, mo);
 	};

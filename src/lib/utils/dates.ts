@@ -18,18 +18,18 @@ const getMonthName = (month: string) => {
 		return month;
 	}
 	const months: string[] = [
-		'January',
-		'February',
-		'March',
-		'April',
-		'May',
-		'June',
-		'July',
-		'August',
-		'September',
-		'October',
-		'November',
-		'December',
+		"January",
+		"February",
+		"March",
+		"April",
+		"May",
+		"June",
+		"July",
+		"August",
+		"September",
+		"October",
+		"November",
+		"December",
 	];
 	return months[monthNumber - 1];
 };
@@ -37,10 +37,10 @@ const getMonthName = (month: string) => {
 export const parseDate = (toISOString?: string | null) => {
 	if (!toISOString) return undefined;
 	try {
-		const splits = toISOString.split('T');
+		const splits = toISOString.split("T");
 		if (splits.length < 2) return undefined;
-		const dateComponents = splits[0].split('-');
-		const timeComponents = splits[1].split(':');
+		const dateComponents = splits[0].split("-");
+		const timeComponents = splits[1].split(":");
 		const today = new Date();
 		const parsedDate = new Date(toISOString);
 		return {
@@ -50,7 +50,7 @@ export const parseDate = (toISOString?: string | null) => {
 			date: dateComponents[2],
 			hour: timeComponents[0],
 			minutes: timeComponents[1],
-			seconds: timeComponents[2].split('.')[0], // Remove milliseconds
+			seconds: timeComponents[2].split(".")[0], // Remove milliseconds
 			thisYear: today.getFullYear() === parsedDate.getFullYear(),
 			thisMonth: today.getMonth() + 1 === parseInt(dateComponents[1]),
 			today: today.toDateString() === parsedDate.toDateString(),

@@ -3,43 +3,43 @@
 @tailwind utilities;
 
 @font-face {
-	font-family: 'Rock Salt';
-	src: url('/fonts/rock-salt.woff2') format('woff2');
+	font-family: "Rock Salt";
+	src: url("/fonts/rock-salt.woff2") format("woff2");
 	font-weight: 400;
 	display: swap;
 }
 
 @font-face {
-	font-family: 'Roboto';
-	src: url('/fonts/roboto-100.woff2') format('woff2');
+	font-family: "Roboto";
+	src: url("/fonts/roboto-100.woff2") format("woff2");
 	font-weight: 100;
 	display: swap;
 }
 
 @font-face {
-	font-family: 'Roboto';
-	src: url('/fonts/roboto-300.woff2') format('woff2');
+	font-family: "Roboto";
+	src: url("/fonts/roboto-300.woff2") format("woff2");
 	font-weight: 300;
 	display: swap;
 }
 
 @font-face {
-	font-family: 'Roboto';
-	src: url('/fonts/roboto-400.woff2') format('woff2');
+	font-family: "Roboto";
+	src: url("/fonts/roboto-400.woff2") format("woff2");
 	font-weight: 400;
 	display: swap;
 }
 
 @font-face {
-	font-family: 'Roboto';
-	src: url('/fonts/roboto-700.woff2') format('woff2');
+	font-family: "Roboto";
+	src: url("/fonts/roboto-700.woff2") format("woff2");
 	font-weight: 700;
 	display: swap;
 }
 
 @font-face {
-	font-family: 'Roboto';
-	src: url('/fonts/roboto-900.woff2') format('woff2');
+	font-family: "Roboto";
+	src: url("/fonts/roboto-900.woff2") format("woff2");
 	font-weight: 900;
 	display: swap;
 }

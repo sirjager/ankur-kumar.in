@@ -1,6 +1,6 @@
 ---
-import Link from '@/components/Link.astro';
-import Image from '@/components/images/QwikImage';
+import Link from "@/components/Link.astro";
+import Image from "@/components/images/QwikImage";
 
 interface Props {
 	post: {
@@ -14,53 +14,53 @@ interface Props {
 const {post, invert} = Astro.props;
 
 const postedOn = new Date().toDateString();
-const published = postedOn.split(' ');
+const published = postedOn.split(" ");
 ---
 
 <div class="@container">
 	<div
 		class:list={[
-			'flex flex-col sm:flex-row  items-center sm:items-center',
+			"flex flex-col sm:flex-row  items-center sm:items-center",
 			{
-				'sm:flex-row-reverse': invert,
+				"sm:flex-row-reverse": invert,
 			},
 		]}
 	>
 		<div
 			class:list={[
-				'font-bold rounded-btn border border-base-content/15',
-				'text-lg @3xl:text-2xl @4xl:text-4xl p-4',
+				"font-bold rounded-btn border border-base-content/15",
+				"text-lg @3xl:text-2xl @4xl:text-4xl p-4",
 			]}
 		>
 			<span class="text-accent">{published[2]}</span>
-			{published[1]}{' '}
+			{published[1]}{" "}
 			{published[3]}
 		</div>
 
 		<div
-			class:list={['bg-base-content/15 h-10 w-0.5 mx-auto', 'sm:h-1 sm:flex-1']}
+			class:list={["bg-base-content/15 h-10 w-0.5 mx-auto", "sm:h-1 sm:flex-1"]}
 		>
 		</div>
 
 		<div
 			class:list={[
-				'flex gap-3 h-full p-3 flex-col @sm:flex-row',
-				'rounded-box relative group/tmcard',
-				'border border-base-content/15 select-none',
-				'max-w-full @xl:max-w-md @2xl:max-w-lg @4xl:min-w-96 @4xl:max-w-xl',
+				"flex gap-3 h-full p-3 flex-col @sm:flex-row",
+				"rounded-box relative group/tmcard",
+				"border border-base-content/15 select-none",
+				"max-w-full @xl:max-w-md @2xl:max-w-lg @4xl:min-w-96 @4xl:max-w-xl",
 			]}
 		>
 			<Link
 				href={`/blog/${post.slug}`}
-				class:list={['relative overflow-clip rounded-box']}
+				class:list={["relative overflow-clip rounded-box"]}
 			>
 				<Image
 					src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
 					alt={post.title}
 					class:list={[
-						'rounded-box w-full @sm:w-52 @sm:max-w-52',
-						'duration-700 transition-all ease-in-out',
-						'group-hover/tmcard:scale-110',
+						"rounded-box w-full @sm:w-52 @sm:max-w-52",
+						"duration-700 transition-all ease-in-out",
+						"group-hover/tmcard:scale-110",
 					]}
 				/>
 			</Link>
@@ -68,7 +68,7 @@ const published = postedOn.split(' ');
 				<Link
 					href={`/blog/${post.slug}`}
 					class:list={[
-						'text-sm @4xl:text-base font-semibold text-accent line-clamp-4',
+						"text-sm @4xl:text-base font-semibold text-accent line-clamp-4",
 					]}
 				>
 					{post.title}

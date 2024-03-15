@@ -4,10 +4,10 @@ export function parseToNumber(value: any): number | undefined {
 }
 
 export function isNumber(i: any): boolean {
-	if (typeof i === 'string') {
+	if (typeof i === "string") {
 		return !isNaN(Number(i)) && isFinite(parseFloat(i));
 	}
-	return typeof i === 'number' && !isNaN(i) && isFinite(i);
+	return typeof i === "number" && !isNaN(i) && isFinite(i);
 }
 
 export function getRandomNumber(min: number, max: number): number {

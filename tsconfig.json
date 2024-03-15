@@ -10,5 +10,16 @@
 		"paths": {
 			"@/*": ["src/*"]
 		}
-	}
+	},
+	"files": ["./.eslintrc.cjs"],
+	"exclude": ["node_modules"],
+	"include": [
+		"src",
+		"**/*.ts",
+		"**/*.js",
+		"**/*.tsx",
+		"**/*.jsx",
+		"**/*.mjs",
+		"**/*.cjs"
+	]
 }
