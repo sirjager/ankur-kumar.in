@@ -1,0 +1,31 @@
+{
+  "recentFiles": [
+    {
+      "basename": "second-post",
+      "path": "blog/second-post.md"
+    },
+    {
+      "basename": "first-post",
+      "path": "blog/first-post.md"
+    },
+    {
+      "basename": "homepage",
+      "path": "homepage.md"
+    },
+    {
+      "basename": "post",
+      "path": "templates/post.md"
+    },
+    {
+      "basename": "favicon",
+      "path": "public/favicon.svg"
+    },
+    {
+      "basename": "README",
+      "path": "README.md"
+    }
+  ],
+  "omittedPaths": [],
+  "maxLength": null,
+  "openType": "split"
+}

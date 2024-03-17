@@ -55,8 +55,6 @@ export function getColors(_color?: color): Color {
 		return {name: _color, ...colors[_color]};
 	}
 	const colorKeys = Object.keys(colors);
-	const randomColorKey = colorKeys[
-		Math.floor(Math.random() * colorKeys.length)
-	] as color;
+	const randomColorKey = colorKeys[Math.floor(Math.random() * colorKeys.length)] as color;
 	return {name: randomColorKey, ...colors[randomColorKey]};
 }

@@ -3,7 +3,5 @@
 		"pnpm nx affected:lint --fix",
 		"pnpm nx format:write"
 	],
-	"./**/*.{ts,tsx,js,jsx,css,svg,json,yaml,cjs,md,mdx,css,astro,html}": [
-		"prettier --write"
-	]
+	"./**/*.{ts,tsx,js,jsx,css,svg,json,yaml,cjs,md,mdx,css,astro,html}": ["prettier --write"]
 }

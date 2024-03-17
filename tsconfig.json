@@ -7,6 +7,7 @@
 		"resolveJsonModule": true,
 		"noImplicitReturns": false,
 		"baseUrl": ".",
+		"rootDir": ".",
 		"paths": {
 			"@/*": ["src/*"]
 		}
@@ -20,6 +21,7 @@
 		"**/*.tsx",
 		"**/*.jsx",
 		"**/*.mjs",
-		"**/*.cjs"
+		"**/*.cjs",
+		".astro/types.d.ts"
 	]
 }

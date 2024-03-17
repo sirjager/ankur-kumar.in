@@ -6,6 +6,7 @@ export default {
 	darkMode: "class",
 	plugins: [
 		require("@tailwindcss/container-queries"),
+		require("@tailwindcss/aspect-ratio"),
 		require("@tailwindcss/typography"),
 		require("daisyui"),
 	],

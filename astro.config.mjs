@@ -6,6 +6,7 @@ import robots from "astro-robots-txt";
 import compress from "astro-compress";
 import node from "@astrojs/node";
 import qwik from "@qwikdev/astro";
+import mdx from "@astrojs/mdx";
 
 const _ = loadEnv(process.env.NODE_ENV, process.cwd(), "");
 const {PORTFOLIO_APP_URL, NODE_ENV} = _;
@@ -19,6 +20,10 @@ export default defineConfig({
 		enabled: NODE_ENV === "development",
 	},
 	integrations: [
+		mdx({
+			optimize: true,
+			extendMarkdownConfig: true,
+		}),
 		qwik(),
 		tailwind(),
 		partytown({
@@ -36,7 +41,7 @@ export default defineConfig({
 	],
 	experimental: {
 		clientPrerender: true,
-		contentCollectionCache: true,
+		contentCollectionCache: NODE_ENV === "development" ? false : true,
 	},
 	vite: {
 		logLevel: NODE_ENV === "development" ? "info" : undefined,
@@ -48,4 +53,10 @@ export default defineConfig({
 	adapter: node({
 		mode: "standalone",
 	}),
+	markdown: {
+		gfm: true,
+		smartypants: true,
+		syntaxHighlight: false,
+		extendDefaultPlugins: true,
+	},
 });

@@ -1,8 +1,9 @@
 ---
 import "@/styles.css";
 import Head from "@/layouts/Head.astro";
-import Scripts from "@/layouts/Scripts.astro";
+// import Scripts from "@/layouts/Scripts.astro";
 import Navbar from "@/components/navbar/Navbar.astro";
+import Footer from "@/components/footer/Footer.astro";
 import ScrollWatcher from "@/components/ScrollWatcher.astro";
 ---
 
@@ -20,6 +21,7 @@ import ScrollWatcher from "@/components/ScrollWatcher.astro";
 		<ScrollWatcher />
 		<Navbar />
 		<slot />
-		<Scripts />
+		<Footer />
+		<!-- <Scripts /> -->
 	</body>
 </html>
