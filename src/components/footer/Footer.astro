@@ -1,0 +1,119 @@
+---
+import Link from "@/components/Link.astro";
+import {parseDate} from "@/lib/utils";
+import Logo from "@/components/Logo.astro";
+
+const year = parseDate(new Date().toISOString())?.year || new Date().getFullYear();
+
+const topics = [
+	{
+		slug: "blog",
+		name: "Blog",
+	},
+];
+
+const sections = [
+	{
+		title: "Topics",
+		link: "/blog",
+		items: [
+			{
+				link: "blog",
+				label: "Blog",
+			},
+		],
+	},
+];
+---
+
+<div class="mt-36 w-full bg-base-100 text-base-content @container">
+	<div class="grid @2xl:grid-cols-4">
+		<div class="col-span-2 flex items-center justify-end p-4">
+			<div class="max-w-lg space-y-6">
+				<div class="relative">
+					<Logo />
+				</div>
+				<p>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis ducimus, numquam soluta
+					dolore ratione nostrum earum sit dolores accusamus perspiciatis voluptas aspernatur
+					repudiandae assumenda iste ullam? At ipsum deleniti consequuntur.
+				</p>
+			</div>
+		</div>
+
+		<div class="col-span-2 row-span-2 flex items-center p-4">
+			<div class="w-full max-w-lg space-y-8">
+				<div>
+					<p class="font-bold uppercase">Newletter</p>
+					<p class="text-4xl font-bold lg:text-5xl">
+						Subscript to our <br /> Newsletter
+					</p>
+				</div>
+
+				<form class="w-full">
+					<fieldset class="form-control w-full">
+						<div class="join">
+							<input
+								type="text"
+								placeholder="mail@site.com"
+								class="input join-item input-bordered w-full @5xl:input-lg"
+							/>
+							<button class="btn btn-primary join-item @5xl:btn-lg">Subscribe</button>
+						</div>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+
+		<div class="col-span-2 flex items-center justify-end p-16">
+			<div class="w-full max-w-lg">
+				<div class="grid w-full gap-4 @sm:grid-cols-2 @5xl:grid-cols-3">
+					<nav class="space-y-3">
+						<header class="text-lg font-bold text-base-content">Topics</header>
+						<div class="space-y-2">
+							{
+								topics.map((topic) => (
+									<Link href={`/blog/${topic.slug}`} class="link-hover link block capitalize">
+										{topic.name}
+									</Link>
+								))
+							}
+						</div>
+					</nav>
+
+					{
+						sections && (
+							<>
+								{sections.map((section) => (
+									<nav class="space-y-3">
+										{section.title && (
+											<header class="text-lg font-bold text-base-content">{section.title}</header>
+										)}
+										{section.title && section.items && (
+											<div class="space-y-2">
+												{section.items.map((item, index) => (
+													<Link
+														key={index}
+														href={item.link}
+														class="link-hover link block capitalize"
+													>
+														{item.label}
+													</Link>
+												))}
+											</div>
+										)}
+									</nav>
+								))}
+							</>
+						)
+					}
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer class="footer footer-center p-4 text-base-content">
+		<aside>
+			<p>Copyright © {year} - All right reserved by Ankur</p>
+		</aside>
+	</footer>
+</div>

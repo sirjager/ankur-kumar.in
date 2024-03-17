@@ -1,0 +1,87 @@
+---
+import type {PostFrontMatter} from "@/content/config";
+import Link from "@/components/Link.astro";
+import Image from "@/components/images/QwikImage";
+
+interface Props {
+	post: PostFrontMatter;
+}
+const {post} = Astro.props;
+const {slug, description, image, title, tags} = post;
+const href = `/blog/${slug}`;
+const imgsrc =
+	"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fuser-images.githubusercontent.com%2F32593150%2F154967110-d4bd32ca-ef22-45a7-992b-b2e0818719a2.jpg&f=1&nofb=1&ipt=05937c39d470915dead52e52e4e96c0c209eb5b9dbfa7665c502c367b7438abe&ipo=images";
+---
+
+<div
+	class:list={[
+		"group/postcard rounded-box",
+		"p-4",
+		"ease-in-out duration-300 transition",
+		"group-hover/postcard:duration-300",
+		"bg-red-400 select-none",
+	]}
+>
+	<span
+		aria-hidden="true"
+		class="absolute hidden xs:block h-full w-full top-0 left-0 rounded-lg opacity-30 blur-xl dark:blur-none"
+	>
+	</span>
+
+	<Link
+		href={href}
+		aria-label={`Read article ${post.title}`}
+		class:list={["rounded-md block overflow-hidden mt-2 relative"]}
+	>
+		<Image
+			width={400}
+			height={200}
+			src={imgsrc}
+			aspectRatio={2}
+			alt={image.alt || image.title}
+			aria-label={image.caption || image.alt || image.title}
+			class="group-hover/postcard:scale-[1.05] transition duration-300 w-full ease-in-out"
+		/>
+	</Link>
+
+	<Link
+		href={href}
+		aria-label={`Read article ${post.title}`}
+		class:list={[
+			"mt-3 relative w-full font-bold text-base sm:text-base hover:text-accent font-title",
+		]}
+	>
+		{title}
+	</Link>
+
+	<p class:list={["mt-2 relative line-clamp-3"]}>
+		{description}
+	</p>
+
+	<Link
+		href={`/blog/${post.slug}`}
+		aria-label={`Read full article ${post.title}`}
+		class:list={[" group/readmore relative flex w-fit items-center p-0.5"]}
+	>
+		<span
+			aria-hidden="true"
+			class="absolute bottom-0 h-0.5 w-0 bg-accent transition-all duration-500 ease-in-out group-hover/readmore:w-full group-hover/readmore:duration-300"
+		></span>
+		Read more
+	</Link>
+
+	{
+		tags.length > 0 && (
+			<div class="relative mt-2 flex flex-wrap items-center gap-2">
+				{tags.map((tag) => (
+					<Link href={"#"} class:list={["group/tag relative flex w-fit items-center p-0.5"]}>
+						<span class="absolute bottom-0 h-0.5 w-0 bg-accent transition-all duration-500 ease-in-out group-hover/tag:w-full group-hover/tag:duration-300" />
+						<p class="relative line-clamp-1 text-xs lowercase group-hover/tag:text-accent sm:text-sm">
+							{tag}
+						</p>
+					</Link>
+				))}
+			</div>
+		)
+	}
+</div>

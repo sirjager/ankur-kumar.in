@@ -1,0 +1,80 @@
+---
+import Image from "@/components/images/QwikImage";
+import Link from "@/components/Link.astro";
+
+interface Props {
+	posts: any[];
+}
+
+const {posts} = Astro.props;
+
+const boxSize = (index: number) => {
+	const patternSize = 9;
+	const sizeIndex = index % patternSize;
+	if (index === 0) {
+		return "large";
+	} else if ([1, 5, 10, 17].includes(sizeIndex)) {
+		return "medium";
+	} else {
+		return "small";
+	}
+};
+---
+
+<main class:list={["relative w-full"]}>
+	<div class:list={["@container"]}>
+		<div class:list={["grid grid-cols-1 gap-4 @lg:grid-cols-2 @xl:grid-cols-3"]}>
+			{
+				posts.map((post, index) => {
+					const size = boxSize(index);
+					const href = `/blog/${post.slug}`;
+					const image = post.banner;
+					return (
+						<div
+							class:list={[
+								"@container group/postcard rounded-box p-4 glass",
+								{
+									"col-span-3 row-span-1": size === "large",
+									"col-span-3 row-span-1 @md:row-span-2 md:col-span-2": size === "medium",
+									"col-span-3 row-span-1 md:col-span-1 md:row-span-1": size === "small",
+								},
+							]}
+						>
+							<Link href={href}>
+								<figure class="overflow-clip rounded-box aspect-video">
+									<Image
+										width={958}
+										height={537}
+										src={image}
+										alt={post.title}
+										class="aspect-video rounded-box"
+									/>
+								</figure>
+							</Link>
+
+							<Link href={href}>
+								<p class="mt-2 line-clamp-3 text-pretty font-extrabold @md:text-2xl">
+									{post.title}
+								</p>
+							</Link>
+
+							<p
+								class:list={[
+									"text-ellipsis text-pretty",
+									{
+										"mt-2 line-clamp-4 sm:mt-4 md:text-lg": size === "large",
+										"mt-2 line-clamp-3 sm:mt-4": size === "medium",
+										"line-clamp-2 hidden max-h-8 text-xs @sm:text-sm sm:mt-2 sm:block sm:max-h-10 md:text-sm":
+											size === "small",
+									},
+								]}
+							>
+								{post.description}
+							</p>
+						</div>
+					);
+				})
+			}
+		</div>
+	</div>
+</main>

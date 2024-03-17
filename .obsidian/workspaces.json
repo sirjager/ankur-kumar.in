@@ -1,0 +1,197 @@
+{
+  "workspaces": {
+    "default": {
+      "main": {
+        "id": "7ea481afc470f415",
+        "type": "split",
+        "children": [
+          {
+            "id": "5f4e643a581643a1",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "87593c7516b95448",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "README.md",
+                    "mode": "preview",
+                    "source": false
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical"
+      },
+      "left": {
+        "id": "f6b00b67c0e1f36b",
+        "type": "split",
+        "children": [
+          {
+            "id": "20003b654a5c3cb3",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "c2e02f9349b6b7d0",
+                "type": "leaf",
+                "state": {
+                  "type": "file-explorer",
+                  "state": {
+                    "sortOrder": "alphabetical"
+                  }
+                }
+              },
+              {
+                "id": "df6f8fc914f359e6",
+                "type": "leaf",
+                "state": {
+                  "type": "search",
+                  "state": {
+                    "query": "",
+                    "matchingCase": false,
+                    "explainSearch": false,
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "dad16c21e93a47ac",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "6c28ec43980cb3fb",
+                "type": "leaf",
+                "state": {
+                  "type": "recent-files",
+                  "state": {}
+                }
+              },
+              {
+                "id": "2e2a94b17557b211",
+                "type": "leaf",
+                "state": {
+                  "type": "bookmarks",
+                  "state": {}
+                }
+              }
+            ],
+            "currentTab": 1
+          }
+        ],
+        "direction": "horizontal",
+        "width": 300
+      },
+      "right": {
+        "id": "410d68067e6e188b",
+        "type": "split",
+        "children": [
+          {
+            "id": "6b9948d1a963bb4c",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "1862fe2172439eb6",
+                "type": "leaf",
+                "state": {
+                  "type": "tag",
+                  "state": {
+                    "sortOrder": "frequency",
+                    "useHierarchy": true
+                  }
+                }
+              },
+              {
+                "id": "dc1b18acdb782e65",
+                "type": "leaf",
+                "state": {
+                  "type": "outline",
+                  "state": {
+                    "file": "README.md"
+                  }
+                }
+              },
+              {
+                "id": "640fc8e9efdf2fc6",
+                "type": "leaf",
+                "state": {
+                  "type": "all-properties",
+                  "state": {
+                    "sortOrder": "frequency",
+                    "showSearch": false,
+                    "searchQuery": ""
+                  }
+                }
+              }
+            ],
+            "currentTab": 1
+          },
+          {
+            "id": "240799a63c888df4",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "34d73d75f6c76b84",
+                "type": "leaf",
+                "state": {
+                  "type": "calendar",
+                  "state": {}
+                }
+              },
+              {
+                "id": "02cc11e7bc22c5cd",
+                "type": "leaf",
+                "state": {
+                  "type": "backlink",
+                  "state": {
+                    "file": "README.md",
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical",
+                    "showSearch": false,
+                    "searchQuery": "",
+                    "backlinkCollapsed": false,
+                    "unlinkedCollapsed": true
+                  }
+                }
+              },
+              {
+                "id": "c55f06eed7b65ec0",
+                "type": "leaf",
+                "state": {
+                  "type": "outgoing-link",
+                  "state": {
+                    "file": "README.md",
+                    "linksCollapsed": false,
+                    "unlinkedCollapsed": true
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal",
+        "width": 320.5
+      },
+      "left-ribbon": {
+        "hiddenItems": {
+          "switcher:Open quick switcher": false,
+          "templates:Insert template": false,
+          "canvas:Create new canvas": false,
+          "obsidian-excalidraw-plugin:Create new drawing": false,
+          "command-palette:Open command palette": false,
+          "workspaces:Manage workspace layouts": false,
+          "table-editor-obsidian:Advanced Tables Toolbar": false
+        }
+      },
+      "active": "34d73d75f6c76b84"
+    }
+  },
+  "active": "default"
+}

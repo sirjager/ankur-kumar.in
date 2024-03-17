@@ -14,6 +14,10 @@ vite.config.ts.timestamp*
 # macOS-specific files
 .DS_Store
 
+# obsidian directory
+.obsidian/
+.trash/
+
 # Temp files and folders
 generated/
 .tmp
