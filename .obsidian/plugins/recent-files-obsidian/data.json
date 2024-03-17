@@ -1,12 +1,16 @@
 {
   "recentFiles": [
     {
+      "basename": "first-post",
+      "path": "blog/first-post.md"
+    },
+    {
       "basename": "second-post",
       "path": "blog/second-post.md"
     },
     {
-      "basename": "first-post",
-      "path": "blog/first-post.md"
+      "basename": "banner",
+      "path": "assets/banner.jpg"
     },
     {
       "basename": "homepage",

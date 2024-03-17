@@ -13,6 +13,7 @@ export interface Post {
 	markdown: string;
 	readtime: ReadTime;
 	headings: Heading[];
+
 	banner?: string;
 	banner_y?: number;
 }
@@ -43,6 +44,9 @@ export const getMarkdowns = (a: AstroGlob<Record<string, any>>[], withContent?: 
 			const markdown = p.rawContent();
 			const {html, ...other} = markdoc(markdown);
 			post = {...post, ...other, markdown, html};
+		}
+		if (post.banner?.startsWith("public/")) {
+			post.banner = post.banner.replace("public", "");
 		}
 		return post;
 	});

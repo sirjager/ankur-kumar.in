@@ -11,7 +11,7 @@ export default component$<Props>(({opened = true, headings}) => {
 
 	return (
 		<div id="toc" class="group/toc relative text-sm">
-			<div class="relative flex items-center justify-center gap-6 py-1 lg:justify-center lg:py-2">
+			<div class="relative flex items-center gap-6 py-1 lg:justify-center lg:py-2">
 				<div
 					aria-hidden="true"
 					class="absolute bottom-0 h-1.5 w-full transition duration-300 ease-in-out"

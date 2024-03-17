@@ -4,15 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "ee0c5c0bcbe47d44",
+        "id": "438f799a4e10c1c3",
         "type": "tabs",
         "children": [
           {
-            "id": "8904e922ea873b88",
+            "id": "35cd850d281f5736",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "blog/first-post.md",
+                "mode": "preview",
+                "source": true
+              }
             }
           }
         ]
@@ -81,7 +85,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 309.5
+    "width": 284.5
   },
   "right": {
     "id": "410d68067e6e188b",
@@ -108,7 +112,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "blog/first-post.md"
+              }
             }
           },
           {
@@ -116,7 +122,9 @@
             "type": "leaf",
             "state": {
               "type": "file-properties",
-              "state": {}
+              "state": {
+                "file": "blog/first-post.md"
+              }
             }
           },
           {
@@ -153,6 +161,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "blog/first-post.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -164,6 +173,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "blog/first-post.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -178,7 +188,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 406.5
+    "width": 439.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -193,38 +203,39 @@
       "homepage:Open homepage": false
     }
   },
-  "active": "8904e922ea873b88",
+  "active": "35cd850d281f5736",
   "lastOpenFiles": [
-    "templates/post.md",
-    "templates",
-    "src/pages/blog/index.astro",
-    "src/pages/blog/[slug].astro",
-    "src/pages/blog",
-    "src/lib/markdoc.ts",
-    "src/layouts/Article.astro",
-    "src/content/index.ts",
-    "src/content",
-    "src/components/footer/Footer.astro",
-    "src/components/footer",
-    "homepage.md",
+    "tmp-ifkke0c5d27/qwik-prefetch-service-worker.js",
+    "tmp-ifkke0c5d27/q-manifest.json",
+    "tmp-ifkke0c5d27/fonts/rock-salt.woff2",
+    "tmp-ifkke0c5d27/fonts/roboto-900.woff2",
+    "tmp-ifkke0c5d27/fonts/roboto-700.woff2",
+    "tmp-ifkke0c5d27/fonts/roboto-500.woff2",
+    "tmp-ifkke0c5d27/fonts/roboto-400.woff2",
+    "tmp-ifkke0c5d27/fonts/roboto-300.woff2",
+    "tmp-ifkke0c5d27/fonts/roboto-100.woff2",
+    "tmp-ifkke0c5d27/fonts",
+    "tmp-ifkke0c5d27/files",
+    "tmp-ifkke0c5d27/favicon.svg",
+    "dist/client/favicon.svg",
     "blog/second-post.md",
-    "blog/first-post.md",
     "assets/banner.jpg",
+    "blog/first-post.md",
+    "homepage.md",
+    "public/files/mountains.jpeg",
+    "tmp-c4aj6f2dcd1d/favicon.svg",
+    "dist/favicon.svg",
+    "tmp-dkobgj45cm4/favicon.svg",
+    "templates/post.md",
     "blog/ThirdPost.md",
     "blog/FourthPost.md",
     "blog/SecondPost.md",
     "assets/journal 1.png",
     "assets/report.png",
     "assets/nightflight.gif",
-    "assets/weight.png",
-    "assets/running.png",
-    "assets/journal.png",
-    "assets/coffee-desk.gif",
-    "assets/alarm-clock.png",
     "Home.md",
     "src/content/blog/Second Post.md",
     "src/content/blog/first-post.md",
-    "public/favicon.svg",
     "README.md",
     "src/assets/drawpad/Drawing 2024-03-17 10.37.13.excalidraw.md"
   ]

@@ -17,6 +17,7 @@
     "tailwind.config.mjs",
     "tsconfig.json",
     "public/fonts",
-    "src"
+    "src",
+    "dist"
   ]
 }

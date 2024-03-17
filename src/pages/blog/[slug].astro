@@ -4,11 +4,8 @@ import Article from "@/layouts/Article.astro";
 import {getMarkdowns} from "@/content";
 
 export async function getStaticPaths() {
-	const all = getMarkdowns(await Astro.glob("../../../blog/**/*.{md,mdx}"), true);
-	return all.map((p) => ({
-		params: {slug: p.slug},
-		props: {post: p},
-	}));
+	const a = getMarkdowns(await Astro.glob("../../../blog/**/*.{md,mdx}"), true);
+	return a.map((p) => ({params: {slug: p.slug}, props: {post: p}}));
 }
 
 const {post} = Astro.props;

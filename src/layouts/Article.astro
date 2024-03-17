@@ -1,6 +1,6 @@
 ---
 import TableOfContent from "@/components/TableOfContent";
-import Image from "@/components/images/QwikImage";
+import FeaturedImage from "@/components/FeaturedImage.astro";
 import type {Post} from "@/content";
 
 interface Props {
@@ -8,9 +8,6 @@ interface Props {
 }
 
 const {post} = Astro.props;
-const html = post.html;
-
-const image = post.banner;
 ---
 
 <article
@@ -23,24 +20,13 @@ const image = post.banner;
 		"lg:grid-cols-[1fr,minmax(auto,224px),min(640px,100%),minmax(auto,224px),1fr]",
 	]}
 >
-	<figure class="lg:!col-end-5 h-[400px] group/img overflow-clip relative rounded-box">
-		<div
-			aria-hidden="true"
-			class:list={[
-				"absolute top-0 left-0 h-full w-full rounded-box",
-				"bg-gradient-to-t from-base-100 via-transparent to-transparent",
-				"transition duration-1000 ease-in-out z-10 group-hover/img:z-0",
-			]}
-		>
-		</div>
-		<Image
-			height={400}
-			width={1200}
-			src={image}
-			alt={post.title}
-			class:list={["transition duration-1000 ease-in-out group-hover/img:scale-110"]}
-		/>
-	</figure>
+	{
+		post.banner && (
+			<figure class="lg:!col-end-5 max-w-full group/img overflow-clip relative rounded-box">
+				<FeaturedImage banner_y={post.banner_y} src={post.banner} alt={post.title} />
+			</figure>
+		)
+	}
 
 	<div class="lg:!col-end-5">
 		<h1
@@ -66,5 +52,8 @@ const image = post.banner;
 		</div>
 	</div>
 
-	<div set:html={html} class:list={["lg:!col-end-4 max-w-full prose sm:prose-base w-full"]} />
+	<div
+		set:html={post.html}
+		class:list={["lg:!col-end-4 max-w-full lg:!max-w-[65vw] prose sm:prose-base"]}
+	/>
 </article>

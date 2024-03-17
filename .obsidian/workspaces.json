@@ -1,23 +1,23 @@
 {
   "workspaces": {
-    "default": {
+    "blog": {
       "main": {
         "id": "7ea481afc470f415",
         "type": "split",
         "children": [
           {
-            "id": "5f4e643a581643a1",
+            "id": "80970dd3f612d235",
             "type": "tabs",
             "children": [
               {
-                "id": "87593c7516b95448",
+                "id": "26cd744b05835408",
                 "type": "leaf",
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "README.md",
+                    "file": "blog/first-post.md",
                     "mode": "preview",
-                    "source": false
+                    "source": true
                   }
                 }
               }
@@ -33,6 +33,7 @@
           {
             "id": "20003b654a5c3cb3",
             "type": "tabs",
+            "dimension": 65.65557729941291,
             "children": [
               {
                 "id": "c2e02f9349b6b7d0",
@@ -64,6 +65,7 @@
           {
             "id": "dad16c21e93a47ac",
             "type": "tabs",
+            "dimension": 34.34442270058709,
             "children": [
               {
                 "id": "6c28ec43980cb3fb",
@@ -81,12 +83,11 @@
                   "state": {}
                 }
               }
-            ],
-            "currentTab": 1
+            ]
           }
         ],
         "direction": "horizontal",
-        "width": 300
+        "width": 284.5
       },
       "right": {
         "id": "410d68067e6e188b",
@@ -95,6 +96,7 @@
           {
             "id": "6b9948d1a963bb4c",
             "type": "tabs",
+            "dimension": 64.18786692759295,
             "children": [
               {
                 "id": "1862fe2172439eb6",
@@ -113,7 +115,17 @@
                 "state": {
                   "type": "outline",
                   "state": {
-                    "file": "README.md"
+                    "file": "blog/first-post.md"
+                  }
+                }
+              },
+              {
+                "id": "65184c489bc76a14",
+                "type": "leaf",
+                "state": {
+                  "type": "file-properties",
+                  "state": {
+                    "file": "blog/first-post.md"
                   }
                 }
               },
@@ -130,11 +142,12 @@
                 }
               }
             ],
-            "currentTab": 1
+            "currentTab": 2
           },
           {
             "id": "240799a63c888df4",
             "type": "tabs",
+            "dimension": 35.81213307240704,
             "children": [
               {
                 "id": "34d73d75f6c76b84",
@@ -145,12 +158,24 @@
                 }
               },
               {
+                "id": "c55f06eed7b65ec0",
+                "type": "leaf",
+                "state": {
+                  "type": "outgoing-link",
+                  "state": {
+                    "file": "blog/first-post.md",
+                    "linksCollapsed": false,
+                    "unlinkedCollapsed": true
+                  }
+                }
+              },
+              {
                 "id": "02cc11e7bc22c5cd",
                 "type": "leaf",
                 "state": {
                   "type": "backlink",
                   "state": {
-                    "file": "README.md",
+                    "file": "blog/first-post.md",
                     "collapseAll": false,
                     "extraContext": false,
                     "sortOrder": "alphabetical",
@@ -160,24 +185,12 @@
                     "unlinkedCollapsed": true
                   }
                 }
-              },
-              {
-                "id": "c55f06eed7b65ec0",
-                "type": "leaf",
-                "state": {
-                  "type": "outgoing-link",
-                  "state": {
-                    "file": "README.md",
-                    "linksCollapsed": false,
-                    "unlinkedCollapsed": true
-                  }
-                }
               }
             ]
           }
         ],
         "direction": "horizontal",
-        "width": 320.5
+        "width": 439.5
       },
       "left-ribbon": {
         "hiddenItems": {
@@ -185,13 +198,15 @@
           "templates:Insert template": false,
           "canvas:Create new canvas": false,
           "obsidian-excalidraw-plugin:Create new drawing": false,
-          "command-palette:Open command palette": false,
           "workspaces:Manage workspace layouts": false,
-          "table-editor-obsidian:Advanced Tables Toolbar": false
+          "command-palette:Open command palette": false,
+          "table-editor-obsidian:Advanced Tables Toolbar": false,
+          "templater-obsidian:Templater": false,
+          "homepage:Open homepage": false
         }
       },
-      "active": "34d73d75f6c76b84"
+      "active": "26cd744b05835408"
     }
   },
-  "active": "default"
+  "active": "blog"
 }

@@ -1,7 +1,7 @@
 ---
-banner: "https://images.pexels.com/photos/16652251/pexels-photo-16652251/free-photo-of-woman-standing-with-camera-among-flowers.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080"
+banner: "https://images.pexels.com/photos/17867773/pexels-photo-17867773/free-photo-of-buck-and-deer-on-grassland.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
 banner_x: 0.5
-banner_y: 0.63666
+banner_y: 0.585
 banner_lock: true
 status: published
 published: 2024-03-17T07:29:02
@@ -16,7 +16,7 @@ tags:
 
 ## Welcome to Stack Edit!
 
-[Read Second Post](second-post.md)
+[Read Second Post](second-post)
 
 Hi! I'm your first Markdown file in **StackEdit**. If you want to learn about StackEdit, you can read me. If you want to play with Markdown, you can edit me. Once you have finished with me, you can create new files by opening the **file explorer** on the left corner of the navigation bar.
 
