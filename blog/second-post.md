@@ -1,17 +1,16 @@
 ---
-banner: https://images.unsplash.com/photo-1415639636295-61ae91a98b39?ixid=M3wxMTI1OHwwfDF8cmFuZG9tfHx8fHx8fHx8MTcxMDY4NDYxNnw&ixlib=rb-4.0.3&q=85&w=1920
+banner: https://i.imgur.com/V2NltAG.png
 banner_x: 0.5
-banner_y: 0.4325
-banner_lock: true
-cssclasses:
-  - dashboard
-type: article
+banner_y: 0.275
+banner_lock: false
 status: published
 published: 2024-03-17
 modifided: 2024-03-17
 slug: second-post
 title: second-post
 description: second-post
+tags:
+  - daily
 ---
 
 ## Second Post Title
@@ -117,18 +116,6 @@ SmartyPants converts ASCII punctuation characters into "smart" typographic punct
 | Single backticks | `'Isn't this fun?'`             | 'Isn't this fun?'             |
 | Quotes           | `"Isn't this fun?"`             | "Isn't this fun?"             |
 | Dashes           | `-- is en-dash, --- is em-dash` | -- is en-dash, --- is em-dash |
-
-## KaTeX
-
-You can render LaTeX mathematical expressions using [KaTeX](https://khan.github.io/KaTeX/):
-
-The _Gamma function_ satisfying $\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$ is via the Euler integral
-
-$$
-\Gamma(z) = \int_0^\infty t^{z-1}e^{-t}dt\,.
-$$
-
-> You can find more information about **LaTeX** mathematical expressions [here](http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference).
 
 ## UML diagrams
 

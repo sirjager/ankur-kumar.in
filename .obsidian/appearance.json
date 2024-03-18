@@ -2,5 +2,6 @@
   "accentColor": "",
   "theme": "obsidian",
   "interfaceFontFamily": "",
-  "cssTheme": "Minimal"
+  "cssTheme": "Minimal",
+  "baseFontSize": 15
 }

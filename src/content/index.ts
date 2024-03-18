@@ -1,6 +1,15 @@
-import {slug as slugify} from "github-slugger";
-import markdoc from "@/lib/markdoc";
-import type {ReadTime, Heading} from "@/lib/markdoc";
+export interface Heading {
+	depth: number;
+	slug: string;
+	text: string;
+}
+
+export interface ReadTime {
+	text: string;
+	minutes: number;
+	time: number;
+	words: number;
+}
 
 export interface Post {
 	status: "published" | "draft" | "archived" | "obsolete";
@@ -10,12 +19,11 @@ export interface Post {
 	title: string;
 	description: string;
 	html: string;
-	markdown: string;
 	readtime: ReadTime;
 	headings: Heading[];
-
-	banner?: string;
-	banner_y?: number;
+	Content: any;
+	banner: string;
+	banner_y: number;
 }
 
 export interface AstroGlob<T extends Record<string, any>> {
@@ -35,18 +43,14 @@ export interface AstroGlob<T extends Record<string, any>> {
 	getHeadings(): Heading[];
 }
 
-export const getMarkdowns = (a: AstroGlob<Record<string, any>>[], withContent?: boolean) =>
-	a.map((p) => {
-		const filename = p.file.split("/").pop()!.split(".")[0];
-		const slug = slugify(p.frontmatter.slug || filename);
-		let post: Post = {...(p.frontmatter as any), slug};
-		if (withContent) {
-			const markdown = p.rawContent();
-			const {html, ...other} = markdoc(markdown);
-			post = {...post, ...other, markdown, html};
-		}
-		if (post.banner?.startsWith("public/")) {
-			post.banner = post.banner.replace("public", "");
-		}
-		return post;
-	});
+export const getMarkdowns = (a: AstroGlob<Record<string, any>>[]) => {
+	return a.map(
+		(p) =>
+			({
+				...p.frontmatter,
+				banner_y: p.frontmatter.banner_y || 0.5,
+				Content: p.Content,
+				headings: p.getHeadings(),
+			}) as Post
+	);
+};

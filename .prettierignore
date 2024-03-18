@@ -23,6 +23,7 @@ pnpm-debug.log*
 # Temp files and folders
 generated/
 .tmp/
+tmp-*
 temp/
 .temp/
 .tmp/

@@ -3,10 +3,17 @@ import {loadEnv} from "vite";
 import tailwind from "@astrojs/tailwind";
 import partytown from "@astrojs/partytown";
 import robots from "astro-robots-txt";
-import compress from "astro-compress";
 import node from "@astrojs/node";
 import qwik from "@qwikdev/astro";
 import mdx from "@astrojs/mdx";
+
+import {toString} from "mdast-util-to-string";
+import readingTime from "reading-time";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypePrettyCode from "rehype-pretty-code";
+import remarkMermaid from "remark-mermaidjs";
+import remarkToc from "remark-toc";
+import {rehypePrettyCodeOptions} from "./rehype-prettycode-opts";
 
 const _ = loadEnv(process.env.NODE_ENV, process.cwd(), "");
 const {PORTFOLIO_APP_URL, NODE_ENV} = _;
@@ -31,12 +38,9 @@ export default defineConfig({
 				forward: ["dataLayer.push"],
 			},
 		}),
-		compress({
-			Image: false,
-		}),
 		robots({
 			sitemap: `${SITE_URL}/sitemap-index.xml`,
-			popolicy: [{userAgent: "*", disallow: ["/admin"]}],
+			policy: [{userAgent: "*", disallow: ["/admin"]}],
 		}),
 	],
 	experimental: {
@@ -53,10 +57,36 @@ export default defineConfig({
 	adapter: node({
 		mode: "standalone",
 	}),
+	image: {
+		remotePatterns: [{hostname: "images.pexels.com", protocol: "https"}],
+	},
 	markdown: {
 		gfm: true,
 		smartypants: true,
 		syntaxHighlight: false,
 		extendDefaultPlugins: true,
+		remarkRehype: {allowDangerousHtml: true},
+		remarkPlugins: [readtime, remarkToc, remarkMermaid],
+		rehypePlugins: [
+			[
+				rehypeAutolinkHeadings,
+				{
+					behavior: "wrap",
+					properties: {
+						className: [""],
+					},
+				},
+			],
+			// pretty code highlight
+			[rehypePrettyCode, rehypePrettyCodeOptions],
+		],
 	},
 });
+
+function readtime() {
+	return function (tree, {data}) {
+		// eslint-disable-next-line qwik/loader-location
+		const textOnPage = toString(tree);
+		data.astro.frontmatter.readtime = readingTime(textOnPage);
+	};
+}

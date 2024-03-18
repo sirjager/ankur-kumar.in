@@ -9,17 +9,17 @@ const {className = ""} = Astro.props;
 <button
 	aria-label="change theme"
 	class:list={[
-		"group/tgthm relative px-5 py-3 overflow-clip rounded-btn",
+		"group/tgthm relative overflow-clip rounded-btn px-5 py-3",
 		"text-base-content hover:text-base-200",
 		"transition-all duration-300 ease-in-out",
 		"border border-neutral/20 dark:border-neutral-content/40",
 		"after:transition-all after:duration-300 after:ease-in-out",
-		"after:rounded-btn after:bg-base-content after:absolute after:h-full after:w-full after:content-['']",
+		"after:absolute after:h-full after:w-full after:rounded-btn after:bg-base-content after:content-['']",
 		"after:-bottom-full after:left-0 hover:after:bottom-0",
 		className,
 	]}
 >
-	<span class="z-[1] relative">
+	<span class="relative z-[1]">
 		<slot>Button</slot>
 	</span>
 </button>

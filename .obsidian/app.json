@@ -8,16 +8,19 @@
   "trashOption": "local",
   "newFileLocation": "folder",
   "newFileFolderPath": "blog",
-  "attachmentFolderPath": "public/files",
+  "attachmentFolderPath": "assets",
   "userIgnoreFilters": [
     "node_modules/",
     "src/components/",
     "src/lib/",
     "src/pages/",
     "src/layouts/",
-    "public/"
+    "public/",
+    "src/content/"
   ],
   "livePreview": false,
   "promptDelete": false,
-  "showUnsupportedFiles": true
+  "showUnsupportedFiles": false,
+  "useMarkdownLinks": true,
+  "alwaysUpdateLinks": false
 }

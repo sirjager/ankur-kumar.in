@@ -39,8 +39,8 @@ const {text, colored, description} = Astro.props;
 	}
 </style>
 
-<div class="section-heading p-4 max-w-6xl mx-auto">
-	<h3 class="text-4xl sm:text-5xl font-bold">
+<div class="section-heading mx-auto max-w-6xl p-4">
+	<h3 class="text-4xl font-bold sm:text-5xl">
 		<span class="nocolor bg-gradient-to-r from-base-content to-base-content">
 			{text}
 		</span>
@@ -48,7 +48,7 @@ const {text, colored, description} = Astro.props;
 			{colored}
 		</span>
 	</h3>
-	<p class="max-w-md mt-2 sm:text-2xl">
+	<p class="mt-2 max-w-md sm:text-2xl">
 		<span class="bg-gradient-to-r from-base-content to-base-content">
 			{description}
 		</span>

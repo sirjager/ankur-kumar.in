@@ -1,9 +1,10 @@
 ---
-import Image from "@/components/images/QwikImage";
+import {Picture} from "astro:assets";
 import Link from "@/components/Link.astro";
+import type {Post} from "@/content";
 
 interface Props {
-	posts: any[];
+	posts: Post[];
 }
 
 const {posts} = Astro.props;
@@ -28,11 +29,10 @@ const boxSize = (index: number) => {
 				posts.map((post, index) => {
 					const size = boxSize(index);
 					const href = `/blog/${post.slug}`;
-					const image = post.banner;
 					return (
 						<div
 							class:list={[
-								"@container group/postcard rounded-box p-4 glass",
+								"group/postcard glass rounded-box p-4 @container",
 								{
 									"col-span-3 row-span-1": size === "large",
 									"col-span-3 row-span-1 @md:row-span-2 md:col-span-2": size === "medium",
@@ -41,13 +41,17 @@ const boxSize = (index: number) => {
 							]}
 						>
 							<Link href={href}>
-								<figure class="overflow-clip rounded-box aspect-video">
-									<Image
-										width={958}
-										height={537}
-										src={image}
+								<figure class="aspect-video overflow-clip rounded-box">
+									<Picture
+										src={post.banner}
 										alt={post.title}
-										class="aspect-video rounded-box"
+										formats={["avif", "webp", "jpg"]}
+										fallbackFormat="jpg"
+										quality="low"
+										height={400}
+										width={958}
+										widths={[240, 540, 600, 720, 960, 1200]}
+										sizes={"(max-width: 360px) 240px, (max-width: 480px) 360px, (max-width: 768px) 480px, (max-width: 1024px) 768px, (max-width: 1280px) 900px"}
 									/>
 								</figure>
 							</Link>

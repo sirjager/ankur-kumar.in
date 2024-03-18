@@ -20,7 +20,7 @@ const published = postedOn.split(" ");
 <div class="@container">
 	<div
 		class:list={[
-			"flex flex-col sm:flex-row  items-center sm:items-center",
+			"flex flex-col items-center  sm:flex-row sm:items-center",
 			{
 				"sm:flex-row-reverse": invert,
 			},
@@ -28,8 +28,8 @@ const published = postedOn.split(" ");
 	>
 		<div
 			class:list={[
-				"font-bold rounded-btn border border-base-content/15",
-				"text-lg @3xl:text-2xl @4xl:text-4xl p-4",
+				"rounded-btn border border-base-content/15 font-bold",
+				"p-4 text-lg @3xl:text-2xl @4xl:text-4xl",
 			]}
 		>
 			<span class="text-accent">{published[2]}</span>
@@ -37,13 +37,13 @@ const published = postedOn.split(" ");
 			{published[3]}
 		</div>
 
-		<div class:list={["bg-base-content/15 h-10 w-0.5 mx-auto", "sm:h-1 sm:flex-1"]}></div>
+		<div class:list={["mx-auto h-10 w-0.5 bg-base-content/15", "sm:h-1 sm:flex-1"]}></div>
 
 		<div
 			class:list={[
-				"flex gap-3 h-full p-3 flex-col @sm:flex-row",
-				"rounded-box relative group/tmcard",
-				"border border-base-content/15 select-none",
+				"flex h-full flex-col gap-3 p-3 @sm:flex-row",
+				"group/tmcard relative rounded-box",
+				"select-none border border-base-content/15",
 				"max-w-full @xl:max-w-md @2xl:max-w-lg @4xl:min-w-96 @4xl:max-w-xl",
 			]}
 		>
@@ -52,16 +52,16 @@ const published = postedOn.split(" ");
 					src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
 					alt={post.title}
 					class:list={[
-						"rounded-box w-full @sm:w-52 @sm:max-w-52",
-						"duration-700 transition-all ease-in-out",
+						"w-full rounded-box @sm:w-52 @sm:max-w-52",
+						"transition-all duration-700 ease-in-out",
 						"group-hover/tmcard:scale-110",
 					]}
 				/>
 			</Link>
-			<div class="flex-1 max-w-7xl">
+			<div class="max-w-7xl flex-1">
 				<Link
 					href={`/blog/${post.slug}`}
-					class:list={["text-sm @4xl:text-base font-semibold text-accent line-clamp-4"]}
+					class:list={["line-clamp-4 text-sm font-semibold text-accent @4xl:text-base"]}
 				>
 					{post.title}
 				</Link>

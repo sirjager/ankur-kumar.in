@@ -1,4 +1,4 @@
-import type {Heading} from "@/lib/markdoc";
+import type {Heading} from "@/content";
 import {component$, useStore} from "@builder.io/qwik";
 
 interface Props {

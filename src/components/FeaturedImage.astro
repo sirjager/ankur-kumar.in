@@ -1,5 +1,6 @@
 ---
 import Image from "@/components/images/QwikImage";
+
 interface Props {
 	src: string;
 	alt: string;
@@ -8,15 +9,14 @@ interface Props {
 
 const {src, alt, banner_y = 0.5} = Astro.props;
 const top = banner_y * 93;
-// style={{top: `-${top}%`}}
 ---
 
-<div class="w-[95vw] h-[40vw] max-h-[400px] relative overflow-clip">
+<div class="relative h-[40vw] max-h-[400px] w-[95vw] overflow-clip">
 	<div
 		class:list={[
-			"absolute bottom-0 left-0 w-full h-full",
+			"absolute bottom-0 left-0 h-full w-full",
 			"bg-gradient-to-t from-base-100 to-transparent",
-			"transition duration-1000 ease-in-out z-10 group-hover/img:z-0",
+			"z-10 transition duration-1000 ease-in-out group-hover/img:z-0",
 		]}
 	>
 	</div>

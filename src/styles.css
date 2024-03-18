@@ -43,3 +43,39 @@
 	font-weight: 900;
 	display: swap;
 }
+
+[id^="mermaid-"] {
+	.edgeLabel {
+		@apply !bg-base-200 !text-base-content;
+	}
+
+	foreignObject {
+		@apply !h-6;
+	}
+
+	rohmbus,
+	polygon,
+	rect,
+	circle,
+	triangle {
+		@apply !fill-base-200 !stroke-base-content/30;
+	}
+
+	line {
+		@apply !stroke-base-content/30;
+	}
+
+	tspan,
+	.messageText,
+	.nodeLabel {
+		@apply !fill-base-content !text-base-content;
+	}
+
+	.edgePaths path {
+		@apply !stroke-base-content/30;
+	}
+
+	marker {
+		@apply !fill-base-content !stroke-base-content;
+	}
+}

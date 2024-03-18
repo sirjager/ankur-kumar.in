@@ -4,12 +4,16 @@
   "dataview",
   "obsidian-excalidraw-plugin",
   "obsidian-minimal-settings",
-  "recent-files-obsidian",
   "obsidian-style-settings",
   "obsidian-emoji-toolbar",
   "obsidian-toggle-meta-yaml-plugin",
   "templater-obsidian",
   "homepage",
   "obsidian-banners",
-  "OA-file-hider"
+  "obsidian-local-images-plus",
+  "recent-files-obsidian",
+  "file-explorer-plus",
+  "cmdr",
+  "obsidian-imgur-plugin",
+  "obsidian-cloudinary-uploader"
 ]

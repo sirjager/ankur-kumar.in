@@ -15,12 +15,12 @@ const posts = getMarkdowns(await Astro.glob("../../../blog/**/*.{md,mdx}"));
 			"lg:grid-cols-[minmax(0,1fr),18.75rem]",
 		]}
 	>
-		<div class="w-full relative">
+		<div class="relative w-full">
 			<PostsGrid posts={posts} />
 		</div>
 
 		<aside class="space-y-4">
-			<div class="h-full glass"></div>
+			<div class="glass h-full"></div>
 		</aside>
 	</div>
 </Root>

@@ -8,14 +8,14 @@ const img = "https://avatars.githubusercontent.com/u/18713058?v=4";
 <section class="h-screen">
 	<div
 		class:list={[
-			"@container relative p-4 sm:p-8 flex flex-col gap-8 items-center mt-[8vw] lg:mt-32",
-			"md:flex-row-reverse md:items-center md:justify-center max-w-6xl mx-auto",
+			"relative mt-[8vw] flex flex-col items-center gap-8 p-4 @container sm:p-8 lg:mt-32",
+			"mx-auto max-w-6xl md:flex-row-reverse md:items-center md:justify-center",
 		]}
 	>
 		<Image src={img} alt="Ankur" class:list={["max-w-[60vw] sm:max-w-sm"]} />
 
-		<div class="space-y-8 flex-1 h-full">
-			<h1 class:list={["text-4xl text-center md:text-left font-rocksalt", "@3xl:text-5xl"]}>
+		<div class="h-full flex-1 space-y-8">
+			<h1 class:list={["text-center font-rocksalt text-4xl md:text-left", "@3xl:text-5xl"]}>
 				Ankur Kumar
 			</h1>
 

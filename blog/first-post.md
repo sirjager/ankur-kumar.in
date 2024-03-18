@@ -1,8 +1,8 @@
 ---
-banner: "https://images.pexels.com/photos/17867773/pexels-photo-17867773/free-photo-of-buck-and-deer-on-grassland.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+banner: "https://i.imgur.com/V2NltAG.png"
 banner_x: 0.5
-banner_y: 0.585
-banner_lock: true
+banner_y: 0.63
+banner_lock: false
 status: published
 published: 2024-03-17T07:29:02
 modifided: 2024-03-17T10:25:50
@@ -15,8 +15,6 @@ tags:
 ---
 
 ## Welcome to Stack Edit!
-
-[Read Second Post](second-post)
 
 Hi! I'm your first Markdown file in **StackEdit**. If you want to learn about StackEdit, you can read me. If you want to play with Markdown, you can edit me. Once you have finished with me, you can create new files by opening the **file explorer** on the left corner of the navigation bar.
 
@@ -119,12 +117,6 @@ SmartyPants converts ASCII punctuation characters into "smart" typographic punct
 ## KaTeX
 
 You can render LaTeX mathematical expressions using [KaTeX](https://khan.github.io/KaTeX/):
-
-The _Gamma function_ satisfying $\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$ is via the Euler integral
-
-$$
-\Gamma(z) = \int_0^\infty t^{z-1}e^{-t}dt\,.
-$$
 
 > You can find more information about **LaTeX** mathematical expressions [here](http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference).
 

@@ -25,3 +25,14 @@ pnpm-debug.log*
 
 
 .nx/cache
+
+# Temp files and folders
+generated/
+.tmp
+tmp/
+tmp-*
+*.log
+.vercel
+*.tsbuildinfo
+
+

@@ -27,8 +27,8 @@ const links = [
 <div>
 	<div
 		class:list={[
-			"w-full max-w-6xl mx-auto py-5 px-4 md:px-8 relative",
-			"flex items-center justify-between z-[99999]",
+			"relative mx-auto w-full max-w-6xl px-4 py-5 md:px-8",
+			"z-[99999] flex items-center justify-between",
 		]}
 	>
 		<Link href="/" class="z-[99999]">
@@ -37,27 +37,27 @@ const links = [
 
 		<div
 			class:list={[
-				"flex left-0 w-full justify-end",
+				"left-0 flex w-full justify-end",
 				"md:relative md:left-auto md:top-auto md:h-auto",
-				"md:justify-end gap-3",
+				"gap-3 md:justify-end",
 			]}
 		>
 			<div
 				id="navmenu"
 				class:list={[
 					"fixed md:relative",
-					"w-full md:w-fit h-screen md:h-auto",
+					"h-screen w-full md:h-auto md:w-fit",
 					"-top-[100vh] left-0 md:left-auto md:top-auto",
-					"duration-300 ease-in-out transition-all",
+					"transition-all duration-300 ease-in-out",
 				]}
 			>
 				<nav
 					class:list={[
-						"md:relative gap-3",
-						"w-full md:w-fit md:h-auto",
-						"flex flex-col md:flex-row items-end md:items-center md:justify-end",
-						"pt-28 md:pt-0 pb-4 md:pb-0 pr-[5vw] md:pr-0",
-						"duration-300 ease-in-out transition-all",
+						"gap-3 md:relative",
+						"w-full md:h-auto md:w-fit",
+						"flex flex-col items-end md:flex-row md:items-center md:justify-end",
+						"pb-4 pr-[5vw] pt-28 md:pb-0 md:pr-0 md:pt-0",
+						"transition-all duration-300 ease-in-out",
 						"rounded-br-[13vw] md:rounded-br-none",
 						"bg-base-100 md:bg-transparent",
 					]}
@@ -69,17 +69,17 @@ const links = [
 									key={link.label}
 									href={link.href}
 									class:list={[
-										"group/tgthm relative px-5 py-3 overflow-clip rounded-btn",
+										"group/tgthm relative overflow-clip rounded-btn px-5 py-3",
 										"text-base-content md:hover:text-base-200",
 										"transition-all duration-300 ease-in-out",
 										"md:border md:border-neutral/20 md:dark:border-neutral-content/40",
 										"md:after:transition-all md:after:duration-300 md:after:ease-in-out",
-										"md:after:rounded-btn md:after:bg-base-content md:after:absolute md:after:h-full after:w-full after:content-['']",
+										"after:w-full after:content-[''] md:after:absolute md:after:h-full md:after:rounded-btn md:after:bg-base-content",
 										"md:after:-bottom-full md:after:left-0 md:hover:after:bottom-0",
-										"text-[7vw] md:text-base font-bold md:font-light",
+										"text-[7vw] font-bold md:text-base md:font-light",
 									]}
 								>
-									<span class="z-[1] relative">{link.label}</span>
+									<span class="relative z-[1]">{link.label}</span>
 								</Link>
 							);
 						})
