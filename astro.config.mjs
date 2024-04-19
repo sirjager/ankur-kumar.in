@@ -49,6 +49,7 @@ export default defineConfig({
 	},
 	vite: {
 		logLevel: NODE_ENV === "development" ? "info" : undefined,
+		cacheDir: "./.cache",
 	},
 	prefetch: {
 		defaultStrategy: "viewport",
@@ -58,7 +59,7 @@ export default defineConfig({
 		mode: "standalone",
 	}),
 	image: {
-		remotePatterns: [{hostname: "images.pexels.com", protocol: "https"}],
+		remotePatterns: [{protocol: "https"}, {protocol: "http"}],
 	},
 	markdown: {
 		gfm: true,

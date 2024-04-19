@@ -18,9 +18,10 @@
     "public/",
     "src/content/"
   ],
-  "livePreview": false,
+  "livePreview": true,
   "promptDelete": false,
   "showUnsupportedFiles": false,
   "useMarkdownLinks": true,
-  "alwaysUpdateLinks": false
+  "alwaysUpdateLinks": false,
+  "vimMode": false
 }

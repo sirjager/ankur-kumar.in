@@ -1,8 +1,8 @@
 ---
-banner: "https://i.imgur.com/V2NltAG.png"
+banner: "https://i.imgur.com/0NqPyrz.png"
 banner_x: 0.5
-banner_y: 0.63
-banner_lock: false
+banner_y: 0.3975
+banner_lock: true
 status: published
 published: 2024-03-17T07:29:02
 modifided: 2024-03-17T10:25:50
@@ -14,7 +14,7 @@ tags:
   - daily
 ---
 
-## Welcome to Stack Edit!
+## Introducing Obsidian
 
 Hi! I'm your first Markdown file in **StackEdit**. If you want to learn about StackEdit, you can read me. If you want to play with Markdown, you can edit me. Once you have finished with me, you can create new files by opening the **file explorer** on the left corner of the navigation bar.
 

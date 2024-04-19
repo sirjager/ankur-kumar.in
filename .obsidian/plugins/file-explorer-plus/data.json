@@ -177,6 +177,20 @@
         "type": "DIRECTORIES",
         "pattern": "src",
         "patternType": "STRICT"
+      },
+      {
+        "name": "",
+        "active": true,
+        "type": "FILES_AND_DIRECTORIES",
+        "pattern": "tmp-*",
+        "patternType": "REGEX"
+      },
+      {
+        "name": "",
+        "active": true,
+        "type": "DIRECTORIES",
+        "pattern": "public",
+        "patternType": "STRICT"
       }
     ]
   }

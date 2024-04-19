@@ -19,9 +19,11 @@
     "excalidraw-font-color": "text",
     "excalidraw-border-color": "text",
     "excalidraw-css": "text",
-    "excalidraw-autoexport": "checkbox",
+    "excalidraw-autoexport": "text",
     "excalidraw-iframe-theme": "text",
     "modifided": "datetime",
-    "published": "datetime"
+    "published": "datetime",
+    "excalidraw-export-embed-scene": "checkbox",
+    "excalidraw-open-md": "checkbox"
   }
 }

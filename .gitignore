@@ -6,6 +6,8 @@ dist/
 
 .trash/
 
+.cache/
+
 # dependencies
 node_modules/
 
@@ -36,3 +38,54 @@ tmp-*
 *.tsbuildinfo
 
 
+
+# NOTE: Obsidian Related Files
+# make-md
+.space/
+
+# This might containt some sensitive info about vault
+.vault-stats.json
+
+# icons zips and lots of icon files by iconize plugin
+**/icons
+
+# WARN: 
+# data.json are plugin settings 
+# and might contain private information
+# such as api keys
+# so we add them to .gitignore
+data.json
+# WARN:
+# Few safe plugins configs are listed here
+!**/calendar/data.json
+!**/cmdr/data.json
+!**/dataview/data.json
+!**/make-md/data.json
+!**/obsidian-git/data.json
+!**/obsidian-outliner/data.json
+!**/obsidian-meta-bind-plugin/data.json
+!**/obsidian-minimal-settings/data.json
+!**/obsidian-style-settings/data.json
+!**/obsidian-toggle-meta-yaml-plugin/data.json
+!**/pdf-plus/data.json
+!**/periodic-notes/data.json
+#WARN: This might contain open api key if you are using it
+!**/quickadd/data.json 
+!**/surfing/data.json
+!**/table-editor-obsidian/data.json
+!**/templater-obsidian/data.json
+!**/obsidian-banners/data.json
+!**/file-explorer-plus/data.json
+!**/dataview/data.json
+!**/obsidian-icon-folder/data.json
+!**/homepage/data.json
+!**/obsidian-banners/data.json
+!**/table-editor-obsidian/data.json
+!**/obsidian-excalidraw-plugin/data.json
+
+
+#NOTE: ignoring files dir,
+# because it can overload git repository
+# files are can be up by another service like rclone, gdrive,mega sync etc
+./files/
+./assets/

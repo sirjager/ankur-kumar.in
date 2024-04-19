@@ -3,17 +3,16 @@
   "calendar",
   "dataview",
   "obsidian-excalidraw-plugin",
-  "obsidian-minimal-settings",
   "obsidian-style-settings",
   "obsidian-emoji-toolbar",
   "obsidian-toggle-meta-yaml-plugin",
   "templater-obsidian",
   "homepage",
   "obsidian-banners",
-  "obsidian-local-images-plus",
-  "recent-files-obsidian",
   "file-explorer-plus",
-  "cmdr",
   "obsidian-imgur-plugin",
-  "obsidian-cloudinary-uploader"
+  "obsidian-trash-explorer",
+  "cmdr",
+  "obsidian-icon-folder",
+  "callout-manager"
 ]

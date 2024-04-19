@@ -9,13 +9,21 @@ const img = "https://avatars.githubusercontent.com/u/18713058?v=4";
 	<div
 		class:list={[
 			"relative mt-[8vw] flex flex-col items-center gap-8 p-4 @container sm:p-8 lg:mt-32",
-			"mx-auto max-w-6xl md:flex-row-reverse md:items-center md:justify-center",
+			"mx-auto max-w-6xl",
+			"lg:flex-row-reverse lg:items-center lg:justify-center",
 		]}
 	>
-		<Image src={img} alt="Ankur" class:list={["max-w-[60vw] sm:max-w-sm"]} />
+		<div>
+			<Image src={img} alt="Ankur" class:list={["max-w-[50vw] sm:max-w-sm"]} />
+		</div>
 
-		<div class="h-full flex-1 space-y-8">
-			<h1 class:list={["text-center font-rocksalt text-4xl md:text-left", "@3xl:text-5xl"]}>
+		<div class="h-full max-w-lg flex-1 space-y-8 md:max-w-full">
+			<h1
+				class:list={[
+					"text-center font-rocksalt text-2xl tracking-wider @sm:text-3xl lg:text-left",
+					"@3xl:text-5xl",
+				]}
+			>
 				Ankur Kumar
 			</h1>
 

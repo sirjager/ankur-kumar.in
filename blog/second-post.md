@@ -1,8 +1,8 @@
 ---
-banner: https://i.imgur.com/V2NltAG.png
+banner: "https://i.imgur.com/1vAMnYO.png"
 banner_x: 0.5
-banner_y: 0.275
-banner_lock: false
+banner_y: 0.5475
+banner_lock: true
 status: published
 published: 2024-03-17
 modifided: 2024-03-17

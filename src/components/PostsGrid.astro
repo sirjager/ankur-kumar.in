@@ -41,7 +41,7 @@ const boxSize = (index: number) => {
 							]}
 						>
 							<Link href={href}>
-								<figure class="aspect-video overflow-clip rounded-box">
+								<figure class="max-h-[400px] overflow-clip rounded-box">
 									<Picture
 										src={post.banner}
 										alt={post.title}
@@ -51,7 +51,9 @@ const boxSize = (index: number) => {
 										height={400}
 										width={958}
 										widths={[240, 540, 600, 720, 960, 1200]}
-										sizes={"(max-width: 360px) 240px, (max-width: 480px) 360px, (max-width: 768px) 480px, (max-width: 1024px) 768px, (max-width: 1280px) 900px"}
+										sizes={
+											"(max-width: 360px) 240px, (max-width: 480px) 360px, (max-width: 768px) 480px, (max-width: 1024px) 768px, (max-width: 1280px) 900px"
+										}
 									/>
 								</figure>
 							</Link>
