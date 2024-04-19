@@ -13,7 +13,7 @@
 		}
 	},
 	"files": ["./.eslintrc.cjs"],
-	"exclude": ["node_modules"],
+	"exclude": ["node_modules", "dist", "tmp", ".obsidian", ".nx"],
 	"include": [
 		"src",
 		"**/*.ts",
