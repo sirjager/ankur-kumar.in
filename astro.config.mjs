@@ -3,9 +3,10 @@ import {loadEnv} from "vite";
 import tailwind from "@astrojs/tailwind";
 import partytown from "@astrojs/partytown";
 import robots from "astro-robots-txt";
-import node from "@astrojs/node";
+// import node from "@astrojs/node";
 import qwik from "@qwikdev/astro";
 import mdx from "@astrojs/mdx";
+import cloudflare from "@astrojs/cloudflare";
 
 import {toString} from "mdast-util-to-string";
 import readingTime from "reading-time";
@@ -55,9 +56,8 @@ export default defineConfig({
 		defaultStrategy: "viewport",
 	},
 	output: "hybrid",
-	adapter: node({
-		mode: "standalone",
-	}),
+	// adapter: node({mode: "standalone"}),
+	adapter: cloudflare({imageService: "cloudflare"}),
 	image: {
 		remotePatterns: [{protocol: "https"}, {protocol: "http"}],
 	},

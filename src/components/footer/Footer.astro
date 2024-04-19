@@ -1,7 +1,7 @@
 ---
 import Link from "@/components/Link.astro";
-import {parseDate} from "@/lib/utils";
 import Logo from "@/components/Logo.astro";
+import {parseDate} from "@/lib/utils";
 
 const year = parseDate(new Date().toISOString())?.year || new Date().getFullYear();
 
@@ -80,32 +80,24 @@ const sections = [
 							}
 						</div>
 					</nav>
-
 					{
-						sections && (
-							<>
-								{sections.map((section) => (
-									<nav class="space-y-3">
-										{section.title && (
-											<header class="text-lg font-bold text-base-content">{section.title}</header>
-										)}
-										{section.title && section.items && (
-											<div class="space-y-2">
-												{section.items.map((item, index) => (
-													<Link
-														key={index}
-														href={item.link}
-														class="link-hover link block capitalize"
-													>
-														{item.label}
-													</Link>
-												))}
-											</div>
-										)}
-									</nav>
-								))}
-							</>
-						)
+						sections.map((section) => (
+							<nav class="space-y-3">
+								{section.title && (
+									<header class="text-lg font-bold text-base-content">{section.title}</header>
+								)}
+
+								{section.title && section.items && (
+									<div class="space-y-2">
+										{section.items.map((item, index) => (
+											<Link key={index} href={item.link} class="link-hover link block capitalize">
+												{item.label}
+											</Link>
+										))}
+									</div>
+								)}
+							</nav>
+						))
 					}
 				</div>
 			</div>
