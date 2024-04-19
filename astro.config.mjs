@@ -16,8 +16,8 @@ import remarkToc from "remark-toc";
 import {rehypePrettyCodeOptions} from "./rehype-prettycode-opts";
 
 const _ = loadEnv(process.env.NODE_ENV, process.cwd(), "");
-const {PORTFOLIO_APP_URL, NODE_ENV} = _;
-const SITE_URL = PORTFOLIO_APP_URL;
+const {APP_URL, NODE_ENV} = _;
+const SITE_URL = APP_URL;
 
 // https://astro.build/config
 export default defineConfig({
