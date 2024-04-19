@@ -187,6 +187,9 @@ devDependencies:
   vite:
     specifier: ^5.1.5
     version: 5.1.5(@types/node@20.11.25)
+  wrangler:
+    specifier: ^3.51.2
+    version: 3.51.2(@cloudflare/workers-types@4.20240405.0)
   zod:
     specifier: ^3.22.5
     version: 3.22.5
@@ -2131,7 +2134,6 @@ packages:
       }
     dependencies:
       mime: 3.0.0
-    dev: false
 
   /@cloudflare/workerd-darwin-64@1.20240405.0:
     resolution:
@@ -2142,7 +2144,6 @@ packages:
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@cloudflare/workerd-darwin-arm64@1.20240405.0:
@@ -2154,7 +2155,6 @@ packages:
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@cloudflare/workerd-linux-64@1.20240405.0:
@@ -2166,7 +2166,6 @@ packages:
     cpu: [x64]
     os: [linux]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@cloudflare/workerd-linux-arm64@1.20240405.0:
@@ -2178,7 +2177,6 @@ packages:
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@cloudflare/workerd-windows-64@1.20240405.0:
@@ -2190,7 +2188,6 @@ packages:
     cpu: [x64]
     os: [win32]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@cloudflare/workers-types@4.20240405.0:
@@ -2198,7 +2195,6 @@ packages:
       {
         integrity: sha512-sEVOhyOgXUwfLkgHqbLZa/sfkSYrh7/zLmI6EZNibPaVPvAnAcItbNNl3SAlLyLKuwf8m4wAIAgu9meKWCvXjg==,
       }
-    dev: false
 
   /@cloudinary/transformation-builder-sdk@1.13.1:
     resolution:
@@ -2488,7 +2484,6 @@ packages:
       esbuild: "*"
     dependencies:
       esbuild: 0.17.19
-    dev: false
 
   /@esbuild-plugins/node-modules-polyfill@0.2.2(esbuild@0.17.19):
     resolution:
@@ -2501,7 +2496,6 @@ packages:
       esbuild: 0.17.19
       escape-string-regexp: 4.0.0
       rollup-plugin-node-polyfills: 0.2.1
-    dev: false
 
   /@esbuild/aix-ppc64@0.19.12:
     resolution:
@@ -2523,7 +2517,6 @@ packages:
     cpu: [arm64]
     os: [android]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@esbuild/android-arm64@0.19.12:
@@ -2546,7 +2539,6 @@ packages:
     cpu: [arm]
     os: [android]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@esbuild/android-arm@0.19.12:
@@ -2569,7 +2561,6 @@ packages:
     cpu: [x64]
     os: [android]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@esbuild/android-x64@0.19.12:
@@ -2592,7 +2583,6 @@ packages:
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@esbuild/darwin-arm64@0.19.12:
@@ -2615,7 +2605,6 @@ packages:
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@esbuild/darwin-x64@0.19.12:
@@ -2638,7 +2627,6 @@ packages:
     cpu: [arm64]
     os: [freebsd]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@esbuild/freebsd-arm64@0.19.12:
@@ -2661,7 +2649,6 @@ packages:
     cpu: [x64]
     os: [freebsd]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@esbuild/freebsd-x64@0.19.12:
@@ -2684,7 +2671,6 @@ packages:
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@esbuild/linux-arm64@0.19.12:
@@ -2707,7 +2693,6 @@ packages:
     cpu: [arm]
     os: [linux]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@esbuild/linux-arm@0.19.12:
@@ -2730,7 +2715,6 @@ packages:
     cpu: [ia32]
     os: [linux]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@esbuild/linux-ia32@0.19.12:
@@ -2753,7 +2737,6 @@ packages:
     cpu: [loong64]
     os: [linux]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@esbuild/linux-loong64@0.19.12:
@@ -2776,7 +2759,6 @@ packages:
     cpu: [mips64el]
     os: [linux]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@esbuild/linux-mips64el@0.19.12:
@@ -2799,7 +2781,6 @@ packages:
     cpu: [ppc64]
     os: [linux]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@esbuild/linux-ppc64@0.19.12:
@@ -2822,7 +2803,6 @@ packages:
     cpu: [riscv64]
     os: [linux]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@esbuild/linux-riscv64@0.19.12:
@@ -2845,7 +2825,6 @@ packages:
     cpu: [s390x]
     os: [linux]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@esbuild/linux-s390x@0.19.12:
@@ -2868,7 +2847,6 @@ packages:
     cpu: [x64]
     os: [linux]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@esbuild/linux-x64@0.19.12:
@@ -2891,7 +2869,6 @@ packages:
     cpu: [x64]
     os: [netbsd]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@esbuild/netbsd-x64@0.19.12:
@@ -2914,7 +2891,6 @@ packages:
     cpu: [x64]
     os: [openbsd]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@esbuild/openbsd-x64@0.19.12:
@@ -2937,7 +2913,6 @@ packages:
     cpu: [x64]
     os: [sunos]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@esbuild/sunos-x64@0.19.12:
@@ -2960,7 +2935,6 @@ packages:
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@esbuild/win32-arm64@0.19.12:
@@ -2983,7 +2957,6 @@ packages:
     cpu: [ia32]
     os: [win32]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@esbuild/win32-ia32@0.19.12:
@@ -3006,7 +2979,6 @@ packages:
     cpu: [x64]
     os: [win32]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@esbuild/win32-x64@0.19.12:
@@ -3075,7 +3047,6 @@ packages:
         integrity: sha512-vBZP4NlzfOlerQTnba4aqZoMhE/a9HY7HRqoOPaETQcSQuWEIyZMHGfVu6w9wGtGK5fED5qRs2DteVCjOH60sA==,
       }
     engines: {node: ">=14"}
-    dev: false
 
   /@fortawesome/fontawesome-free@6.5.1:
     resolution:
@@ -4349,7 +4320,6 @@ packages:
       }
     dependencies:
       "@types/node": 20.11.25
-    dev: false
 
   /@types/node@20.11.25:
     resolution:
@@ -5022,7 +4992,6 @@ packages:
       }
     dependencies:
       printable-characters: 1.0.42
-    dev: false
 
   /astring@1.8.6:
     resolution:
@@ -5435,7 +5404,6 @@ packages:
       {
         integrity: sha512-F1+K8EbfOZE49dtoPtmxUQrpXaBIl3ICvasLh+nJta0xkz+9kF/7uet9fLnwKqhDrmj6g+6K3Tw9yQPUg2ka5g==,
       }
-    dev: false
 
   /boolbase@1.0.0:
     resolution:
@@ -5609,7 +5577,6 @@ packages:
       tslib: 2.6.2
     transitivePeerDependencies:
       - supports-color
-    dev: false
 
   /ccount@2.0.1:
     resolution:
@@ -5929,7 +5896,6 @@ packages:
         integrity: sha512-MwVNWlYjDTtOjX5PiD7o5pK0UrFU/OYgcJfjjK4RaHZETNtjJqrZa9Y9ds88+A+f+d5lv+561eZ+yCKoS3gbAA==,
       }
     engines: {node: ">=18"}
-    dev: false
 
   /commander@4.1.1:
     resolution:
@@ -6024,7 +5990,6 @@ packages:
         integrity: sha512-YZ3GUyn/o8gfKJlnlX7g7xq4gyO6OSuhGPKaaGssGB2qgDUS0gPgtTvoyZLTt9Ab6dC4hfc9dV5arkvc/OCmrw==,
       }
     engines: {node: ">= 0.6"}
-    dev: false
 
   /cookie@0.6.0:
     resolution:
@@ -6611,7 +6576,6 @@ packages:
       {
         integrity: sha512-ND9qDTLc6diwj+Xe5cdAgVTbLVdXbtxTJRXRhli8Mowuaan+0EJOtdqJ0QCHNSSPyoXGx9HX2/VMnKeC34AChA==,
       }
-    dev: false
 
   /dayjs@1.11.10:
     resolution:
@@ -7220,7 +7184,6 @@ packages:
       "@esbuild/win32-arm64": 0.17.19
       "@esbuild/win32-ia32": 0.17.19
       "@esbuild/win32-x64": 0.17.19
-    dev: false
 
   /esbuild@0.19.12:
     resolution:
@@ -7533,7 +7496,6 @@ packages:
       {
         integrity: sha512-SqmZANLWS0mnatqbSfRP5g8OXZC12Fgg1IwNtLsyHDzJizORW4khDfjPqJZsemPWBB2uqykUah5YpQ6epsqC/w==,
       }
-    dev: false
 
   /estree-walker@3.0.3:
     resolution:
@@ -7614,7 +7576,6 @@ packages:
         integrity: sha512-eNTPlAD67BmP31LDINZ3U7HSF8l57TxOY2PmBJ1shpCvpnxBF93mWCE8YHBnXs8qiUZJc9WDcWIeC3a2HIAMfw==,
       }
     engines: {node: ">=6"}
-    dev: false
 
   /expand-template@2.0.3:
     resolution:
@@ -7996,7 +7957,6 @@ packages:
     dependencies:
       data-uri-to-buffer: 2.0.2
       source-map: 0.6.1
-    dev: false
 
   /get-stream@6.0.1:
     resolution:
@@ -8078,7 +8038,6 @@ packages:
       {
         integrity: sha512-lkX1HJXwyMcprw/5YUZc2s7DrpAiHB21/V+E1rHUrVNokkvB6bqMzT0VfV6/86ZNabt1k14YOIaT7nDvOX3Iiw==,
       }
-    dev: false
 
   /glob@10.3.10:
     resolution:
@@ -8120,7 +8079,6 @@ packages:
       inherits: 2.0.4
       minimatch: 5.1.6
       once: 1.4.0
-    dev: false
 
   /global-dirs@0.1.1:
     resolution:
@@ -9750,7 +9708,6 @@ packages:
       }
     dependencies:
       sourcemap-codec: 1.4.8
-    dev: false
 
   /magic-string@0.30.8:
     resolution:
@@ -10880,7 +10837,6 @@ packages:
       }
     engines: {node: ">=10.0.0"}
     hasBin: true
-    dev: false
 
   /mimic-fn@2.1.0:
     resolution:
@@ -10938,7 +10894,6 @@ packages:
       - bufferutil
       - supports-color
       - utf-8-validate
-    dev: false
 
   /minimatch@3.1.2:
     resolution:
@@ -11063,7 +11018,6 @@ packages:
         integrity: sha512-71ippSywq5Yb7/tVYyGbkBggbU8H3u5Rz56fH60jGFgr8uHwxs+aSKeqmluIVzM0m0kB7xQjKS6qPfd0b2ZoqQ==,
       }
     hasBin: true
-    dev: false
 
   /mz@2.7.0:
     resolution:
@@ -11135,7 +11089,6 @@ packages:
         integrity: sha512-dPEtOeMvF9VMcYV/1Wb8CPoVAXtp6MKMlcbAt4ddqmGqUJ6fQZFXkNZNkNlfevtNkGtaSoXf/vNNNSvgrdXwtA==,
       }
     engines: {node: ">= 6.13.0"}
-    dev: false
 
   /node-machine-id@1.1.12:
     resolution:
@@ -11658,7 +11611,6 @@ packages:
       {
         integrity: sha512-JLyh7xT1kizaEvcaXOQwOc2/Yhw6KZOvPf1S8401UyLk86CU79LN3vl7ztXGm/pZ+YjoyAJ4rxmHwbkBXJX+yw==,
       }
-    dev: false
 
   /path-type@4.0.0:
     resolution:
@@ -12004,7 +11956,6 @@ packages:
       {
         integrity: sha512-dKp+C4iXWK4vVYZmYSd0KBH5F/h1HoZRsbJ82AVKRO3PEo8L4lBS/vLwhVtpwwuYcoIsVY+1JYKR268yn480uQ==,
       }
-    dev: false
 
   /prismjs@1.29.0:
     resolution:
@@ -12523,7 +12474,6 @@ packages:
         integrity: sha512-X2UW6Nw3n/aMgDVy+0rSqgHlv39WZAlZrXCdnbyEiKm17DSqHX4MmQMaST3FbeWR5FTuRcUwYAziZajji0Y7mg==,
       }
     engines: {node: ">=10"}
-    dev: false
 
   /resolve@1.22.8:
     resolution:
@@ -12645,7 +12595,6 @@ packages:
       estree-walker: 0.6.1
       magic-string: 0.25.9
       rollup-pluginutils: 2.8.2
-    dev: false
 
   /rollup-plugin-node-polyfills@0.2.1:
     resolution:
@@ -12654,7 +12603,6 @@ packages:
       }
     dependencies:
       rollup-plugin-inject: 3.0.2
-    dev: false
 
   /rollup-pluginutils@2.8.2:
     resolution:
@@ -12663,7 +12611,6 @@ packages:
       }
     dependencies:
       estree-walker: 0.6.1
-    dev: false
 
   /rollup@4.12.1:
     resolution:
@@ -12758,7 +12705,6 @@ packages:
         integrity: sha512-e2bDA2WJT0wxseVd4lsDP4+3ONX6HpMXQa1ZhFQ7SU+GjvORCmShbCMltrtIDfkYhVHrOcPtj+KhmDBdPdZD1g==,
       }
     engines: {node: ">=10"}
-    dev: false
 
   /safer-buffer@2.1.2:
     resolution:
@@ -12795,7 +12741,6 @@ packages:
     dependencies:
       "@types/node-forge": 1.3.11
       node-forge: 1.3.1
-    dev: false
 
   /semver@5.7.2:
     resolution:
@@ -13113,7 +13058,6 @@ packages:
         integrity: sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==,
       }
     deprecated: Please use @jridgewell/sourcemap-codec instead
-    dev: false
 
   /space-separated-tokens@2.0.2:
     resolution:
@@ -13186,7 +13130,6 @@ packages:
     dependencies:
       as-table: 1.0.55
       get-source: 2.0.12
-    dev: false
 
   /statuses@2.0.1:
     resolution:
@@ -13212,7 +13155,6 @@ packages:
         integrity: sha512-KXDYZ9dszj6bzvnEMRYvxgeTHU74QBFL54XKtP3nyMuJ81CFYtABZ3bAzL2EdFUaEwJOBOgENyFj3R7oTzDyyw==,
       }
     engines: {node: ">=4", npm: ">=6"}
-    dev: false
 
   /streamx@2.16.1:
     resolution:
@@ -13766,7 +13708,6 @@ packages:
       normalize-path: 3.0.0
       safe-stable-stringify: 2.4.3
       typescript: 5.4.2
-    dev: false
 
   /ts-node@10.9.1(@types/node@20.11.25)(typescript@5.3.3):
     resolution:
@@ -14020,7 +13961,6 @@ packages:
     engines: {node: ">=14.0"}
     dependencies:
       "@fastify/busboy": 2.1.1
-    dev: false
 
   /undici@6.7.1:
     resolution:
@@ -14742,7 +14682,6 @@ packages:
       "@cloudflare/workerd-linux-64": 1.20240405.0
       "@cloudflare/workerd-linux-arm64": 1.20240405.0
       "@cloudflare/workerd-windows-64": 1.20240405.0
-    dev: false
 
   /wrangler@3.51.2(@cloudflare/workers-types@4.20240405.0):
     resolution:
@@ -14779,7 +14718,6 @@ packages:
       - bufferutil
       - supports-color
       - utf-8-validate
-    dev: false
 
   /wrap-ansi@7.0.0:
     resolution:
@@ -14835,14 +14773,12 @@ packages:
         optional: true
       utf-8-validate:
         optional: true
-    dev: false
 
   /xxhash-wasm@1.0.2:
     resolution:
       {
         integrity: sha512-ibF0Or+FivM9lNrg+HGJfVX8WJqgo+kCLDc4vx6xMeTce7Aj+DLttKbxxRR/gNLSAelRc1omAPlJ77N/Jem07A==,
       }
-    dev: false
 
   /y18n@5.0.8:
     resolution:
@@ -14940,7 +14876,6 @@ packages:
       cookie: 0.5.0
       mustache: 4.2.0
       stacktracey: 2.1.8
-    dev: false
 
   /zod@3.22.5:
     resolution:
