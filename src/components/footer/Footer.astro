@@ -87,15 +87,13 @@ const sections = [
 									<header class="text-lg font-bold text-base-content">{section.title}</header>
 								)}
 
-								{section.title && section.items && (
-									<div class="space-y-2">
-										{section.items.map((item, index) => (
-											<Link key={index} href={item.link} class="link-hover link block capitalize">
-												{item.label}
-											</Link>
-										))}
-									</div>
-								)}
+								<div class="space-y-2">
+									{section.items.map((item, index) => (
+										<Link key={index} href={item.link} class="link-hover link block capitalize">
+											{item.label}
+										</Link>
+									))}
+								</div>
 							</nav>
 						))
 					}
