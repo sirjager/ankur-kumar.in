@@ -1,9 +1,11 @@
 ---
 import Root from "@/layouts/Root.astro";
 import PostsGrid from "@/components/PostsGrid.astro";
-import {getMarkdowns} from "@/content";
+import {getCollection} from "astro:content";
+import {toPosts} from "@/content";
 
-const posts = getMarkdowns(await Astro.glob("../../../blog/**/*.{md,mdx}"));
+const collection = await getCollection("blog");
+const posts = toPosts(collection);
 ---
 
 <Root>

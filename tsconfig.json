@@ -10,7 +10,8 @@
 		"rootDir": ".",
 		"paths": {
 			"@/*": ["src/*"]
-		}
+		},
+		"types": [".astro/types.d.ts"]
 	},
 	"files": ["./.eslintrc.cjs"],
 	"exclude": ["node_modules", "dist", "tmp", ".obsidian", ".nx"],

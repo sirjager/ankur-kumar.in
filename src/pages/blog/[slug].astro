@@ -1,15 +1,18 @@
 ---
 import Root from "@/layouts/Root.astro";
+import {getCollection, getEntry} from "astro:content";
+import {toPost} from "@/content";
 import Article from "@/layouts/Article.astro";
-import {getMarkdowns} from "@/content";
 
 export async function getStaticPaths() {
-	const a = getMarkdowns(await Astro.glob("../../../blog/**/*.{md,mdx}"));
-	return a.map((p) => ({params: {slug: p.slug}, props: {post: p}}));
+	const c = await getCollection("blog");
+	return c.map((p) => ({params: {slug: p.slug}}));
 }
 
-const {post} = Astro.props;
-const Content = post.Content;
+const {slug} = Astro.params;
+const entry = await getEntry("blog", slug);
+const {Content, ...rest} = await entry.render();
+const post = toPost(entry, rest);
 ---
 
 <Root>

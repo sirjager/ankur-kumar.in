@@ -1,20 +1,22 @@
 ---
-banner: "https://i.imgur.com/0NqPyrz.png"
+banner: "https://i.imgur.com/1vAMnYO.png"
 banner_x: 0.5
-banner_y: 0.3975
+banner_y: 0.5475
 banner_lock: true
 status: published
-published: 2024-03-17T07:29:02
-modifided: 2024-03-17T10:25:50
-slug: first-post
-title: How to make a bidirectional site using Tailwind CSS and daisyUI
-description: For years, making a bidirectional website was a pain. We had to make a LTR style first, then we had to override all the directional styles to make it RTL. But with the introduction of CSS logical properties, it’s now easier than ever to make a bidirectional website.
+published: 2024-03-17
+modifided: 2024-03-17
+title: second-post
+description: second-post
 tags:
-  - latest
   - daily
 ---
 
-## Introducing Obsidian
+## Second Post Title
+
+[Read Frist Post](first-post)
+
+## Welcome to Stack Edit!
 
 Hi! I'm your first Markdown file in **StackEdit**. If you want to learn about StackEdit, you can read me. If you want to play with Markdown, you can edit me. Once you have finished with me, you can create new files by opening the **file explorer** on the left corner of the navigation bar.
 
@@ -113,12 +115,6 @@ SmartyPants converts ASCII punctuation characters into "smart" typographic punct
 | Single backticks | `'Isn't this fun?'`             | 'Isn't this fun?'             |
 | Quotes           | `"Isn't this fun?"`             | "Isn't this fun?"             |
 | Dashes           | `-- is en-dash, --- is em-dash` | -- is en-dash, --- is em-dash |
-
-## KaTeX
-
-You can render LaTeX mathematical expressions using [KaTeX](https://khan.github.io/KaTeX/):
-
-> You can find more information about **LaTeX** mathematical expressions [here](http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference).
 
 ## UML diagrams
 

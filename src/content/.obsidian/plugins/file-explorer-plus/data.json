@@ -81,8 +81,8 @@
         "patternType": "WILDCARD"
       },
       {
-        "name": "",
-        "active": true,
+        "name": "Content Directory",
+        "active": false,
         "type": "DIRECTORIES",
         "pattern": "src/content",
         "patternType": "STRICT"
@@ -173,7 +173,7 @@
       },
       {
         "name": "",
-        "active": true,
+        "active": false,
         "type": "DIRECTORIES",
         "pattern": "src",
         "patternType": "STRICT"

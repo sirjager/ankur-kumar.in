@@ -74,7 +74,8 @@
 		"tailwindcss-animate": "^1.0.7",
 		"typescript": "^5.4.2",
 		"unified": "^11.0.4",
-		"vite": "^5.1.5"
+		"vite": "^5.1.5",
+		"zod": "^3.22.5"
 	},
 	"nx": {}
 }
