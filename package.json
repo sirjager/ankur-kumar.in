@@ -8,7 +8,7 @@
 		"build": "astro check && astro build",
 		"preview": "astro preview",
 		"astro": "astro",
-		"prepare": "husky && playwright install",
+		"prepare": "husky",
 		"lint": "eslint . --fix",
 		"cf-build": "wrangler types && astro check && astro build",
 		"cf-preview": "wrangler types && astro preview",
@@ -25,8 +25,6 @@
 		"@qwikdev/astro": "^0.5.7",
 		"@unpic/qwik": "^0.0.44",
 		"astro": "^4.4.15",
-		"msgpack-lite": "^0.1.26",
-		"playwright": "^1.42.1",
 		"sharp": "^0.33.2"
 	},
 	"devDependencies": {
@@ -67,7 +65,6 @@
 		"rehype-format": "^5.0.0",
 		"rehype-pretty-code": "^0.13.0",
 		"rehype-stringify": "^10.0.0",
-		"remark-mermaidjs": "^6.0.0",
 		"remark-parse": "^11.0.0",
 		"remark-rehype": "^11.0.0",
 		"remark-toc": "^8.0.1",

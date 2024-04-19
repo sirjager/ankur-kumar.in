@@ -12,7 +12,6 @@ import {toString} from "mdast-util-to-string";
 import readingTime from "reading-time";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePrettyCode from "rehype-pretty-code";
-import remarkMermaid from "remark-mermaidjs";
 import remarkToc from "remark-toc";
 import {rehypePrettyCodeOptions} from "./rehype-prettycode-opts";
 
@@ -67,7 +66,7 @@ export default defineConfig({
 		syntaxHighlight: false,
 		extendDefaultPlugins: true,
 		remarkRehype: {allowDangerousHtml: true},
-		remarkPlugins: [readtime, remarkToc, remarkMermaid],
+		remarkPlugins: [readtime, remarkToc],
 		rehypePlugins: [
 			[
 				rehypeAutolinkHeadings,
