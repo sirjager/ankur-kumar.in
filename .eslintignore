@@ -18,6 +18,9 @@ vite.config.ts.timestamp*
 .obsidian/
 .trash/
 
+# Pagefind search
+**/_pagefind
+
 # Temp files and folders
 generated/
 .tmp
@@ -36,3 +39,4 @@ cache/
 functions/**/*.js
 
 *.css
+*.svg

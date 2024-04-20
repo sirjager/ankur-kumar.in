@@ -34,6 +34,8 @@ tmp/
 *.tsbuildinfo
 .nx/cache
 
+# Pagefind search
+**/_pagefind
 
 # Ignore Python Env files
 .venv
@@ -63,3 +65,5 @@ functions/**/*.js
 # GraphqlRc
 .graphqlrc.*
 .graphqlrc*
+
+*.svg

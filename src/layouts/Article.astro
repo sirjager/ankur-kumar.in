@@ -47,6 +47,7 @@ const {post} = Astro.props;
 			sizes={"(max-width: 360px) 240px, (max-width: 480px) 360px, (max-width: 768px) 480px, (max-width: 1024px) 768px, (max-width: 1280px) 1024px, (max-width: 1920px) 1280px"}
 			style={{top: `-${post.banner_y * 86}%`}}
 			class="absolute left-0 rounded-box transition duration-1000 ease-in-out hover:scale-110"
+			data-pagefind-meta="image[src], image_alt[alt]"
 		/>
 	</figure>
 
@@ -74,7 +75,11 @@ const {post} = Astro.props;
 		</div>
 	</div>
 
-	<div class:list={["prose col-span-3 max-w-full sm:prose-base lg:!col-end-4 lg:!max-w-[65vw]"]}>
+	<div
+		class:list={[
+			"prose col-span-3 row-start-4 max-w-full sm:prose-base lg:!col-end-4 lg:!max-w-[65vw]",
+		]}
+	>
 		<slot>content not found</slot>
 	</div>
 </article>

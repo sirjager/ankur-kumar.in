@@ -1,5 +1,5 @@
 import {themeMode, themes} from "@/lib/themes";
-import {component$, $} from "@builder.io/qwik";
+import {$, component$} from "@builder.io/qwik";
 
 export default component$(() => {
 	const changeTheme = $(() => {
@@ -12,6 +12,14 @@ export default component$(() => {
 				if (mode === "dark") document.documentElement.classList.add("dark");
 				else document.documentElement.classList.remove("dark");
 				localStorage.setItem("theme", `${theme}@${mode}`);
+				// eslint-disable-next-line quotes
+				let emt = document.querySelector('meta[name="theme-color"]');
+				if (emt) emt.setAttribute("content", "#4285f4");
+				else {
+					emt = document.createElement("meta");
+					emt.setAttribute("name", "theme-color");
+					emt.setAttribute("content", "#4285f4");
+				}
 			} catch (_) {
 				//
 			}

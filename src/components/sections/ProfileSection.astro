@@ -1,33 +1,47 @@
 ---
-import Image from "@/components/images/QwikImage";
-import FillAniButton from "@/components/buttons/FillAniButton.astro";
 import Link from "@/components/Link.astro";
-const img = "https://avatars.githubusercontent.com/u/18713058?v=4";
+import FillAniButton from "@/components/buttons/FillAniButton.astro";
+import itguy from "@/assets/itguy.svg";
+import {Image} from "astro:assets";
 ---
 
-<section class="h-screen">
+<section class="mb-20">
 	<div
+		aria-hidden="true"
 		class:list={[
-			"relative mt-[8vw] flex flex-col items-center gap-8 p-4 @container sm:p-8 lg:mt-32",
-			"mx-auto max-w-6xl",
-			"lg:flex-row-reverse lg:items-center lg:justify-center",
+			"absolute top-0 z-[-1] mx-auto h-[76vh] w-full md:w-[90vw]",
+			"bg-gradient-to-t from-base-100 via-accent/15 to-base-100 dark:via-accent/10",
+			"transition-all duration-300 ease-in-out",
+			"rounded-br-[66vw] rounded-tl-[66vw]",
+			"dark:rounded-none dark:rounded-bl-[66vw] dark:rounded-tr-[66vw]",
 		]}
 	>
-		<div>
-			<Image src={img} alt="Ankur" class:list={["max-w-[50vw] sm:max-w-sm"]} />
+	</div>
+
+	<div
+		class:list={[
+			"px-6 py-2 xl:px-0 xl:py-0",
+			"relative mx-auto  @container lg:max-w-6xl",
+			"flex items-center  justify-center lg:flex-row-reverse",
+			"flex-col-reverse justify-center",
+			"mt-2 sm:mt-8 lg:mt-32",
+		]}
+	>
+		<div class="relative w-[80vw] max-w-md flex-1">
+			<Image src={itguy} alt="" class="w-full" />
 		</div>
 
-		<div class="h-full max-w-lg flex-1 space-y-8 md:max-w-full">
+		<div class:list={["relative h-full max-w-xl flex-1 space-y-8 lg:max-w-2xl"]}>
+			<p class="text-center text-2xl sm:text-left">Fullstack Developer</p>
 			<h1
 				class:list={[
-					"text-center font-rocksalt text-2xl tracking-wider @sm:text-3xl lg:text-left",
-					"@3xl:text-5xl",
+					"text-center font-rocksalt text-3xl tracking-wider sm:text-left sm:text-4xl md:text-5xl",
 				]}
 			>
 				Ankur Kumar
 			</h1>
 
-			<p class:list={["text-lg sm:text-xl lg:text-2xl"]}>
+			<p class:list={["max-w-sm text-lg sm:max-w-xl sm:text-xl lg:text-2xl"]}>
 				A self-driven full-stack developer with a strong focus on developing high performance
 				backend APIs and microservices using latest and greatest technologies.
 			</p>

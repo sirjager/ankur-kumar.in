@@ -5,13 +5,14 @@
 	"scripts": {
 		"dev": "astro dev --host",
 		"start": "astro preview",
-		"build": "astro check && astro build",
+		"build": "astro check && astro build && npm run postbuild",
 		"preview": "astro preview",
 		"astro": "astro",
 		"prepare": "husky",
+		"postbuild": "npm run pagefind",
 		"lint": "eslint . --fix",
-		"cf-build": "wrangler types && astro check && astro build",
-		"cf-preview": "wrangler types && astro preview",
+		"pagefind": "pagefind --site dist/client --output-subdir _pagefind",
+		"pagefind-dev": "pagefind --site dist/client --output-subdir ../../public/_pagefind",
 		"format": "prettier --write . && prettier --check ."
 	},
 	"dependencies": {
@@ -43,6 +44,7 @@
 		"@typescript-eslint/eslint-plugin": "^7.2.0",
 		"@typescript-eslint/parser": "^7.2.0",
 		"astro-robots-txt": "^1.0.0",
+		"astro-webmanifest": "^1.0.0",
 		"autoprefixer": "^10.4.18",
 		"cheerio": "1.0.0-rc.12",
 		"clsx": "^2.1.0",
@@ -57,6 +59,7 @@
 		"lint-staged": "^15.2.2",
 		"mdast-util-to-string": "^3.2.0",
 		"nx": "18.0.7",
+		"pagefind": "^1.1.0",
 		"postcss": "8.4.35",
 		"prettier": "^3.2.5",
 		"prettier-plugin-astro": "0.13.0",

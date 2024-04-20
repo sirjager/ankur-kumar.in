@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "639a5e538c43d7b6",
+        "id": "517d4b00575dcdc0",
         "type": "tabs",
         "children": [
           {
-            "id": "9ae49d26e0365b8a",
+            "id": "9e725762d3ba0b51",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "blog/first-post.md",
-                "mode": "preview",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -203,7 +199,7 @@
       "obsidian-trash-explorer:Open trash explorer": false
     }
   },
-  "active": "9ae49d26e0365b8a",
+  "active": "9e725762d3ba0b51",
   "lastOpenFiles": [
     "blog/second-post.md",
     "blog/first-post.md",

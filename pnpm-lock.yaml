@@ -85,6 +85,9 @@ devDependencies:
   astro-robots-txt:
     specifier: ^1.0.0
     version: 1.0.0
+  astro-webmanifest:
+    specifier: ^1.0.0
+    version: 1.0.0
   autoprefixer:
     specifier: ^10.4.18
     version: 10.4.18(postcss@8.4.35)
@@ -127,6 +130,9 @@ devDependencies:
   nx:
     specifier: 18.0.7
     version: 18.0.7
+  pagefind:
+    specifier: ^1.1.0
+    version: 1.1.0
   postcss:
     specifier: 8.4.35
     version: 8.4.35
@@ -3879,6 +3885,61 @@ packages:
       - debug
     dev: true
 
+  /@pagefind/darwin-arm64@1.1.0:
+    resolution:
+      {
+        integrity: sha512-SLsXNLtSilGZjvqis8sX42fBWsWAVkcDh1oerxwqbac84HbiwxpxOC2jm8hRwcR0Z55HPZPWO77XeRix/8GwTg==,
+      }
+    cpu: [arm64]
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@pagefind/darwin-x64@1.1.0:
+    resolution:
+      {
+        integrity: sha512-QjQSE/L5oS1C8N8GdljGaWtjCBMgMtfrPAoiCmINTu9Y9dp0ggAyXvF8K7Qg3VyIMYJ6v8vg2PN7Z3b+AaAqUA==,
+      }
+    cpu: [x64]
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@pagefind/linux-arm64@1.1.0:
+    resolution:
+      {
+        integrity: sha512-8zjYCa2BtNEL7KnXtysPtBELCyv5DSQ4yHeK/nsEq6w4ToAMTBl0K06khqxdSGgjMSwwrxvLzq3so0LC5Q14dA==,
+      }
+    cpu: [arm64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@pagefind/linux-x64@1.1.0:
+    resolution:
+      {
+        integrity: sha512-4lsg6VB7A6PWTwaP8oSmXV4O9H0IHX7AlwTDcfyT+YJo/sPXOVjqycD5cdBgqNLfUk8B9bkWcTDCRmJbHrKeCw==,
+      }
+    cpu: [x64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@pagefind/windows-x64@1.1.0:
+    resolution:
+      {
+        integrity: sha512-OboCM76BcMKT9IoSfZuFhiqMRgTde8x4qDDvKulFmycgiJrlL5WnIqBHJLQxZq+o2KyZpoHF97iwsGAm8c32sQ==,
+      }
+    cpu: [x64]
+    os: [win32]
+    requiresBuild: true
+    dev: true
+    optional: true
+
   /@phenomnomnominal/tsquery@5.0.1(typescript@5.3.3):
     resolution:
       {
@@ -5158,6 +5219,17 @@ packages:
       zod: 3.22.5
     dev: true
 
+  /astro-webmanifest@1.0.0:
+    resolution:
+      {
+        integrity: sha512-ar8SZuFf8k2XuqAYpiaiGmzgpqVufyPx0A9d8OljPup+Sgs+1trG2bpvo7JcM+m4L3figPaYEZOy1rRawCEU0w==,
+      }
+    dependencies:
+      sharp: 0.32.6
+      valid-filename: 4.0.0
+      zod: 3.22.5
+    dev: true
+
   /astro@4.4.15(@types/node@20.11.25)(typescript@5.4.2):
     resolution:
       {
@@ -5334,8 +5406,6 @@ packages:
         integrity: sha512-5Tk1HLk6b6ctmjIkAcU/Ujv/1WqiDl0F0JdRCR80VsOcUlHcu7pWeWRlOqQLHfDEsVx9YH/aif5AG4ehoCtTmg==,
       }
     requiresBuild: true
-    dev: false
-    optional: true
 
   /babel-plugin-const-enum@1.2.0(@babel/core@7.24.0):
     resolution:
@@ -5443,7 +5513,6 @@ packages:
         integrity: sha512-9GYPpsPFvrWBkelIhOhTWtkeZxVxZOdb3VnFTCzlOo3OjvmTvzLoZFUT8kNFACx0vJej6QPney1Cf9BvzCNE/A==,
       }
     requiresBuild: true
-    dev: false
     optional: true
 
   /bare-fs@2.2.1:
@@ -5457,7 +5526,6 @@ packages:
       bare-os: 2.2.0
       bare-path: 2.1.0
       streamx: 2.16.1
-    dev: false
     optional: true
 
   /bare-os@2.2.0:
@@ -5466,7 +5534,6 @@ packages:
         integrity: sha512-hD0rOPfYWOMpVirTACt4/nK8mC55La12K5fY1ij8HAdfQakD62M+H4o4tpfKzVGLgRDTuk3vjA4GqGXXCeFbag==,
       }
     requiresBuild: true
-    dev: false
     optional: true
 
   /bare-path@2.1.0:
@@ -5477,7 +5544,6 @@ packages:
     requiresBuild: true
     dependencies:
       bare-os: 2.2.0
-    dev: false
     optional: true
 
   /base-64@1.0.0:
@@ -5821,8 +5887,6 @@ packages:
         integrity: sha512-jJ0bqzaylmJtVnNgzTeSOs8DPavpbYgEr/b0YL8/2GO3xJEhInFmhKMUnEJQjZumK7KXGFhUy89PrsJWlakBVg==,
       }
     requiresBuild: true
-    dev: false
-    optional: true
 
   /chownr@2.0.0:
     resolution:
@@ -5972,7 +6036,6 @@ packages:
     dependencies:
       color-name: 1.1.4
       simple-swizzle: 0.2.2
-    dev: false
 
   /color-support@1.1.3:
     resolution:
@@ -5992,7 +6055,6 @@ packages:
     dependencies:
       color-convert: 2.0.1
       color-string: 1.9.1
-    dev: false
 
   /colorette@2.0.20:
     resolution:
@@ -6359,8 +6421,6 @@ packages:
     requiresBuild: true
     dependencies:
       mimic-response: 3.1.0
-    dev: false
-    optional: true
 
   /deep-extend@0.6.0:
     resolution:
@@ -6369,8 +6429,6 @@ packages:
       }
     engines: {node: ">=4.0.0"}
     requiresBuild: true
-    dev: false
-    optional: true
 
   /deep-is@0.1.4:
     resolution:
@@ -6465,7 +6523,6 @@ packages:
       }
     engines: {node: ">=8"}
     requiresBuild: true
-    dev: false
 
   /detect-port@1.5.1:
     resolution:
@@ -7280,8 +7337,6 @@ packages:
       }
     engines: {node: ">=6"}
     requiresBuild: true
-    dev: false
-    optional: true
 
   /extend-shallow@2.0.1:
     resolution:
@@ -7312,8 +7367,6 @@ packages:
         integrity: sha512-/d9sfos4yxzpwkDkuN7k2SqFKtYNmCTzgfEpz82x34IM9/zc8KGxQoXg1liNC/izpRM/MBdt44Nmx41ZWqk+FQ==,
       }
     requiresBuild: true
-    dev: false
-    optional: true
 
   /fast-glob@3.2.7:
     resolution:
@@ -7726,8 +7779,6 @@ packages:
         integrity: sha512-SyHy3T1v2NUXn29OsWdxmK6RwHD+vkj3v8en8AOBZ1wBQ/hCAQ5bAQTD02kW4W9tUp/3Qh6J8r9EvntiyCmOOw==,
       }
     requiresBuild: true
-    dev: false
-    optional: true
 
   /github-slugger@2.0.0:
     resolution:
@@ -8491,7 +8542,6 @@ packages:
         integrity: sha512-eVRqCvVlZbuw3GrM63ovNSNAeA1K16kaR/LRY/92w0zxQ5/1YzwblUX652i4Xs9RwAGjW9d9y6X88t8OaAJfWQ==,
       }
     requiresBuild: true
-    dev: false
 
   /is-bigint@1.0.4:
     resolution:
@@ -10206,8 +10256,6 @@ packages:
       }
     engines: {node: ">=10"}
     requiresBuild: true
-    dev: false
-    optional: true
 
   /min-indent@1.0.1:
     resolution:
@@ -10328,8 +10376,6 @@ packages:
         integrity: sha512-gKLcREMhtuZRwRAfqP3RFW+TK4JqApVBtOIftVgjuABpAtpxhPGaDcfvbhNvD0B8iD1oUr/txX35NjcaY6Ns/A==,
       }
     requiresBuild: true
-    dev: false
-    optional: true
 
   /mkdirp@1.0.4:
     resolution:
@@ -10406,8 +10452,6 @@ packages:
         integrity: sha512-ONmRUqK7zj7DWX0D9ADe03wbwOBZxNAfF20PlGfCWQcD3+/MakShIHrMqx9YwPTfxDdF1zLeL+RGZiR9kGMLdg==,
       }
     requiresBuild: true
-    dev: false
-    optional: true
 
   /natural-compare@1.4.0:
     resolution:
@@ -10434,8 +10478,6 @@ packages:
     requiresBuild: true
     dependencies:
       semver: 7.6.0
-    dev: false
-    optional: true
 
   /node-addon-api@6.1.0:
     resolution:
@@ -10443,8 +10485,6 @@ packages:
         integrity: sha512-+eawOlIgy680F0kBzPUNFhMZGtJ1YmqM6l4+Crf4IkImjYrO/mqPwRMh352g23uIaQKFItcQ64I7KMaJxHgAVA==,
       }
     requiresBuild: true
-    dev: false
-    optional: true
 
   /node-fetch@2.7.0:
     resolution:
@@ -10881,6 +10921,20 @@ packages:
       }
     engines: {node: ">=6"}
 
+  /pagefind@1.1.0:
+    resolution:
+      {
+        integrity: sha512-1nmj0/vfYcMxNEQj0YDRp6bTVv9hI7HLdPhK/vBBYlrnwjATndQvHyicj5Y7pUHrpCFZpFnLVQXIF829tpFmaw==,
+      }
+    hasBin: true
+    optionalDependencies:
+      "@pagefind/darwin-arm64": 1.1.0
+      "@pagefind/darwin-x64": 1.1.0
+      "@pagefind/linux-arm64": 1.1.0
+      "@pagefind/linux-x64": 1.1.0
+      "@pagefind/windows-x64": 1.1.0
+    dev: true
+
   /parent-module@1.0.1:
     resolution:
       {
@@ -11217,8 +11271,6 @@ packages:
       simple-get: 4.0.1
       tar-fs: 2.1.1
       tunnel-agent: 0.6.0
-    dev: false
-    optional: true
 
   /preferred-pm@3.1.3:
     resolution:
@@ -11386,8 +11438,6 @@ packages:
     dependencies:
       end-of-stream: 1.4.4
       once: 1.4.0
-    dev: false
-    optional: true
 
   /punycode@2.3.1:
     resolution:
@@ -11409,8 +11459,6 @@ packages:
         integrity: sha512-kJt5qhMxoszgU/62PLP1CJytzd2NKetjSRnyuj31fDd3Rlcz3fzlFdFLD1SItunPwyqEOkca6GbV612BWfaBag==,
       }
     requiresBuild: true
-    dev: false
-    optional: true
 
   /quick-lru@4.0.1:
     resolution:
@@ -11440,8 +11488,6 @@ packages:
       ini: 1.3.8
       minimist: 1.2.8
       strip-json-comments: 2.0.1
-    dev: false
-    optional: true
 
   /react-is@18.2.0:
     resolution:
@@ -12201,8 +12247,6 @@ packages:
       simple-get: 4.0.1
       tar-fs: 3.0.5
       tunnel-agent: 0.6.0
-    dev: false
-    optional: true
 
   /sharp@0.33.2:
     resolution:
@@ -12309,8 +12353,6 @@ packages:
         integrity: sha512-cSFtAPtRhljv69IK0hTVZQ+OfE9nePi/rtJmw5UjHeVyVroEqJXP1sFztKUy1qU+xvz3u/sfYJLa947b7nAN2Q==,
       }
     requiresBuild: true
-    dev: false
-    optional: true
 
   /simple-get@4.0.1:
     resolution:
@@ -12322,8 +12364,6 @@ packages:
       decompress-response: 6.0.0
       once: 1.4.0
       simple-concat: 1.0.1
-    dev: false
-    optional: true
 
   /simple-swizzle@0.2.2:
     resolution:
@@ -12333,7 +12373,6 @@ packages:
     requiresBuild: true
     dependencies:
       is-arrayish: 0.3.2
-    dev: false
 
   /sisteransi@1.0.5:
     resolution:
@@ -12519,8 +12558,6 @@ packages:
       queue-tick: 1.0.1
     optionalDependencies:
       bare-events: 2.2.1
-    dev: false
-    optional: true
 
   /string-argv@0.3.2:
     resolution:
@@ -12691,8 +12728,6 @@ packages:
       }
     engines: {node: ">=0.10.0"}
     requiresBuild: true
-    dev: false
-    optional: true
 
   /strip-json-comments@3.1.1:
     resolution:
@@ -12858,8 +12893,6 @@ packages:
       mkdirp-classic: 0.5.3
       pump: 3.0.0
       tar-stream: 2.2.0
-    dev: false
-    optional: true
 
   /tar-fs@3.0.5:
     resolution:
@@ -12873,8 +12906,6 @@ packages:
     optionalDependencies:
       bare-fs: 2.2.1
       bare-path: 2.1.0
-    dev: false
-    optional: true
 
   /tar-stream@2.2.0:
     resolution:
@@ -12899,8 +12930,6 @@ packages:
       b4a: 1.6.6
       fast-fifo: 1.3.2
       streamx: 2.16.1
-    dev: false
-    optional: true
 
   /tar@6.2.1:
     resolution:
@@ -13144,8 +13173,6 @@ packages:
     requiresBuild: true
     dependencies:
       safe-buffer: 5.2.1
-    dev: false
-    optional: true
 
   /type-check@0.4.0:
     resolution:

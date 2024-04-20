@@ -1,12 +1,44 @@
 ---
+import {site} from "@/lib/constants";
 
+export interface Props {
+	title?: string | undefined;
+	description?: string | undefined;
+	image?: string | undefined;
+}
+
+const {title = site.title, description = site.description} = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
+<!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" href="/icons/favicon.ico" />
 <meta name="generator" content={Astro.generator} />
+
+<!-- Sitemap -->
 <link rel="sitemap" href="/sitemap-index.xml" />
+
+<!-- Canonical URL -->
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={Astro.url} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
 
 <link
 	href="/fonts/rock-salt.woff2"
@@ -23,6 +55,13 @@
 		document.documentElement.setAttribute("data-theme-mode", mo);
 		if (mo === "dark") document.documentElement.classList.add("dark");
 		else document.documentElement.classList.remove("dark");
+		var emt = document.querySelector('meta[name="theme-color"]');
+		if (emt) emt.setAttribute("content", "#4285f4");
+		else {
+			emt = document.createElement("meta");
+			emt.setAttribute("name", "theme-color");
+			emt.setAttribute("content", "#4285f4");
+		}
 	};
 	const __theming__ = () => {
 		const _s = localStorage.getItem("theme");
@@ -43,13 +82,7 @@
 	type="font/woff2"
 	crossorigin="anonymous"
 />
-<link
-	href="/fonts/roboto-300.woff2"
-	as="font"
-	rel="preload prefetch"
-	type="font/woff2"
-	crossorigin="anonymous"
-/>
+
 <link
 	href="/fonts/roboto-300.woff2"
 	as="font"

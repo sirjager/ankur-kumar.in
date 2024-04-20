@@ -24,7 +24,7 @@ const links = [
 ];
 ---
 
-<div>
+<div class="">
 	<div
 		class:list={[
 			"relative mx-auto w-full max-w-6xl px-4 py-5 md:px-8",
@@ -69,7 +69,7 @@ const links = [
 									key={link.label}
 									href={link.href}
 									class:list={[
-										"group/tgthm relative overflow-clip rounded-btn px-5 py-3",
+										"group/tgthm relative overflow-clip px-5 py-3",
 										"text-base-content md:hover:text-base-200",
 										"transition-all duration-300 ease-in-out",
 										"md:border md:border-neutral/20 md:dark:border-neutral-content/40",
@@ -77,6 +77,7 @@ const links = [
 										"after:w-full after:content-[''] md:after:absolute md:after:h-full md:after:rounded-btn md:after:bg-base-content",
 										"md:after:-bottom-full md:after:left-0 md:hover:after:bottom-0",
 										"text-[7vw] font-bold md:text-base md:font-light",
+										"rounded-btn after:rounded-btn",
 									]}
 								>
 									<span class="relative z-[1]">{link.label}</span>
