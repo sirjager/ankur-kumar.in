@@ -1,0 +1,55 @@
+---
+import Link from "@/components/Link.astro";
+
+interface Props {
+	items: string[];
+	title: string;
+	link?: string;
+}
+
+const {items, title} = Astro.props;
+const {link = `/${title}`.toLowerCase()} = Astro.props;
+---
+
+<div class="group/catcard relative rounded-box border border-base-content/20">
+	<div class:list={["relative mt-4 w-full"]}>
+		<div class="absolute top-1/2 h-0.5 w-full bg-base-content/20"></div>
+
+		<div class="mx-auto w-fit select-none">
+			<div
+				class:list={[
+					"group mx-auto inline-block w-fit text-sm",
+					"skew-x-12 transform",
+					"transition-transform duration-300 ease-in-out",
+					"group-hover/catcard:-skew-x-12",
+				]}
+			>
+				<span
+					class:list={[
+						"absolute inset-0 transition-transform group-hover:translate-x-0 group-hover:translate-y-0",
+						"translate-x-1 translate-y-1 -skew-x-12 transform rounded-box bg-base-content/20",
+					]}></span>
+				<div
+					class="block -skew-x-12 transform rounded-box border border-base-content/20 bg-base-100 px-8 py-3"
+				>
+					<span class="font-bold uppercase">{title}</span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="flex flex-wrap gap-2 px-2 pb-4 pt-6">
+		{
+			items.map((item) => {
+				return (
+					<Link
+						href={`${link}/${item}`}
+						class="rounded-box border border-base-content/20 px-3 py-1 text-sm hover:border-base-content/60"
+					>
+						{item}
+					</Link>
+				);
+			})
+		}
+	</div>
+</div>

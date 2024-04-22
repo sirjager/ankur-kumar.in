@@ -12,7 +12,7 @@
 		"postbuild": "npm run pagefind",
 		"lint": "eslint . --fix",
 		"pagefind": "pagefind --site dist/client --output-subdir _pagefind",
-		"pagefind-dev": "pagefind --site dist/client --output-subdir ../../public/_pagefind",
+		"pagefind-dev": "rm -rf ./public/_pagefind && cp -rf ./dist/client/_pagefind ./public",
 		"format": "prettier --write . && prettier --check ."
 	},
 	"dependencies": {
@@ -27,6 +27,7 @@
 		"@qwikdev/astro": "^0.5.7",
 		"@unpic/qwik": "^0.0.44",
 		"astro": "^4.4.15",
+		"ioredis": "^5.4.1",
 		"sharp": "^0.33.2"
 	},
 	"devDependencies": {
@@ -64,6 +65,7 @@
 		"prettier": "^3.2.5",
 		"prettier-plugin-astro": "0.13.0",
 		"prettier-plugin-tailwindcss": "^0.5.12",
+		"prisma": "^5.12.1",
 		"reading-time": "^1.5.0",
 		"rehype-autolink-headings": "^6.1.1",
 		"rehype-format": "^5.0.0",

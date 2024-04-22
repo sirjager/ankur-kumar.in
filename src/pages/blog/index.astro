@@ -2,10 +2,16 @@
 import Root from "@/layouts/Root.astro";
 import PostsGrid from "@/components/PostsGrid.astro";
 import {getCollection} from "astro:content";
-import {toPosts} from "@/content";
+import {getCategories, getTags, toPosts} from "@/content";
+import PageFind from "@/components/PageFind.astro";
+import AsideItems from "@/components/aside/AsideItems.astro";
+import AsidePosts from "@/components/aside/AsidePosts.astro";
 
 const collection = await getCollection("blog");
 const posts = toPosts(collection);
+
+const categories = getCategories(posts);
+const tags = getTags(posts);
 ---
 
 <Root>
@@ -18,11 +24,20 @@ const posts = toPosts(collection);
 		]}
 	>
 		<div class="relative w-full">
+			<div>
+				<PageFind />
+			</div>
+
 			<PostsGrid posts={posts} />
 		</div>
 
 		<aside class="space-y-4">
-			<div class="glass h-full"></div>
+			<AsideItems items={categories} title="Categories" />
+			<AsideItems items={tags} title="tags" />
+			<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-1">
+				<AsidePosts label="Most" title="Read" posts={posts} />
+				<AsidePosts label="Posts" title="Popular" posts={posts} />
+			</div>
 		</aside>
 	</div>
 </Root>

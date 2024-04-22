@@ -1,5 +1,5 @@
 ---
-banner: "https://i.imgur.com/1vAMnYO.png"
+banner: https://i.imgur.com/1vAMnYO.png
 banner_x: 0.5
 banner_y: 0.5475
 banner_lock: true
@@ -8,12 +8,12 @@ published: 2024-03-17
 modifided: 2024-03-17
 title: second-post
 description: Hi! I'm your first Markdown file in **StackEdit**. If you want to learn about StackEdit, you can read me. If you want to play with Markdown, you can edit me. Once you have finished with me, you can create new files by opening the **file explorer** on the left corner of the navigation bar.
-category: Stack Edit
+category: Astro
 tags:
   - daily
 ---
 
-## Second Post Title
+## Fourth Post
 
 [Read Frist Post](first-post)
 

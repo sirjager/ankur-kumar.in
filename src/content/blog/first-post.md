@@ -8,6 +8,7 @@ published: 2024-03-17T07:29:02
 modifided: 2024-03-17T10:25:50
 title: How to make a bidirectional site using Tailwind CSS and daisyUI
 description: For years, making a bidirectional website was a pain. We had to make a LTR style first, then we had to override all the directional styles to make it RTL. But with the introduction of CSS logical properties, it’s now easier than ever to make a bidirectional website.
+category: Obsidian
 tags:
   - latest
   - daily

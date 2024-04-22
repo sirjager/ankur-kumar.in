@@ -82,23 +82,23 @@
 
 #searchui {
 	* {
-		@apply text-base-content;
+		@apply border-base-content/10 text-base-content;
 	}
 
 	mark {
 		@apply rounded-sm bg-primary text-primary-content underline;
 	}
 
-	input {
-		@apply input input-bordered w-full text-base-content focus:input-accent sm:input-lg;
+	.pagefind-ui__search-input {
+		@apply input input-bordered w-full pl-10 text-base-content focus:input-accent;
 	}
 
-	button {
-		@apply btn btn-error btn-sm absolute right-2 mt-2 text-error-content sm:btn-md;
+	.pagefind-ui__search-clear {
+		@apply btn btn-error btn-sm absolute right-2 mt-1.5 text-error-content;
 	}
 
-	.pagefind-ui__drawer {
-		@apply mt-4;
+	.pagefind-ui__filter-checkbox {
+		@apply checkbox-accent checkbox checkbox-xs h-5 w-5 border-none bg-base-300;
 	}
 
 	.pagefind-ui__message {
@@ -106,32 +106,42 @@
 	}
 
 	.pagefind-ui__results {
-		@apply grid grid-cols-1 gap-2;
+		@apply space-y-2 px-2;
 	}
 
 	.pagefind-ui__result {
-		@apply flex flex-nowrap gap-4 rounded-box p-4 transition duration-300 ease-in-out hover:bg-base-200 hover:shadow-lg hover:drop-shadow-lg;
+		@apply p-2;
 	}
 
 	.pagefind-ui__result-thumb {
-		/* thumbail container */
 		@apply avatar;
 
-		img {
-			@apply h-24 max-h-24 w-32 max-w-32 rounded-box;
+		.pagefind-ui__result-image {
+			@apply h-20 min-h-20 min-w-32 max-w-32 rounded-box;
 		}
-	}
-
-	.pagefind-ui__result-inner {
-		/* title and description container  */
-		@apply flex-1;
 	}
 
 	.pagefind-ui__result-title {
 		@apply text-lg font-medium;
+
+		.pagefind-ui__result-link {
+			@apply !no-underline;
+		}
 	}
 
-	.pagefind-ui__result-link {
-		@apply link;
+	.pagefind-ui__filter-group {
+		@apply pt-2;
+	}
+
+	.pagefind-ui__filter-block {
+		@apply cursor-pointer border-b-2;
+	}
+
+	.pagefind-ui__filter-label {
+		@apply w-full cursor-pointer text-xs;
+	}
+
+	.pagefind-ui__filter-name {
+		@apply px-2 py-3;
 	}
 }

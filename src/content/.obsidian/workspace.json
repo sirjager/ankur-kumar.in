@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "517d4b00575dcdc0",
+        "id": "dd286580e65e789b",
         "type": "tabs",
         "children": [
           {
-            "id": "9e725762d3ba0b51",
+            "id": "6637714ac8777ba5",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -68,14 +68,6 @@
               "type": "bookmarks",
               "state": {}
             }
-          },
-          {
-            "id": "66c2e724dff4a6d7",
-            "type": "leaf",
-            "state": {
-              "type": "trash-explorer",
-              "state": {}
-            }
           }
         ]
       }
@@ -108,9 +100,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "blog/first-post.md"
-              }
+              "state": {}
             }
           },
           {
@@ -118,9 +108,7 @@
             "type": "leaf",
             "state": {
               "type": "file-properties",
-              "state": {
-                "file": "blog/first-post.md"
-              }
+              "state": {}
             }
           },
           {
@@ -157,7 +145,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "blog/first-post.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -169,7 +156,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "blog/first-post.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -188,25 +174,28 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "obsidian-trash-explorer:Open trash explorer": false,
       "switcher:Open quick switcher": false,
       "canvas:Create new canvas": false,
+      "obsidian-excalidraw-plugin:Create new drawing": false,
       "workspaces:Manage workspace layouts": false,
       "command-palette:Open command palette": false,
       "table-editor-obsidian:Advanced Tables Toolbar": false,
-      "obsidian-excalidraw-plugin:Create new drawing": false,
       "templater-obsidian:Templater": false,
-      "homepage:Open homepage": false,
-      "obsidian-trash-explorer:Open trash explorer": false
+      "homepage:Open homepage": false
     }
   },
-  "active": "9e725762d3ba0b51",
+  "active": "6637714ac8777ba5",
   "lastOpenFiles": [
+    "blog/third-post.md",
     "blog/second-post.md",
+    "blog/fourth-post.md",
     "blog/first-post.md",
+    "templates/post.md",
+    "templates",
     "src/content/blog/second-post.md",
     "src/content/blog/first-post.md",
     "home.md",
-    "templates/post.md",
     "dist/client/~partytown/partytown-sw.js",
     "dist/client/~partytown/partytown.js",
     "dist/client/~partytown/partytown-media.js",
@@ -226,7 +215,6 @@
     "dist/client/index.html",
     "dist/client/blog/index.html",
     "dist/client/blog/second-post/index.html",
-    "dist/client/blog/second-post",
     "canvas/Untitled.canvas",
     "canvas/Untitled 1.canvas",
     "excalidraw/Drawing 2024-03-19 20.03.01.excalidraw.md",

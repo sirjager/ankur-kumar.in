@@ -1,13 +1,15 @@
 ---
 import TableOfContent from "@/components/TableOfContent";
-import type {Post} from "@/content/config";
+import type {Post} from "@/content";
 import {Picture} from "astro:assets";
+import PostInfo from "@/components/PostInfo.astro";
 
 interface Props {
 	post: Post;
+	views?: number;
 }
 
-const {post} = Astro.props;
+const {post, views} = Astro.props;
 ---
 
 <article
@@ -54,7 +56,7 @@ const {post} = Astro.props;
 	<div class="col-span-3 lg:!col-end-5">
 		<h1
 			role="heading"
-			data-weight="30"
+			data-weight="50"
 			data-pagefind-meta="title"
 			data-pagefind-sort="weight[data-weight]"
 			class="xs:text-2xl text-xl sm:text-3xl lg:text-4xl"
@@ -63,13 +65,17 @@ const {post} = Astro.props;
 		</h1>
 	</div>
 
+	<div class="col-span-3 row-start-3">
+		<PostInfo post={post} views={views} />
+	</div>
+
 	<div class="col-span-3 lg:!col-end-5">
 		<p class="prose max-w-full">
 			{post.description}
 		</p>
 	</div>
 
-	<div class="col-span-3 row-start-4 lg:!col-start-4 lg:!col-end-5">
+	<div class="col-span-3 lg:!col-start-4 lg:!col-end-5">
 		<div class="sticky top-10 w-full">
 			<TableOfContent headings={post.headings} />
 		</div>
@@ -77,7 +83,7 @@ const {post} = Astro.props;
 
 	<div
 		class:list={[
-			"prose col-span-3 row-start-4 max-w-full sm:prose-base lg:!col-end-4 lg:!max-w-[65vw]",
+			"prose col-span-3 row-start-5 max-w-full sm:prose-base lg:!col-end-4 lg:!max-w-[65vw]",
 		]}
 	>
 		<slot>content not found</slot>

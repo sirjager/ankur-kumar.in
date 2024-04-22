@@ -1,0 +1,50 @@
+---
+import type {Post} from "@/content";
+import {getColors, parseDate} from "@/lib/utils";
+import Link from "@/components/Link.astro";
+
+interface Props {
+	post: Post;
+	views?: number;
+}
+
+const {post, views} = Astro.props;
+const date = parseDate(post.published.toISOString());
+---
+
+<div class="flex items-center gap-3">
+	<div>
+		Views: {views}
+	</div>
+
+	<div class="flex items-center gap-2">
+		{date?.date}
+		{date?.month}
+		{date?.year}
+	</div>
+
+	<div data-pagefind-filter="category">
+		{post.category}
+	</div>
+
+	<div class="flex flex-wrap items-center gap-2">
+		Tags:
+		<div class="flex flex-wrap items-center gap-2">
+			{
+				post.tags.map((tag) => {
+					const clr = getColors();
+					return (
+						<Link
+							href={`/tags/${tag}`}
+							style={{backgroundColor: clr.bg, borderColor: clr.fg}}
+							class="rounded-btn px-3 py-2"
+							data-pagefind-filter="tag"
+						>
+							#{tag}
+						</Link>
+					);
+				})
+			}
+		</div>
+	</div>
+</div>
