@@ -11,46 +11,35 @@ export default component$<Props>(({opened = true, headings}) => {
 
 	return (
 		<div id="toc" class="group/toc relative text-sm">
-			<div class="relative flex items-center gap-6 py-1 lg:justify-center lg:py-2">
+			<button
+				onClick$={() => (state.opened = !state.opened)}
+				class="btn btn-ghost no-animation relative flex w-full items-center gap-6 py-1 lg:justify-center lg:py-2"
+			>
 				<div
 					aria-hidden="true"
 					class="absolute bottom-0 h-1.5 w-full transition duration-300 ease-in-out"
 				></div>
 				<p class="font-bold uppercase group-hover/toc:text-accent">Table of Contents</p>
-
-				<button
-					onClick$={() => (state.opened = !state.opened)}
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 24 24"
+					stroke-width="1.5"
+					fill="none"
+					stroke-linecap="round"
+					stroke-linejoin="round"
 					class={[
-						"group/tgthm border border-neutral/20 transition-all duration-300 ease-in-out dark:border-neutral-content/40",
-						"btn-square btn-sm relative grid place-items-center overflow-clip rounded-btn p-0",
-						"after:transition-all after:duration-300 after:ease-in-out",
-						"after:absolute after:h-full after:w-full after:rounded-btn after:bg-base-content after:content-['']",
-						"after:-bottom-full hover:after:bottom-0",
+						"h-5 w-5 -rotate-90 stroke-base-content group-hover/tgthm:stroke-base-200",
+						"transition duration-300 ease-in-out",
+						{
+							"rotate-0": state.opened,
+						},
 					]}
 				>
-					<span class="z-[1]">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							viewBox="0 0 24 24"
-							stroke-width="1.5"
-							fill="none"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							class={[
-								"h-5 w-5 -rotate-90 stroke-base-content group-hover/tgthm:stroke-base-200",
-								"transition duration-300 ease-in-out",
-								{
-									"rotate-0": state.opened,
-								},
-							]}
-						>
-							<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-							<path d="M15 11l-3 3l-3 -3"></path>
-							<path d="M12 3c7.2 0 9 1.8 9 9s-1.8 9 -9 9s-9 -1.8 -9 -9s1.8 -9 9 -9z"></path>
-						</svg>
-					</span>
-				</button>
-			</div>
+					<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+					<path d="M15 11l-3 3l-3 -3"></path>
+					<path d="M12 3c7.2 0 9 1.8 9 9s-1.8 9 -9 9s-9 -1.8 -9 -9s1.8 -9 9 -9z"></path>
+				</svg>
+			</button>
 
 			<ul
 				id="toc-list"
@@ -68,7 +57,7 @@ export default component$<Props>(({opened = true, headings}) => {
 							key={heading.slug}
 							id={`tocli-${heading.slug}`}
 							class={[
-								"group/hblock tocli relative flex flex-col justify-center border-l border-base-300 py-0.5 text-xs xl:text-sm",
+								"group/hblock tocli relative flex flex-col justify-center border-l border-base-300 py-0.5",
 								{
 									hidden: !state.opened,
 								},

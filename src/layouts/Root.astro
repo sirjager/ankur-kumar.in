@@ -1,10 +1,10 @@
 ---
-import "@/styles.css";
+import ScrollWatcher from "@/components/ScrollWatcher.astro";
+import Footer from "@/components/footer/Footer.astro";
+import Navbar from "@/components/navbar/Navbar.astro";
 import Head from "@/layouts/Head.astro";
 import Scripts from "@/layouts/Scripts.astro";
-import Navbar from "@/components/navbar/Navbar.astro";
-import Footer from "@/components/footer/Footer.astro";
-import ScrollWatcher from "@/components/ScrollWatcher.astro";
+import "@/styles.css";
 ---
 
 <!doctype html>
@@ -14,7 +14,7 @@ import ScrollWatcher from "@/components/ScrollWatcher.astro";
 	</head>
 	<body
 		class:list={[
-			"font-roboto font-light text-base-content antialiased",
+			"font-body font-light text-base-content antialiased",
 			"transition duration-300 ease-in-out",
 		]}
 	>

@@ -1,12 +1,12 @@
 import {themes} from "./src/lib/themes";
 import defaultTheme from "tailwindcss/defaultTheme";
+import daisyThemes from "daisyui/src/theming/themes";
 
 /** @type {import('tailwindcss').Config} */
 export default {
 	darkMode: "class",
 	plugins: [
 		require("@tailwindcss/container-queries"),
-		require("@tailwindcss/aspect-ratio"),
 		require("@tailwindcss/typography"),
 		require("daisyui"),
 	],
@@ -18,7 +18,31 @@ export default {
 		utils: true,
 		logs: false,
 		prefix: "",
-		themes: themes,
+		themes: [
+			...themes,
+			{
+				cupcake: {
+					...daisyThemes.cupcake,
+					accent: "#F58840",
+					"accent-content": "#FFFFFF",
+					"--rounded-box": "0.75rem",
+					"--rounded-btn": "0.7rem",
+				},
+			},
+			{
+				business: {
+					...daisyThemes.business,
+					"base-100": "#21201E",
+					"base-200": "#323130",
+					"base-300": "#302e2c",
+					"base-content": "#ECF0F1",
+					accent: "#F58840",
+					"accent-content": "#FFFFFF",
+					"--rounded-box": "0.75rem",
+					"--rounded-btn": "0.7rem",
+				},
+			},
+		],
 	},
 	theme: {
 		container: {
@@ -27,7 +51,7 @@ export default {
 		},
 		fontFamily: {
 			rocksalt: ["Rock Salt", "cursive", ...defaultTheme.fontFamily.sans],
-			roboto: ["Roboto", ...defaultTheme.fontFamily.sans],
+			body: ["Roboto", ...defaultTheme.fontFamily.sans],
 		},
 	},
 };

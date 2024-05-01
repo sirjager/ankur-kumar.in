@@ -79,3 +79,69 @@
 		@apply !fill-base-content !stroke-base-content;
 	}
 }
+
+#searchui {
+	* {
+		@apply border-base-content/10 text-base-content;
+	}
+
+	mark {
+		@apply rounded-sm bg-primary text-primary-content underline;
+	}
+
+	.pagefind-ui__search-input {
+		@apply input input-bordered w-full pl-10 text-base-content focus:input-accent;
+	}
+
+	.pagefind-ui__search-clear {
+		@apply btn btn-error btn-sm absolute right-2 mt-1.5 text-error-content;
+	}
+
+	.pagefind-ui__filter-checkbox {
+		@apply checkbox-accent checkbox checkbox-xs h-5 w-5 border-none bg-base-300;
+	}
+
+	.pagefind-ui__message {
+		@apply px-4;
+	}
+
+	.pagefind-ui__results {
+		@apply space-y-2 px-2;
+	}
+
+	.pagefind-ui__result {
+		@apply p-2;
+	}
+
+	.pagefind-ui__result-thumb {
+		@apply avatar;
+
+		.pagefind-ui__result-image {
+			@apply h-20 min-h-20 min-w-32 max-w-32 rounded-box;
+		}
+	}
+
+	.pagefind-ui__result-title {
+		@apply text-lg font-medium;
+
+		.pagefind-ui__result-link {
+			@apply !no-underline;
+		}
+	}
+
+	.pagefind-ui__filter-group {
+		@apply pt-2;
+	}
+
+	.pagefind-ui__filter-block {
+		@apply cursor-pointer border-b-2;
+	}
+
+	.pagefind-ui__filter-label {
+		@apply w-full cursor-pointer text-xs;
+	}
+
+	.pagefind-ui__filter-name {
+		@apply px-2 py-3;
+	}
+}

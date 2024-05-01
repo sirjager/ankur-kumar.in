@@ -29,7 +29,7 @@ const sections = [
 <div class="mt-36 w-full bg-base-100 text-base-content @container">
 	<div class="grid @2xl:grid-cols-4">
 		<div class="col-span-2 flex items-center justify-end p-4">
-			<div class="max-w-lg space-y-6">
+			<div class="max-w-xl space-y-6">
 				<div class="relative">
 					<Logo />
 				</div>
@@ -42,7 +42,7 @@ const sections = [
 		</div>
 
 		<div class="col-span-2 row-span-2 flex items-center p-4">
-			<div class="w-full max-w-lg space-y-8">
+			<div class="w-full max-w-xl space-y-8">
 				<div>
 					<p class="font-bold uppercase">Newletter</p>
 					<p class="text-4xl font-bold lg:text-5xl">
@@ -87,15 +87,13 @@ const sections = [
 									<header class="text-lg font-bold text-base-content">{section.title}</header>
 								)}
 
-								{section.title && section.items && (
-									<div class="space-y-2">
-										{section.items.map((item, index) => (
-											<Link key={index} href={item.link} class="link-hover link block capitalize">
-												{item.label}
-											</Link>
-										))}
-									</div>
-								)}
+								<div class="space-y-2">
+									{section.items.map((item, index) => (
+										<Link key={index} href={item.link} class="link-hover link block capitalize">
+											{item.label}
+										</Link>
+									))}
+								</div>
 							</nav>
 						))
 					}

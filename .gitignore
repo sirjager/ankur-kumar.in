@@ -37,6 +37,8 @@ tmp-*
 .vercel
 *.tsbuildinfo
 
+# Pagefind search
+**/_pagefind
 
 
 # NOTE: Obsidian Related Files
@@ -48,6 +50,7 @@ tmp-*
 
 # icons zips and lots of icon files by iconize plugin
 **/icons
+!public/icons
 
 # WARN: 
 # data.json are plugin settings 
@@ -83,9 +86,3 @@ data.json
 !**/table-editor-obsidian/data.json
 !**/obsidian-excalidraw-plugin/data.json
 
-
-#NOTE: ignoring files dir,
-# because it can overload git repository
-# files are can be up by another service like rclone, gdrive,mega sync etc
-./files/
-./assets/

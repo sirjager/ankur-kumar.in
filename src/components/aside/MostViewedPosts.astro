@@ -1,0 +1,73 @@
+---
+
+---
+
+<script>
+	import {getCollection} from "astro:content";
+	import {toPosts, type Post} from "@/content";
+	const collection = await getCollection("blog");
+	const posts = toPosts(collection);
+	const res = await fetch("/api/views?path=*");
+	const all = await res.json();
+	const sorted = all.sort((a: any, b: any) => b.views - a.views).slice(0, 4);
+	const popular: Post[] = sorted.map((post: any) => posts.find((p: any) => p.slug === post.slug));
+
+	const ele = document.getElementById("most-viewed-posts");
+	if (ele) {
+		while (ele.firstChild) {
+			ele.removeChild(ele.firstChild);
+		}
+
+		const container = document.createElement("div");
+		container.classList.add("flex", "flex-col", "gap-2");
+
+		popular.forEach((post) => {
+			const link = document.createElement("a");
+			link.href = `/blog/${post.slug}`;
+			link.classList.add("group/title", "flex", "relative", "gap-2", "overflow-clip");
+
+			const image = document.createElement("img");
+			image.src = "https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg";
+			image.alt = post.title;
+			image.classList.add("h-16", "rounded-box", "max-h-16", "w-16", "max-w-16");
+			link.appendChild(image);
+
+			const title = document.createElement("div");
+			title.classList.add("line-clamp-2", "text-sm", "group-hover/title:underline");
+			title.textContent = post.title;
+			link.appendChild(title);
+
+			container.appendChild(link);
+		});
+
+		ele.appendChild(container);
+	}
+</script>
+
+<div class="group/catcard relative rounded-box border border-base-content/20">
+	<div class:list={["relative mt-4 w-full"]}>
+		<div class="absolute top-1/2 h-0.5 w-full bg-accent"></div>
+		<div class="w-fit select-none">
+			<div class="relative ml-4 bg-base-100 px-2 text-sm font-bold uppercase">Most</div>
+		</div>
+	</div>
+
+	<div class="pl-6 pr-2 text-3xl font-bold uppercase">Viewed</div>
+
+	<div id="most-viewed-posts" class="flex flex-col gap-2 p-4">
+		{
+			Array.from({length: 3}).map(() => {
+				return (
+					<div class:list={["group/title flex gap-2 overflow-clip"]}>
+						<div class="skeleton h-16 max-h-16 w-16 min-w-16 max-w-16" />
+						<div class="relative w-full space-y-1">
+							<div class="skeleton h-4 w-full" />
+							<div class="skeleton h-4 w-3/4" />
+							<div class="skeleton h-4 w-1/2" />
+						</div>
+					</div>
+				);
+			})
+		}
+	</div>
+</div>

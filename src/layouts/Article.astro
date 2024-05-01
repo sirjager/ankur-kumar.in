@@ -1,7 +1,11 @@
 ---
 import TableOfContent from "@/components/TableOfContent";
-import type {Post} from "@/content/config";
+import type {Post} from "@/content";
 import {Picture} from "astro:assets";
+import DatePublished from "@/components/stats/DatePublished.astro";
+import ReadTime from "@/components/stats/ReadTime.astro";
+import Category from "@/components/stats/Category.astro";
+import ViewsCounter from "@/components/stats/ViewsCounter.svelte";
 
 interface Props {
 	post: Post;
@@ -14,10 +18,11 @@ const {post} = Astro.props;
 	role="article"
 	data-pagefind-body
 	class:list={[
-		"relative grid",
-		"mt-24 gap-y-8 px-4 pb-40 lg:gap-x-4 lg:px-0",
-		"grid-cols-[min(640px,100%)] [&>*]:col-start-1 lg:[&>*]:col-start-2",
-		"lg:grid-cols-[1fr,minmax(auto,224px),min(640px,100%),minmax(auto,224px),1fr]",
+		"relative mt-24 grid @container",
+		"gap-y-8 px-4 lg:gap-x-4 lg:px-0",
+		"grid-cols-[1fr,min(640px,100%),1fr]",
+		"lg:grid-cols-[1fr,minmax(auto,224px),min(500px,100%),minmax(260px,224px),1fr]",
+		"[&>*]:col-start-1 lg:[&>*]:col-start-2",
 	]}
 >
 	<figure
@@ -35,7 +40,6 @@ const {post} = Astro.props;
 			]}
 		>
 		</div>
-
 		<Picture
 			alt={post.title}
 			quality="low"
@@ -47,13 +51,14 @@ const {post} = Astro.props;
 			sizes={"(max-width: 360px) 240px, (max-width: 480px) 360px, (max-width: 768px) 480px, (max-width: 1024px) 768px, (max-width: 1280px) 1024px, (max-width: 1920px) 1280px"}
 			style={{top: `-${post.banner_y * 86}%`}}
 			class="absolute left-0 rounded-box transition duration-1000 ease-in-out hover:scale-110"
+			data-pagefind-meta="image[src], image_alt[alt]"
 		/>
 	</figure>
 
 	<div class="col-span-3 lg:!col-end-5">
 		<h1
 			role="heading"
-			data-weight="30"
+			data-weight="50"
 			data-pagefind-meta="title"
 			data-pagefind-sort="weight[data-weight]"
 			class="xs:text-2xl text-xl sm:text-3xl lg:text-4xl"
@@ -62,19 +67,26 @@ const {post} = Astro.props;
 		</h1>
 	</div>
 
+	<div class:list={["col-span-3 row-start-3", "flex flex-wrap items-center gap-2 text-sm"]}>
+		<DatePublished published={post.published} />
+		<ReadTime readtime={post.readtime} />
+		<Category category={post.category} />
+		<ViewsCounter slug={post.slug} client:idle />
+	</div>
+
 	<div class="col-span-3 lg:!col-end-5">
 		<p class="prose max-w-full">
 			{post.description}
 		</p>
 	</div>
 
-	<div class="col-span-3 row-start-4 lg:!col-start-4 lg:!col-end-5">
+	<div class="col-span-3 row-start-5 lg:!col-start-4 lg:!col-end-5">
 		<div class="sticky top-10 w-full">
 			<TableOfContent headings={post.headings} />
 		</div>
 	</div>
 
-	<div class:list={["prose col-span-3 max-w-full sm:prose-base lg:!col-end-4 lg:!max-w-[65vw]"]}>
+	<div class:list={["col-span-3 max-w-full lg:!col-end-4 lg:!row-start-5", "prose sm:prose-base"]}>
 		<slot>content not found</slot>
 	</div>
 </article>
