@@ -6,6 +6,7 @@ import {getCategories, getTags, toPosts} from "@/content";
 import PageFind from "@/components/PageFind.astro";
 import AsideItems from "@/components/aside/AsideItems.astro";
 import AsidePosts from "@/components/aside/AsidePosts.astro";
+import MostViewedPosts from "@/components/aside/MostViewedPosts.astro";
 
 const collection = await getCollection("blog");
 const posts = toPosts(collection);
@@ -17,7 +18,7 @@ const tags = getTags(posts);
 <Root>
 	<div
 		class:list={[
-			"mx-auto h-full max-w-6xl overflow-clip",
+			"mx-auto h-full max-w-7xl overflow-clip",
 			"grid grid-cols-1",
 			"gap-4 p-4 sm:gap-8 sm:p-8",
 			"lg:grid-cols-[minmax(0,1fr),18.75rem]",
@@ -35,7 +36,7 @@ const tags = getTags(posts);
 			<AsideItems items={categories} title="Categories" />
 			<AsideItems items={tags} title="tags" />
 			<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-1">
-				<AsidePosts label="Most" title="Read" posts={posts} />
+				<MostViewedPosts />
 				<AsidePosts label="Posts" title="Popular" posts={posts} />
 			</div>
 		</aside>

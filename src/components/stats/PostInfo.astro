@@ -2,21 +2,17 @@
 import type {Post} from "@/content";
 import {getColors, parseDate} from "@/lib/utils";
 import Link from "@/components/Link.astro";
+import ViewsCounter from "@/components/stats/ViewsCounter.svelte";
 
 interface Props {
 	post: Post;
-	views?: number;
 }
 
-const {post, views} = Astro.props;
+const {post} = Astro.props;
 const date = parseDate(post.published.toISOString());
 ---
 
 <div class="flex items-center gap-3">
-	<div>
-		Views: {views}
-	</div>
-
 	<div class="flex items-center gap-2">
 		{date?.date}
 		{date?.month}
@@ -46,5 +42,9 @@ const date = parseDate(post.published.toISOString());
 				})
 			}
 		</div>
+	</div>
+
+	<div class="min-w-5">
+		<ViewsCounter slug={post.slug} client:idle />
 	</div>
 </div>

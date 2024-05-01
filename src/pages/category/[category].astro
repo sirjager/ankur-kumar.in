@@ -1,8 +1,12 @@
 ---
 import Root from "@/layouts/Root.astro";
 import PostsGrid from "@/components/PostsGrid.astro";
+import AsideItems from "@/components/aside/AsideItems.astro";
+import AsidePosts from "@/components/aside/AsidePosts.astro";
+import MostViewedPosts from "@/components/aside/MostViewedPosts.astro";
+
 import {getCollection} from "astro:content";
-import {toPosts, getCategories} from "@/content";
+import {toPosts, getCategories, getTags} from "@/content";
 
 export async function getStaticPaths() {
 	const posts = toPosts(await getCollection("blog"));
@@ -11,18 +15,22 @@ export async function getStaticPaths() {
 		params: {category},
 		props: {
 			posts: posts.filter((post) => post.category === category),
+			allPosts: posts,
 		},
 	}));
 }
 
 const {category} = Astro.params;
-const {posts} = Astro.props;
+const {posts, allPosts} = Astro.props;
+
+const categories = getCategories(allPosts);
+const tags = getTags(allPosts);
 ---
 
 <Root>
 	<div
 		class:list={[
-			"mx-auto h-full max-w-6xl overflow-clip",
+			"mx-auto h-full max-w-7xl overflow-clip",
 			"grid grid-cols-1",
 			"gap-4 p-4 sm:gap-8 sm:p-8",
 			"lg:grid-cols-[minmax(0,1fr),18.75rem]",
@@ -36,7 +44,12 @@ const {posts} = Astro.props;
 		</div>
 
 		<aside class="space-y-4">
-			<div class="glass h-full"></div>
+			<AsideItems items={categories} title="Categories" />
+			<AsideItems items={tags} title="tags" />
+			<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-1">
+				<MostViewedPosts />
+				<AsidePosts label="Posts" title="Popular" posts={posts} />
+			</div>
 		</aside>
 	</div>
 </Root>

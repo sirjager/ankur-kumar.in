@@ -21,12 +21,11 @@ const {link = `/${title}`.toLowerCase()} = Astro.props;
 					"group mx-auto inline-block w-fit text-sm",
 					"skew-x-12 transform",
 					"transition-transform duration-300 ease-in-out",
-					"group-hover/catcard:-skew-x-12",
 				]}
 			>
 				<span
 					class:list={[
-						"absolute inset-0 transition-transform group-hover:translate-x-0 group-hover:translate-y-0",
+						"absolute inset-0",
 						"translate-x-1 translate-y-1 -skew-x-12 transform rounded-box bg-base-content/20",
 					]}></span>
 				<div

@@ -13,13 +13,10 @@ const {slug} = Astro.params;
 const entry = await getEntry("blog", slug);
 const {Content, ...rest} = await entry.render();
 const post = toPost(entry, rest);
-const res = await fetch(slug);
-if (res.status !== 200) return null;
-const {views} = await res.json();
 ---
 
 <Root>
-	<Article post={post} views={views}>
+	<Article post={post}>
 		<Content />
 	</Article>
 </Root>

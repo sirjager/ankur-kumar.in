@@ -2,6 +2,7 @@ import mdx from "@astrojs/mdx";
 import partytown from "@astrojs/partytown";
 import tailwind from "@astrojs/tailwind";
 import qwik from "@qwikdev/astro";
+import svelte from "@astrojs/svelte";
 import robots from "astro-robots-txt";
 import webmanifest from "astro-webmanifest";
 import {defineConfig} from "astro/config";
@@ -36,6 +37,7 @@ export default defineConfig({
 			extendMarkdownConfig: true,
 		}),
 		qwik(),
+		svelte(),
 		tailwind(),
 		partytown({
 			config: {
