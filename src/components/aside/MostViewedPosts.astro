@@ -44,7 +44,13 @@
 	}
 </script>
 
-<div class="group/catcard relative rounded-box border border-base-content/20">
+<div
+	class:list={[
+		"group/catcard relative rounded-box",
+		"border border-base-content/20 hover:border-accent",
+		"transition duration-300 ease-in-out",
+	]}
+>
 	<div class:list={["relative mt-4 w-full"]}>
 		<div class="absolute top-1/2 h-0.5 w-full bg-accent"></div>
 		<div class="w-fit select-none">
@@ -52,22 +58,30 @@
 		</div>
 	</div>
 
-	<div class="pl-6 pr-2 text-3xl font-bold uppercase">Viewed</div>
+	<ul>
+		<details open>
+			<summary
+				class="flex cursor-pointer select-none items-center pb-2 pl-6 pr-2 text-3xl font-bold uppercase text-accent"
+			>
+				Viewed
+			</summary>
 
-	<div id="most-viewed-posts" class="flex flex-col gap-2 p-4">
-		{
-			Array.from({length: 3}).map(() => {
-				return (
-					<div class:list={["group/title flex gap-2 overflow-clip"]}>
-						<div class="skeleton h-16 max-h-16 w-16 min-w-16 max-w-16" />
-						<div class="relative w-full space-y-1">
-							<div class="skeleton h-4 w-full" />
-							<div class="skeleton h-4 w-3/4" />
-							<div class="skeleton h-4 w-1/2" />
-						</div>
-					</div>
-				);
-			})
-		}
-	</div>
+			<ul id="most-viewed-posts" class="flex flex-col gap-2 p-4">
+				{
+					Array.from({length: 3}).map(() => {
+						return (
+							<li class:list={["group/title flex gap-2 overflow-clip"]}>
+								<div class="skeleton h-16 max-h-16 w-16 min-w-16 max-w-16" />
+								<div class="relative w-full space-y-1">
+									<div class="skeleton h-4 w-full" />
+									<div class="skeleton h-4 w-3/4" />
+									<div class="skeleton h-4 w-1/2" />
+								</div>
+							</li>
+						);
+					})
+				}
+			</ul>
+		</details>
+	</ul>
 </div>

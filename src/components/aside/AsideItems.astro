@@ -11,7 +11,13 @@ const {items, title} = Astro.props;
 const {link = `/${title}`.toLowerCase()} = Astro.props;
 ---
 
-<div class="group/catcard relative rounded-box border border-base-content/20">
+<div
+	class:list={[
+		"group/catcard relative rounded-box border border-base-content/20",
+		"border border-base-content/20 hover:border-accent",
+		"transition duration-300 ease-in-out",
+	]}
+>
 	<div class:list={["relative mt-4 w-full"]}>
 		<div class="absolute top-1/2 h-0.5 w-full bg-base-content/20"></div>
 

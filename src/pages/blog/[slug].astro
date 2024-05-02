@@ -1,8 +1,8 @@
 ---
 import Root from "@/layouts/Root.astro";
 import {getCollection, getEntry} from "astro:content";
-import {toPost} from "@/content";
 import Article from "@/layouts/Article.astro";
+import {getCategories, getTags, toPost, toPosts} from "@/content";
 
 export async function getStaticPaths() {
 	const c = await getCollection("blog");
@@ -13,10 +13,16 @@ const {slug} = Astro.params;
 const entry = await getEntry("blog", slug);
 const {Content, ...rest} = await entry.render();
 const post = toPost(entry, rest);
+
+const collection = await getCollection("blog");
+const posts = toPosts(collection);
+
+const categories = getCategories(posts);
+const tags = getTags(posts);
 ---
 
 <Root>
-	<Article post={post}>
+	<Article allPosts={posts} post={post} categories={categories} tags={tags}>
 		<Content />
 	</Article>
 </Root>

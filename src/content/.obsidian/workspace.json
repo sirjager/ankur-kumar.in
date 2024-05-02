@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "dd286580e65e789b",
+        "id": "0ffbf3f5dd112c0b",
         "type": "tabs",
         "children": [
           {
-            "id": "6637714ac8777ba5",
+            "id": "dec2b35ca371f903",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -185,7 +185,7 @@
       "homepage:Open homepage": false
     }
   },
-  "active": "6637714ac8777ba5",
+  "active": "dec2b35ca371f903",
   "lastOpenFiles": [
     "blog/third-post.md",
     "blog/second-post.md",

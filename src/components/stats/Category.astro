@@ -1,11 +1,12 @@
 ---
+import Link from "@/components/Link.astro";
 interface Props {
 	category: string;
 }
 const {category} = Astro.props;
 ---
 
-<div class="flex items-center gap-1 rounded-badge p-2 shadow">
+<Link href={`/categories/${category}`} class="flex items-center gap-1 rounded-badge p-2 shadow">
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 24 24"
@@ -24,4 +25,4 @@ const {category} = Astro.props;
 	<div>
 		{category}
 	</div>
-</div>
+</Link>
