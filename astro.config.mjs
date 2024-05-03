@@ -76,7 +76,7 @@ export default defineConfig({
 	prefetch: {
 		defaultStrategy: "viewport",
 	},
-	output: "server",
+	output: "hybrid",
 	adapter: cloudflare({imageService: "cloudflare"}),
 	image: {
 		remotePatterns: [{protocol: "https"}, {protocol: "http"}],
