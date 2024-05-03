@@ -66,7 +66,7 @@ export default defineConfig({
 	prefetch: {
 		defaultStrategy: "viewport",
 	},
-	output: "hybrid",
+	output: "server",
 	adapter: cloudflare({
 		wasmModuleImports: true,
 	}),
