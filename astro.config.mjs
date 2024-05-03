@@ -80,6 +80,9 @@ export default defineConfig({
 	adapter: cloudflare({
 		imageService: "cloudflare",
 		wasmModuleImports: true,
+		platformProxy: {
+			enabled: true,
+		},
 	}),
 	image: {
 		remotePatterns: [{protocol: "https"}, {protocol: "http"}],
