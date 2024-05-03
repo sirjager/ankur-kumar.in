@@ -9,7 +9,8 @@ import {defineConfig} from "astro/config";
 import {loadEnv} from "vite";
 
 // adapters
-import cloudflare from "@astrojs/cloudflare";
+import node from "@astrojs/node";
+import vercel from "@astrojs/vercel/serverless";
 
 import {toString} from "mdast-util-to-string";
 import readingTime from "reading-time";
@@ -66,10 +67,8 @@ export default defineConfig({
 	prefetch: {
 		defaultStrategy: "viewport",
 	},
-	output: "server",
-	adapter: cloudflare({
-		wasmModuleImports: true,
-	}),
+	output: "hybrid",
+	adapter: process.env.NODE_ENV === "development" ? node({mode: "standalone"}) : vercel(),
 	image: {
 		remotePatterns: [{protocol: "https"}, {protocol: "http"}],
 	},

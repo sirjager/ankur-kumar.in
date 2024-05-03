@@ -1,6 +1,4 @@
 /* eslint-disable quotes */
-export const prerender = true;
-
 import {toPosts} from "@/content";
 import {site} from "@/lib/constants";
 import type {APIRoute} from "astro";

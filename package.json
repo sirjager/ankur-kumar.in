@@ -11,8 +11,8 @@
 		"prepare": "husky",
 		"postbuild": "npm run pagefind",
 		"lint": "eslint . --fix",
-		"pagefind": "pagefind --site dist --output-subdir _pagefind",
-		"pagefind-dev": "rm -rf ./public/_pagefind && cp -rf ./dist/_pagefind ./public",
+		"pagefind": "pagefind --site .vercel/output/static --output-subdir _pagefind",
+		"pagefind-dev": "rm -rf ./public/_pagefind && cp -rf .vercel/output/static/_pagefind ./public",
 		"format": "prettier --write . && prettier --check ."
 	},
 	"dependencies": {

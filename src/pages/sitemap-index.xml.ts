@@ -1,5 +1,4 @@
 /* eslint-disable quotes */
-export const prerender = true;
 import {site} from "@/lib/constants";
 import type {APIRoute} from "astro";
 import {getCollection} from "astro:content";
