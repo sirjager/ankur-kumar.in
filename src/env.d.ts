@@ -6,6 +6,8 @@ interface ImportMetaEnv {
 	readonly APP_NAME: string;
 	readonly COUNTER_API_KEY: string;
 	readonly REDIS_CONNECTION_STRING: string;
+	readonly REDIS_REST_ENDPOINT: string;
+	readonly REDIS_ACCESS_TOKEN: string;
 }
 
 interface ImportMeta {

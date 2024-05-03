@@ -7,10 +7,10 @@
 	import {toPosts, type Post} from "@/content";
 	const collection = await getCollection("blog");
 	const posts = toPosts(collection);
-	const res = await fetch("/api/views?path=*");
+	const res = await fetch("/api/views");
 	const all = await res.json();
 	const sorted = all.sort((a: any, b: any) => b.views - a.views).slice(0, 4);
-	const popular: Post[] = sorted.map((post: any) => posts.find((p: any) => p.slug === post.slug));
+	const popular: Post[] = sorted.map((views: any) => posts.find((p: any) => p.slug === views.path));
 
 	const ele = document.getElementById("most-viewed-posts");
 	if (ele) {
@@ -27,9 +27,10 @@
 			link.classList.add("group/title", "flex", "relative", "gap-2", "overflow-clip");
 
 			const image = document.createElement("img");
-			image.src = "https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg";
+			image.src =
+				"https://images.pexels.com/photos/20866047/pexels-photo-20866047/free-photo-of-bee-on-flower.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
 			image.alt = post.title;
-			image.classList.add("h-16", "rounded-box", "max-h-16", "w-16", "max-w-16");
+			image.classList.add("h-16", "min-w-16", "rounded-box", "max-h-16", "w-16", "max-w-16");
 			link.appendChild(image);
 
 			const title = document.createElement("div");
@@ -68,7 +69,7 @@
 
 			<ul id="most-viewed-posts" class="flex flex-col gap-2 p-4">
 				{
-					Array.from({length: 3}).map(() => {
+					Array.from({length: 4}).map(() => {
 						return (
 							<li class:list={["group/title flex gap-2 overflow-clip"]}>
 								<div class="skeleton h-16 max-h-16 w-16 min-w-16 max-w-16" />

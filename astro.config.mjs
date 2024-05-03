@@ -9,9 +9,7 @@ import {defineConfig} from "astro/config";
 import {loadEnv} from "vite";
 
 // adapters
-import node from "@astrojs/node";
-import vercel from "@astrojs/vercel/serverless";
-// import cloudflare from "@astrojs/cloudflare";
+import cloudflare from "@astrojs/cloudflare";
 
 import {toString} from "mdast-util-to-string";
 import readingTime from "reading-time";
@@ -79,8 +77,8 @@ export default defineConfig({
 		defaultStrategy: "viewport",
 	},
 	output: "hybrid",
-	adapter: inDevelopment ? node({mode: "standalone"}) : vercel(),
-	// adapter: cloudflare({imageService: "cloudflare"}),
+	// adapter: inDevelopment ? node({mode: "standalone"}) : vercel(),
+	adapter: cloudflare({imageService: "cloudflare"}),
 	image: {
 		remotePatterns: [{protocol: "https"}, {protocol: "http"}],
 	},

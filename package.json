@@ -11,8 +11,8 @@
 		"prepare": "husky",
 		"postbuild": "npm run pagefind",
 		"lint": "eslint . --fix",
-		"pagefind": "pagefind --site dist/client --output-subdir _pagefind",
-		"pagefind-dev": "rm -rf ./public/_pagefind && cp -rf ./dist/client/_pagefind ./public",
+		"pagefind": "pagefind --site dist --output-subdir _pagefind",
+		"pagefind-dev": "rm -rf ./public/_pagefind && cp -rf ./dist/_pagefind ./public",
 		"format": "prettier --write . && prettier --check ."
 	},
 	"dependencies": {
@@ -28,7 +28,6 @@
 		"@qwikdev/astro": "^0.5.7",
 		"@unpic/qwik": "^0.0.44",
 		"astro": "^4.4.15",
-		"ioredis": "^5.4.1",
 		"sharp": "^0.33.2",
 		"svelte": "^4.2.15"
 	},
