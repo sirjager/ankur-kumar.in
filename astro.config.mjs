@@ -77,7 +77,16 @@ export default defineConfig({
 		defaultStrategy: "viewport",
 	},
 	output: "hybrid",
-	adapter: cloudflare({imageService: "cloudflare"}),
+	adapter: cloudflare({
+		imageService: "cloudflare",
+		wasmModuleImports: true,
+		routes: {
+			extend: {
+				include: [{pattern: "/static"}],
+				exclude: [{pattern: "/_pagefind/*"}],
+			},
+		},
+	}),
 	image: {
 		remotePatterns: [{protocol: "https"}, {protocol: "http"}],
 	},
