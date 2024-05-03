@@ -1,18 +1,30 @@
 ---
 import Root from "@/layouts/Root.astro";
 import PostsGrid from "@/components/PostsGrid.astro";
-import {getCollection} from "astro:content";
-import {getCategories, getTags, toPosts} from "@/content";
-import PageFind from "@/components/PageFind.astro";
 import AsideItems from "@/components/aside/AsideItems.astro";
 import AsidePosts from "@/components/aside/AsidePosts.astro";
 import MostViewedPosts from "@/components/aside/MostViewedPosts.astro";
 
-const collection = await getCollection("blog");
-const posts = toPosts(collection);
+import {getCollection} from "astro:content";
+import {toPosts, getCategories, getTags} from "@/content";
 
-const categories = getCategories(posts);
-const tags = getTags(posts);
+export async function getStaticPaths() {
+	const posts = toPosts(await getCollection("blog"));
+	const cateogires = getCategories(posts);
+	return cateogires.map((category) => ({
+		params: {category},
+		props: {
+			posts: posts.filter((post) => post.category === category),
+			allPosts: posts,
+		},
+	}));
+}
+
+const {category} = Astro.params;
+const {posts, allPosts} = Astro.props;
+
+const categories = getCategories(allPosts);
+const tags = getTags(allPosts);
 ---
 
 <Root>
@@ -25,10 +37,9 @@ const tags = getTags(posts);
 		]}
 	>
 		<div class="relative w-full">
-			<div>
-				<PageFind />
-			</div>
-
+			<h2>
+				Category: {category}
+			</h2>
 			<PostsGrid posts={posts} />
 		</div>
 

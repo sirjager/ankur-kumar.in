@@ -14,7 +14,7 @@
 		"types": [".astro/types.d.ts"]
 	},
 	"files": ["./.eslintrc.cjs"],
-	"exclude": ["node_modules", "dist", "tmp", ".obsidian", ".nx"],
+	"exclude": ["node_modules", "dist", "tmp", ".obsidian", ".nx", "_pagefind"],
 	"include": [
 		"src",
 		"**/*.ts",

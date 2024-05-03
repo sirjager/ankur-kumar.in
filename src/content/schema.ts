@@ -11,6 +11,7 @@ export const blogSchema = z.object({
 	status: z.enum(STATUS).default("draft"),
 	published: z.date(),
 	modifided: z.date(),
+	category: z.string().default(""),
 	title: z.string().min(6).max(80),
 	description: z.string().default(""),
 	tags: z.array(z.string()),

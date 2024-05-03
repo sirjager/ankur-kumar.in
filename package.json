@@ -12,7 +12,7 @@
 		"postbuild": "npm run pagefind",
 		"lint": "eslint . --fix",
 		"pagefind": "pagefind --site dist/client --output-subdir _pagefind",
-		"pagefind-dev": "pagefind --site dist/client --output-subdir ../../public/_pagefind",
+		"pagefind-dev": "rm -rf ./public/_pagefind && cp -rf ./dist/client/_pagefind ./public",
 		"format": "prettier --write . && prettier --check ."
 	},
 	"dependencies": {
@@ -21,13 +21,16 @@
 		"@astrojs/mdx": "^2.2.0",
 		"@astrojs/node": "^8.2.1",
 		"@astrojs/partytown": "^2.0.4",
+		"@astrojs/svelte": "^5.4.0",
 		"@astrojs/tailwind": "^5.1.0",
 		"@astrojs/vercel": "^7.5.3",
 		"@builder.io/qwik": "^1.4.5",
 		"@qwikdev/astro": "^0.5.7",
 		"@unpic/qwik": "^0.0.44",
 		"astro": "^4.4.15",
-		"sharp": "^0.33.2"
+		"ioredis": "^5.4.1",
+		"sharp": "^0.33.2",
+		"svelte": "^4.2.15"
 	},
 	"devDependencies": {
 		"@cloudinary/url-gen": "^1.19.0",
@@ -64,6 +67,7 @@
 		"prettier": "^3.2.5",
 		"prettier-plugin-astro": "0.13.0",
 		"prettier-plugin-tailwindcss": "^0.5.12",
+		"prisma": "^5.12.1",
 		"reading-time": "^1.5.0",
 		"rehype-autolink-headings": "^6.1.1",
 		"rehype-format": "^5.0.0",

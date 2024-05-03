@@ -1,5 +1,6 @@
 import mdx from "@astrojs/mdx";
 import partytown from "@astrojs/partytown";
+import svelte from "@astrojs/svelte";
 import tailwind from "@astrojs/tailwind";
 import qwik from "@qwikdev/astro";
 import robots from "astro-robots-txt";
@@ -36,6 +37,7 @@ export default defineConfig({
 			extendMarkdownConfig: true,
 		}),
 		qwik(),
+		svelte(),
 		tailwind(),
 		partytown({
 			config: {
@@ -50,14 +52,18 @@ export default defineConfig({
 			name: site.title,
 			lang: site.lang,
 			start_url: "",
-			icon: "./public/favicon.ico",
 			description: site.description,
 			display: "standalone",
 			theme_color: "#FFFFFF",
 			background_color: "#ffffff",
+			icon: "./public/favicon.ico",
 			icons: [
-				{src: "./public/icons/192x192.png", sizes: "192x192", type: "image/png"},
-				{src: "./public/icons/512x512.png", sizes: "512x512", type: "image/png"},
+				{src: "./public/icons/apple-touch-icon.png", sizes: "180x180", type: "image/png"},
+				{src: "./public/icons/favicon-16x16.png", sizes: "16x16", type: "image/png"},
+				{src: "./public/icons/favicon-32x32.png", sizes: "32x32", type: "image/png"},
+				{src: "./public/icons/android-chrome-48x48.png", sizes: "48x48", type: "image/png"},
+				{src: "./public/icons/android-chrome-192x192.png", sizes: "192x192", type: "image/png"},
+				{src: "./public/icons/android-chrome-512x512.png", sizes: "512x512", type: "image/png"},
 			],
 		}),
 	],
