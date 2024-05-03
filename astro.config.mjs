@@ -76,8 +76,7 @@ export default defineConfig({
 	prefetch: {
 		defaultStrategy: "viewport",
 	},
-	output: "hybrid",
-	// adapter: inDevelopment ? node({mode: "standalone"}) : vercel(),
+	output: "server",
 	adapter: cloudflare({imageService: "cloudflare"}),
 	image: {
 		remotePatterns: [{protocol: "https"}, {protocol: "http"}],
