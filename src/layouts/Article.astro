@@ -8,6 +8,7 @@ import ViewsCounter from "@/components/stats/ViewsCounter.svelte";
 import TableOfContent from "@/components/TableOfContent.astro";
 import AsideItems from "@/components/aside/AsideItems.astro";
 import AsidePosts from "@/components/aside/AsidePosts.astro";
+import PostComments from "@/components/PostComments.astro";
 
 interface Props {
 	post: Post;
@@ -105,5 +106,9 @@ const similarPosts = allPosts
 		class:list={["col-span-3 @6xl:max-w-full lg:!col-end-4 lg:!row-start-5", "prose sm:prose-base"]}
 	>
 		<slot>content not found</slot>
+	</div>
+
+	<div class="col-span-3 lg:!col-end-5">
+		<PostComments />
 	</div>
 </article>

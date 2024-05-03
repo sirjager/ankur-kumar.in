@@ -1,42 +1,21 @@
 ---
-import Link from "@/components/Link.astro";
 import Logo from "@/components/Logo.astro";
 import {parseDate} from "@/lib/utils";
+import FooterLinks from "./FooterLinks.astro";
+import {site} from "@/lib/constants";
 
 const year = parseDate(new Date().toISOString())?.year || new Date().getFullYear();
-
-const topics = [
-	{
-		slug: "blog",
-		name: "Blog",
-	},
-];
-
-const sections = [
-	{
-		title: "Topics",
-		link: "/blog",
-		items: [
-			{
-				link: "blog",
-				label: "Blog",
-			},
-		],
-	},
-];
 ---
 
 <div class="mt-36 w-full bg-base-100 text-base-content @container">
 	<div class="grid @2xl:grid-cols-4">
-		<div class="col-span-2 flex items-center justify-end p-4">
+		<div class="col-span-2 mx-auto flex max-w-lg items-center justify-end p-4">
 			<div class="max-w-xl space-y-6">
 				<div class="relative">
 					<Logo />
 				</div>
 				<p>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis ducimus, numquam soluta
-					dolore ratione nostrum earum sit dolores accusamus perspiciatis voluptas aspernatur
-					repudiandae assumenda iste ullam? At ipsum deleniti consequuntur.
+					{site.description}
 				</p>
 			</div>
 		</div>
@@ -66,39 +45,7 @@ const sections = [
 		</div>
 
 		<div class="col-span-2 flex items-center justify-end p-16">
-			<div class="w-full max-w-lg">
-				<div class="grid w-full gap-4 @sm:grid-cols-2 @5xl:grid-cols-3">
-					<nav class="space-y-3">
-						<header class="text-lg font-bold text-base-content">Topics</header>
-						<div class="space-y-2">
-							{
-								topics.map((topic) => (
-									<Link href={`/blog/${topic.slug}`} class="link-hover link block capitalize">
-										{topic.name}
-									</Link>
-								))
-							}
-						</div>
-					</nav>
-					{
-						sections.map((section) => (
-							<nav class="space-y-3">
-								{section.title && (
-									<header class="text-lg font-bold text-base-content">{section.title}</header>
-								)}
-
-								<div class="space-y-2">
-									{section.items.map((item, index) => (
-										<Link key={index} href={item.link} class="link-hover link block capitalize">
-											{item.label}
-										</Link>
-									))}
-								</div>
-							</nav>
-						))
-					}
-				</div>
-			</div>
+			<FooterLinks />
 		</div>
 	</div>
 	<footer class="footer footer-center p-4 text-base-content">

@@ -44,6 +44,32 @@
 	display: swap;
 }
 
+/* Text Selection And Selected Text Background Color */
+*::selection {
+	@apply bg-base-content text-base-100;
+}
+
+*::-moz-selection {
+	@apply bg-base-content text-base-100;
+}
+
+*::-webkit-selection {
+	@apply bg-base-content text-base-100;
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+	@apply h-2 w-[10px];
+}
+
+::-webkit-scrollbar-track {
+	@apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	@apply rounded-btn bg-base-content/50 bg-clip-content;
+}
+
 [id^="mermaid-"] {
 	.edgeLabel {
 		@apply !bg-base-200 !text-base-content;
