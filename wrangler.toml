@@ -1,5 +1,0 @@
-name = "portfolio"
-pages_build_output_dir = "./dist"
-compatibility_mode = "2024-04-08"
-compatibility_flags = ["nodejs_compat"]
-
