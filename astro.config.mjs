@@ -20,9 +20,7 @@ import {rehypePrettyCodeOptions} from "./rehype-prettycode-opts";
 import {site} from "./src/lib/constants";
 
 const _ = loadEnv(process.env.NODE_ENV, process.cwd(), "");
-const {APP_URL, NODE_ENV} = _;
-
-const inDevelopment = NODE_ENV === "development";
+const {APP_URL} = _;
 
 // https://astro.build/config
 export default defineConfig({
@@ -65,24 +63,12 @@ export default defineConfig({
 			],
 		}),
 	],
-	experimental: {
-		clientPrerender: true,
-		contentCollectionCache: inDevelopment ? false : true,
-	},
-	vite: {
-		logLevel: inDevelopment ? "info" : undefined,
-		cacheDir: "./.cache",
-	},
 	prefetch: {
 		defaultStrategy: "viewport",
 	},
 	output: "hybrid",
 	adapter: cloudflare({
-		imageService: "cloudflare",
 		wasmModuleImports: true,
-		platformProxy: {
-			enabled: true,
-		},
 	}),
 	image: {
 		remotePatterns: [{protocol: "https"}, {protocol: "http"}],

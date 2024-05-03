@@ -11,8 +11,8 @@ importers:
         specifier: ^0.5.6
         version: 0.5.6(prettier-plugin-astro@0.13.0)(prettier@3.2.5)(typescript@5.4.2)
       "@astrojs/cloudflare":
-        specifier: 0.0.0-ast-20240419160649
-        version: 0.0.0-ast-20240419160649(astro@4.4.15(@types/node@20.11.25)(typescript@5.4.2))
+        specifier: 10.2.5
+        version: 10.2.5(astro@4.4.15(@types/node@20.11.25)(typescript@5.4.2))
       "@astrojs/mdx":
         specifier: ^2.2.0
         version: 2.2.0(astro@4.4.15(@types/node@20.11.25)(typescript@5.4.2))
@@ -235,10 +235,10 @@ packages:
     peerDependencies:
       typescript: ^5.0.0
 
-  "@astrojs/cloudflare@0.0.0-ast-20240419160649":
+  "@astrojs/cloudflare@10.2.5":
     resolution:
       {
-        integrity: sha512-ZzwdkWYjUH+u5wdbEHUiU4wIAYalUnfW33HvdBOEAVdyESqmQUrUuGf4wfS7ikvFd2x6lpLick+ehZMn33+7hg==,
+        integrity: sha512-5tKPU5m/zYwz2CU9vCSKo4tgWsdD7xwpUlDkVbKPwgSkfVB6ZuXb8ffLYnahtUc1Gvh7HgaBSaagPVHGCp73WQ==,
       }
     peerDependencies:
       astro: ^4.2.0
@@ -9702,7 +9702,7 @@ snapshots:
       - prettier
       - prettier-plugin-astro
 
-  "@astrojs/cloudflare@0.0.0-ast-20240419160649(astro@4.4.15(@types/node@20.11.25)(typescript@5.4.2))":
+  "@astrojs/cloudflare@10.2.5(astro@4.4.15(@types/node@20.11.25)(typescript@5.4.2))":
     dependencies:
       "@astrojs/internal-helpers": 0.3.0
       "@astrojs/underscore-redirects": 0.3.3
