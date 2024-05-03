@@ -1,5 +1,4 @@
 /* eslint-disable quotes */
-
 import {toPosts} from "@/content";
 import {site} from "@/lib/constants";
 import type {APIRoute} from "astro";

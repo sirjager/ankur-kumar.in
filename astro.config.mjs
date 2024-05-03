@@ -11,7 +11,6 @@ import {loadEnv} from "vite";
 // adapters
 import node from "@astrojs/node";
 import vercel from "@astrojs/vercel/serverless";
-// import cloudflare from "@astrojs/cloudflare";
 
 import {toString} from "mdast-util-to-string";
 import readingTime from "reading-time";
@@ -22,9 +21,7 @@ import {rehypePrettyCodeOptions} from "./rehype-prettycode-opts";
 import {site} from "./src/lib/constants";
 
 const _ = loadEnv(process.env.NODE_ENV, process.cwd(), "");
-const {APP_URL, NODE_ENV} = _;
-
-const inDevelopment = NODE_ENV === "development";
+const {APP_URL} = _;
 
 // https://astro.build/config
 export default defineConfig({
@@ -67,20 +64,11 @@ export default defineConfig({
 			],
 		}),
 	],
-	experimental: {
-		clientPrerender: true,
-		contentCollectionCache: inDevelopment ? false : true,
-	},
-	vite: {
-		logLevel: inDevelopment ? "info" : undefined,
-		cacheDir: "./.cache",
-	},
 	prefetch: {
 		defaultStrategy: "viewport",
 	},
 	output: "hybrid",
-	adapter: inDevelopment ? node({mode: "standalone"}) : vercel(),
-	// adapter: cloudflare({imageService: "cloudflare"}),
+	adapter: process.env.NODE_ENV === "development" ? node({mode: "standalone"}) : vercel(),
 	image: {
 		remotePatterns: [{protocol: "https"}, {protocol: "http"}],
 	},

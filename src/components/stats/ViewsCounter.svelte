@@ -4,7 +4,7 @@
 	const views = writable(0);
 	const fetchViews = (async () => {
 		try {
-			const res = await fetch(`/api/views?path=${slug}`);
+			const res = await fetch(`/api/views/${slug}?incr`);
 			const data = await res.json();
 			animateViews(data.views);
 			return data;
