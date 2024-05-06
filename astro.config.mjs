@@ -19,10 +19,9 @@ import remarkToc from "remark-toc";
 import {rehypePrettyCodeOptions} from "./rehype-prettycode-opts";
 import {site} from "./src/lib/constants";
 
-const siteURL = process.node_ENV === "production" ? site.links.website : "http://localhost:4321";
 // https://astro.build/config
 export default defineConfig({
-	site: siteURL,
+	site: site.links.website,
 	trailingSlash: "ignore",
 	devToolbar: {enabled: false},
 	integrations: [
@@ -39,7 +38,7 @@ export default defineConfig({
 			},
 		}),
 		robots({
-			sitemap: `${siteURL}/${site.links.sitemap}`,
+			sitemap: `${site.links.website}/${site.links.sitemap}`,
 			policy: [{userAgent: "*", disallow: ["/admin"]}],
 		}),
 		webmanifest({
