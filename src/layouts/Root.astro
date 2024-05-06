@@ -4,13 +4,24 @@ import Footer from "@/components/footer/Footer.astro";
 import Navbar from "@/components/navbar/Navbar.astro";
 import Head from "@/layouts/Head.astro";
 import Scripts from "@/layouts/Scripts.astro";
+import SpeedInsights from "@vercel/speed-insights/astro";
 import "@/styles.css";
+import type {Props as HeadProps} from "./Head.astro";
+import {ViewTransitions} from "astro:transitions";
+import SiteUnderDevelopment from "@/components/SiteUnderDevelopment.astro";
+
+interface Props extends HeadProps {
+	viewTransitions?: boolean;
+}
+
+const {viewTransitions = true, ...props} = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<Head />
+		<Head {...props} />
+		{viewTransitions && <ViewTransitions />}
 	</head>
 	<body
 		class:list={[
@@ -19,9 +30,11 @@ import "@/styles.css";
 		]}
 	>
 		<ScrollWatcher />
+		<SiteUnderDevelopment />
 		<Navbar />
 		<slot />
 		<Footer />
 		<Scripts />
+		<SpeedInsights />
 	</body>
 </html>

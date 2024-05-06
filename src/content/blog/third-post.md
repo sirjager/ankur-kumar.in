@@ -6,8 +6,8 @@ banner_lock: true
 status: published
 published: 2024-03-17
 modifided: 2024-03-17
-title: Third Post
-description: Hi! I'm your first Markdown file in **StackEdit**. If you want to learn about StackEdit, you can read me. If you want to play with Markdown, you can edit me. Once you have finished with me, you can create new files by opening the **file explorer** on the left corner of the navigation bar.
+title: Test Blog Post 3
+description: Test Blog Post 3
 category: Obsidian
 tags:
   - daily

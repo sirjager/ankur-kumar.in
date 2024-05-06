@@ -1,0 +1,26 @@
+---
+import Link from "@/components/Link.astro";
+import Logo from "@/components/Logo.astro";
+import NavTabs from "@/components/navbar/NavTabs.astro";
+import ToggleTheme from "@/components/ToggleTheme";
+---
+
+<div
+	class:list={[
+		"px-4 py-5 md:px-20",
+		"relative isolate mx-auto w-full max-w-7xl",
+		"z-[99999] flex items-center justify-between",
+	]}
+>
+	<Link href="/" class="z-[99999]">
+		<Logo />
+	</Link>
+
+	<div>
+		<NavTabs />
+	</div>
+
+	<div>
+		<ToggleTheme />
+	</div>
+</div>

@@ -13,31 +13,36 @@ const {link = `/${title}`.toLowerCase()} = Astro.props;
 
 <div
 	class:list={[
-		"group/catcard relative rounded-box border border-base-content/20",
-		"border border-base-content/20 hover:border-accent",
+		"group/card relative rounded-box border border-base-content/20",
+		"border-2 border-base-content/20 hover:border-accent",
 		"transition duration-300 ease-in-out",
 	]}
 >
 	<div class:list={["relative mt-4 w-full"]}>
 		<div class="absolute top-1/2 h-0.5 w-full bg-base-content/20"></div>
+		<div
+			class="absolute top-1/2 h-0.5 w-0 bg-accent transition-all duration-300 ease-in-out group-hover/card:w-full"
+		>
+		</div>
 
-		<div class="mx-auto w-fit select-none">
+		<div class="mx-auto w-fit">
 			<div
 				class:list={[
-					"group mx-auto inline-block w-fit text-sm",
-					"skew-x-12 transform",
+					"group mx-auto inline-block w-fit skew-x-12 transform text-sm",
 					"transition-transform duration-300 ease-in-out",
 				]}
 			>
 				<span
 					class:list={[
 						"absolute inset-0",
-						"translate-x-1 translate-y-1 -skew-x-12 transform rounded-box bg-base-content/20",
+						"translate-x-1 translate-y-1 -skew-x-12 transform rounded-box bg-accent",
 					]}></span>
 				<div
-					class="block -skew-x-12 transform rounded-box border border-base-content/20 bg-base-100 px-8 py-3"
+					class:list={[
+						"block -skew-x-12 transform rounded-box border border-base-content/20 bg-base-100 px-8 py-1",
+					]}
 				>
-					<span class="font-bold uppercase">{title}</span>
+					<span class="font-bold uppercase text-accent">{title}</span>
 				</div>
 			</div>
 		</div>

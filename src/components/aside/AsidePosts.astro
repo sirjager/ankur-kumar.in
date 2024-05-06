@@ -12,30 +12,51 @@ interface Props {
 const {posts, label, title} = Astro.props;
 ---
 
-<div class="group/catcard relative rounded-box border border-base-content/20">
+<div
+	class:list={[
+		"group/card relative rounded-box",
+		"border-2 border-base-content/20 hover:border-accent",
+		"transition duration-300 ease-in-out",
+	]}
+>
 	<div class:list={["relative mt-4 w-full"]}>
-		<div class="absolute top-1/2 h-0.5 w-full bg-accent"></div>
+		<div class="absolute top-1/2 h-0.5 w-full bg-base-content/20"></div>
+		<div
+			class="absolute top-1/2 h-0.5 w-0 bg-accent transition-all duration-300 ease-in-out group-hover/card:w-full"
+		>
+		</div>
 		<div class="w-fit select-none">
 			<div class="relative ml-4 bg-base-100 px-2 text-sm font-bold uppercase">{label}</div>
 		</div>
 	</div>
 
-	<div class="pl-6 pr-2 text-3xl font-bold uppercase">{title}</div>
+	<ul>
+		<details open>
+			<summary
+				class="flex cursor-pointer select-none items-center pb-2 pl-6 pr-2 text-3xl font-bold uppercase text-accent"
+			>
+				{title}
+			</summary>
 
-	<div class="flex flex-col gap-2 p-4">
-		{
-			posts.map((post) => {
-				return (
-					<Link href={`/blog/${post.slug}`} class:list={["group/title flex gap-2 overflow-clip"]}>
-						<Image
-							src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
-							alt={post.title}
-							class:list={["h-16 max-h-16 w-16 max-w-16"]}
-						/>
-						<div class="line-clamp-2 text-sm group-hover/title:underline">{post.title}</div>
-					</Link>
-				);
-			})
-		}
-	</div>
+			<ul id="most-viewed-posts" class="flex flex-col gap-2 p-4">
+				{
+					posts.map((post) => {
+						return (
+							<Link
+								href={`/blog/${post.slug}`}
+								class:list={["group/title flex gap-2 overflow-clip"]}
+							>
+								<Image
+									src={post.banner}
+									alt={post.title}
+									class:list={["h-16 max-h-16 w-16 min-w-16 max-w-16 rounded-box"]}
+								/>
+								<div class="line-clamp-2 text-sm group-hover/title:underline">{post.title}</div>
+							</Link>
+						);
+					})
+				}
+			</ul>
+		</details>
+	</ul>
 </div>

@@ -6,7 +6,6 @@ import qwik from "@qwikdev/astro";
 import robots from "astro-robots-txt";
 import webmanifest from "astro-webmanifest";
 import {defineConfig} from "astro/config";
-import {loadEnv} from "vite";
 
 // adapters
 import node from "@astrojs/node";
@@ -20,12 +19,10 @@ import remarkToc from "remark-toc";
 import {rehypePrettyCodeOptions} from "./rehype-prettycode-opts";
 import {site} from "./src/lib/constants";
 
-const _ = loadEnv(process.env.NODE_ENV, process.cwd(), "");
-const {APP_URL} = _;
-
+const siteURL = process.node_ENV === "production" ? site.links.website : "http://localhost:4321";
 // https://astro.build/config
 export default defineConfig({
-	site: APP_URL,
+	site: siteURL,
 	trailingSlash: "ignore",
 	devToolbar: {enabled: false},
 	integrations: [
@@ -42,7 +39,7 @@ export default defineConfig({
 			},
 		}),
 		robots({
-			sitemap: `${APP_URL}/sitemap-index.xml`,
+			sitemap: `${siteURL}/${site.links.sitemap}`,
 			policy: [{userAgent: "*", disallow: ["/admin"]}],
 		}),
 		webmanifest({
@@ -58,7 +55,6 @@ export default defineConfig({
 				{src: "./public/icons/apple-touch-icon.png", sizes: "180x180", type: "image/png"},
 				{src: "./public/icons/favicon-16x16.png", sizes: "16x16", type: "image/png"},
 				{src: "./public/icons/favicon-32x32.png", sizes: "32x32", type: "image/png"},
-				{src: "./public/icons/android-chrome-48x48.png", sizes: "48x48", type: "image/png"},
 				{src: "./public/icons/android-chrome-192x192.png", sizes: "192x192", type: "image/png"},
 				{src: "./public/icons/android-chrome-512x512.png", sizes: "512x512", type: "image/png"},
 			],
@@ -68,7 +64,15 @@ export default defineConfig({
 		defaultStrategy: "viewport",
 	},
 	output: "hybrid",
-	adapter: process.env.NODE_ENV === "development" ? node({mode: "standalone"}) : vercel(),
+	adapter:
+		process.env.NODE_ENV === "development"
+			? node({mode: "standalone"})
+			: vercel({
+					maxDuration: 8,
+					webAnalytics: {
+						enabled: true,
+					},
+				}),
 	image: {
 		remotePatterns: [{protocol: "https"}, {protocol: "http"}],
 	},

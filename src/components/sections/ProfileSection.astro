@@ -1,6 +1,5 @@
 ---
 import Link from "@/components/Link.astro";
-import FillAniButton from "@/components/buttons/FillAniButton.astro";
 import itguy from "@/assets/itguy.svg";
 import {Image} from "astro:assets";
 ---
@@ -47,8 +46,20 @@ import {Image} from "astro:assets";
 			</p>
 
 			<div class="flex items-center">
-				<Link href="#contact">
-					<FillAniButton> Contact Me </FillAniButton>
+				<Link
+					href="#contact"
+					class:list={[
+						"group/tgthm relative overflow-clip px-5 py-3",
+						"text-base-content hover:text-base-200",
+						"transition-all duration-300 ease-in-out",
+						"border border-base-300",
+						"after:transition-all after:duration-300 after:ease-in-out",
+						"after:absolute after:h-full after:w-full after:bg-base-content after:content-['']",
+						"after:-bottom-full after:left-0 hover:after:bottom-0",
+						"rounded-btn after:rounded-btn",
+					]}
+				>
+					<span class="relative z-[1]"> Contact Me </span>
 				</Link>
 			</div>
 		</div>

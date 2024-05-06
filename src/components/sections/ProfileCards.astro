@@ -1,0 +1,21 @@
+---
+import CurrentStatus from "@/components/cards/CurrentStatus.astro";
+// import ProfileImage from "@/components/cards/ProfileImage.astro";
+import Workflow from "@/components/cards/Workflow.astro";
+import GithubContributions from "@/components/cards/GithubContributions.astro";
+import SocialHandles from "@/components/cards/SocialHandles.astro";
+---
+
+<section>
+	<div class:list={["px-4 py-2 lg:px-20", "relative mx-auto space-y-8  @container lg:max-w-7xl"]}>
+		<div class:list={["flex flex-col gap-6 sm:flex-row"]}>
+			<CurrentStatus />
+			<!-- <ProfileImage /> -->
+		</div>
+		<Workflow />
+		<div class:list={["flex gap-6"]}>
+			<SocialHandles />
+			<GithubContributions />
+		</div>
+	</div>
+</section>

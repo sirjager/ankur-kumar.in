@@ -9,6 +9,9 @@ export interface Props {
 
 const {title = site.title, description = site.description} = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const pageTitle = title ? `${title} | ${site.title}` : site.title;
+const pageDesc = description ? description : site.description;
 ---
 
 <!-- Global Metadata -->
@@ -24,21 +27,21 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <link rel="canonical" href={canonicalURL} />
 
 <!-- Primary Meta Tags -->
-<title>{title}</title>
-<meta name="title" content={title} />
-<meta name="description" content={description} />
+<title>{pageTitle}</title>
+<meta name="title" content={pageTitle} />
+<meta name="description" content={pageDesc} />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content={Astro.url} />
-<meta property="og:title" content={title} />
-<meta property="og:description" content={description} />
+<meta property="og:title" content={pageTitle} />
+<meta property="og:description" content={pageDesc} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
-<meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
+<meta property="twitter:title" content={pageTitle} />
+<meta property="twitter:description" content={pageDesc} />
 
 <link
 	href="/fonts/rock-salt.woff2"
@@ -73,6 +76,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 		__apply__(th, mo);
 	};
 	__theming__();
+	document.addEventListener("astro:after-swap", __theming__);
 </script>
 
 <link
@@ -90,5 +94,3 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 	type="font/woff2"
 	crossorigin="anonymous"
 />
-
-<script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>

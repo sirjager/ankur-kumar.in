@@ -22,6 +22,9 @@ importers:
       "@astrojs/partytown":
         specifier: ^2.0.4
         version: 2.0.4
+      "@astrojs/rss":
+        specifier: ^4.0.5
+        version: 4.0.5
       "@astrojs/svelte":
         specifier: ^5.4.0
         version: 5.4.0(astro@4.4.15(@types/node@20.11.25)(typescript@5.4.2))(svelte@4.2.15)(typescript@5.4.2)(vite@5.1.5(@types/node@20.11.25))
@@ -40,6 +43,9 @@ importers:
       "@unpic/qwik":
         specifier: ^0.0.44
         version: 0.0.44(@builder.io/qwik@1.5.1(@types/node@20.11.25)(undici@6.7.1))
+      "@vercel/speed-insights":
+        specifier: ^1.0.10
+        version: 1.0.10(svelte@4.2.15)
       astro:
         specifier: ^4.4.15
         version: 4.4.15(@types/node@20.11.25)(typescript@5.4.2)
@@ -329,6 +335,12 @@ packages:
         integrity: sha512-g61lZupWq1bYbcBnYZqdjndShr/J3l/oFobBKPA3+qMat146zce3nz2kdO4giGbhYDt4gYdhmoBz0vZJ4sIurQ==,
       }
     engines: {node: ">=18.14.1"}
+
+  "@astrojs/rss@4.0.5":
+    resolution:
+      {
+        integrity: sha512-IyJVL6z09AQtxbgLaAwebT3T5YKe4oTHDesqydJv1KLHw+zEzzMCFuuNsEyxjiqu7df9+DDCpDXLj/WRiEUXvw==,
+      }
 
   "@astrojs/svelte@5.4.0":
     resolution:
@@ -3151,6 +3163,32 @@ packages:
     engines: {node: ">=16"}
     hasBin: true
 
+  "@vercel/speed-insights@1.0.10":
+    resolution:
+      {
+        integrity: sha512-4uzdKB0RW6Ff2FkzshzjZ+RlJfLPxgm/00i0XXgxfMPhwnnsk92YgtqsxT9OcPLdJUyVU1DqFlSWWjIQMPkh0g==,
+      }
+    peerDependencies:
+      "@sveltejs/kit": ^1 || ^2
+      next: ">= 13"
+      react: ^18 || ^19
+      svelte: ^4
+      vue: ^3
+      vue-router: ^4
+    peerDependenciesMeta:
+      "@sveltejs/kit":
+        optional: true
+      next:
+        optional: true
+      react:
+        optional: true
+      svelte:
+        optional: true
+      vue:
+        optional: true
+      vue-router:
+        optional: true
+
   "@volar/kit@2.0.4":
     resolution:
       {
@@ -4977,6 +5015,13 @@ packages:
       {
         integrity: sha512-DCXu6Ifhqcks7TZKY3Hxp3y6qphY5SJZmrWMDrKcERSOXWQdMhU9Ig/PYrzyw/ul9jOIyh0N4M0tbC5hodg8dw==,
       }
+
+  fast-xml-parser@4.3.6:
+    resolution:
+      {
+        integrity: sha512-M2SovcRxD4+vC493Uc2GZVcZaj66CCJhWurC4viynVSTvrpErCShNcDz1lAho6n9REQKvL/ll4A4/fw6Y9z8nw==,
+      }
+    hasBin: true
 
   fastparse@1.1.2:
     resolution:
@@ -8601,6 +8646,12 @@ packages:
       }
     engines: {node: ">=8"}
 
+  strnum@1.0.5:
+    resolution:
+      {
+        integrity: sha512-J8bbNyKKXl5qYcR36TIO8W3mVGVHrmmxsd5PAItGkmyzwJvybiw2IVq5nqd0i4LSNSkB/sx9VHllbfFdr9k1JA==,
+      }
+
   strong-log-transformer@2.1.0:
     resolution:
       {
@@ -9832,6 +9883,11 @@ snapshots:
   "@astrojs/prism@3.0.0":
     dependencies:
       prismjs: 1.29.0
+
+  "@astrojs/rss@4.0.5":
+    dependencies:
+      fast-xml-parser: 4.3.6
+      kleur: 4.1.5
 
   "@astrojs/svelte@5.4.0(astro@4.4.15(@types/node@20.11.25)(typescript@5.4.2))(svelte@4.2.15)(typescript@5.4.2)(vite@5.1.5(@types/node@20.11.25))":
     dependencies:
@@ -11736,6 +11792,10 @@ snapshots:
       - encoding
       - supports-color
 
+  "@vercel/speed-insights@1.0.10(svelte@4.2.15)":
+    optionalDependencies:
+      svelte: 4.2.15
+
   "@volar/kit@2.0.4(typescript@5.4.2)":
     dependencies:
       "@volar/language-service": 2.0.4
@@ -13003,6 +13063,10 @@ snapshots:
   fast-json-stable-stringify@2.1.0: {}
 
   fast-levenshtein@2.0.6: {}
+
+  fast-xml-parser@4.3.6:
+    dependencies:
+      strnum: 1.0.5
 
   fastparse@1.1.2: {}
 
@@ -15483,6 +15547,8 @@ snapshots:
   strip-json-comments@2.0.1: {}
 
   strip-json-comments@3.1.1: {}
+
+  strnum@1.0.5: {}
 
   strong-log-transformer@2.1.0:
     dependencies:

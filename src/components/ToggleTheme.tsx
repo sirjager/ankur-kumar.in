@@ -20,6 +20,13 @@ export default component$(() => {
 					emt.setAttribute("name", "theme-color");
 					emt.setAttribute("content", "#4285f4");
 				}
+				const img: any = document.getElementById("github-contri");
+				if (img) {
+					let src =
+						"https://raw.githubusercontent.com/sirjager/SirJager/output/github-contribution-grid-snake.svg";
+					if (mode === "dark") src = src.replace("snake.svg", "snake-dark.svg");
+					img.setAttribute("src", src);
+				}
 			} catch (_) {
 				//
 			}
@@ -38,14 +45,17 @@ export default component$(() => {
 
 	return (
 		<button
-			aria-label="change theme"
+			aria-label="Change Theme"
 			onClick$={changeTheme}
 			class={[
-				"group/tgthm border border-neutral/20 transition-all duration-300 ease-in-out dark:border-neutral-content/40",
-				"btn-square relative grid place-items-center overflow-clip rounded-btn p-0",
+				"px-3 py-2",
+				"transition-all duration-300 ease-in-out",
+				"group/tgthm border border-base-300",
+				"relative grid place-items-center overflow-clip rounded-btn p-0",
 				"after:transition-all after:duration-300 after:ease-in-out",
 				"after:absolute after:h-full after:w-full after:rounded-btn after:bg-base-content after:content-['']",
 				"after:-bottom-full hover:after:bottom-0",
+				"outline-none ring-offset-white focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 dark:focus:ring-offset-black",
 			]}
 		>
 			<span class="z-[1]">

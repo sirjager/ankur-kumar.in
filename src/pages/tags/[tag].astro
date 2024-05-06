@@ -2,12 +2,12 @@
 import Root from "@/layouts/Root.astro";
 import PostsGrid from "@/components/PostsGrid.astro";
 
-import AsideItems from "@/components/aside/AsideItems.astro";
 import AsidePosts from "@/components/aside/AsidePosts.astro";
 import MostViewedPosts from "@/components/aside/MostViewedPosts.astro";
+import FilterCloud from "@/components/aside/FilterCloud.astro";
 
 import {getCollection} from "astro:content";
-import {getCategories, getTags, toPosts} from "@/content";
+import {toPosts, getTags} from "@/content";
 
 export async function getStaticPaths() {
 	const posts = toPosts(await getCollection("blog"));
@@ -16,16 +16,12 @@ export async function getStaticPaths() {
 		params: {tag},
 		props: {
 			posts: posts.filter((post) => post.tags.includes(tag)),
-			allPosts: posts,
 		},
 	}));
 }
 
 const {tag} = Astro.params;
-const {posts, allPosts} = Astro.props;
-
-const categories = getCategories(allPosts);
-const tags = getTags(allPosts);
+const {posts} = Astro.props;
 ---
 
 <Root>
@@ -45,8 +41,7 @@ const tags = getTags(allPosts);
 		</div>
 
 		<aside class="space-y-4">
-			<AsideItems items={categories} title="Categories" />
-			<AsideItems items={tags} title="tags" />
+			<FilterCloud />
 			<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-1">
 				<MostViewedPosts />
 				<AsidePosts label="Posts" title="Popular" posts={posts} />

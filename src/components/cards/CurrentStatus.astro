@@ -1,0 +1,72 @@
+---
+import {Image} from "astro:assets";
+import gopher from "../../assets/gophers/singer-gopher.png";
+---
+
+<div
+	class:list={[
+		"group/card relative space-y-4 overflow-clip p-8 pb-20 @md:p-14",
+		"bg-gradient-to-br from-primary/70 via-primary/30 to-primary/70",
+		"transition-all duration-300 ease-in-out",
+		"rounded-bl-[60px] rounded-br-md rounded-tl-md rounded-tr-[70px]",
+		"hover:rounded-bl-[40px] hover:rounded-br-[70px] hover:rounded-tl-[80px] hover:rounded-tr-xl",
+		"w-full",
+	]}
+>
+	<p>I constantly try to improve myself</p>
+	<p class="text-lg font-bold @sm:text-4xl xl:text-5xl">
+		I build robust and scalable apis using Latest Technologies
+	</p>
+	<div class="relative max-w-sm space-y-2 @md:space-y-4">
+		<p class="text">
+			I have proficiency in building robust apis. <br /> Go is my go to language to build
+
+			<span
+				class:list={[
+					"relative overflow-clip",
+					"transition-all duration-300 ease-in-out group-hover/card:font-bold",
+					"before:transition-all before:duration-200 before:ease-in-out",
+					"before:absolute before:-left-0.5 before:top-2 before:h-4 before:w-0 before:rounded-md",
+					"group-hover/card:before:w-full group-hover/card:before:bg-secondary",
+				]}
+			>
+				<span class="relative"> REST </span>
+			</span>
+
+			and
+
+			<span
+				class:list={[
+					"relative overflow-clip",
+					"transition-all duration-300 ease-in-out group-hover/card:font-bold",
+					"before:-left-0.5 before:transition-all before:duration-500 before:ease-in-out",
+					"before:absolute before:top-2 before:h-4 before:w-0 before:rounded-md",
+					"group-hover/card:before:w-full group-hover/card:before:bg-secondary",
+				]}
+			>
+				<span class="relative"> GRPC </span>
+			</span>
+			apis. I am currently building few
+			<span
+				class:list={[
+					"relative overflow-clip",
+					"transition-all duration-300 ease-in-out group-hover/card:font-bold",
+					"before:-left-0.5 before:transition-all before:duration-500 before:ease-in-out",
+					"before:absolute before:top-2 before:h-4 before:w-0 before:rounded-md",
+					"group-hover/card:before:w-full group-hover/card:before:bg-primary",
+				]}
+			>
+				<span class="relative"> microservices in go. </span>
+			</span>
+		</p>
+	</div>
+	<div
+		class:list={[
+			"absolute -bottom-16 right-2",
+			"transition-all duration-300 ease-in-out",
+			"group-hover/card:-bottom-4",
+		]}
+	>
+		<Image src={gopher} alt="gopher" class:list={["w-32 @md:w-36 @lg:w-40 @xl:w-44"]} />
+	</div>
+</div>

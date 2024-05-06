@@ -2,11 +2,13 @@
 import Root from "@/layouts/Root.astro";
 import ProfileSection from "@/components/sections/ProfileSection.astro";
 import PageFind from "@/components/PageFind.astro";
+import ProfileCards from "@/components/sections/ProfileCards.astro";
 ---
 
-<Root>
+<Root title="Home">
 	<ProfileSection />
 	<div class="px-4">
 		<PageFind />
 	</div>
+	<ProfileCards />
 </Root>

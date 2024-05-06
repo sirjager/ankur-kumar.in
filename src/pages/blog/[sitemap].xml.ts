@@ -31,7 +31,7 @@ export const GET: APIRoute = async (req) => {
 
 	// fill the url set
 	paginated.forEach((post) => {
-		const loc = `${baseURL}/blog/${post.slug}`;
+		const loc = encodeURI(`${baseURL}/blog/${post.slug}`);
 		const lastmod = post.modifided.toISOString();
 		const changefreq = "weekly";
 		const priority = 0.7;

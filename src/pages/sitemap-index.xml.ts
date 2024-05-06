@@ -1,30 +1,62 @@
 /* eslint-disable quotes */
+import {getCategories, getTags, toPosts} from "@/content";
 import {site} from "@/lib/constants";
 import type {APIRoute} from "astro";
 import {getCollection} from "astro:content";
 
 export const GET: APIRoute = async (req) => {
 	const baseURL = req.url.origin;
-	const sets: string[] = [];
-	sets.push(`<?xml version="1.0" encoding="UTF-8"?>`);
-	sets.push('<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">');
+	const sitemaps: string[] = [];
+	sitemaps.push(`<?xml version="1.0" encoding="UTF-8"?>`);
+	sitemaps.push('<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">');
 
+	sitemaps.push(
+		`<sitemap><loc>${baseURL}/</loc><lastmod>${new Date().toISOString()}</lastmod></sitemap>`
+	);
+	sitemaps.push(
+		`<sitemap><loc>${baseURL}/blog</loc><lastmod>${new Date().toISOString()}</lastmod></sitemap>`
+	);
+	sitemaps.push(
+		`<sitemap><loc>${baseURL}/about</loc><lastmod>${new Date().toISOString()}</lastmod></sitemap>`
+	);
+
+	// TODO: enable when atleast one post is there
+	// // Blog Posts Sitemap
 	const blog = await getCollection("blog");
+	const posts = toPosts(blog);
 	const limit = site.sitemapSize;
-	const total = blog.length;
-	const pages = Math.ceil(total / limit);
+	// const total = posts.length;
+	// const pages = Math.ceil(total / limit);
+	// for (let i = 1; i <= pages; i++) {
+	// 	const loc = `${baseURL}/blog/sitemap-${i}.xml`;
+	// 	const lastmod = new Date().toISOString();
+	// 	const sitemap = `<sitemap><loc>${loc}</loc><lastmod>${lastmod}</lastmod></sitemap>`;
+	// 	sitemaps.push(sitemap);
+	// }
 
-	// fill the sitemap index
-	for (let i = 1; i <= pages; i++) {
-		const loc = `${baseURL}/blog/sitemap-${i}.xml`;
+	// Tags Sitemap
+	const tags = getTags(posts);
+	const tagsPages = Math.ceil(tags.length / limit);
+	for (let i = 1; i <= tagsPages; i++) {
+		const loc = `${baseURL}/tags/sitemap-${i}.xml`;
 		const lastmod = new Date().toISOString();
 		const sitemap = `<sitemap><loc>${loc}</loc><lastmod>${lastmod}</lastmod></sitemap>`;
-		sets.push(sitemap);
+		sitemaps.push(sitemap);
+	}
+
+	// Categories Sitemap
+	const categories = getCategories(posts);
+	const categoriesPages = Math.ceil(categories.length / limit);
+	for (let i = 1; i <= categoriesPages; i++) {
+		const loc = `${baseURL}/categories/sitemap-${i}.xml`;
+		const lastmod = new Date().toISOString();
+		const sitemap = `<sitemap><loc>${loc}</loc><lastmod>${lastmod}</lastmod></sitemap>`;
+		sitemaps.push(sitemap);
 	}
 
 	// close the sitemap index
-	sets.push("</sitemapindex>");
-	const sitemapData = sets.join("\n");
+	sitemaps.push("</sitemapindex>");
+	const sitemapData = sitemaps.join("\n");
 	const headers = {
 		"Content-Type": "text/xml; charset=UTF-8",
 		"Cache-Control": "no-cache, no-store, must-revalidate, max-age=0",
