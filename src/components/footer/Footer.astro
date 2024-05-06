@@ -1,56 +1,122 @@
 ---
-import Logo from "@/components/Logo.astro";
-import {parseDate} from "@/lib/utils";
-import FooterLinks from "./FooterLinks.astro";
+import Link from "@/components/Link.astro";
+import Copyright from "./Copyright";
+import SocialIcons from "./SocialIcons.astro";
 import {site} from "@/lib/constants";
-
-const year = parseDate(new Date().toISOString())?.year || new Date().getFullYear();
+const sections = [
+	{
+		name: "General",
+		items: [
+			{name: "Home", url: "/"},
+			{name: "Blog", url: "/blog"},
+			{name: "Projects", url: "/projects"},
+			{name: "About", url: "/about"},
+			// {name: "Contact", url: "/contact"},
+		],
+	},
+	{
+		name: "Specifics",
+		items: [
+			// {name: "Sponsors", url: "/sponsors"},
+			{name: "My Journey", url: "/blog/my-journey"},
+			{name: "Hire Me", url: "/hire-me"},
+			{name: "Resume", url: "/resume"},
+			{name: "Dotfiles", url: site.links.dotfiles},
+		],
+	},
+	{
+		name: "Extras",
+		items: [
+			{name: "RSS", url: site.links.rssfeed},
+			{name: "Sitemap", url: site.links.sitemap},
+			// {name: "Newsletter", url: "/newsletter"},
+			{name: "Privacy Policy", url: "/privacy-policy"},
+			{name: "Terms of Service", url: "/terms-of-service"},
+		],
+	},
+];
 ---
 
-<div class="mt-36 w-full bg-base-100 text-base-content @container">
-	<div class="grid @2xl:grid-cols-4">
-		<div class="col-span-2 mx-auto flex max-w-lg items-center justify-end p-4">
-			<div class="max-w-xl space-y-6">
-				<div class="relative">
-					<Logo />
-				</div>
-				<p>
-					{site.description}
-				</p>
-			</div>
-		</div>
-
-		<div class="col-span-2 row-span-2 flex items-center p-4">
-			<div class="w-full max-w-xl space-y-8">
-				<div>
-					<p class="font-bold uppercase">Newletter</p>
-					<p class="text-4xl font-bold lg:text-5xl">
-						Subscript to our <br /> Newsletter
-					</p>
-				</div>
-
-				<form class="w-full">
-					<fieldset class="form-control w-full">
-						<div class="join">
-							<input
-								type="text"
-								placeholder="mail@site.com"
-								class="input join-item input-bordered w-full @5xl:input-lg"
-							/>
-							<button class="btn btn-primary join-item @5xl:btn-lg">Subscribe</button>
+<div>
+	<div
+		class:list={[
+			"mx-auto mt-36 w-full max-w-7xl px-4 @container",
+			"border-t border-base-200 pt-12",
+		]}
+	>
+		<div class:list={["grid grid-cols-2 py-8 @lg:grid-cols-3 @4xl:grid-cols-6"]}>
+			{
+				sections.map((section) => {
+					return (
+						<div class="col-span-1 p-4">
+							<h3 class="p-1 text-sm font-semibold uppercase tracking-widest">{section.name}</h3>
+							<ul class="mt-2 space-y-2">
+								{section.items.map((item) => {
+									return (
+										<li>
+											<Link href={item.url} class:list={["w-full rounded-btn p-1 text-base"]}>
+												{item.name}
+											</Link>
+										</li>
+									);
+								})}
+							</ul>
 						</div>
-					</fieldset>
-				</form>
-			</div>
-		</div>
+					);
+				})
+			}
 
-		<div class="col-span-2 flex items-center justify-end p-16">
-			<FooterLinks />
+			<div class="col-span-2 grid place-items-center @lg:col-span-3">
+				<div class:list={["h-fit w-full rounded-box p-4 @lg:p-8", "border border-base-300"]}>
+					<div class="flex items-center gap-2">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 24 24"
+							stroke-width="1.5"
+							fill="none"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							class="inline h-5 w-5 stroke-base-content"
+						>
+							<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+							<path d="M10 21v-6.5a3.5 3.5 0 0 0 -7 0v6.5h18v-6a4 4 0 0 0 -4 -4h-10.5"></path>
+							<path d="M12 11v-8h4l2 2l-2 2h-4"></path>
+							<path d="M6 15h1"></path>
+						</svg>
+						<p class="font-semibold">Stay up to date</p>
+					</div>
+
+					<p class="mt-2 text-sm text-neutral-content">
+						Get notified when I publish something new and unsubscribe at any time
+					</p>
+
+					<div class="mt-4 flex items-center rounded-btn border border-base-content/30 p-1">
+						<input
+							type="email"
+							placeholder="Email address"
+							class="w-full rounded-btn border-none bg-base-100 px-4 py-2 outline-none placeholder:text-base-content/60"
+						/>
+						<button
+							class:list={[
+								"btn btn-accent font-bold text-black",
+								"outline-none ring-offset-white focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 dark:focus:ring-offset-black",
+							]}>Subscribe</button
+						>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
-	<footer class="footer footer-center p-4 text-base-content">
-		<aside>
-			<p>Copyright © {year} - All right reserved by Ankur</p>
-		</aside>
-	</footer>
+
+	<div
+		class:list={[
+			"mx-auto w-full max-w-7xl px-4 pb-10 pt-6 @container",
+			"flex items-center justify-between gap-4",
+		]}
+	>
+		<div class="min-w-36 px-2">
+			<Copyright />
+		</div>
+		<SocialIcons />
+	</div>
 </div>

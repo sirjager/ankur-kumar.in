@@ -6,9 +6,16 @@ interface Props extends HTMLAttributes<"a"> {
 	key?: string | number;
 }
 
-const {href, ...attrs} = Astro.props as Props;
+const {href, "class:list": className, class: class_, ...attrs} = Astro.props as Props;
 ---
 
-<a href={href} {...attrs}>
+<a
+	href={href}
+	{...attrs}
+	class:list={[
+		class_ ?? className,
+		"outline-none ring-offset-white focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 dark:focus:ring-offset-black",
+	]}
+>
 	<slot>Link</slot>
 </a>

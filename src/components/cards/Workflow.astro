@@ -1,0 +1,40 @@
+---
+import {Image} from "astro:assets";
+import term1 from "../../assets/terms/term1.png";
+---
+
+<div
+	class:list={[
+		"min-h-96",
+		"group/card relative select-none space-y-4 overflow-clip",
+		"bg-gradient-to-tr from-success/70 via-success/30 to-success/70",
+		"transition-all duration-300 ease-in-out",
+		"rounded-tl-3xl rounded-tr-[20px] hover:rounded-tl-[10px] hover:rounded-tr-[60px]",
+		"rounded-bl-[10px] rounded-br-[60px] hover:rounded-bl-[80px] hover:rounded-br-[10px]",
+	]}
+>
+	<div class="space-y-4 p-8">
+		<p class="text-lg font-bold @md:text-4xl @xl:text-5xl">I love terminal centric workflow</p>
+		<div class="relative lg:max-w-md">
+			<p class="@xl:text-lg">
+				I work in terminal centric environments. <br />
+				I write small scripts in bash and sometimes in python. <br />
+				As scripts can be automated and and do repeated tasks. Writing small scripts for my linux workflow
+				to helps me to learn more about linux in general and discover more tools and tricks along the
+				way
+			</p>
+		</div>
+	</div>
+
+	<div class="">
+		<div
+			class:list={[
+				"container transition-all duration-300 ease-in-out",
+				"absolute flex w-full justify-center md:justify-end",
+				"-bottom-[20vw] px-8 group-hover/card:-bottom-10 lg:-bottom-[16%]",
+			]}
+		>
+			<Image src={term1} alt="terminal screenshot" class="w-[86%] max-w-md md:max-w-xl" />
+		</div>
+	</div>
+</div>

@@ -1,0 +1,60 @@
+---
+import {socials} from "@/lib/constants";
+import Link from "@/components/Link.astro";
+import {Image} from "astro:assets";
+import insta from "../../assets/socials/instagram.svg";
+import github from "../../assets/socials/github.svg";
+import twitter from "../../assets/socials/twitter.svg";
+import linkedin from "../../assets/socials/linkedin.svg";
+import mail from "../../assets/socials/mail.svg";
+---
+
+<div
+	class:list={[
+		"w-2/6 p-8",
+		"transition-all duration-300 ease-in-out",
+		"bg-gradient-to-br from-red-500 via-red-400 to-red-200",
+		"rounded-bl-[50px] rounded-br-[20px] rounded-tl-md rounded-tr-[10px]",
+		"hover:rounded-bl-[30px] hover:rounded-br-[50px] hover:rounded-tl-[30px] hover:rounded-tr-[10px]",
+		"grid place-items-center",
+	]}
+>
+	<div class:list={["grid grid-cols-2 gap-4"]}>
+		{
+			socials.map((social) => {
+				let img = github;
+				switch (social.name.toLowerCase()) {
+					case "instagram":
+						img = insta;
+						break;
+					case "github":
+						img = github;
+						break;
+					case "twitter":
+						img = twitter;
+						break;
+					case "linkedin":
+						img = linkedin;
+						break;
+					case "email":
+						img = mail;
+						break;
+				}
+				return (
+					<Link
+						href={social.url}
+						target="_blank"
+						style={{backgroundColor: social.color}}
+						class:list={[
+							"p-8",
+							"transition-all duration-300 ease-in-out",
+							"rounded-btn hover:rounded-3xl",
+						]}
+					>
+						<Image src={img} alt={social.name} class="h-10 w-10" />
+					</Link>
+				);
+			})
+		}
+	</div>
+</div>

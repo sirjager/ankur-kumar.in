@@ -1,0 +1,38 @@
+---
+const dark =
+	"https://raw.githubusercontent.com/sirjager/SirJager/output/github-contribution-grid-snake-dark.svg";
+---
+
+<script>
+	const img = document.getElementById("github-contri");
+	if (img) {
+		const mode = document.documentElement.getAttribute("data-theme-mode");
+		let src =
+			"https://raw.githubusercontent.com/sirjager/SirJager/output/github-contribution-grid-snake.svg";
+		if (mode === "dark") src = src.replace("snake.svg", "snake-dark.svg");
+		img.setAttribute("src", src);
+	}
+</script>
+
+<div
+	class:list={[
+		"p-8",
+		"transition-all duration-300 ease-in-out",
+		"bg-gradient-to-br from-zinc-300 via-zinc-200 to-zinc-400",
+		"dark:via-zince-700/20 dark:from-zinc-900/20 dark:to-zinc-500/20",
+		"rounded-bl-[40px] rounded-br-[30px] rounded-tl-md rounded-tr-[50px]",
+		"hover:rounded-bl-[80px] hover:rounded-br-[10px] hover:rounded-tl-[10px] hover:rounded-tr-[40px]",
+	]}
+>
+	<div>
+		<p class="text-lg font-bold sm:text-4xl">Github Contributions Graph</p>
+	</div>
+	<img
+		id="github-contri"
+		src={dark}
+		alt="github contributions"
+		height="315"
+		width="600"
+		class="h-full w-full"
+	/>
+</div>

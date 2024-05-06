@@ -2,20 +2,16 @@
 import Root from "@/layouts/Root.astro";
 import PostsGrid from "@/components/PostsGrid.astro";
 import {getCollection} from "astro:content";
-import {getCategories, getTags, toPosts} from "@/content";
+import {toPosts} from "@/content";
 import PageFind from "@/components/PageFind.astro";
-import AsideItems from "@/components/aside/AsideItems.astro";
-import AsidePosts from "@/components/aside/AsidePosts.astro";
 import MostViewedPosts from "@/components/aside/MostViewedPosts.astro";
+import FilterCloud from "@/components/aside/FilterCloud.astro";
 
 const collection = await getCollection("blog");
 const posts = toPosts(collection);
-
-const categories = getCategories(posts);
-const tags = getTags(posts);
 ---
 
-<Root>
+<Root title="Blog">
 	<div
 		class:list={[
 			"mx-auto h-full max-w-7xl overflow-clip",
@@ -33,11 +29,9 @@ const tags = getTags(posts);
 		</div>
 
 		<aside class="space-y-4">
-			<AsideItems items={categories} title="Categories" />
-			<AsideItems items={tags} title="tags" />
+			<FilterCloud />
 			<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-1">
 				<MostViewedPosts />
-				<AsidePosts label="Posts" title="Popular" posts={posts} />
 			</div>
 		</aside>
 	</div>

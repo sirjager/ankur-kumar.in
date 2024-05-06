@@ -4,15 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "0ffbf3f5dd112c0b",
+        "id": "cac5bf483ee626fa",
         "type": "tabs",
         "children": [
           {
-            "id": "dec2b35ca371f903",
+            "id": "d91636707db57721",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "blog/second-post.md",
+                "mode": "preview",
+                "source": false
+              }
             }
           }
         ]
@@ -100,7 +104,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "blog/second-post.md"
+              }
             }
           },
           {
@@ -108,7 +114,9 @@
             "type": "leaf",
             "state": {
               "type": "file-properties",
-              "state": {}
+              "state": {
+                "file": "blog/second-post.md"
+              }
             }
           },
           {
@@ -145,6 +153,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "blog/second-post.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -156,6 +165,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "blog/second-post.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -185,12 +195,12 @@
       "homepage:Open homepage": false
     }
   },
-  "active": "dec2b35ca371f903",
+  "active": "d91636707db57721",
   "lastOpenFiles": [
-    "blog/third-post.md",
-    "blog/second-post.md",
     "blog/fourth-post.md",
     "blog/first-post.md",
+    "blog/third-post.md",
+    "blog/second-post.md",
     "templates/post.md",
     "templates",
     "src/content/blog/second-post.md",

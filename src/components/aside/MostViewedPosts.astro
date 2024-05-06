@@ -27,8 +27,7 @@
 			link.classList.add("group/title", "flex", "relative", "gap-2", "overflow-clip");
 
 			const image = document.createElement("img");
-			image.src =
-				"https://images.pexels.com/photos/20866047/pexels-photo-20866047/free-photo-of-bee-on-flower.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
+			image.src = post.banner;
 			image.alt = post.title;
 			image.classList.add("h-16", "min-w-16", "rounded-box", "max-h-16", "w-16", "max-w-16");
 			link.appendChild(image);
@@ -47,15 +46,34 @@
 
 <div
 	class:list={[
-		"group/catcard relative rounded-box",
-		"border border-base-content/20 hover:border-accent",
+		"group/card relative rounded-box",
+		"border-2 border-base-content/20 hover:border-accent",
 		"transition duration-300 ease-in-out",
 	]}
 >
 	<div class:list={["relative mt-4 w-full"]}>
-		<div class="absolute top-1/2 h-0.5 w-full bg-accent"></div>
+		<div class="absolute top-1/2 h-0.5 w-full bg-base-content/20"></div>
+		<div
+			class="absolute top-1/2 h-0.5 w-0 bg-accent transition-all duration-300 ease-in-out group-hover/card:w-full"
+		>
+		</div>
 		<div class="w-fit select-none">
-			<div class="relative ml-4 bg-base-100 px-2 text-sm font-bold uppercase">Most</div>
+			<div class="relative ml-4 bg-base-100 px-2 text-sm font-bold uppercase">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					class="mx-1 inline h-4 w-4 stroke-accent"
+					viewBox="0 0 24 24"
+					stroke-width="1.5"
+					fill="none"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				>
+					<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+					<path d="M3 17l6 -6l4 4l8 -8"></path>
+					<path d="M14 7l7 0l0 7"></path>
+				</svg>
+				Most
+			</div>
 		</div>
 	</div>
 

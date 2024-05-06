@@ -19,9 +19,10 @@ export function themeMode(theme: string | undefined): "dark" | "light" {
 }
 
 export const themes = [
+	"cupcake",
+	"business",
 	// "light",
 	// "dark",
-	"cupcake",
 	// "business",
 	// "bumblebee",
 	// "emerald",
@@ -43,7 +44,6 @@ export const themes = [
 	// "dracula",
 	// "cmyk",
 	// "autumn",
-	"business",
 	// "acid",
 	// "lemonade",
 	// "night",
