@@ -44,10 +44,18 @@ const pageDesc = description ? description : site.description;
 <meta property="twitter:description" content={pageDesc} />
 
 <link
-	href="/fonts/rock-salt.woff2"
+	href="/fonts/raleway.ttf"
 	as="font"
 	rel="preload prefetch"
-	type="font/woff2"
+	type="font/ttf"
+	crossorigin="anonymous"
+/>
+
+<link
+	href="/fonts/opensans.ttf"
+	as="font"
+	rel="preload prefetch"
+	type="font/ttf"
 	crossorigin="anonymous"
 />
 
@@ -78,19 +86,3 @@ const pageDesc = description ? description : site.description;
 	__theming__();
 	document.addEventListener("astro:after-swap", __theming__);
 </script>
-
-<link
-	href="/fonts/roboto-100.woff2"
-	as="font"
-	rel="preload prefetch"
-	type="font/woff2"
-	crossorigin="anonymous"
-/>
-
-<link
-	href="/fonts/roboto-300.woff2"
-	as="font"
-	rel="preload prefetch"
-	type="font/woff2"
-	crossorigin="anonymous"
-/>

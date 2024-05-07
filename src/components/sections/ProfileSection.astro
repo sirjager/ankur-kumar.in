@@ -1,14 +1,17 @@
 ---
-import Link from "@/components/Link.astro";
-import itguy from "@/assets/itguy.svg";
-import {Image} from "astro:assets";
+// import Link from "@/components/Link.astro";
+
+// <p class:list={["max-w-sm text-lg sm:max-w-xl sm:text-xl lg:text-2xl"]}>
+// 				A self-driven full-stack developer with a strong focus on developing high performance
+// 				backend APIs and microservices using latest and greatest technologies.
+// 			</p>
 ---
 
 <section class="mb-20">
 	<div
 		aria-hidden="true"
 		class:list={[
-			"absolute top-0 z-[-1] mx-auto h-[76vh] w-full md:w-[90vw]",
+			"absolute top-0 isolate z-[-1] mx-auto h-[76vh] w-full md:w-[90vw]",
 			"bg-gradient-to-t from-base-100 via-accent/15 to-base-100 dark:via-accent/10",
 			"transition-all duration-300 ease-in-out",
 			"rounded-br-[66vw] rounded-tl-[66vw]",
@@ -17,51 +20,12 @@ import {Image} from "astro:assets";
 	>
 	</div>
 
-	<div
-		class:list={[
-			"px-6 py-2 xl:px-0 xl:py-0",
-			"relative mx-auto  @container lg:max-w-7xl",
-			"flex items-center  justify-center lg:flex-row-reverse",
-			"flex-col-reverse justify-center",
-			"mt-2 sm:mt-8 lg:mt-32",
-		]}
-	>
-		<div class="relative w-[80vw] max-w-md flex-1">
-			<Image src={itguy} alt="" class="w-full" />
-		</div>
-
-		<div class:list={["relative h-full max-w-xl flex-1 space-y-8 lg:max-w-2xl"]}>
-			<p class="text-center text-2xl sm:text-left">Fullstack Developer</p>
-			<h1
-				class:list={[
-					"text-center font-rocksalt text-3xl tracking-wider sm:text-left sm:text-4xl md:text-5xl",
-				]}
-			>
-				Ankur Kumar
+	<div class:list={["px-4"]}>
+		<header>
+			<h1 class:list={["text-4xl font-bold text-black"]}>
+				Hey There, I am <br />
+				<span> Ankur Kumar </span>
 			</h1>
-
-			<p class:list={["max-w-sm text-lg sm:max-w-xl sm:text-xl lg:text-2xl"]}>
-				A self-driven full-stack developer with a strong focus on developing high performance
-				backend APIs and microservices using latest and greatest technologies.
-			</p>
-
-			<div class="flex items-center">
-				<Link
-					href="#contact"
-					class:list={[
-						"group/tgthm relative overflow-clip px-5 py-3",
-						"text-base-content hover:text-base-200",
-						"transition-all duration-300 ease-in-out",
-						"border border-base-300",
-						"after:transition-all after:duration-300 after:ease-in-out",
-						"after:absolute after:h-full after:w-full after:bg-base-content after:content-['']",
-						"after:-bottom-full after:left-0 hover:after:bottom-0",
-						"rounded-btn after:rounded-btn",
-					]}
-				>
-					<span class="relative z-[1]"> Contact Me </span>
-				</Link>
-			</div>
-		</div>
+		</header>
 	</div>
 </section>

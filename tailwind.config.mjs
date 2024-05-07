@@ -10,7 +10,7 @@ export default {
 		require("@tailwindcss/typography"),
 		require("daisyui"),
 	],
-	content: ["./public/*.{html,xsl}", "./src/**/*.{astro,html,svg,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+	content: ["./src/**/*.{astro,html,svg,md,mdx,svelte,ts,tsx,vue}"],
 	daisyui: {
 		themeRoot: ":root",
 		base: true,
@@ -52,8 +52,8 @@ export default {
 			center: true,
 		},
 		fontFamily: {
-			rocksalt: ["Rock Salt", "cursive", ...defaultTheme.fontFamily.sans],
-			body: ["Roboto", ...defaultTheme.fontFamily.sans],
+			title: ["Raleway", "sans-serif", ...defaultTheme.fontFamily.sans],
+			body: ["Open Sans", "sans-serif", ...defaultTheme.fontFamily.sans],
 		},
 	},
 };
