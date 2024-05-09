@@ -27,6 +27,12 @@ export default component$(() => {
 					if (mode === "dark") src = src.replace("snake.svg", "snake-dark.svg");
 					img.setAttribute("src", src);
 				}
+				const giscuss = document.querySelector('script[src="https://giscus.app/client.js"]');
+				giscuss?.setAttribute("data-theme", mode === "dark" ? "dark_dimmed" : "light");
+				const giscusFrame = document.querySelector("iframe.giscus-frame");
+				const giscusFrameURL = new URL(giscusFrame?.getAttribute("src") || "");
+				giscusFrameURL.searchParams.set("theme", mode === "dark" ? "transparent_dark" : "light");
+				giscusFrame?.setAttribute("src", giscusFrameURL.toString());
 			} catch (_) {
 				//
 			}

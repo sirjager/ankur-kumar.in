@@ -43,6 +43,7 @@ import mail from "../../assets/socials/mail.svg";
 				return (
 					<Link
 						href={social.url}
+						aria-label={`${social.name} profile`}
 						target="_blank"
 						style={{backgroundColor: social.color}}
 						class:list={[

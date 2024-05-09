@@ -6,16 +6,14 @@ banner_lock: true
 status: published
 published: 2024-03-17
 modifided: 2024-03-17
-title: Test Blog Post 3
-description: Test Blog Post 3
+title: "Infrastructure as Code: Leveraging Terraform for Automated Infrastructure Management"
+description: "Unlock the power of Infrastructure as Code (IaC) with Terraform, a leading tool for automating infrastructure provisioning and management. This guide will walk you through the basics of Terraform, its declarative syntax, and how to orchestrate infrastructure across multiple cloud providers effortlessly"
 category: Obsidian
 tags:
   - daily
 ---
 
 ## Third Post
-
-[Read Frist Post](first-post)
 
 ## Welcome to Stack Edit!
 

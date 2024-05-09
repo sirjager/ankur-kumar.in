@@ -32,6 +32,7 @@ const date = parseDate(post.published.toISOString());
 					return (
 						<Link
 							href={`/tags/${tag}`}
+							aria-label={`View all posts in ${tag}`}
 							style={{backgroundColor: clr.bg, borderColor: clr.fg}}
 							class="rounded-btn px-3 py-2"
 							data-pagefind-filter="tag"

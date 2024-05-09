@@ -1,4 +1,5 @@
 ---
+import CardContainer from "./CardContainer.astro";
 import Link from "@/components/Link.astro";
 import {getCollection} from "astro:content";
 import {getCategories, getTags, toPosts} from "@/content";
@@ -9,73 +10,43 @@ const tags = getTags(posts);
 const categories = getCategories(posts);
 ---
 
-<div
-	class:list={[
-		"group/card relative rounded-box border border-base-content/20",
-		"border-2 border-base-content/20 hover:border-accent",
-		"transition duration-300 ease-in-out",
-	]}
->
-	<div class:list={["relative mt-4 w-full"]}>
-		<div class="absolute top-1/2 h-0.5 w-full bg-base-content/20"></div>
-		<div
-			class="absolute top-1/2 h-0.5 w-0 bg-accent transition-all duration-300 ease-in-out group-hover/card:w-full"
-		>
-		</div>
-
-		<div class="mx-auto w-fit">
-			<div
-				class:list={[
-					"group mx-auto inline-block w-fit skew-x-12 transform text-sm",
-					"transition-transform duration-300 ease-in-out",
-				]}
+<CardContainer>
+	<div slot="header" class="w-fit select-none">
+		<div class="relative ml-4 bg-base-100 pr-1.5 text-sm font-bold uppercase">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				viewBox="0 0 24 24"
+				stroke-width="1.5"
+				fill="none"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				class="mx-1 inline h-4 w-4 stroke-accent"
 			>
-				<span
-					class:list={[
-						"absolute inset-0",
-						"translate-x-1 translate-y-1 -skew-x-12 transform rounded-box bg-base-300 transition duration-300 ease-in-out group-hover/card:bg-accent",
-					]}></span>
-				<div
-					class:list={[
-						"block -skew-x-12 transform rounded-box border border-base-content/20 bg-base-100 px-3 py-1",
-					]}
-				>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						viewBox="0 0 24 24"
-						stroke-width="1.5"
-						fill="none"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						class="mx-1 inline h-4 w-4 stroke-accent"
-					>
-						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-						<path
-							d="M4 4h16v2.172a2 2 0 0 1 -.586 1.414l-4.414 4.414v7l-6 2v-8.5l-4.48 -4.928a2 2 0 0 1 -.52 -1.345v-2.227z"
-						></path>
-					</svg>
-
-					<span class="font-bold uppercase text-accent">Filter</span>
-				</div>
-			</div>
+				<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+				<path
+					d="M4 4h16v2.172a2 2 0 0 1 -.586 1.414l-4.414 4.414v7l-6 2v-8.5l-4.48 -4.928a2 2 0 0 1 -.52 -1.345v-2.227z"
+				></path>
+			</svg>
+			Filter
 		</div>
 	</div>
 
-	<div role="tablist" class="tabs tabs-lifted m-2 mt-4">
+	<div slot="body" role="tablist" class="tabs tabs-lifted m-2 mt-4">
 		<input
 			checked
 			type="radio"
-			name="my_tabs_2"
 			role="tab"
+			name="filter_tabs"
 			aria-label="Tags"
-			class="tab text-base checked:text-accent"
+			class="tab font-bold checked:text-accent"
 		/>
-		<div role="tabpanel" class="tab-content rounded-box border-base-300 p-4">
+		<div role="tabpanel" class="tab-content rounded-box border-base-200 p-4">
 			<ul class="flex flex-wrap gap-2">
 				{
 					tags.map((tag) => (
 						<li>
 							<Link
+								aria-label={tag}
 								href={`/tags/${tag}`}
 								class:list={[
 									"rounded-btn p-2 text-sm hover:text-accent",
@@ -93,17 +64,18 @@ const categories = getCategories(posts);
 
 		<input
 			type="radio"
-			name="my_tabs_2"
 			role="tab"
-			class="tab text-base checked:text-accent"
+			name="filter_tabs"
+			class="tab font-bold checked:text-accent"
 			aria-label="Categories"
 		/>
-		<div role="tabpanel" class="tab-content rounded-box border-base-300 p-4">
+		<div role="tabpanel" class="tab-content rounded-box border-base-200 p-4">
 			<ul class="flex flex-wrap gap-2">
 				{
 					categories.map((cat) => (
 						<li>
 							<Link
+								aria-label={cat}
 								href={`/categories/${cat}`}
 								class:list={[
 									"rounded-btn p-2 text-sm hover:text-accent",
@@ -119,4 +91,4 @@ const categories = getCategories(posts);
 			</ul>
 		</div>
 	</div>
-</div>
+</CardContainer>

@@ -12,6 +12,7 @@ export function themeMode(theme: string | undefined): "dark" | "light" {
 		case "dark":
 		case "dim":
 		case "sunset":
+		case "jager":
 			return "dark";
 		default:
 			return "light";
@@ -19,10 +20,10 @@ export function themeMode(theme: string | undefined): "dark" | "light" {
 }
 
 export const themes = [
-	"cupcake",
-	"business",
-	// "light",
-	// "dark",
+	"dark",
+	"light",
+	// "cupcake",
+	// "business",
 	// "business",
 	// "bumblebee",
 	// "emerald",

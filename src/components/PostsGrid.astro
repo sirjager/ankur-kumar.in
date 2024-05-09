@@ -40,7 +40,7 @@ const boxSize = (index: number) => {
 								},
 							]}
 						>
-							<Link href={href}>
+							<Link href={href} aria-label={`Read "${post.title}"`}>
 								<figure class="max-h-[400px] overflow-clip rounded-box">
 									<Picture
 										src={post.banner}
@@ -58,7 +58,7 @@ const boxSize = (index: number) => {
 								</figure>
 							</Link>
 
-							<Link href={href}>
+							<Link href={href} aria-label={`Read "${post.title}"`}>
 								<p class="mt-2 line-clamp-3 text-pretty font-extrabold @md:text-2xl">
 									{post.title}
 								</p>

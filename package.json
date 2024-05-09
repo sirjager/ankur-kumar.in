@@ -9,10 +9,12 @@
 		"preview": "astro preview",
 		"astro": "astro",
 		"prepare": "husky",
-		"postbuild": "npm run pagefind",
+		"postbuild": "",
+		"cleanbuild": "rm -rf ./dist ./.vercel ./public/_pagefind",
 		"lint": "eslint . --fix",
-		"pagefind": "pagefind --site .vercel/output/static --output-subdir _pagefind",
-		"pagefind-dev": "rm -rf ./public/_pagefind && cp -rf .vercel/output/static/_pagefind ./public",
+		"pagefind": "pagefind --site ./dist/client --output-subdir _pagefind",
+		"pagefind:vercel": "pagefind --site .vercel/output/static --output-subdir _pagefind",
+		"pagefind-dev": "rm -rf ./public/_pagefind && cp -rf .dist/client/_pagefind ./public",
 		"format": "prettier --write . && prettier --check ."
 	},
 	"dependencies": {

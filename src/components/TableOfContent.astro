@@ -1,4 +1,5 @@
 ---
+import CardContainer from "@/components/aside/CardContainer.astro";
 import type {Heading} from "@/content";
 interface Props {
 	headings: Heading[];
@@ -7,65 +8,59 @@ interface Props {
 const {headings} = Astro.props;
 ---
 
-<div
-	id="toc"
-	class:list={[
-		"group/toc relative rounded-box text-sm",
-		"border border-base-content/20 hover:border-accent",
-		"transition duration-300 ease-in-out",
-	]}
->
-	<div class:list={["relative mt-4 w-full"]}>
-		<div class="absolute top-1/2 h-0.5 w-full bg-accent"></div>
-		<div class="w-fit select-none">
-			<div class="relative ml-4 bg-base-100 px-2 text-sm font-bold uppercase">Table of</div>
-		</div>
+<CardContainer watchScroll>
+	<div slot="header" class="w-fit select-none">
+		<div class="relative ml-4 bg-base-100 px-2 text-sm font-bold uppercase">Table of</div>
 	</div>
 
-	<ul class="menu">
-		<details id="toc-details" title="click to expand" class="closed">
-			<summary
-				class="flex cursor-pointer select-none items-center pl-6 pr-2 text-3xl font-bold uppercase text-accent"
-			>
-				Content
-			</summary>
+	<details slot="body" id="toc-details">
+		<summary
+			data-tip={"Click on \"CONTENT\" to toggle"}
+			class:list={[
+				"flex cursor-pointer select-none items-center pb-2 pl-6 pr-2 text-lg lg:text-3xl",
+				"font-bold uppercase text-accent",
+				"tooltip w-full group-hover:tooltip-open lg:tooltip-left",
+			]}
+		>
+			Content
+		</summary>
 
-			<ul
-				id="toc-list"
-				class:list={[
-					"mt-2 h-full max-h-80 overflow-x-hidden lg:overflow-y-auto",
-					"transition-all duration-300 ease-in-out",
-				]}
-			>
-				{
-					headings.map((heading) => {
-						return (
-							<li
-								id={`tocli-${heading.slug}`}
-								class:list={["group/hblock tocli relative flex flex-col justify-center py-0.5"]}
+		<ul
+			id="toc-list"
+			class:list={[
+				"z-[999999] mx-1 my-2 h-full max-h-80 overflow-x-hidden lg:overflow-y-auto",
+				"transition-all duration-300 ease-in-out",
+			]}
+		>
+			{
+				headings.map((heading) => {
+					return (
+						<li
+							id={`tocli-${heading.slug}`}
+							class:list={["group/hblock tocli relative flex flex-col justify-center py-0.5"]}
+						>
+							<a
+								href={`#${heading.slug}`}
+								class:list={[
+									"mr-2 block w-full rounded-none p-1 text-left text-sm hover:bg-transparent",
+									"text-neutral-content hover:font-bold hover:text-base-content ",
+									"border-l-4 border-transparent hover:border-accent",
+									"bg-gradient-to-r hover:from-accent/20 hover:via-accent/10 hover:to-base-100",
+									{
+										"ml-3": heading.depth === 2,
+										"ml-5": heading.depth === 3,
+										"ml-7": heading.depth === 4,
+										"ml-8": heading.depth === 5,
+										"ml-10": heading.depth === 6,
+									},
+								]}
 							>
-								<a
-									href={`#${heading.slug}`}
-									class:list={[
-										"group/htext relative mr-2 block rounded-none p-1 hover:bg-transparent",
-										"border-l-4 border-transparent hover:border-accent",
-										"bg-gradient-to-r hover:from-accent/20 hover:via-accent/10 hover:to-base-100",
-										{
-											"ml-3": heading.depth === 2,
-											"ml-5": heading.depth === 3,
-											"ml-7": heading.depth === 4,
-											"ml-8": heading.depth === 5,
-											"ml-10": heading.depth === 6,
-										},
-									]}
-								>
-									{heading.text}
-								</a>
-							</li>
-						);
-					})
-				}
-			</ul>
-		</details>
-	</ul>
-</div>
+								{heading.text}
+							</a>
+						</li>
+					);
+				})
+			}
+		</ul>
+	</details>
+</CardContainer>

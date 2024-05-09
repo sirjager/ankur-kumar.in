@@ -8,7 +8,7 @@ import SpeedInsights from "@vercel/speed-insights/astro";
 import "@/styles.css";
 import type {Props as HeadProps} from "./Head.astro";
 import {ViewTransitions} from "astro:transitions";
-import SiteUnderDevelopment from "@/components/SiteUnderDevelopment.astro";
+import ScrollToTop from "@/components/ScrollToTop.astro";
 
 interface Props extends HeadProps {
 	viewTransitions?: boolean;
@@ -23,17 +23,12 @@ const {viewTransitions = false, ...props} = Astro.props;
 		<Head {...props} />
 		{viewTransitions && <ViewTransitions />}
 	</head>
-	<body
-		class:list={[
-			"font-body font-light text-base-content antialiased",
-			"transition duration-300 ease-in-out",
-		]}
-	>
+	<body class:list={["bg-base-100 font-body font-medium text-base-content antialiased"]}>
 		<ScrollWatcher />
-		<SiteUnderDevelopment />
 		<Navbar />
 		<slot />
 		<Footer />
+		<ScrollToTop />
 		<Scripts />
 		<SpeedInsights />
 	</body>

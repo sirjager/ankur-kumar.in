@@ -44,7 +44,7 @@ const pageDesc = description ? description : site.description;
 <meta property="twitter:description" content={pageDesc} />
 
 <link
-	href="/fonts/raleway.ttf"
+	href="/fonts/inter.ttf"
 	as="font"
 	rel="preload prefetch"
 	type="font/ttf"
@@ -52,7 +52,7 @@ const pageDesc = description ? description : site.description;
 />
 
 <link
-	href="/fonts/opensans.ttf"
+	href="/fonts/raleway.ttf"
 	as="font"
 	rel="preload prefetch"
 	type="font/ttf"
@@ -61,6 +61,8 @@ const pageDesc = description ? description : site.description;
 
 <!-- This needs to be inlinded to avoid FOUC (Flash of unstyled content) -->
 <script is:inline lang="js">
+	// @ts-ignore @ts-nocheck : used to set giscuss theme
+	let theme, themeMode;
 	const __apply__ = (th, mo) => {
 		document.documentElement.setAttribute("data-theme", th);
 		document.documentElement.setAttribute("data-theme-mode", mo);
@@ -70,7 +72,7 @@ const pageDesc = description ? description : site.description;
 		if (emt) emt.setAttribute("content", "#4285f4");
 		else {
 			emt = document.createElement("meta");
-			emt.setAttribute("name", "theme-color");
+			emt?.setAttribute("name", "theme-color");
 			emt.setAttribute("content", "#4285f4");
 		}
 	};
@@ -81,8 +83,11 @@ const pageDesc = description ? description : site.description;
 			if (_s) [th, mo] = _s.split("@");
 			else localStorage.setItem("theme", `${th}@${mo}`);
 		}
+		theme = th;
+		themeMode = mo;
 		__apply__(th, mo);
 	};
 	__theming__();
+	// for darkmode when using view transition api
 	document.addEventListener("astro:after-swap", __theming__);
 </script>

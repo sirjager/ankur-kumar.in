@@ -6,16 +6,14 @@ banner_lock: true
 status: published
 published: 2024-03-17
 modifided: 2024-03-17
-title: Test Blog Post 4
-description: Test Blog Post 4
+title: "Container Orchestration Simplified: Getting Started with Kubernetes for Seamless Deployment and Scaling"
+description: "Explore the world of container orchestration with Kubernetes, the industry-standard platform for automating deployment, scaling, and management of containerized applications. This beginner-friendly guide covers the fundamentals of Kubernetes architecture, key components like Pods and Services, and practical tips for orchestrating your containers effectively."
 category: Astro
 tags:
   - daily
 ---
 
 ## Fourth Post
-
-[Read Frist Post](first-post)
 
 ## Welcome to Stack Edit!
 

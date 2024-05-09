@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 @font-face {
-	font-family: "Open Sans";
-	src: url("/fonts/opensans.ttf") format("ttf");
+	font-family: "Inter Variable";
+	src: url("/fonts/inter.ttf") format("ttf");
 	display: swap;
 }
 
@@ -12,6 +12,14 @@
 	font-family: "Raleway";
 	src: url("/fonts/raleway.ttf") format("ttf");
 	display: swap;
+}
+
+[data-theme="light"] .btn {
+	@apply border-base-200;
+}
+
+[data-theme="dark"] .btn {
+	@apply border-base-200;
 }
 
 /* Text Selection And Selected Text Background Color */

@@ -54,6 +54,7 @@ const {link = `/${title}`.toLowerCase()} = Astro.props;
 				return (
 					<Link
 						href={`${link}/${item}`}
+						aria-label={item}
 						class="rounded-box border border-base-content/20 px-3 py-1 text-sm hover:border-base-content/60"
 					>
 						{item}

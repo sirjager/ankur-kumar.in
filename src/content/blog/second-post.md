@@ -6,16 +6,14 @@ banner_lock: true
 status: published
 published: 2024-03-17
 modifided: 2024-03-17
-title: Test Blog Post 2
-description: Test Blog Post 2
+title: "Choosing the Right Web Framework: A Comparative Analysis of React, Angular, and Vue.js"
+description: "Confused about which front-end framework to use for your next project? This in-depth comparison of React, Angular, and Vue.js will provide clarity. Explore their features, performance, community support, and scalability to make an informed decision and kickstart your web development journey."
 category: Stack Edit
 tags:
   - daily
 ---
 
 ## Second Post Title
-
-[Read Frist Post](first-post)
 
 ## Welcome to Stack Edit!
 

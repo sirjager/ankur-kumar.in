@@ -2,7 +2,6 @@
 import Link from "@/components/Link.astro";
 import type {Post} from "@/content";
 import Image from "@/components/images/QwikImage";
-import CardContainer from "./CardContainer.astro";
 
 interface Props {
 	posts: Post[];
@@ -13,19 +12,33 @@ interface Props {
 const {posts, label, title} = Astro.props;
 ---
 
-<CardContainer>
-	<div slot="header" class="w-fit select-none">
-		<div class="relative ml-4 bg-base-100 px-2 text-sm font-bold uppercase">{label}</div>
+<div
+	class:list={[
+		"group relative rounded-box",
+		"border-2 border-base-content/20 hover:border-accent",
+		"transition duration-500 ease-in-out",
+		"shadow-md hover:shadow-lg",
+	]}
+>
+	<div class:list={["relative mt-4 w-full"]}>
+		<div class="absolute top-1/2 h-0.5 w-full bg-base-content/20"></div>
+		<div
+			class="absolute top-1/2 h-0.5 w-0 bg-accent transition-all duration-300 ease-in-out group-hover:w-full"
+		>
+		</div>
+		<div class="w-fit select-none">
+			<div class="relative ml-4 bg-base-100 px-2 text-sm font-bold uppercase">{label}</div>
+		</div>
 	</div>
 
-	<details open slot="body" id="toc-details">
+	<details
+		open
+		id="toc-details"
+		data-tip={`Click on ${title} to toggle`}
+		class="tooltip w-full group-hover:tooltip-open"
+	>
 		<summary
-			data-tip={`Click on "${title}" to toggle`}
-			class:list={[
-				"flex cursor-pointer select-none items-center pb-2 pl-6 pr-2 text-3xl",
-				"font-bold uppercase text-accent",
-				"tooltip w-full group-hover:tooltip-open lg:tooltip-left",
-			]}
+			class="flex cursor-pointer select-none items-center pb-2 pl-6 pr-2 text-3xl font-bold uppercase text-accent"
 		>
 			{title}
 		</summary>
@@ -51,4 +64,4 @@ const {posts, label, title} = Astro.props;
 			}
 		</div>
 	</details>
-</CardContainer>
+</div>

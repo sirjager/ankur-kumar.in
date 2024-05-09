@@ -1,0 +1,57 @@
+---
+
+---
+
+<script>
+	const ele = document.getElementById("scroll-to-top");
+	window.addEventListener("scroll", () => {
+		const scrollY = window.scrollY;
+		const isHidden = ele?.classList.contains("hidden");
+		if (scrollY > 200 && isHidden) {
+			ele?.classList.remove("hidden");
+		} else if (scrollY <= 200 && !isHidden) {
+			ele?.classList.add("hidden");
+		}
+	});
+
+	ele?.addEventListener("click", () => window.scrollTo({top: 0, behavior: "smooth"}));
+</script>
+
+<button
+	id="scroll-to-top"
+	title="Scroll to top"
+	aria-label="Scroll to top"
+	class:list={[
+		"group fixed z-[99999] hidden p-2",
+		"bottom-3 right-4 sm:bottom-20 md:right-8 xl:right-12 ",
+		"transition duration-300 ease-in-out",
+		"bg-accent shadow-md hover:shadow-xl",
+		"rounded-box border border-base-200",
+		"outline-none ring-offset-white focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 dark:focus:ring-offset-black",
+	]}
+>
+	<svg
+		width="24"
+		height="24"
+		viewBox="0 0 24 24"
+		fill="none"
+		xmlns="http://www.w3.org/2000/svg"
+		class="rotate-90"
+	>
+		<path
+			d="M15.5 12L8.5 12M8.5 12L11 14.5M8.5 12L11 9.5"
+			class="stroke-accent-content"
+			stroke-width="1.5"
+			stroke-linecap="round"
+			stroke-linejoin="round"></path>
+		<path
+			d="M8.95043 20.6471C6.17301 19.9956 4.00437 17.827 3.35287 15.0496C2.88237 13.0437 2.88237 10.9563 3.35288 8.95043C4.00437 6.173 6.17301 4.00437 8.95043 3.35287C10.9563 2.88237 13.0437 2.88237 15.0496 3.35287C17.827 4.00437 19.9956 6.173 20.6471 8.95043C21.1176 10.9563 21.1176 13.0437 20.6471 15.0496C19.9956 17.827 17.827 19.9956 15.0496 20.6471C13.0437 21.1176 10.9563 21.1176 8.95043 20.6471Z"
+			class="stroke-accent-content"
+			stroke-width="1.5"></path>
+		<path
+			d="M8.95043 20.6471C10.9563 21.1176 13.0437 21.1176 15.0496 20.6471C17.827 19.9956 19.9956 17.827 20.6471 15.0496C21.1176 13.0437 21.1176 10.9563 20.6471 8.95043C19.9956 6.173 17.827 4.00437 15.0496 3.35287C13.0437 2.88237 10.9563 2.88237 8.95043 3.35287C6.17301 4.00437 4.00437 6.173 3.35288 8.95043"
+			class="stroke-accent-content"
+			stroke-width="1.5"
+			stroke-linecap="round"></path>
+	</svg>
+</button>

@@ -31,7 +31,7 @@ const links = [
 			"z-[99999] flex items-center justify-between",
 		]}
 	>
-		<Link href="/" class="z-[99999]">
+		<Link aria-label="Go to the homepage" href="/" class="z-[99999]">
 			<Logo />
 		</Link>
 
@@ -66,6 +66,7 @@ const links = [
 						links.map((link) => {
 							return (
 								<Link
+									aria-label={`Go to ${link.label}`}
 									key={link.label}
 									href={link.href}
 									class:list={[

@@ -27,7 +27,12 @@ const pages = [
 		{
 			pages.map((page) => (
 				<li>
-					<Link key={page.link} href={page.link} class="link-hover link block capitalize">
+					<Link
+						aria-label={`View "${page.label}"`}
+						key={page.link}
+						href={page.link}
+						class="link-hover link block capitalize"
+					>
 						{page.label}
 					</Link>
 				</li>
