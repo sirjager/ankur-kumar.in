@@ -5,15 +5,17 @@
 	"scripts": {
 		"dev": "astro dev --host",
 		"start": "astro preview",
-		"build": "astro check && astro build && npm run postbuild",
+		"build": "npm run prebuild && astro check && astro build && npm run postbuild",
 		"preview": "astro preview",
 		"astro": "astro",
+		"prebuild": "npm run cleanbuild",
 		"postbuild": "npm run pagefind:vercel",
 		"cleanbuild": "rm -rf ./dist ./.vercel ./public/_pagefind",
 		"lint": "eslint . --fix",
-		"pagefind": "pagefind --site ./dist/client --output-subdir _pagefind",
+		"pagefind": "if [ -d ./dist/client ]; then npm run pagefind:node; elif [ -d .vercel/output/static ]; then npm run pagefind:vercel; fi",
+		"pagefind:node": "pagefind --site ./dist/client --output-subdir _pagefind",
 		"pagefind:vercel": "pagefind --site .vercel/output/static --output-subdir _pagefind",
-		"pagefind-dev": "rm -rf ./public/_pagefind && cp -rf .dist/client/_pagefind ./public",
+		"pagefind:dev": "if [ -d ./dist/client ]; then cp -rf ./dist/client/_pagefind ./public ; elif [ -d .vercel/output/static ]; then cp -rf .vercel/output/static/_pagefind ./public; fi",
 		"format": "prettier --write . && prettier --check ."
 	},
 	"dependencies": {

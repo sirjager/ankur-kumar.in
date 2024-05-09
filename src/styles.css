@@ -86,7 +86,7 @@
 
 #searchui {
 	* {
-		@apply border-base-content/10 text-base-content;
+		@apply border-base-200 text-base-content;
 	}
 
 	mark {

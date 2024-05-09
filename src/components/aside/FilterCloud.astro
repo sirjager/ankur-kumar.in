@@ -11,7 +11,7 @@ const categories = getCategories(posts);
 ---
 
 <CardContainer>
-	<div slot="header" class="w-fit select-none">
+	<div data-pagefind-body slot="header" class="w-fit select-none">
 		<div class="relative ml-4 bg-base-100 pr-1.5 text-sm font-bold uppercase">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
@@ -47,6 +47,8 @@ const categories = getCategories(posts);
 						<li>
 							<Link
 								aria-label={tag}
+								data-pagefind-meta="tag"
+								data-pagefind-filter="tag"
 								href={`/tags/${tag}`}
 								class:list={[
 									"rounded-btn p-2 text-sm hover:text-accent",
@@ -76,6 +78,8 @@ const categories = getCategories(posts);
 						<li>
 							<Link
 								aria-label={cat}
+								data-pagefind-filter="category"
+								data-pagefind-meta="category"
 								href={`/categories/${cat}`}
 								class:list={[
 									"rounded-btn p-2 text-sm hover:text-accent",
