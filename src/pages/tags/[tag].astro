@@ -1,8 +1,7 @@
 ---
 import Root from "@/layouts/Root.astro";
-import PostsGrid from "@/components/PostsGrid.astro";
-
-import AsidePosts from "@/components/aside/AsidePosts.astro";
+import PostsGrid from "@/components/blog/PostsGrid.astro";
+import Blog from "@/layouts/Blog.astro";
 import MostViewedPosts from "@/components/aside/MostViewedPosts.astro";
 import FilterCloud from "@/components/aside/FilterCloud.astro";
 
@@ -24,28 +23,31 @@ const {tag} = Astro.params;
 const {posts} = Astro.props;
 ---
 
-<Root>
-	<div
-		class:list={[
-			"mx-auto h-full max-w-7xl overflow-clip",
-			"grid grid-cols-1",
-			"gap-4 p-4 sm:gap-8 sm:p-8",
-			"lg:grid-cols-[minmax(0,1fr),18.75rem]",
-		]}
-	>
-		<div class="relative w-full">
-			<h2>
-				Tag: {tag}
-			</h2>
-			<PostsGrid posts={posts} />
+<Root
+	title={`Tag "${tag}"`}
+	description={`Dive into collection of articles tagged with ${tag}. There are total number of ${posts.length} articles in this collection.`}
+>
+	<Blog>
+		<div slot="header" class="mb-4 @container">
+			<h1
+				class="text-title max-w-2xl text-pretty font-title text-2xl font-light @md:text-3xl @2xl:text-4xl"
+			>
+				Articles tagged with <span class="text-accent">#{tag}</span>
+			</h1>
+			<p class="prose mt-4">
+				Dive into collection of articles tagged with <b>{tag}</b>. There are total number of <b>
+					{posts.length} articles
+				</b> in this collection.
+				<br />
+				From beginners to experts, there's something for everyone in this collection.
+			</p>
 		</div>
 
-		<aside class="space-y-4">
-			<FilterCloud />
-			<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-1">
-				<MostViewedPosts />
-				<AsidePosts label="Posts" title="Popular" posts={posts} />
-			</div>
-		</aside>
-	</div>
+		<PostsGrid slot="body" posts={posts} />
+
+		<FilterCloud slot="aside" />
+		<div slot="aside" class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-1">
+			<MostViewedPosts />
+		</div>
+	</Blog>
 </Root>

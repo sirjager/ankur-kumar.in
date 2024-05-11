@@ -21,7 +21,7 @@ const categories = getCategories(posts);
 const tags = getTags(posts);
 ---
 
-<Root title={post.title}>
+<Root title={post.title} description={post.description} image={post.banner}>
 	<Article allPosts={posts} post={post} categories={categories} tags={tags}>
 		<Content />
 	</Article>

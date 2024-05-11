@@ -3,22 +3,23 @@ import CardContainer from "@/components/aside/CardContainer.astro";
 import type {Heading} from "@/content";
 interface Props {
 	headings: Heading[];
+	isOpened?: boolean;
 }
 
-const {headings} = Astro.props;
+const {headings, isOpened} = Astro.props;
 ---
 
 <CardContainer watchScroll>
 	<div slot="header" class="w-fit select-none">
-		<div class="relative ml-4 bg-base-100 px-2 text-sm font-bold uppercase">Table of</div>
+		<div class="relative ml-4 bg-base-100 px-2 text-sm uppercase">Table of</div>
 	</div>
 
-	<details slot="body" id="toc-details">
+	<details slot="body" id="toc-details" open={isOpened}>
 		<summary
 			data-tip={"Click on \"CONTENT\" to toggle"}
 			class:list={[
 				"flex cursor-pointer select-none items-center pb-2 pl-6 pr-2 text-lg lg:text-3xl",
-				"font-bold uppercase text-accent",
+				"uppercase text-accent",
 				"tooltip w-full group-hover:tooltip-open lg:tooltip-left",
 			]}
 		>

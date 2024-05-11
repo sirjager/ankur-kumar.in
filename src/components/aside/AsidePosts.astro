@@ -15,7 +15,7 @@ const {posts, label, title} = Astro.props;
 
 <CardContainer>
 	<div slot="header" class="w-fit select-none">
-		<div class="relative ml-4 bg-base-100 px-2 text-sm font-bold uppercase">{label}</div>
+		<div class="relative ml-4 bg-base-100 px-2 text-sm uppercase">{label}</div>
 	</div>
 
 	<details open slot="body" id="toc-details">
@@ -23,7 +23,7 @@ const {posts, label, title} = Astro.props;
 			data-tip={`Click on "${title}" to toggle`}
 			class:list={[
 				"flex cursor-pointer select-none items-center pb-2 pl-6 pr-2 text-3xl",
-				"font-bold uppercase text-accent",
+				"uppercase text-accent",
 				"tooltip w-full group-hover:tooltip-open lg:tooltip-left",
 			]}
 		>

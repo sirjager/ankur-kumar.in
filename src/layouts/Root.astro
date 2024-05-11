@@ -1,35 +1,35 @@
 ---
+import "@/styles/global.css";
+import "@fontsource-variable/raleway";
+import "@fontsource-variable/inter";
 import ScrollWatcher from "@/components/ScrollWatcher.astro";
 import Footer from "@/components/footer/Footer.astro";
 import Navbar from "@/components/navbar/Navbar.astro";
 import Head from "@/layouts/Head.astro";
-import Scripts from "@/layouts/Scripts.astro";
 import SpeedInsights from "@vercel/speed-insights/astro";
-import "@/styles.css";
 import type {Props as HeadProps} from "./Head.astro";
-import {ViewTransitions} from "astro:transitions";
 import ScrollToTop from "@/components/ScrollToTop.astro";
+import Breadcrumbs from "@/layouts/BreadCrumbs.astro";
 
 interface Props extends HeadProps {
-	viewTransitions?: boolean;
+	disableBreadcrumbs?: boolean;
 }
 
-const {viewTransitions = false, ...props} = Astro.props;
+const {disableBreadcrumbs, ...props} = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<Head {...props} />
-		{viewTransitions && <ViewTransitions />}
 	</head>
-	<body class:list={["bg-base-100 font-body font-medium text-base-content antialiased"]}>
+	<body class="font-body antialiased">
 		<ScrollWatcher />
 		<Navbar />
+		{!disableBreadcrumbs && <Breadcrumbs />}
 		<slot />
 		<Footer />
 		<ScrollToTop />
-		<Scripts />
 		<SpeedInsights />
 	</body>
 </html>

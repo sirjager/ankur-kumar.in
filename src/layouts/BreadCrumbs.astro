@@ -1,0 +1,22 @@
+---
+import {Breadcrumbs} from "astro-breadcrumbs";
+import "astro-breadcrumbs/breadcrumbs.css";
+import "@/styles/breadcrumbs.css";
+---
+
+<div class:list={["mx-auto max-w-7xl overflow-clip px-6 pt-6"]}>
+	<Breadcrumbs>
+		<svg
+			slot="separator"
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			stroke-width="2"
+			stroke-linecap="round"
+			stroke-linejoin="round"
+			class="h-5 w-5 stroke-base-content/60"
+			><polyline points="9 18 15 12 9 6"></polyline>
+		</svg>
+	</Breadcrumbs>
+</div>

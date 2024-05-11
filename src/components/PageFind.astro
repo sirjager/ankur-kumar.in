@@ -1,10 +1,14 @@
 ---
-
+import "@/styles/pagefind.css";
 ---
 
 <div class:list={["mx-auto h-full min-h-20 max-w-6xl"]}>
 	<div id="searchui" class:list={["relative min-h-20 w-full"]}></div>
 </div>
+
+<link href="/_pagefind/pagefind-ui.css" rel="stylesheet" />
+
+<script is:inline src="/_pagefind/pagefind-ui.js"></script>
 
 <script is:inline>
 	window.addEventListener("DOMContentLoaded", (_) => {

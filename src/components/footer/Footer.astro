@@ -48,16 +48,22 @@ const sections = [
 			{
 				sections.map((section) => {
 					return (
-						<div class="col-span-1 p-4">
-							<h3 class="p-1 text-sm font-semibold uppercase tracking-widest">{section.name}</h3>
+						<div class="group relative col-span-1 overflow-clip p-4">
+							<h3 class="p-1 font-title text-sm font-semibold uppercase tracking-widest">
+								{section.name}
+							</h3>
+							<div
+								aria-hidden="true"
+								class="absolute left-4 mr-4 h-0.5 w-0 bg-accent transition-all duration-300 ease-in-out group-hover:w-[70%]"
+							/>
 							<ul class="mt-2 space-y-2">
 								{section.items.map((item) => {
 									return (
-										<li>
+										<li class="group/link relative w-full">
 											<Link
 												aria-label={item.name}
 												href={item.url}
-												class:list={["w-full rounded-btn p-1 text-base"]}
+												class:list={["block rounded-btn p-1", "group-hover/link:text-accent"]}
 											>
 												{item.name}
 											</Link>
@@ -87,7 +93,7 @@ const sections = [
 							<path d="M12 11v-8h4l2 2l-2 2h-4"></path>
 							<path d="M6 15h1"></path>
 						</svg>
-						<p class="font-semibold">Stay up to date</p>
+						<p class="font-title font-semibold">Stay up to date</p>
 					</div>
 
 					<p class="mt-2 text-sm text-neutral-content">
@@ -120,7 +126,7 @@ const sections = [
 			"flex flex-col items-center gap-4 sm:flex-row sm:justify-between",
 		]}
 	>
-		<div class="w-full max-w-48 px-2">
+		<div class="w-full max-w-56 px-2">
 			<Copyright />
 		</div>
 		<SocialIcons />

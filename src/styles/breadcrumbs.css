@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.c-breadcrumbs__crumbs {
+	/* ol list */
+	.c-breadcrumbs__crumb {
+		/* li list item */
+		.c-breadcrumbs__link {
+			/* a link */
+			@apply px-2 py-1 text-sm font-medium text-base-content;
+		}
+
+		.is-current {
+			@apply text-accent;
+		}
+	}
+}

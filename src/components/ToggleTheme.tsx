@@ -56,7 +56,7 @@ export default component$(() => {
 			class={[
 				"px-3 py-2",
 				"transition-all duration-300 ease-in-out",
-				"group/tgthm border border-base-300",
+				"group/tgthm border-base-300",
 				"relative grid place-items-center overflow-clip rounded-btn p-0",
 				"after:transition-all after:duration-300 after:ease-in-out",
 				"after:absolute after:h-full after:w-full after:rounded-btn after:bg-base-content after:content-['']",

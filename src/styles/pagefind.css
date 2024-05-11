@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#searchui {
+	* {
+		@apply border-base-200 text-base-content;
+	}
+
+	mark {
+		@apply rounded-sm bg-accent text-accent-content underline;
+	}
+
+	.pagefind-ui__search-input {
+		@apply input input-bordered w-full pl-10 text-base-content focus:input-accent placeholder:text-neutral-content/50 placeholder:opacity-100;
+	}
+
+	.pagefind-ui__search-clear {
+		@apply btn btn-sm absolute right-2 mt-1.5;
+	}
+
+	.pagefind-ui__filter-checkbox {
+		@apply checkbox-accent checkbox checkbox-xs h-5 w-5 border-none bg-base-300;
+	}
+
+	.pagefind-ui__message {
+		@apply px-4;
+	}
+
+	.pagefind-ui__results {
+		@apply space-y-3 px-2 pb-8 @container;
+	}
+
+	.pagefind-ui__result {
+		@apply flex w-full flex-col gap-2 border-0 p-0 transition-all duration-300 ease-in-out hover:scale-105 @sm:flex-row;
+	}
+
+	.pagefind-ui__result-thumb {
+		@apply h-28 max-h-28 min-h-28 w-full min-w-full overflow-clip rounded-btn @sm:w-44 @sm:min-w-44;
+
+		.pagefind-ui__result-image {
+			@apply h-full w-full rounded-box bg-cover object-cover;
+		}
+	}
+
+	.pagefind-ui__result-title {
+		@apply text-sm font-semibold md:text-lg;
+
+		.pagefind-ui__result-link {
+			@apply !no-underline hover:text-accent;
+		}
+	}
+
+	.pagefind-ui__result-excerpt {
+		@apply line-clamp-3;
+	}
+
+	.pagefind-ui__filter-group {
+		@apply pt-2;
+	}
+
+	.pagefind-ui__filter-block {
+		@apply cursor-pointer border-b-2;
+	}
+
+	.pagefind-ui__filter-label {
+		@apply w-full cursor-pointer text-xs;
+	}
+
+	.pagefind-ui__filter-name {
+		@apply px-2 py-3;
+	}
+}

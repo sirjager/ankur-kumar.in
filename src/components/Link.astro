@@ -5,9 +5,10 @@ interface Props extends HTMLAttributes<"a"> {
 	href: string;
 	"aria-label": string;
 	key?: string | number;
+	nofocus?: boolean;
 }
 
-const {href, "class:list": className, class: class_, ...attrs} = Astro.props as Props;
+const {href, nofocus, "class:list": className, class: class_, ...attrs} = Astro.props as Props;
 ---
 
 <a
@@ -15,7 +16,10 @@ const {href, "class:list": className, class: class_, ...attrs} = Astro.props as 
 	{...attrs}
 	class:list={[
 		class_ ?? className,
-		"outline-none ring-offset-white focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 dark:focus:ring-offset-black",
+		{
+			"rounded-btn outline-none ring-offset-white focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 dark:focus:ring-offset-black":
+				!nofocus,
+		},
 	]}
 >
 	<slot>Link</slot>

@@ -1,5 +1,5 @@
 ---
-banner: "https://i.imgur.com/0NqPyrz.png"
+banner: "https://images.pexels.com/photos/147411/italy-mountains-dawn-daybreak-147411.jpeg?w=1920&h=1080"
 banner_x: 0.5
 banner_y: 0.3975
 banner_lock: true
@@ -53,7 +53,7 @@ There are two types of synchronization and they can complement each other:
   > To start syncing your workspace, just sign in with Google in the menu.
 
 - The file synchronization will keep one file of the workspace synced with one or multiple files in **Google Drive**, **Dropbox** or **GitHub**.
-  > Before starting to sync files, you must link an account in the **Synchronize** sub-menu.
+  > Before starting to sync files, you must link an account in the Synchronize sub-menu.
 
 ## Open a file
 

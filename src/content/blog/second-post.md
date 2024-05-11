@@ -1,5 +1,5 @@
 ---
-banner: "https://i.imgur.com/1vAMnYO.png"
+banner: "https://images.pexels.com/photos/356807/pexels-photo-356807.jpeg?w=1920&h=1080"
 banner_x: 0.5
 banner_y: 0.5475
 banner_lock: true

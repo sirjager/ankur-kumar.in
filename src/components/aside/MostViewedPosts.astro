@@ -18,7 +18,8 @@ import CardContainer from "./CardContainer.astro";
 			ele.removeChild(ele.firstChild);
 		}
 
-		popular.forEach((post) => {
+		popular.forEach((post, index) => {
+			const isLast = index === popular.length - 1;
 			const li = document.createElement("li");
 			const link = document.createElement("a");
 			link.href = `/blog/${post.slug}`;
@@ -27,17 +28,10 @@ import CardContainer from "./CardContainer.astro";
 				"p-2",
 				"text-sm",
 				"block",
-				"font-semibold",
+				"font-title",
 				"rounded-btn",
 				"text-neutral-content",
-				"hover:text-base-content",
-				"border",
-				"border-transparent",
-				"hover:border-accent",
-				"bg-gradient-to-tr",
-				"hover:from-base-200",
-				"hover:via-base-100",
-				"hover:to-base-200"
+				"hover:text-base-content"
 			);
 
 			li.appendChild(link);
@@ -48,15 +42,15 @@ import CardContainer from "./CardContainer.astro";
 
 <CardContainer>
 	<div slot="header" class="w-fit select-none">
-		<div class="relative ml-4 bg-base-100 pr-1.5 text-sm font-bold uppercase">
+		<div class="relative ml-4 bg-base-100 pr-1.5 font-title text-sm font-light uppercase">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
-				class="mx-1 inline h-4 w-4 stroke-accent"
 				viewBox="0 0 24 24"
 				stroke-width="1.5"
 				fill="none"
 				stroke-linecap="round"
 				stroke-linejoin="round"
+				class="mx-1 inline h-4 w-4 stroke-base-content group-hover:stroke-accent"
 			>
 				<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
 				<path d="M3 17l6 -6l4 4l8 -8"></path>
@@ -71,7 +65,7 @@ import CardContainer from "./CardContainer.astro";
 			data-tip='Click on "Viewed" to toggle'
 			class:list={[
 				"flex cursor-pointer select-none items-center pb-2 pl-6 pr-2 text-3xl",
-				"font-bold uppercase text-accent",
+				"uppercase text-accent",
 				"tooltip w-full group-hover:tooltip-open lg:tooltip-left",
 			]}
 		>

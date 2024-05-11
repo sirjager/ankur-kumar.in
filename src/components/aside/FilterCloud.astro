@@ -11,8 +11,8 @@ const categories = getCategories(posts);
 ---
 
 <CardContainer>
-	<div data-pagefind-body slot="header" class="w-fit select-none">
-		<div class="relative ml-4 bg-base-100 pr-1.5 text-sm font-bold uppercase">
+	<div slot="header" class="w-fit select-none">
+		<div class="relative ml-4 bg-base-100 pr-1.5 text-sm uppercase">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				viewBox="0 0 24 24"
@@ -20,7 +20,7 @@ const categories = getCategories(posts);
 				fill="none"
 				stroke-linecap="round"
 				stroke-linejoin="round"
-				class="mx-1 inline h-4 w-4 stroke-accent"
+				class="mx-1 inline h-4 w-4 stroke-base-content group-hover:stroke-accent"
 			>
 				<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
 				<path
@@ -31,24 +31,21 @@ const categories = getCategories(posts);
 		</div>
 	</div>
 
-	<div slot="body" role="tablist" class="tabs tabs-lifted m-2 mt-4">
+	<div slot="body" class="tabs tabs-lifted m-2 mt-4">
 		<input
 			checked
 			type="radio"
-			role="tab"
 			name="filter_tabs"
 			aria-label="Tags"
-			class="tab font-bold checked:text-accent"
+			class="tab checked:text-accent"
 		/>
-		<div role="tabpanel" class="tab-content rounded-box border-base-200 p-4">
+		<div class="tab-content rounded-box border-base-200 p-4">
 			<ul class="flex flex-wrap gap-2">
 				{
 					tags.map((tag) => (
 						<li>
 							<Link
 								aria-label={tag}
-								data-pagefind-meta="tag"
-								data-pagefind-filter="tag"
 								href={`/tags/${tag}`}
 								class:list={[
 									"rounded-btn p-2 text-sm hover:text-accent",
@@ -66,20 +63,17 @@ const categories = getCategories(posts);
 
 		<input
 			type="radio"
-			role="tab"
 			name="filter_tabs"
-			class="tab font-bold checked:text-accent"
+			class="tab checked:text-accent"
 			aria-label="Categories"
 		/>
-		<div role="tabpanel" class="tab-content rounded-box border-base-200 p-4">
+		<div class="tab-content rounded-box border-base-200 p-4">
 			<ul class="flex flex-wrap gap-2">
 				{
 					categories.map((cat) => (
 						<li>
 							<Link
 								aria-label={cat}
-								data-pagefind-filter="category"
-								data-pagefind-meta="category"
 								href={`/categories/${cat}`}
 								class:list={[
 									"rounded-btn p-2 text-sm hover:text-accent",

@@ -43,22 +43,6 @@ const pageDesc = description ? description : site.description;
 <meta property="twitter:title" content={pageTitle} />
 <meta property="twitter:description" content={pageDesc} />
 
-<link
-	href="/fonts/inter.ttf"
-	as="font"
-	rel="preload prefetch"
-	type="font/ttf"
-	crossorigin="anonymous"
-/>
-
-<link
-	href="/fonts/raleway.ttf"
-	as="font"
-	rel="preload prefetch"
-	type="font/ttf"
-	crossorigin="anonymous"
-/>
-
 <!-- This needs to be inlinded to avoid FOUC (Flash of unstyled content) -->
 <script is:inline lang="js">
 	// @ts-ignore @ts-nocheck : used to set giscuss theme
@@ -89,5 +73,5 @@ const pageDesc = description ? description : site.description;
 	};
 	__theming__();
 	// for darkmode when using view transition api
-	document.addEventListener("astro:after-swap", __theming__);
+	// document.addEventListener("astro:after-swap", __theming__);
 </script>

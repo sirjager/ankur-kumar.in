@@ -1,0 +1,24 @@
+---
+import PageFind from "@/components/PageFind.astro";
+---
+
+<div
+	class:list={[
+		"mx-auto h-full max-w-7xl overflow-clip",
+		"grid grid-cols-1 gap-4 p-4 sm:gap-6 sm:p-6",
+		"lg:grid-cols-[minmax(0,1fr),18.75rem]",
+	]}
+>
+	<div class="relative w-full">
+		<slot name="header" />
+		<div>
+			<PageFind />
+		</div>
+
+		<slot name="body" />
+	</div>
+
+	<aside class="space-y-4 pb-12">
+		<slot name="aside" />
+	</aside>
+</div>

@@ -35,9 +35,9 @@ export default {
 					"accent-content": "#EEF2FF", // indigo-50
 					neutral: "#E2E8F0",
 					"neutral-content": "#4B5563",
-					"--rounded-box": "0.5rem",
-					"--rounded-btn": "0.3rem",
-					"--rounded-badge": "1.5rem",
+					"--rounded-btn": "0.75rem",
+					"--rounded-box": "0.75rem",
+					"--rounded-badge": "1.0rem",
 				},
 			},
 			{
@@ -55,9 +55,9 @@ export default {
 					"accent-content": "#111827",
 					neutral: "#1f2937",
 					"neutral-content": "#9CA3AF",
-					"--rounded-box": "0.5rem",
-					"--rounded-btn": "0.3rem",
-					"--rounded-badge": "1.5rem",
+					"--rounded-btn": "0.75rem",
+					"--rounded-box": "0.75rem",
+					"--rounded-badge": "1.0rem",
 				},
 			},
 		],
@@ -67,9 +67,11 @@ export default {
 			padding: "2rem",
 			center: true,
 		},
-		fontFamily: {
-			title: ["Raleway", "sans-serif", ...defaultTheme.fontFamily.sans],
-			body: ["Inter Variable", "sans-serif", ...defaultTheme.fontFamily.sans],
+		extend: {
+			fontFamily: {
+				title: ["Raleway Variable", ...defaultTheme.fontFamily.serif],
+				body: ["Inter Variable", ...defaultTheme.fontFamily.serif],
+			},
 		},
 	},
 };
