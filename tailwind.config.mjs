@@ -69,8 +69,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				title: ["Raleway Variable", ...defaultTheme.fontFamily.serif],
-				body: ["Inter Variable", ...defaultTheme.fontFamily.serif],
+				title: ["Raleway", ...defaultTheme.fontFamily.serif],
+				body: ["Inter", ...defaultTheme.fontFamily.serif],
 			},
 		},
 	},

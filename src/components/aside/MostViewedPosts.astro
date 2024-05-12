@@ -9,7 +9,7 @@ import CardContainer from "./CardContainer.astro";
 	const posts = toPosts(collection);
 	const res = await fetch("/api/views");
 	const all = await res.json();
-	const sorted = all.sort((a: any, b: any) => b.views - a.views).slice(0, 4);
+	const sorted = all.data.sort((a: any, b: any) => b.views - a.views).slice(0, 4);
 	const popular: Post[] = sorted.map((views: any) => posts.find((p: any) => p.slug === views.path));
 
 	const ele = document.getElementById("most-viewed-posts");

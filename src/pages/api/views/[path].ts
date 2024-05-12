@@ -30,31 +30,31 @@ export const makeRequest = async (url: string, method?: string) => {
 };
 
 export const GET: APIRoute = async ({params, url}) => {
+	const date = new Date().getTime();
 	try {
 		const {path} = params;
-		if (!path) return Response.json({error: "path is required"}, {status: 400});
-
+		if (!path) return Response.json({date, error: "path is required"}, {status: 400});
 		// NOTE: if path is *, it will return all for all keys
 		if (["*", "all"].includes(path)) {
 			let res = await makeRequest(`/keys/${toKey("*")}`);
 			if (res.status !== 200) {
 				const {error} = await res.json();
-				return Response.json({error}, {status: 500});
+				return Response.json({date, error}, {status: 500});
 			}
 			const {result: keys} = await res.json();
 			const valuesURL = `/mget/${keys.join("/")}`;
 			res = await makeRequest(valuesURL);
 			if (res.status !== 200) {
 				const {error} = await res.json();
-				return Response.json({error}, {status: 500});
+				return Response.json({date, error}, {status: 500});
 			}
 			const {result: values} = await res.json();
 			const data = keys.map((key: string, i: number) => {
 				const slug = toSlug(key);
 				const views = parseInt(values[i]);
-				return {path: slug, views};
+				return {date, path: slug, views};
 			});
-			return Response.json(data, {status: 200, headers: responseHeaders});
+			return Response.json({date, data}, {status: 200, headers: responseHeaders});
 		}
 
 		const hasIncr = url.searchParams.has("incr");
@@ -67,11 +67,11 @@ export const GET: APIRoute = async ({params, url}) => {
 			const res = await makeRequest(incrementURL);
 			if (res.status !== 200) {
 				const {error} = await res.json();
-				return Response.json({error}, {status: 500});
+				return Response.json({date, error}, {status: 500});
 			}
 			const {result = ""} = await res.json();
 			return Response.json(
-				{path, views: parseInt(result)},
+				{date, path, views: parseInt(result)},
 				{status: 200, headers: responseHeaders}
 			);
 		}
@@ -81,11 +81,14 @@ export const GET: APIRoute = async ({params, url}) => {
 		const res = await makeRequest(fetchViewsURL);
 		if (res.status !== 200) {
 			const {error} = await res.json();
-			return Response.json({error}, {status: 500});
+			return Response.json({date, error}, {status: 500});
 		}
 		const {result = ""} = await res.json();
-		return Response.json({path, views: parseInt(result)}, {status: 200, headers: responseHeaders});
+		return Response.json(
+			{date, path, views: parseInt(result)},
+			{status: 200, headers: responseHeaders}
+		);
 	} catch (error: any) {
-		return Response.json({error: error?.message}, {status: 500});
+		return Response.json({date, error: error?.message}, {status: 500});
 	}
 };

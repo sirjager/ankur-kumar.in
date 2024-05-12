@@ -41,13 +41,13 @@ const similarPosts = allPosts
 			data-weight="50"
 			data-pagefind-meta="title"
 			data-pagefind-sort="weight[data-weight]"
-			class="font-title text-2xl font-light @xs:text-4xl @4xl:text-5xl"
+			class="font-title text-2xl font-light @xs:text-3xl @md:text-4xl @4xl:text-5xl"
 		>
 			{post.title}
 		</h1>
 	</div>
 
-	<div class:list={["col-span-3 flex flex-wrap items-center gap-2"]}>
+	<div class:list={["col-span-3 flex flex-wrap items-center gap-x-2"]}>
 		<DatePublished published={post.published} />
 		<ReadTime readtime={post.readtime} />
 		<Category category={post.category} />
@@ -97,7 +97,7 @@ const similarPosts = allPosts
 
 	<div class="sticky top-2 col-span-3 space-y-4 lg:!col-start-4 lg:!col-end-5">
 		<div class="sticky top-2 z-50 w-full space-y-8 bg-base-100">
-			<TableOfContent headings={post.headings} isOpened />
+			<TableOfContent headings={post.headings} />
 		</div>
 
 		<span class="hidden space-y-4 @6xl:block">
@@ -120,7 +120,7 @@ const similarPosts = allPosts
 			"prose-blockquote:font-title prose-blockquote:font-light sm:prose-blockquote:text-lg",
 			"prose-blockquote:px-4 prose-blockquote:py-2 prose-blockquote:font-title prose-blockquote:text-accent",
 			"prose-blockquote:rounded-r-btn",
-			"prose-blockquote:border-l-[8px] prose-blockquote:border-base-300 prose-blockquote:bg-accent/5",
+			"prose-blockquote:border-l-[8px] prose-blockquote:border-base-300 prose-blockquote:bg-accent/5 dark:prose-blockquote:bg-base-300/10",
 			"hover:prose-blockquote:border-accent",
 		]}
 	>

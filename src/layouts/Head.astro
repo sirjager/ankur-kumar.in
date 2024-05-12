@@ -1,13 +1,14 @@
 ---
 import {site} from "@/lib/constants";
+import {AstroFont} from "astro-font";
 
 export interface Props {
 	title?: string | undefined;
-	description?: string | undefined;
 	image?: string | undefined;
+	description?: string | undefined;
 }
 
-const {title = site.title, description = site.description} = Astro.props;
+const {title, description} = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const pageTitle = title ? `${title} | ${site.title}` : site.title;
@@ -42,6 +43,28 @@ const pageDesc = description ? description : site.description;
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={pageTitle} />
 <meta property="twitter:description" content={pageDesc} />
+
+<AstroFont
+	config={[
+		{
+			name: "Raleway",
+			src: [],
+			googleFontsURL:
+				"https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap",
+			preload: true,
+			display: "swap",
+			fallback: "sans-serif",
+		},
+		{
+			name: "Inter",
+			src: [],
+			googleFontsURL: "https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap",
+			preload: true,
+			display: "swap",
+			fallback: "sans-serif",
+		},
+	]}
+/>
 
 <!-- This needs to be inlinded to avoid FOUC (Flash of unstyled content) -->
 <script is:inline lang="js">

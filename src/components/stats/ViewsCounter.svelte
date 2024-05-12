@@ -4,7 +4,7 @@
 	const views = writable(0);
 	const fetchViews = (async () => {
 		try {
-			const res = await fetch(`/api/views/${slug}?incr`);
+			const res = await fetch(`/api/views/${slug}?incr&date=${new Date().getTime()}`);
 			const data = await res.json();
 			animateViews(data.views);
 			return data;
@@ -27,7 +27,7 @@
 	};
 </script>
 
-<div class="shadow p-2 rounded-badge flex items-center gap-2">
+<div class="p-2 flex items-center gap-2">
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 576 512"
@@ -42,7 +42,7 @@
 		<span class="loading loading-ring"></span>
 	{:then}
 		<div>
-			<span class="">{$views}</span> Views
+		 Views <span class="">{$views}</span>
 		</div>
 	{:catch}
 		<div>error</div>

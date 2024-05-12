@@ -37,9 +37,6 @@ importers:
       "@fontsource-variable/inter":
         specifier: ^5.0.18
         version: 5.0.18
-      "@fontsource-variable/oswald":
-        specifier: ^5.0.20
-        version: 5.0.20
       "@fontsource-variable/raleway":
         specifier: ^5.0.20
         version: 5.0.20
@@ -64,6 +61,9 @@ importers:
       astro-breadcrumbs:
         specifier: ^2.3.0
         version: 2.3.0(astro@4.4.15(@types/node@20.11.25)(lightningcss@1.24.1)(terser@5.31.0)(typescript@5.4.2))
+      astro-font:
+        specifier: ^0.0.81
+        version: 0.0.81
       astro-imagetools:
         specifier: ^0.9.0
         version: 0.9.0(astro@4.4.15(@types/node@20.11.25)(lightningcss@1.24.1)(terser@5.31.0)(typescript@5.4.2))
@@ -2378,12 +2378,6 @@ packages:
     resolution:
       {
         integrity: sha512-rJzSrtJ3b7djiGFvRuTe6stDfbYJGhdQSfn2SI2WfXviee7Er0yKAHE5u7FU7OWVQQQ1x3+cxdmx9NdiAkcrcA==,
-      }
-
-  "@fontsource-variable/oswald@5.0.20":
-    resolution:
-      {
-        integrity: sha512-b2aMbEwGUw/mV+Zowhvpd/bayF1gEZs/Qeo5P48l5gZrwSkcgmf5wtQzGrrzJNS0n3/aoUMlmTqOhnjKLQP7Bw==,
       }
 
   "@fontsource-variable/raleway@5.0.20":
@@ -4768,6 +4762,12 @@ packages:
         integrity: sha512-CGaBseNtunAV2DCpwBXqTKq8+9Tw65XZetMaC0FsMoZuLj0gxNIkbCf2QyKYScVrNOU7/ayfNdVw8ZCSHBiqCg==,
       }
     engines: {node: ^14.18.0 || >=16.0.0}
+
+  astro-font@0.0.81:
+    resolution:
+      {
+        integrity: sha512-VmK4kqzNpOAt2LASVbw2cbbe9sD6K30E7jOjqzHxHieHMTWInkdOljtzHmNGvKr3P0MeF4Wy+Z7j6CdETFecDA==,
+      }
 
   astro-imagetools@0.9.0:
     resolution:
@@ -14608,8 +14608,6 @@ snapshots:
 
   "@fontsource-variable/inter@5.0.18": {}
 
-  "@fontsource-variable/oswald@5.0.20": {}
-
   "@fontsource-variable/raleway@5.0.20": {}
 
   "@humanwhocodes/config-array@0.11.14":
@@ -16174,6 +16172,8 @@ snapshots:
       semver: 7.6.0
     transitivePeerDependencies:
       - supports-color
+
+  astro-font@0.0.81: {}
 
   astro-imagetools@0.9.0(astro@4.4.15(@types/node@20.11.25)(lightningcss@1.24.1)(terser@5.31.0)(typescript@5.4.2)):
     dependencies:
