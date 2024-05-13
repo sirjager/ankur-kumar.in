@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "cac5bf483ee626fa",
+        "id": "fc288a883aa6db83",
         "type": "tabs",
         "children": [
           {
-            "id": "d91636707db57721",
+            "id": "9bf81288509c4b8b",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "blog/second-post.md",
-                "mode": "preview",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -195,7 +191,7 @@
       "homepage:Open homepage": false
     }
   },
-  "active": "d91636707db57721",
+  "active": "9bf81288509c4b8b",
   "lastOpenFiles": [
     "blog/fourth-post.md",
     "blog/first-post.md",

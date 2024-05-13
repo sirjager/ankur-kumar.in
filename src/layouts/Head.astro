@@ -6,18 +6,23 @@ export interface Props {
 	title?: string | undefined;
 	image?: string | undefined;
 	description?: string | undefined;
+	robots?: string;
+	author?: string;
 }
 
-const {title, description} = Astro.props;
+const {title, description, image, robots, author} = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const pageTitle = title ? `${title} | ${site.title}` : site.title;
 const pageDesc = description ? description : site.description;
+const ogImage = image ? image : `${Astro.site}${site.ogimage}`;
+const authorName = author ? author : site.author.fullName;
 ---
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="language" content="en" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="icon" href="/icons/favicon.ico" />
 <meta name="generator" content={Astro.generator} />
 
@@ -26,6 +31,12 @@ const pageDesc = description ? description : site.description;
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
+
+<!-- Author Meta Tag -->
+<meta name="author" content={authorName} />
+
+<!-- Robots Meta Tags -->
+{robots && <meta name="robots" content={robots} />}
 
 <!-- Primary Meta Tags -->
 <title>{pageTitle}</title>
@@ -37,12 +48,17 @@ const pageDesc = description ? description : site.description;
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={pageTitle} />
 <meta property="og:description" content={pageDesc} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={pageTitle} />
 <meta property="twitter:description" content={pageDesc} />
+<meta name="twitter:image" content={ogImage} />
+<meta name="twitter:site" content={site.author.twitter} />
 
 <AstroFont
 	config={[

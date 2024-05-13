@@ -5,9 +5,9 @@ import Link from "@/components/Link.astro";
 
 <div class="flex w-full items-center">
 	<Link
-		aria-label=""
+		aria-label="Go to homepage"
 		href="/"
-		class="grid w-10 min-w-10 place-items-center rounded-btn @sm:w-16 @sm:min-w-16"
+		class="z-[99999999] grid w-10 min-w-10 place-items-center rounded-btn @sm:w-16 @sm:min-w-16"
 	>
 		<Picture
 			src="/src/assets/logo.png"
@@ -17,7 +17,7 @@ import Link from "@/components/Link.astro";
 			alt="Ankur Logo"
 		/>
 	</Link>
-	<Link href="/" aria-label="Go to homepage" nofocus class="rounded-btn">
+	<Link href="/" aria-label="Go to homepage" nofocus class="z-[99999999] rounded-btn">
 		<div class="font-title @xs:text-lg @sm:text-xl @md:text-2xl @lg:text-3xl">Ankur Kumar</div>
 	</Link>
 </div>

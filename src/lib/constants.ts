@@ -2,6 +2,7 @@ export const site = {
 	title: "Ankur Kumar",
 	description:
 		"Welcome to my personal developer portfolio! Here, I dive deep into various aspects of software development, sharing my experiences and insights along the way. From exploring system design, web development, and backend server creation to prioritizing security and delving into Linux customization and open-source software, I'm excited to share my journey with you. Join me as we uncover the power of scripting, automation, and workflows, where every line of code brings us closer to crafting secure, innovative solutions and shaping the digital landscape of tomorrow.",
+	ogimage: "images/ogimage.png",
 	blog: {
 		title:
 			"Articles on my journey through software development, scripting, Linux, and tech in general.",
@@ -14,6 +15,13 @@ export const site = {
 	},
 	sitemapSize: 1000,
 	lang: "en-US",
+	author: {
+		firstName: "Ankur",
+		lastName: "Kumar",
+		fullName: "Ankur Kumar",
+		email: "contact@ankur-kumar.in",
+		twitter: "@sirjager",
+	},
 	links: {
 		rssfeed: "/rss.xml",
 		sitemap: "/sitemap-index.xml",
@@ -22,6 +30,7 @@ export const site = {
 		github: "https://github.com/sirjager",
 		contact: "mailto:contact@ankur-kumar.in",
 		twitter: "https://twitter.com/sirjager",
+		twitterHandle: "@sirjager",
 		instagram: "https://www.instagram.com/sirjager",
 		dotfiles: "https://github.com/sirjager/dotfiles",
 		linkedin: "https://www.linkedin.com/in/5321ankur",

@@ -8,12 +8,13 @@ import SpeedInsights from "@vercel/speed-insights/astro";
 import type {Props as HeadProps} from "./Head.astro";
 import ScrollToTop from "@/components/ScrollToTop.astro";
 import Breadcrumbs from "@/layouts/BreadCrumbs.astro";
+import NoiseFilter from "@/components/NoiseFilter.astro";
 
 interface Props extends HeadProps {
-	disableBreadcrumbs?: boolean;
+	nocrumbs?: boolean;
 }
 
-const {disableBreadcrumbs, ...props} = Astro.props;
+const {nocrumbs, ...props} = Astro.props;
 ---
 
 <!doctype html>
@@ -22,9 +23,10 @@ const {disableBreadcrumbs, ...props} = Astro.props;
 		<Head {...props} />
 	</head>
 	<body class="font-body antialiased">
+		<NoiseFilter />
 		<ScrollWatcher />
 		<Navbar />
-		{!disableBreadcrumbs && <Breadcrumbs />}
+		{!nocrumbs && <Breadcrumbs />}
 		<slot />
 		<Footer />
 		<ScrollToTop />

@@ -1,0 +1,19 @@
+---
+
+---
+
+<svg
+	width="100%"
+	height="100%"
+	class:list={[
+		"pointer-events-none fixed left-0 top-0 z-50 h-full",
+		"isolate w-full mix-blend-soft-light",
+	]}
+>
+	<filter id="noise">
+		<feTurbulence type="fractalNoise" baseFrequency="1.5" numOctaves="4" stitchTiles="stitch"
+		></feTurbulence>
+	</filter>
+
+	<rect width="100%" height="100%" filter="url(#noise)"></rect>
+</svg>
