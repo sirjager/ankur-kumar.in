@@ -93,18 +93,13 @@ export default defineConfig({
 	},
 	output: "hybrid",
 	adapter:
-		process.env.NODE_ENV === "development"
-			? node({ mode: "standalone" })
-			: vercel({
-				maxDuration: 8,
-				webAnalytics: {
-					enabled: true,
-				},
-			}),
+		process.env.NODE_ENV !== "development"
+			? vercel({ maxDuration: 60, webAnalytics: { enabled: true } })
+			: node({ mode: "standalone" }),
 });
 
 function readtime() {
-	return function(tree, { data }) {
+	return function(tree, { data }) { 
 		// eslint-disable-next-line qwik/loader-location
 		const textOnPage = toString(tree);
 		data.astro.frontmatter.readtime = readingTime(textOnPage);
