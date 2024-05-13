@@ -52,7 +52,7 @@ export default defineConfig({
 			display: "standalone",
 			theme_color: "#FFFFFF",
 			background_color: "#FFFFFF",
-			icon: "./public/icons/ankur.svg",
+			icon: "./public/icons/android-chrome-512x512.png",
 			icons: [
 				{ src: "./public/icons/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
 				{ src: "./public/icons/favicon-16x16.png", sizes: "16x16", type: "image/png" },

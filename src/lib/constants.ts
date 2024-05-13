@@ -21,6 +21,7 @@ export const site = {
 		fullName: "Ankur Kumar",
 		email: "contact@ankur-kumar.in",
 		twitter: "@sirjager",
+		image: "ankur.png",
 	},
 	links: {
 		rssfeed: "/rss.xml",

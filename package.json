@@ -5,11 +5,10 @@
 	"scripts": {
 		"dev": "astro dev --host",
 		"start": "astro preview",
-		"build": "npm run prebuild && astro check && astro build && npm run postbuild",
+		"build": "astro check && astro build && pnpm run postbuild",
 		"preview": "astro preview",
 		"astro": "astro",
-		"prebuild": "npm run clean",
-		"postbuild": "npm run pagefind",
+		"postbuild": "pnpm run pagefind",
 		"clean": "rm -rf ./dist ./.vercel ./public/_pagefind",
 		"lint": "eslint . --fix",
 		"pagefind": "if [ -d ./dist/client ]; then npm run pagefind:node; elif [ -d .vercel/output/static ]; then npm run pagefind:vercel; fi",
