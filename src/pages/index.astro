@@ -1,14 +1,21 @@
 ---
 import Root from "@/layouts/Root.astro";
-import ProfileSection from "@/components/sections/ProfileSection.astro";
 import PageFind from "@/components/PageFind.astro";
-import ProfileCards from "@/components/sections/ProfileCards.astro";
+import LatestUpdates from "@/components/Sections/LatestUpdates.astro";
+
+import {getCollection} from "astro:content";
+import {toPosts} from "@/content";
+const collection = await getCollection("blog");
+const posts = toPosts(collection);
 ---
 
 <Root title="Home" nocrumbs>
-	<ProfileSection />
 	<div class="px-4">
 		<PageFind />
 	</div>
-	<ProfileCards />
+	<LatestUpdates posts={posts} />
+	<LatestUpdates posts={posts} />
+	<LatestUpdates posts={posts} />
+	<LatestUpdates posts={posts} />
+	<LatestUpdates posts={posts} />
 </Root>

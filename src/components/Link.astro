@@ -8,11 +8,11 @@ interface Props extends HTMLAttributes<"a"> {
 	nofocus?: boolean;
 }
 
-const {href, nofocus, "class:list": className, class: class_, ...attrs} = Astro.props as Props;
+const {"class:list": className, class: class_, ...attrs} = Astro.props;
+const {href, nofocus} = Astro.props;
 ---
 
 <a
-	href={href}
 	{...attrs}
 	class:list={[
 		class_ ?? className,
@@ -21,6 +21,7 @@ const {href, nofocus, "class:list": className, class: class_, ...attrs} = Astro.
 				!nofocus,
 		},
 	]}
+	href={href}
 >
 	<slot>Link</slot>
 </a>

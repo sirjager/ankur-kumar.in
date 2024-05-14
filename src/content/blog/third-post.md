@@ -1,19 +1,19 @@
 ---
 banner: "https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg?w=1920&h=1080"
 banner_x: 0.5
-banner_y: 0.5475
+banner_y: 0.4725
 banner_lock: true
 status: published
 published: 2024-03-17
 modifided: 2024-03-17
 title: "Infrastructure as Code: Leveraging Terraform for Automated Infrastructure Management"
-description: "Unlock the power of Infrastructure as Code (IaC) with Terraform, a leading tool for automating infrastructure provisioning and management. This guide will walk you through the basics of Terraform, its declarative syntax, and how to orchestrate infrastructure across multiple cloud providers effortlessly"
+description: Unlock the power of Infrastructure as Code (IaC) with Terraform, a leading tool for automating infrastructure provisioning and management. This guide will walk you through the basics of Terraform, its declarative syntax, and how to orchestrate infrastructure across multiple cloud providers effortlessly
 category: Obsidian
 tags:
   - daily
 ---
 
-## Third Post
+## Read [First Post](first-post)
 
 ## Welcome to Stack Edit!
 

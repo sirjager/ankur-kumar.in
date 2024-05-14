@@ -1,0 +1,33 @@
+---
+import {site} from "@/lib/constants";
+---
+
+<div class="mt-4 max-w-3xl text-pretty">
+	<p class="prose-sm leading-relaxed @md:prose">
+		<input id="blog-desc-check" type="checkbox" class="peer hidden" />
+		{site.blog.description}
+		<span class="hidden peer-checked:inline">
+			{
+				site.blog.readmore.map((para) => {
+					return (
+						<span>
+							<br />
+							<br />
+							{para}
+						</span>
+					);
+				})
+			}
+		</span>
+		<label
+			for="blog-desc-check"
+			class="cursor-pointer text-accent hover:underline focus:outline-none peer-checked:hidden"
+			>Read More</label
+		>
+		<label
+			for="blog-desc-check"
+			class="hidden cursor-pointer text-accent hover:underline focus:outline-none peer-checked:inline"
+			>Hide</label
+		>
+	</p>
+</div>

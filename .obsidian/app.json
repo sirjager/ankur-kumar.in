@@ -1,0 +1,28 @@
+{
+  "defaultViewMode": "preview",
+  "readableLineLength": true,
+  "strictLineBreaks": true,
+  "propertiesInDocument": "hidden",
+  "showLineNumber": true,
+  "tabSize": 2,
+  "trashOption": "local",
+  "newFileLocation": "folder",
+  "newFileFolderPath": "src/content/blog",
+  "attachmentFolderPath": "assets",
+  "userIgnoreFilters": [
+    "node_modules/",
+    "src/components/",
+    "src/lib/",
+    "src/pages/",
+    "src/layouts/",
+    "public/",
+    "src/content/"
+  ],
+  "livePreview": true,
+  "promptDelete": false,
+  "showUnsupportedFiles": false,
+  "useMarkdownLinks": true,
+  "alwaysUpdateLinks": false,
+  "vimMode": false,
+  "newLinkFormat": "relative"
+}

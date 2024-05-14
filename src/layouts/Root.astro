@@ -1,14 +1,16 @@
 ---
 import "@/styles/global.css";
-import ScrollWatcher from "@/components/ScrollWatcher.astro";
-import Footer from "@/components/footer/Footer.astro";
-import Navbar from "@/components/navbar/Navbar.astro";
-import Head from "@/layouts/Head.astro";
-import SpeedInsights from "@vercel/speed-insights/astro";
 import type {Props as HeadProps} from "./Head.astro";
+
+import Head from "@/layouts/Head.astro";
+import Footer from "@/components/Footer/Footer.astro";
+import Navbar from "@/components/Navbar/Navbar.astro";
+import SpeedInsights from "@vercel/speed-insights/astro";
+
 import ScrollToTop from "@/components/ScrollToTop.astro";
 import Breadcrumbs from "@/layouts/BreadCrumbs.astro";
 import NoiseFilter from "@/components/NoiseFilter.astro";
+import ScrollWatcher from "@/components/ScrollWatcher.astro";
 
 interface Props extends HeadProps {
 	nocrumbs?: boolean;

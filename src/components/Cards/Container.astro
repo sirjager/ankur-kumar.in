@@ -1,0 +1,49 @@
+---
+interface Props {
+	watchScroll?: boolean;
+}
+
+const {watchScroll} = Astro.props;
+---
+
+<style>
+	@media (prefers-reduced-motion: no-preference) {
+		.scrollwatcher {
+			animation: scrollwatcher linear;
+			animation-timeline: scroll(y);
+		}
+		@keyframes scrollwatcher {
+			from {
+				scale: 0 1;
+			}
+		}
+	}
+</style>
+
+<div
+	class:list={[
+		"group relative rounded-box",
+		"border-2 border-base-200 hover:border-accent",
+		"transition-all duration-500 ease-in-out",
+	]}
+>
+	<div class="relative mt-4 w-full font-title">
+		<div class="absolute top-1/2 h-0.5 w-full bg-base-300"></div>
+		<div
+			class:list={[
+				"transition-all duration-300 ease-in-out",
+				"absolute top-1/2 h-0.5",
+				"bg-gradient-to-r group-hover:from-secondary group-hover:via-accent group-hover:to-primary",
+				{
+					"scrollwatcher animate-scrollwatcher h-0.5 w-full origin-left from-secondary via-accent to-primary":
+						watchScroll,
+					"w-0 group-hover:w-full": !watchScroll,
+				},
+			]}
+		>
+		</div>
+		<slot name="header" />
+	</div>
+
+	<slot name="body" />
+</div>

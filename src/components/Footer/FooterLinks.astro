@@ -1,0 +1,42 @@
+---
+import Link from "@/components/Link.astro";
+
+const pages = [
+	{
+		link: "blog",
+		label: "Blog",
+	},
+	{
+		link: "projects",
+		label: "Projects",
+	},
+	{
+		link: "about",
+		label: "About",
+	},
+	{
+		link: "contact",
+		label: "Contact",
+	},
+];
+---
+
+<nav class="w-full max-w-lg space-y-2">
+	<header class="text-xl font-bold text-base-content">General</header>
+	<ul class="grid text-lg @sm:grid-cols-2 @5xl:grid-cols-3">
+		{
+			pages.map((page) => (
+				<li>
+					<Link
+						aria-label={`View "${page.label}"`}
+						key={page.link}
+						href={page.link}
+						class="link-hover link block capitalize"
+					>
+						{page.label}
+					</Link>
+				</li>
+			))
+		}
+	</ul>
+</nav>

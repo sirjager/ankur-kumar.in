@@ -1,19 +1,19 @@
 ---
 banner: "https://images.pexels.com/photos/356807/pexels-photo-356807.jpeg?w=1920&h=1080"
 banner_x: 0.5
-banner_y: 0.5475
+banner_y: 0.455
 banner_lock: true
 status: published
 published: 2024-03-17
 modifided: 2024-03-17
 title: "Choosing the Right Web Framework: A Comparative Analysis of React, Angular, and Vue.js"
-description: "Confused about which front-end framework to use for your next project? This in-depth comparison of React, Angular, and Vue.js will provide clarity. Explore their features, performance, community support, and scalability to make an informed decision and kickstart your web development journey."
+description: Confused about which front-end framework to use for your next project? This in-depth comparison of React, Angular, and Vue.js will provide clarity. Explore their features, performance, community support, and scalability to make an informed decision and kickstart your web development journey.
 category: Stack Edit
 tags:
   - daily
 ---
 
-## Second Post Title
+## Read [Third Post](third-post)
 
 ## Welcome to Stack Edit!
 

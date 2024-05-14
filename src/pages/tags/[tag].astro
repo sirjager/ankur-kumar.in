@@ -1,9 +1,10 @@
 ---
 import Root from "@/layouts/Root.astro";
-import PostsGrid from "@/components/blog/PostsGrid.astro";
 import Blog from "@/layouts/Blog.astro";
-import MostViewedPosts from "@/components/aside/MostViewedPosts.astro";
-import FilterCloud from "@/components/aside/FilterCloud.astro";
+
+import PostsGrid from "@/components/Blog/PostsGrid.astro";
+import FilterCloud from "@/components/Cards/FilterCloud.astro";
+import MostViewedPosts from "@/components/Cards/MostViewedPosts.astro";
 
 import {getCollection} from "astro:content";
 import {toPosts, getTags} from "@/content";

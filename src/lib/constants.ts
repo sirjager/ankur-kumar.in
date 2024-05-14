@@ -25,6 +25,7 @@ export const site = {
 	},
 	links: {
 		rssfeed: "/rss.xml",
+		giscus: "sirjager/portfolio-discussions",
 		sitemap: "/sitemap-index.xml",
 		domain: "ankur-kumar.in",
 		website: "https://ankur-kumar.in",
