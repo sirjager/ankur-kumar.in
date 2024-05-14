@@ -2,6 +2,7 @@
 import Root from "@/layouts/Root.astro";
 import {getCollection, getEntry} from "astro:content";
 import Article from "@/layouts/Article.astro";
+import PostComments from "@/components/PostComments.astro";
 import {getCategories, getTags, toPost, toPosts} from "@/content";
 
 export async function getStaticPaths() {
@@ -25,4 +26,18 @@ const tags = getTags(posts);
 	<Article allPosts={posts} post={post} categories={categories} tags={tags}>
 		<Content />
 	</Article>
+	<div
+		class:list={[
+			"mt-6",
+			"relative isolate grid @container",
+			"gap-y-8 px-4 lg:gap-x-4 lg:px-0",
+			"grid-cols-[1fr,min(640px,100%),1fr]",
+			"lg:grid-cols-[1fr,minmax(auto,224px),min(540px,100%),minmax(360px,224px),1fr]",
+			"[&>*]:col-start-1 lg:[&>*]:col-start-2",
+		]}
+	>
+		<div class="col-span-3 lg:!col-end-5">
+			<PostComments />
+		</div>
+	</div>
 </Root>

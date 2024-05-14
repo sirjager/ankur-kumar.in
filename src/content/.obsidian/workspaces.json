@@ -1,23 +1,23 @@
 {
   "workspaces": {
-    "blog": {
+    "website": {
       "main": {
         "id": "7ea481afc470f415",
         "type": "split",
         "children": [
           {
-            "id": "80970dd3f612d235",
+            "id": "78cec1922dd7b552",
             "type": "tabs",
             "children": [
               {
-                "id": "26cd744b05835408",
+                "id": "c7eaff5071a379bd",
                 "type": "leaf",
                 "state": {
                   "type": "markdown",
                   "state": {
                     "file": "blog/first-post.md",
                     "mode": "preview",
-                    "source": true
+                    "source": false
                   }
                 }
               }
@@ -68,14 +68,6 @@
             "dimension": 34.34442270058709,
             "children": [
               {
-                "id": "6c28ec43980cb3fb",
-                "type": "leaf",
-                "state": {
-                  "type": "recent-files",
-                  "state": {}
-                }
-              },
-              {
                 "id": "2e2a94b17557b211",
                 "type": "leaf",
                 "state": {
@@ -87,7 +79,7 @@
           }
         ],
         "direction": "horizontal",
-        "width": 284.5
+        "width": 289.5
       },
       "right": {
         "id": "410d68067e6e188b",
@@ -190,23 +182,24 @@
           }
         ],
         "direction": "horizontal",
-        "width": 439.5
+        "width": 401.5
       },
       "left-ribbon": {
         "hiddenItems": {
-          "switcher:Open quick switcher": false,
-          "templates:Insert template": false,
-          "canvas:Create new canvas": false,
-          "obsidian-excalidraw-plugin:Create new drawing": false,
           "workspaces:Manage workspace layouts": false,
+          "switcher:Open quick switcher": false,
+          "canvas:Create new canvas": false,
           "command-palette:Open command palette": false,
           "table-editor-obsidian:Advanced Tables Toolbar": false,
+          "obsidian-excalidraw-plugin:Create new drawing": false,
           "templater-obsidian:Templater": false,
-          "homepage:Open homepage": false
+          "homepage:Open homepage": false,
+          "obsidian-trash-explorer:Open trash explorer": false
         }
       },
-      "active": "26cd744b05835408"
+      "active": "c7eaff5071a379bd",
+      "mtime": "2024-05-14T12:33:38+05:30"
     }
   },
-  "active": "blog"
+  "active": "website"
 }

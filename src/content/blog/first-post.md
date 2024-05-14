@@ -1,13 +1,13 @@
 ---
 banner: "https://images.pexels.com/photos/147411/italy-mountains-dawn-daybreak-147411.jpeg?w=1920&h=1080"
 banner_x: 0.5
-banner_y: 0.3975
-banner_lock: true
+banner_y: 0.5025
+banner_lock: false
 status: published
 published: 2024-03-17T07:29:02
 modifided: 2024-03-17T10:25:50
 title: "Streamlining DevOps Practices: Implementing Continuous Integration and Delivery Pipelines"
-description: "Dive into the world of DevOps and learn how to establish robust continuous integration and delivery (CI/CD) pipelines. Explore best practices, tools like Jenkins and GitLab CI, and real-world examples to streamline your software development lifecycle and accelerate time-to-market."
+description: Dive into the world of DevOps and learn how to establish robust continuous integration and delivery (CI/CD) pipelines. Explore best practices, tools like Jenkins and GitLab CI, and real-world examples to streamline your software development lifecycle and accelerate time-to-market.
 category: Obsidian
 tags:
   - latest
@@ -113,35 +113,3 @@ SmartyPants converts ASCII punctuation characters into "smart" typographic punct
 | Single backticks | `'Isn't this fun?'`             | 'Isn't this fun?'             |
 | Quotes           | `"Isn't this fun?"`             | "Isn't this fun?"             |
 | Dashes           | `-- is en-dash, --- is em-dash` | -- is en-dash, --- is em-dash |
-
-## KaTeX
-
-You can render LaTeX mathematical expressions using [KaTeX](https://khan.github.io/KaTeX/):
-
-> You can find more information about **LaTeX** mathematical expressions [here](http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference).
-
-## UML diagrams
-
-You can render UML diagrams using [Mermaid](https://mermaidjs.github.io/). For example, this will produce a sequence diagram:
-
-```mermaid
-sequenceDiagram
-Alice ->> Bob: Hello Bob, how are you?
-Bob-->>John: How about you John?
-Bob--x Alice: I am good thanks!
-Bob-x John: I am good thanks!
-Note right of John: Bob thinks a long<br/>long time, so long<br/>that the text does<br/>not fit on a row.
-
-Bob-->Alice: Checking with John...
-Alice->John: Yes... John, how are you?
-```
-
-And this will produce a flow chart:
-
-```mermaid
-graph LR
-A[Square Rect] -- Link text --> B((Circle))
-A --> C(Round Rect)
-B --> D{Rhombus}
-C --> D
-```

@@ -6,8 +6,7 @@ import Category from "@/components/stats/Category.astro";
 import ViewsCounter from "@/components/stats/ViewsCounter.svelte";
 import TableOfContent from "@/components/TableOfContent.astro";
 import AsidePosts from "@/components/aside/AsidePosts.astro";
-import PostComments from "@/components/PostComments.astro";
-import {Img as Picture} from "astro-imagetools/components";
+import {Picture} from "astro:assets";
 
 interface Props {
 	post: Post;
@@ -62,36 +61,21 @@ const similarPosts = allPosts
 
 	<figure
 		class:list={[
-			"relative col-span-3 h-[33.3vw] w-full max-w-full lg:!col-end-5 lg:h-[400px]",
-			"group/img overflow-clip rounded-box",
+			"relative col-span-3 h-[33vw] w-full max-w-full lg:!col-end-5 lg:h-[400px]",
+			"fade hover:nofade overflow-clip rounded-box",
 		]}
 	>
-		<div
-			aria-hidden="true"
-			class:list={[
-				"absolute bottom-0 left-0 h-20 w-full",
-				"rounded-box bg-gradient-to-t from-base-100 via-base-100/50 to-transparent",
-				"z-10 transition-all duration-500 ease-in-out group-hover/img:h-0",
-			]}
-		>
-		</div>
-
 		<Picture
 			alt={post.title}
-			src={post.banner}
-			width={1156}
+			quality="high"
+			width={1153}
 			height={400}
-			loading="eager"
-			placeholder="blurred"
-			breakpoints={[300, 480, 640, 1152]}
-			format="avif"
-			attributes={{
-				img: {
-					class: "absolute left-0 rounded-box transition duration-1000 ease-in-out hover:scale-110",
-					"data-pagefind-meta": "image[src], image_alt[alt]",
-				},
-				style: `top: ${post.banner_y * 86}%;`,
-			}}
+			src={post.banner}
+			formats={["avif", "webp", "jpg"]}
+			fallbackFormat="jpg"
+			sizes={"(max-width: 360px) 240px, (max-width: 480px) 360px, (max-width: 768px) 480px, (max-width: 1024px) 768px, (max-width: 1280px) 1024px, (max-width: 1920px) 1280px"}
+			style={{top: `-${post.banner_y * 86}%`}}
+			class="absolute left-0 rounded-box transition-all duration-1000 ease-in-out hover:scale-105"
 		/>
 	</figure>
 
@@ -125,9 +109,5 @@ const similarPosts = allPosts
 		]}
 	>
 		<slot>content not found</slot>
-	</div>
-
-	<div class="col-span-3 lg:!col-end-5">
-		<PostComments />
 	</div>
 </article>
