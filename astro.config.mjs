@@ -8,6 +8,7 @@ import webmanifest from "astro-webmanifest";
 import {defineConfig} from "astro/config";
 import playformCompress from "@playform/compress";
 import {astroImageTools} from "astro-imagetools";
+import astroIcons from "astro-icon";
 
 // adapters
 import node from "@astrojs/node";
@@ -27,6 +28,7 @@ export default defineConfig({
 	trailingSlash: "ignore",
 	devToolbar: {enabled: false},
 	integrations: [
+		astroIcons(),
 		mdx({
 			gfm: true,
 			optimize: true,

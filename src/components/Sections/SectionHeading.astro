@@ -17,12 +17,12 @@ const {text, colored, description} = Astro.props;
 			@apply bg-clip-text bg-no-repeat text-base-content/20;
 		}
 
-		.section-heading h3 .nocolor {
-			animation-range-start: cover 30vh;
-			animation-range-end: cover 35vh;
+		.section-heading h2 .nocolor {
+			animation-range-start: cover 15vh;
+			animation-range-end: cover 28vh;
 		}
-		.section-heading h3 .colored {
-			animation-range-start: cover 35vh;
+		.section-heading h2 .colored {
+			animation-range-start: cover 30vh;
 			animation-range-end: cover 40vh;
 		}
 
@@ -40,7 +40,7 @@ const {text, colored, description} = Astro.props;
 </style>
 
 <div class="section-heading mx-auto max-w-6xl p-4">
-	<h2 class="text-4xl font-bold sm:text-5xl">
+	<h2 class="font-title text-4xl font-bold sm:text-5xl">
 		<span class="nocolor bg-gradient-to-r from-base-content to-base-content">
 			{text}
 		</span>

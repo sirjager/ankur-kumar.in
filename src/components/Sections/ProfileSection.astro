@@ -1,5 +1,7 @@
 ---
 import {site} from "@/lib/constants";
+import Link from "@/components/Link.astro";
+import FillAnimatedButton from "@/components/Buttons/FillAnimated.astro";
 ---
 
 <section class="mb-20">
@@ -17,26 +19,44 @@ import {site} from "@/lib/constants";
 
 	<div
 		class:list={[
-			"px-6 py-2 xl:px-0 xl:py-0",
+			"px-4 py-2 xl:px-0 xl:py-0",
 			"relative mx-auto  @container lg:max-w-7xl",
-			"flex items-center  justify-center lg:flex-row-reverse",
+			"flex justify-center lg:flex-row-reverse",
 			"flex-col-reverse justify-center",
-			"mt-2 sm:mt-8 lg:mt-32",
+			"mt-20 sm:mt-32",
 		]}
 	>
 		<div class="relative w-[80vw] max-w-md flex-1"></div>
 
-		<div class:list={["relative h-full max-w-xl flex-1 space-y-6 lg:max-w-2xl"]}>
+		<div class:list={["relative h-full w-full max-w-2xl flex-1"]}>
 			<p class="font-title text-4xl font-light tracking-wide sm:text-5xl">Hello There, I'm</p>
 
-			<h1 class:list={["font-title text-4xl font-light tracking-wide sm:text-5xl"]}>
-				<span class="">{site.author.fullName}</span>
+			<h1
+				class:list={[
+					"mt-4 font-rocksalt text-4xl font-light tracking-wide sm:text-5xl md:text-6xl",
+				]}
+			>
+				{site.author.fullName}
 			</h1>
 
-			<p class:list={["max-w-sm text-lg sm:max-w-xl sm:text-xl"]}>
+			<p class:list={["mt-8 text-lg sm:max-w-2xl sm:text-xl"]}>
 				A self-driven full-stack developer with a strong focus on developing high performance
 				backend APIs and microservices using latest and greatest technologies.
 			</p>
+
+			<div class="mt-8 flex max-w-sm items-center gap-2">
+				<Link href="/blog" aria-label="Read blog">
+					<FillAnimatedButton> Read Blog </FillAnimatedButton>
+				</Link>
+
+				<Link href="#" aria-label="My Journey" class="flex-grow">
+					<FillAnimatedButton
+						class_="w-full bg-accent btn-accent text-base-100 dark:text-base-content dark:hover:text-base-100"
+					>
+						My Journey
+					</FillAnimatedButton>
+				</Link>
+			</div>
 		</div>
 	</div>
 </section>

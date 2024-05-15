@@ -4,6 +4,7 @@ import PageFind from "@/components/PageFind.astro";
 
 import LatestUpdates from "@/components/Sections/LatestUpdates.astro";
 import ProfileSection from "@/components/Sections/ProfileSection.astro";
+import TechStackSection from "@/components/Sections/TechStack.astro";
 
 import {toPosts} from "@/content";
 import {getCollection} from "astro:content";
@@ -13,7 +14,7 @@ const posts = toPosts(collection);
 
 <Root title="Home" nocrumbs>
 	<ProfileSection />
-
+	<TechStackSection />
 	<div class="px-4">
 		<PageFind />
 	</div>

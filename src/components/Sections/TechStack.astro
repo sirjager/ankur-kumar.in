@@ -1,0 +1,20 @@
+---
+import {site} from "@/lib/constants";
+import SectionHeading from "./SectionHeading.astro";
+import ScrollList from "@/components/ScrollList.astro";
+---
+
+<section class="mt-36 space-y-8">
+	<SectionHeading
+		text="Tech"
+		colored="Stack"
+		description="Here are some of the technologies I am familiar and worked with"
+	/>
+
+	<div class="space-y-2">
+		<ScrollList items={site.author.programming} />
+		<ScrollList direction="right" items={site.author.databases} />
+		<ScrollList items={site.author.technologies} />
+		<ScrollList direction="right" items={site.author.frameworks} />
+	</div>
+</section>

@@ -2,4 +2,22 @@
 
 ---
 
-<script is:inline src="/_pagefind/pagefind-ui.js"></script>
+<script>
+	if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+		const scrollers = document.querySelectorAll(".scroller");
+		scrollers.forEach((scroller) => scroller.removeAttribute("data-animated"));
+	}
+</script>
+
+<script>
+	// @ts-ignore
+	const lenis = new Lenis({
+		lerp: 0.03,
+	});
+	function raf(time: any) {
+		lenis.raf(time);
+		console.log(time);
+		requestAnimationFrame(raf);
+	}
+	requestAnimationFrame(raf);
+</script>

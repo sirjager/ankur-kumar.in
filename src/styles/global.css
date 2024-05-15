@@ -59,8 +59,43 @@
 		--webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0));
 	}
 
+	.fade-left-right {
+		mask-image: linear-gradient(90deg, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0)),
+			linear-gradient(90deg, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0));
+		--webkit-mask-image: linear-gradient(90deg, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0)),
+			linear-gradient(90deg, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0));
+	}
+
 	.fade-none {
 		mask-image: none;
 		--webkit-mask-image: none;
+	}
+}
+
+.scroller[data-animated="true"] {
+	overflow-x: hidden;
+	mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+	-webkit-mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+}
+
+.scroller[data-animated="true"] .scroll {
+	flex-wrap: nowrap;
+	width: max-content;
+	/* animation: scroller var(--_animation-duration, 80s) var(--_animation-direction, forwards) linear infinite; */
+	animation: scroller var(--_animation-direction, forwards) linear;
+	animation-timeline: scroll(root);
+}
+
+.scroller[data-direction="right"] {
+	--_animation-direction: reverse;
+}
+
+.scroller[data-direction="left"] {
+	--_animation-direction: forwards;
+}
+
+@keyframes scroller {
+	to {
+		transform: translate(calc(-50% - 0.5rem));
 	}
 }

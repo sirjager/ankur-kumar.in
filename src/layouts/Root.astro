@@ -3,6 +3,7 @@ import "@/styles/global.css";
 import type {Props as HeadProps} from "./Head.astro";
 
 import Head from "@/layouts/Head.astro";
+import Scripts from "@/layouts/Scripts.astro";
 import Footer from "@/components/Footer/Footer.astro";
 import Navbar from "@/components/Navbar/Navbar.astro";
 import SpeedInsights from "@vercel/speed-insights/astro";
@@ -24,12 +25,13 @@ const {nocrumbs, ...props} = Astro.props;
 	<head>
 		<Head {...props} />
 	</head>
-	<body class="bg-red dark:bg-blue font-body antialiased">
+	<body class="font-body antialiased">
 		<NoiseFilter />
 		<ScrollWatcher />
 		<Navbar />
 		{!nocrumbs && <Breadcrumbs />}
 		<slot />
+		<Scripts />
 		<Footer />
 		<ScrollToTop />
 		<SpeedInsights />
