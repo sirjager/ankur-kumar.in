@@ -11,14 +11,6 @@
 
 @media (prefers-reduced-motion: no-preference) {
 	#article-content {
-		* {
-			scale: 0.95;
-			opacity: 0;
-			animation: fade-in linear forwards;
-			animation-timeline: view();
-			animation-range: 50px 150px;
-		}
-
 		img {
 			scale: 0.8;
 			opacity: 0;
