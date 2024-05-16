@@ -8,16 +8,3 @@
 		scrollers.forEach((scroller) => scroller.removeAttribute("data-animated"));
 	}
 </script>
-
-<script>
-	// @ts-ignore
-	const lenis = new Lenis({
-		lerp: 0.03,
-	});
-	function raf(time: any) {
-		lenis.raf(time);
-		console.log(time);
-		requestAnimationFrame(raf);
-	}
-	requestAnimationFrame(raf);
-</script>

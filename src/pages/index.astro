@@ -2,6 +2,9 @@
 import Root from "@/layouts/Root.astro";
 import PageFind from "@/components/PageFind.astro";
 
+import ScrollListScript from "@/components/Scripts/ScrollList.astro";
+import SmoothScrollScript from "@/components/Scripts/SmoothScroll.astro";
+
 import LatestUpdates from "@/components/Sections/LatestUpdates.astro";
 import ProfileSection from "@/components/Sections/ProfileSection.astro";
 import TechStackSection from "@/components/Sections/TechStack.astro";
@@ -20,4 +23,7 @@ const posts = toPosts(collection);
 	</div>
 
 	<LatestUpdates posts={posts} />
+
+	<ScrollListScript slot="scripts" />
+	<SmoothScrollScript slot="scripts" />
 </Root>
