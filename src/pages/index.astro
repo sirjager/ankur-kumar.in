@@ -5,17 +5,16 @@ import PageFind from "@/components/PageFind.astro";
 import ScrollListScript from "@/components/Scripts/ScrollList.astro";
 import SmoothScrollScript from "@/components/Scripts/SmoothScroll.astro";
 
+import TechStackSection from "@/components/Sections/TechStack.astro";
 import LatestUpdates from "@/components/Sections/LatestUpdates.astro";
 import ProfileSection from "@/components/Sections/ProfileSection.astro";
-import TechStackSection from "@/components/Sections/TechStack.astro";
 
-import {toPosts} from "@/content";
-import {getCollection} from "astro:content";
-const collection = await getCollection("blog");
-const posts = toPosts(collection);
+import {getMatters, type Post} from "@/content";
+const blog = await Astro.glob("../content/blog/*.md?(x)");
+const posts = getMatters<Post>(blog);
 ---
 
-<Root title="Home" nocrumbs>
+<Root title="Homes" nocrumbs>
 	<ProfileSection />
 	<TechStackSection />
 	<div class="px-4">

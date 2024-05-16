@@ -1,12 +1,14 @@
 /* eslint-disable quotes */
-import {getCategories, toPosts} from "@/content";
 import {site} from "@/lib/constants";
 import type {APIRoute} from "astro";
-import {getCollection} from "astro:content";
+
+import {getCategories} from "@/content";
+import {getMatters, type Post} from "@/content";
+
+const blog: any = import.meta.glob("../../content/blog/*.md?(x)", {eager: true});
+const posts: Post[] = getMatters<Post>(Object.values(blog));
 
 export const getStaticPaths = async () => {
-	const blog = await getCollection("blog");
-	const posts = toPosts(blog);
 	const cats = getCategories(posts);
 	const limit = site.sitemapSize;
 	const pages = Math.ceil(cats.length / limit);
@@ -27,8 +29,6 @@ export const GET: APIRoute = async (req) => {
 	const pageNo = parseInt(sitemap.replace("sitemap-", ""));
 	const limit = site.sitemapSize;
 
-	const blog = await getCollection("blog");
-	const posts = toPosts(blog);
 	const cats = getCategories(posts);
 	const paginated = cats.slice(limit * (pageNo - 1), limit * pageNo);
 

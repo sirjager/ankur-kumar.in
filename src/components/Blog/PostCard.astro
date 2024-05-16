@@ -10,7 +10,6 @@ interface Props {
 	loading?: string;
 }
 const {post, loading} = Astro.props;
-
 const date = parseDate(post.published.toISOString());
 ---
 

@@ -1,29 +1,27 @@
 ---
 import Root from "@/layouts/Root.astro";
-import {getCollection, getEntry} from "astro:content";
+import {getEntry} from "astro:content";
 import Article from "@/components/Article/Article.astro";
-import {getCategories, getTags, toPost, toPosts} from "@/content";
+import {toPost} from "@/content";
 import Discussions from "@/components/Article/Discussions.astro";
 
+import {getMatters, type Post} from "@/content";
+
 export async function getStaticPaths() {
-	const c = await getCollection("blog");
-	return c.map((p) => ({params: {slug: p.slug}}));
+	const blog = await Astro.glob("../../content/blog/*.md?(x)");
+	const posts: Post[] = getMatters<Post>(blog);
+	return posts.map((post) => ({params: {slug: post.slug}}));
 }
 
 const {slug} = Astro.params;
 const entry = await getEntry("blog", slug);
+if (!entry) return Astro.redirect("/404");
 const {Content, ...rest} = await entry.render();
 const post = toPost(entry, rest);
-
-const collection = await getCollection("blog");
-const posts = toPosts(collection);
-
-const categories = getCategories(posts);
-const tags = getTags(posts);
 ---
 
 <Root title={post.title} description={post.description} image={post.banner}>
-	<Article allPosts={posts} post={post} categories={categories} tags={tags}>
+	<Article post={post}>
 		<Content />
 	</Article>
 	<div

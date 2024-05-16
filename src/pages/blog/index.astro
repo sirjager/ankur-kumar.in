@@ -1,5 +1,4 @@
 ---
-import {toPosts} from "@/content";
 import {site} from "@/lib/constants";
 
 import Root from "@/layouts/Root.astro";
@@ -10,11 +9,11 @@ import FilterCloud from "@/components/Cards/FilterCloud.astro";
 import MostViewedPosts from "@/components/Cards/MostViewedPosts.astro";
 
 import Blog from "@/layouts/Blog.astro";
-import BlogDescription from "@/components/Blog/Description.astro";
+import ReadMore from "@/components/ReadMore.astro";
 
-import {getCollection} from "astro:content";
-const collection = await getCollection("blog");
-const posts = toPosts(collection);
+import {getMatters, type Post} from "@/content";
+const blog = await Astro.glob("../../content/blog/*.md?(x)");
+const posts = getMatters<Post>(blog);
 ---
 
 <Root title="Blog" description={site.blog.description}>
@@ -24,7 +23,9 @@ const posts = toPosts(collection);
 				{site.blog.title}
 			</h1>
 
-			<BlogDescription />
+			<div class="mt-4 max-w-3xl text-pretty">
+				<ReadMore text={site.blog.description} readmore={site.blog.readmore} />
+			</div>
 
 			<p class="tet-pretty prose-sm mt-2 @md:prose prose-a:text-accent">
 				Subscribe to the <Link aria-label="RSS" href={site.links.rssfeed} class="text-accent"

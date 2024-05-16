@@ -19,6 +19,19 @@ export interface Render {
 	remarkPluginFrontmatter: Record<string, any>;
 }
 
+export const getMatters = <T>(all: any[], method: "astro" | "import" = "astro") => {
+	return (method === "import" ? Object.values(all) : all).map((p) => {
+		const slug = p.file.split("/").pop().split(".").shift() as string;
+		return {
+			...p.frontmatter,
+			slug,
+			published: new Date(p.frontmatter.published),
+			modifided: new Date(p.frontmatter.modifided),
+			headings: p?.getHeadings(),
+		} as T;
+	});
+};
+
 export const toPost = (item: any, render?: Render): Post => {
 	// Modif post data here if needed
 	return {

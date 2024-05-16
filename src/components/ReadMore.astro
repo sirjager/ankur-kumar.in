@@ -1,0 +1,44 @@
+---
+import {generateRandomID} from "@/lib/utils";
+
+interface Props {
+	text: string;
+	readmore?: string[];
+	labelReadmore?: string;
+	labelHide?: string;
+	class_?: string;
+}
+
+const {text, readmore = [], class_} = Astro.props;
+const {labelReadmore = "Read more", labelHide = "Hide"} = Astro.props;
+
+const randomID = generateRandomID(8);
+---
+
+<p class:list={["prose-sm leading-relaxed @md:prose", class_]}>
+	<input id={randomID} type="checkbox" class="peer hidden" />
+	{text}
+	<span class="hidden peer-checked:inline">
+		{
+			readmore.map((para) => {
+				return (
+					<span>
+						<br />
+						<br />
+						{para}
+					</span>
+				);
+			})
+		}
+	</span>
+	<label
+		for={randomID}
+		class="cursor-pointer text-accent hover:underline focus:outline-none peer-checked:hidden"
+		>{labelReadmore}</label
+	>
+	<label
+		for={randomID}
+		class="hidden cursor-pointer text-accent hover:underline focus:outline-none peer-checked:inline"
+		>{labelHide}</label
+	>
+</p>

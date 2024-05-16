@@ -6,11 +6,12 @@ import PostsGrid from "@/components/Blog/PostsGrid.astro";
 import FilterCloud from "@/components/Cards/FilterCloud.astro";
 import MostViewedPosts from "@/components/Cards/MostViewedPosts.astro";
 
-import {getCollection} from "astro:content";
-import {toPosts, getTags} from "@/content";
+import {getTags} from "@/content";
+import {getMatters, type Post} from "@/content";
 
 export async function getStaticPaths() {
-	const posts = toPosts(await getCollection("blog"));
+	const blog = await Astro.glob("../../content/blog/*.md?(x)");
+	const posts: Post[] = getMatters<Post>(blog);
 	const tags = getTags(posts);
 	return tags.map((tag) => ({
 		params: {tag},

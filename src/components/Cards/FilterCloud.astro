@@ -1,11 +1,12 @@
 ---
 import Container from "./Container.astro";
 import Link from "@/components/Link.astro";
-import {getCollection} from "astro:content";
-import {getCategories, getTags, toPosts} from "@/content";
 
-const collection = await getCollection("blog");
-const posts = toPosts(collection);
+import {getCategories, getTags} from "@/content";
+import {getMatters, type Post} from "@/content";
+
+const blog = await Astro.glob("../../content/blog/*.md?(x)");
+const posts: Post[] = getMatters<Post>(blog);
 const tags = getTags(posts);
 const categories = getCategories(posts);
 ---

@@ -9,8 +9,8 @@ interface Props {
 const {items, direction = "left", itemClass, listClass} = Astro.props;
 ---
 
-<div class="relative mx-auto max-w-6xl space-y-10 px-4">
-	<div data-animated="true" data-direction={direction} class="scroller max-w-5xl">
+<div class="relative space-y-10 px-4">
+	<div data-animated="true" data-direction={direction} class="scroller">
 		<ul class:list={["scroll flex w-full flex-wrap items-center gap-2", listClass]}>
 			{
 				Array.from({length: 2}).map((_, i) => {
