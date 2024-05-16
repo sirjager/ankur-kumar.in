@@ -1,27 +1,13 @@
 ---
-
+import "@/styles/scrollwatcher.css";
 ---
-
-<style>
-	@media (prefers-reduced-motion: no-preference) {
-		#scrollwatcher {
-			animation: scrollwatcher linear;
-			animation-timeline: scroll(y);
-		}
-		@keyframes scrollwatcher {
-			from {
-				scale: 0 1;
-			}
-		}
-	}
-</style>
 
 <div
 	id="scrollwatcher"
 	class:list={[
 		"bg-gradient-to-r from-secondary via-accent to-primary",
 		"fixed left-0 top-0 z-[99999] origin-left",
-		"animate-scrollwatcher h-0.5 w-full",
+		"animate-scrollwatcher h-1 w-full dark:h-0.5",
 	]}
 >
 </div>

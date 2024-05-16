@@ -72,6 +72,14 @@ const authorName = author ? author : site.author.fullName;
 			fallback: "sans-serif",
 		},
 		{
+			name: "RockSalt",
+			src: [],
+			googleFontsURL: "https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap",
+			preload: true,
+			display: "swap",
+			fallback: "sans-serif",
+		},
+		{
 			name: "Inter",
 			src: [],
 			googleFontsURL: "https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap",
@@ -114,3 +122,5 @@ const authorName = author ? author : site.author.fullName;
 	// for darkmode when using view transition api
 	// document.addEventListener("astro:after-swap", __theming__);
 </script>
+
+<script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>

@@ -1,0 +1,93 @@
+---
+import Container from "./Container.astro";
+import Link from "@/components/Link.astro";
+
+import {getCategories, getTags} from "@/content";
+import {getMatters, type Post} from "@/content";
+
+const blog = await Astro.glob("../../content/blog/*.md?(x)");
+const posts: Post[] = getMatters<Post>(blog);
+const tags = getTags(posts);
+const categories = getCategories(posts);
+---
+
+<Container>
+	<div slot="header" class="w-fit select-none">
+		<div class="relative ml-4 bg-base-100 pr-1.5 text-sm uppercase">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				viewBox="0 0 24 24"
+				stroke-width="1.5"
+				fill="none"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				class="mx-1 inline h-4 w-4 stroke-base-content group-hover:stroke-accent"
+			>
+				<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+				<path
+					d="M4 4h16v2.172a2 2 0 0 1 -.586 1.414l-4.414 4.414v7l-6 2v-8.5l-4.48 -4.928a2 2 0 0 1 -.52 -1.345v-2.227z"
+				></path>
+			</svg>
+			Filter
+		</div>
+	</div>
+
+	<div slot="body" class="tabs tabs-lifted m-2 mt-4">
+		<input
+			checked
+			type="radio"
+			name="filter_tabs"
+			aria-label="Tags"
+			class="tab checked:text-accent"
+		/>
+		<div class="tab-content rounded-box border-base-200 p-4">
+			<ul class="flex flex-wrap gap-2">
+				{
+					tags.map((tag) => (
+						<li>
+							<Link
+								aria-label={tag}
+								href={`/tags/${tag}`}
+								class:list={[
+									"rounded-btn p-2 text-sm hover:text-accent",
+									"border-2 border-transparent hover:border-accent",
+									"transition duration-100 ease-in-out",
+								]}
+							>
+								#{tag}
+							</Link>
+						</li>
+					))
+				}
+			</ul>
+		</div>
+
+		<input
+			type="radio"
+			name="filter_tabs"
+			class="tab checked:text-accent"
+			aria-label="Categories"
+		/>
+		<div class="tab-content rounded-box border-base-200 p-4">
+			<ul class="flex flex-wrap gap-2">
+				{
+					categories.map((cat) => (
+						<li>
+							<Link
+								aria-label={cat}
+								href={`/categories/${cat}`}
+								class:list={[
+									"rounded-btn p-2 text-sm hover:text-accent",
+									"border-2 border-transparent hover:border-accent",
+									"transition duration-100 ease-in-out",
+								]}
+							>
+								{cat}
+							</Link>
+						</li>
+					))
+				}
+			</ul>
+		</div>
+	</div>
+</Container>

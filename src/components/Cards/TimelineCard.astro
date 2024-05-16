@@ -1,0 +1,81 @@
+---
+import Link from "@/components/Link.astro";
+import Image from "@/components/Image/QwikImage";
+import type {Post} from "@/content";
+
+interface Props {
+	post: Post;
+	invert?: boolean;
+}
+
+const {post, invert} = Astro.props;
+
+const postedOn = new Date().toDateString();
+const published = postedOn.split(" ");
+---
+
+<div class="@container">
+	<div
+		class:list={[
+			"flex flex-col items-center  sm:flex-row sm:items-center",
+			{
+				"sm:flex-row-reverse": invert,
+			},
+		]}
+	>
+		<div
+			class:list={[
+				"rounded-btn border-2 border-base-200 font-bold",
+				"p-4 text-lg @3xl:text-2xl @4xl:text-4xl",
+			]}
+		>
+			<span class="text-accent">{published[2]}</span>
+			{published[1]}{" "}
+			{published[3]}
+		</div>
+
+		<div class:list={["mx-auto h-10 w-0.5 bg-base-content/15", "sm:h-0.5 sm:flex-1"]}></div>
+
+		<div
+			class:list={[
+				"flex h-full flex-col gap-3 p-3 @sm:flex-row",
+				"group/tmcard relative rounded-box",
+				"select-none border-2 border-base-200",
+				"max-w-full @xl:max-w-md @2xl:max-w-lg @4xl:min-w-96 @4xl:max-w-xl",
+			]}
+		>
+			<Link
+				aria-label={`Read "${post.title}"`}
+				href={`/blog/${post.slug}`}
+				class:list={["relative overflow-clip rounded-box"]}
+			>
+				<Image
+					src={post.banner}
+					alt={post.title}
+					class:list={[
+						"w-full rounded-box @sm:w-52 @sm:min-w-52 @sm:max-w-52",
+						"transition-all duration-700 ease-in-out",
+						"group-hover/tmcard:scale-110",
+					]}
+				/>
+			</Link>
+			<div class="max-w-7xl flex-1 @sm:min-w-32">
+				<Link
+					aria-label={`Read "${post.title}"`}
+					href={`/blog/${post.slug}`}
+					class:list={[
+						"line-clamp-4 font-title text-sm font-light font-semibold text-accent @4xl:text-base",
+					]}
+				>
+					{post.title}
+				</Link>
+
+				<div class="mt-2 text-pretty text-sm">
+					<p class="line-clamp-3">
+						{post.description}
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,13 +1,12 @@
 import {site} from "@/lib/constants";
 import type {APIRoute} from "astro";
 import rss from "@astrojs/rss";
-import {getCollection} from "astro:content";
-import {toPosts} from "@/content";
+
+import {getMatters, type Post} from "@/content";
+const blog: any = import.meta.glob("../../content/blog/*.md?(x)", {eager: true});
+const posts: Post[] = getMatters<Post>(blog, "import");
 
 export const GET: APIRoute = async (context) => {
-	const blog = await getCollection("blog");
-	const posts = toPosts(blog);
-
 	return rss({
 		title: site.title,
 		stylesheet: "/styles/rss.xsl",

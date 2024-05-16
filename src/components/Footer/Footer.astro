@@ -1,0 +1,134 @@
+---
+import {site} from "@/lib/constants";
+import Link from "@/components/Link.astro";
+import Copyright from "./Copyright";
+import SocialIcons from "./SocialIcons.astro";
+const sections = [
+	{
+		name: "General",
+		items: [
+			{name: "Home", url: "/"},
+			{name: "Blog", url: "/blog"},
+			{name: "Projects", url: "/projects"},
+			{name: "About", url: "/about"},
+			// {name: "Contact", url: "/contact"},
+		],
+	},
+	{
+		name: "Specifics",
+		items: [
+			// {name: "Sponsors", url: "/sponsors"},
+			{name: "My Journey", url: "/blog/my-journey"},
+			{name: "Hire Me", url: "/hire-me"},
+			{name: "Resume", url: "/resume"},
+			{name: "Dotfiles", url: site.links.dotfiles},
+		],
+	},
+	{
+		name: "Extras",
+		items: [
+			{name: "RSS", url: site.links.rssfeed},
+			{name: "Sitemap", url: site.links.sitemap},
+			// {name: "Newsletter", url: "/newsletter"},
+			{name: "Privacy Policy", url: "/privacy-policy"},
+			{name: "Terms of Service", url: "/terms-of-service"},
+		],
+	},
+];
+---
+
+<div>
+	<div
+		class:list={[
+			"mx-auto mt-36 w-full max-w-7xl px-4 @container",
+			"border-t border-base-200 pt-12",
+		]}
+	>
+		<div class:list={["grid grid-cols-2 py-8 @lg:grid-cols-3 @4xl:grid-cols-6"]}>
+			{
+				sections.map((section) => {
+					return (
+						<div class="group relative col-span-1 overflow-clip p-4">
+							<h3 class="p-1 font-title text-sm font-semibold uppercase tracking-widest">
+								{section.name}
+							</h3>
+							<div
+								aria-hidden="true"
+								class="absolute left-4 mr-4 h-0.5 w-0 bg-accent transition-all duration-300 ease-in-out group-hover:w-[70%]"
+							/>
+							<ul class="mt-2 space-y-2">
+								{section.items.map((item) => {
+									return (
+										<li class="group/link relative w-full">
+											<Link
+												aria-label={item.name}
+												href={item.url}
+												class:list={["block rounded-btn p-1", "group-hover/link:text-accent"]}
+											>
+												{item.name}
+											</Link>
+										</li>
+									);
+								})}
+							</ul>
+						</div>
+					);
+				})
+			}
+
+			<div class="col-span-2 grid place-items-center @lg:col-span-3">
+				<div class:list={["h-fit w-full rounded-box p-4 @lg:p-8", "border border-base-300"]}>
+					<div class="flex items-center gap-2">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 24 24"
+							stroke-width="1.5"
+							fill="none"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							class="inline h-5 w-5 stroke-base-content"
+						>
+							<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+							<path d="M10 21v-6.5a3.5 3.5 0 0 0 -7 0v6.5h18v-6a4 4 0 0 0 -4 -4h-10.5"></path>
+							<path d="M12 11v-8h4l2 2l-2 2h-4"></path>
+							<path d="M6 15h1"></path>
+						</svg>
+						<p class="font-title font-semibold">Stay up to date</p>
+					</div>
+
+					<p class="mt-2 text-sm text-neutral-content">
+						Get notified when I publish something new and unsubscribe at any time
+					</p>
+
+					<div
+						class="mt-4 flex items-center rounded-btn border-2 border-base-200 p-1 hover:border-accent"
+					>
+						<input
+							type="email"
+							placeholder="Email address"
+							class="w-full rounded-btn border-none bg-base-100 px-4 py-2 outline-none placeholder:text-base-content/60"
+						/>
+						<button
+							class:list={[
+								"btn btn-accent font-bold",
+								"outline-none ring-offset-white focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 dark:focus:ring-offset-black",
+							]}>Subscribe</button
+						>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div
+		class:list={[
+			"mx-auto w-full max-w-7xl px-4 pb-10 pt-8 @container",
+			"flex flex-col items-center gap-4 sm:flex-row sm:justify-between",
+		]}
+	>
+		<div class="w-full max-w-56 px-2">
+			<Copyright />
+		</div>
+		<SocialIcons />
+	</div>
+</div>

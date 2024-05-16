@@ -50,10 +50,8 @@ tmp-*
 # This might containt some sensitive info about vault
 .vault-stats.json
 
-# icons zips and lots of icon files by iconize plugin
-**/icons
-!public/icons
-
+# INFO: icons zips and lots of icon files by iconize plugin
+**/.obsidian/icons
 # WARN: 
 # data.json are plugin settings 
 # and might contain private information

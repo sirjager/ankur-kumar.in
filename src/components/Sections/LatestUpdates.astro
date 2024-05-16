@@ -1,0 +1,28 @@
+---
+import type {Post} from "@/content";
+import SectionHeading from "./SectionHeading.astro";
+import TimelineCard from "@/components/Cards/TimelineCard.astro";
+
+interface Props {
+	posts: Post[];
+}
+
+const {posts} = Astro.props;
+---
+
+<section>
+	<SectionHeading
+		text="Recent"
+		colored="Updates"
+		description="Here are some of my latest updates"
+	/>
+
+	<div class="relative mx-auto max-w-6xl space-y-10 p-4">
+		{
+			posts.map((post, index) => {
+				const invert = index % 2 === 0;
+				return <TimelineCard post={post} invert={invert} />;
+			})
+		}
+	</div>
+</section>

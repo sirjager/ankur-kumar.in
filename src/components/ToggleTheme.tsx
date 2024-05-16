@@ -54,7 +54,7 @@ export default component$(() => {
 			aria-label="Change Theme"
 			onClick$={changeTheme}
 			class={[
-				"px-3 py-2",
+				"btn-square px-3 py-2",
 				"transition-all duration-300 ease-in-out",
 				"group/tgthm border-base-300",
 				"relative grid place-items-center overflow-clip rounded-btn p-0",

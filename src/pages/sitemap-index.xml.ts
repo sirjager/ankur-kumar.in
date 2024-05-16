@@ -1,8 +1,11 @@
 /* eslint-disable quotes */
-import {getCategories, getTags, toPosts} from "@/content";
+import {getCategories, getTags} from "@/content";
 import {site} from "@/lib/constants";
 import type {APIRoute} from "astro";
-import {getCollection} from "astro:content";
+
+import {getMatters, type Post} from "@/content";
+const blog: any = import.meta.glob("../../content/blog/*.md?(x)", {eager: true});
+const posts: Post[] = getMatters<Post>(blog, "import");
 
 export const GET: APIRoute = async (req) => {
 	const baseURL = req.url.origin;
@@ -22,8 +25,6 @@ export const GET: APIRoute = async (req) => {
 
 	// TODO: enable when atleast one post is there
 	// // Blog Posts Sitemap
-	const blog = await getCollection("blog");
-	const posts = toPosts(blog);
 	const limit = site.sitemapSize;
 	// const total = posts.length;
 	// const pages = Math.ceil(total / limit);

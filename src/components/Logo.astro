@@ -3,16 +3,17 @@ import {Img as Picture} from "astro-imagetools/components";
 import Link from "@/components/Link.astro";
 ---
 
-<div class="flex w-full items-center">
+<div class="flex w-full items-center gap-2">
 	<Link
 		aria-label="Go to homepage"
 		href="/"
-		class="z-[99999999] grid w-10 min-w-10 place-items-center rounded-btn @sm:w-16 @sm:min-w-16"
+		class="z-50 grid w-10 min-w-10 place-items-center rounded-btn @sm:w-16 @sm:min-w-16"
 	>
 		<Picture
 			src="/src/assets/sirjager.png"
 			height={60}
 			width={60}
+			quality="100"
 			placeholder="blurred"
 			alt="Ankur Logo"
 		/>

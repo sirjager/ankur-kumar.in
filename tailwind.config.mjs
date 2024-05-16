@@ -10,7 +10,7 @@ export default {
 		require("@tailwindcss/typography"),
 		require("daisyui"),
 	],
-	content: ["./src/**/*.{astro,html,svg,md,mdx,svelte,ts,tsx,vue}"],
+	content: ["./src/**/*.{astro,html,svelte,ts,tsx,vue}"],
 	daisyui: {
 		themeRoot: ":root",
 		base: true,
@@ -71,6 +71,7 @@ export default {
 			fontFamily: {
 				title: ["Raleway", ...defaultTheme.fontFamily.serif],
 				body: ["Inter", ...defaultTheme.fontFamily.serif],
+				rocksalt: ["RockSalt", ...defaultTheme.fontFamily.serif],
 			},
 		},
 	},

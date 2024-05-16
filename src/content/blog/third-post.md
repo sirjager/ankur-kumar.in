@@ -1,19 +1,19 @@
 ---
 banner: "https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg?w=1920&h=1080"
 banner_x: 0.5
-banner_y: 0.5475
+banner_y: 0.4725
 banner_lock: true
 status: published
 published: 2024-03-17
 modifided: 2024-03-17
 title: "Infrastructure as Code: Leveraging Terraform for Automated Infrastructure Management"
-description: "Unlock the power of Infrastructure as Code (IaC) with Terraform, a leading tool for automating infrastructure provisioning and management. This guide will walk you through the basics of Terraform, its declarative syntax, and how to orchestrate infrastructure across multiple cloud providers effortlessly"
+description: Unlock the power of Infrastructure as Code (IaC) with Terraform, a leading tool for automating infrastructure provisioning and management. This guide will walk you through the basics of Terraform, its declarative syntax, and how to orchestrate infrastructure across multiple cloud providers effortlessly
 category: Obsidian
 tags:
   - daily
 ---
 
-## Third Post
+## Read [First Post](first-post)
 
 ## Welcome to Stack Edit!
 
@@ -98,45 +98,3 @@ After publishing, StackEdit keeps your file linked to that publication which mak
 ## Manage file publication
 
 Since one file can be published to multiple locations, you can list and manage publish locations by clicking **File publication** in the **Publish** sub-menu. This allows you to list and remove publication locations that are linked to your file.
-
-# Markdown extensions
-
-StackEdit extends the standard Markdown syntax by adding extra **Markdown extensions**, providing you with some nice features.
-
-> **ProTip:** You can disable any **Markdown extension** in the **File properties** dialog.
-
-## SmartyPants
-
-SmartyPants converts ASCII punctuation characters into "smart" typographic punctuation HTML entities. For example:
-
-|                  | ASCII                           | HTML                          |
-| ---------------- | ------------------------------- | ----------------------------- |
-| Single backticks | `'Isn't this fun?'`             | 'Isn't this fun?'             |
-| Quotes           | `"Isn't this fun?"`             | "Isn't this fun?"             |
-| Dashes           | `-- is en-dash, --- is em-dash` | -- is en-dash, --- is em-dash |
-
-## UML diagrams
-
-You can render UML diagrams using [Mermaid](https://mermaidjs.github.io/). For example, this will produce a sequence diagram:
-
-```mermaid
-sequenceDiagram
-Alice ->> Bob: Hello Bob, how are you?
-Bob-->>John: How about you John?
-Bob--x Alice: I am good thanks!
-Bob-x John: I am good thanks!
-Note right of John: Bob thinks a long<br/>long time, so long<br/>that the text does<br/>not fit on a row.
-
-Bob-->Alice: Checking with John...
-Alice->John: Yes... John, how are you?
-```
-
-And this will produce a flow chart:
-
-```mermaid
-graph LR
-A[Square Rect] -- Link text --> B((Circle))
-A --> C(Round Rect)
-B --> D{Rhombus}
-C --> D
-```
