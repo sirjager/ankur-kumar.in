@@ -8,7 +8,7 @@ export default component$(() => {
 	});
 
 	return (
-		<div class="p-2 font-title font-semibold">
+		<div class="p-2 font-title text-lg">
 			&copy; {date.value.getFullYear()} {site.title}
 		</div>
 	);

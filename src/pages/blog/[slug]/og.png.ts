@@ -11,9 +11,11 @@ export async function getStaticPaths() {
 	return posts.map((post) => ({params: {slug: post.slug}, props: {post}}));
 }
 
+const backgroundURL = "https://i.imgur.com/hxMDIFD.jpeg";
+const avatarURL = "https://i.imgur.com/MlFSSy7.png";
+
 export const GET: APIRoute = async ({props}) => {
 	const post: Post = props.post;
-
 	const date = parseDate(post.published.toISOString());
 
 	// Astro doesn't support tsx endpoints so usign React-element objects
@@ -29,7 +31,7 @@ export const GET: APIRoute = async ({props}) => {
 							{
 								type: "div",
 								props: {
-									tw: "text-6xl font-bold text-white",
+									tw: "text-5xl font-bold text-white",
 									children: post.title,
 								},
 							},
@@ -90,18 +92,18 @@ export const GET: APIRoute = async ({props}) => {
 				{
 					type: "div",
 					props: {
-						tw: "flex items-center absolute bottom-24 left-24 justify-center",
+						tw: "flex items-center max-w-4xl mx-auto w-full justify-start",
 						children: [
 							{
 								type: "div",
 								props: {
 									// using tailwind
-									tw: "w-14 h-14 mr-4 flex rounded-full shadow-xl overflow-hidden",
+									tw: "w-28 h-28 mr-4 flex rounded-full shadow-xl overflow-hidden",
 									children: [
 										{
 											type: "img",
 											props: {
-												src: site.author.avatar,
+												src: avatarURL,
 											},
 										},
 									],
@@ -115,14 +117,14 @@ export const GET: APIRoute = async ({props}) => {
 										{
 											type: "div",
 											props: {
-												tw: "text-xl text-center text-center font-light text-white",
+												tw: "text-3xl text-center text-center font-light text-white",
 												children: site.author.fullName,
 											},
 										},
 										{
 											type: "div",
 											props: {
-												tw: "text-xl font-bold text-center text-center font-light text-white",
+												tw: "text-3xl font-bold text-center text-center font-light text-white",
 												children: site.links.website,
 											},
 										},
@@ -132,16 +134,10 @@ export const GET: APIRoute = async ({props}) => {
 						],
 					},
 				},
-				{
-					type: "div",
-					props: {
-						tw: "h-10",
-					},
-				},
 			],
 			tw: "w-full h-full flex flex-col items-start justify-center relative p-20",
 			style: {
-				backgroundImage: "url('https://i.imgur.com/zYOgiiI.png')",
+				backgroundImage: `url('${backgroundURL}')`,
 				gap: "1rem",
 			},
 		},

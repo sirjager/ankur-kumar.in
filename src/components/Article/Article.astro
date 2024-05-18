@@ -30,11 +30,11 @@ const ogimage = `${Astro.url.origin}/blog/${post.slug}/og.png`;
 >
 	<div class="col-span-3 lg:!col-end-5">
 		<h1
-			transition:name="title"
 			role="heading"
 			data-weight="50"
 			data-pagefind-meta="title"
 			data-pagefind-sort="weight[data-weight]"
+			transition:name={`article-${post.slug}`}
 			class="font-title text-2xl font-light @xs:text-3xl @md:text-4xl @4xl:text-5xl"
 		>
 			{post.title}
@@ -69,7 +69,7 @@ const ogimage = `${Astro.url.origin}/blog/${post.slug}/og.png`;
 			src={post.banner ?? ogimage}
 			fallbackFormat="jpg"
 			formats={["avif", "webp", "jpg"]}
-			style={{top: `-${post.banner_y * 86.5}%`}}
+			style={{top: `-${post.banner_y * 44}%`}}
 			sizes={"(max-width: 360px) 240px, (max-width: 480px) 360px, (max-width: 768px) 480px, (max-width: 1024px) 768px, (max-width: 1280px) 1024px, (max-width: 1920px) 1280px"}
 			class="absolute left-0 rounded-box transition-all duration-1000 ease-in-out hover:scale-105"
 		/>

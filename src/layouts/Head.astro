@@ -15,7 +15,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const pageTitle = title ? `${title} | ${site.title}` : site.title;
 const pageDesc = description ? description : site.description;
-const ogImage = image ? image : `${Astro.url.origin}/${site.ogimage}`;
+const ogImage = image ? image : `${Astro.url.origin}/images/siteog.jpg`;
 const authorName = author ? author : site.author.fullName;
 ---
 

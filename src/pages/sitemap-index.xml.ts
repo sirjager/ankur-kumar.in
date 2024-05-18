@@ -26,14 +26,15 @@ export const GET: APIRoute = async (req) => {
 	// TODO: enable when atleast one post is there
 	// // Blog Posts Sitemap
 	const limit = site.sitemapSize;
-	// const total = posts.length;
-	// const pages = Math.ceil(total / limit);
-	// for (let i = 1; i <= pages; i++) {
-	// 	const loc = `${baseURL}/blog/sitemap-${i}.xml`;
-	// 	const lastmod = new Date().toISOString();
-	// 	const sitemap = `<sitemap><loc>${loc}</loc><lastmod>${lastmod}</lastmod></sitemap>`;
-	// 	sitemaps.push(sitemap);
-	// }
+
+	const total = posts.length;
+	const pages = Math.ceil(total / limit);
+	for (let i = 1; i <= pages; i++) {
+		const loc = `${baseURL}/blog/sitemap-${i}.xml`;
+		const lastmod = new Date().toISOString();
+		const sitemap = `<sitemap><loc>${loc}</loc><lastmod>${lastmod}</lastmod></sitemap>`;
+		sitemaps.push(sitemap);
+	}
 
 	// Tags Sitemap
 	const tags = getTags(posts);

@@ -1,9 +1,9 @@
 ---
 type: blog
 banner_icon: 🌄
-banner:
+banner: https://i.imgur.com/roFgE4v.png
 banner_x: 0.5
-banner_y: 0
+banner_y: 0.51
 banner_lock: false
 status: published
 published: 2024-05-16T16:24:37.177Z
@@ -12,7 +12,6 @@ title: Welcome to my website
 description: Welcome! This first post is about introducing myself and share my journey. I'll talk about  learning experiences, and insights I've gained along the way.
 categories:
   - Personal
-  - Blog
 tags:
   - personal
 keywords:

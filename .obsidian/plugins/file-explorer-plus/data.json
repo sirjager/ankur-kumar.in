@@ -166,13 +166,6 @@
       },
       {
         "name": "",
-        "active": true,
-        "type": "DIRECTORIES",
-        "pattern": "public/fonts",
-        "patternType": "STRICT"
-      },
-      {
-        "name": "",
         "active": false,
         "type": "DIRECTORIES",
         "pattern": "src",
@@ -184,13 +177,6 @@
         "type": "FILES_AND_DIRECTORIES",
         "pattern": "tmp-*",
         "patternType": "REGEX"
-      },
-      {
-        "name": "",
-        "active": true,
-        "type": "DIRECTORIES",
-        "pattern": "public",
-        "patternType": "STRICT"
       },
       {
         "name": "",

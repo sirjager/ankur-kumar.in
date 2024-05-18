@@ -1,0 +1,56 @@
+---
+import Blog from "@/layouts/Blog.astro";
+import Root from "@/layouts/Root.astro";
+
+import MostViewedPosts from "@/components/Cards/MostViewedPosts.astro";
+import {getCategories, getMatters} from "@/content";
+import Link from "@/components/Link.astro";
+const blog = await Astro.glob("../../content/blog/*.md?(x)");
+const posts = getMatters(blog, {method: "astro", type: ["blog"]});
+
+const categories = getCategories(posts);
+---
+
+<Root
+	title="Categories"
+	description={`There are total number of ${categories.length} categories. From beginners to experts, there's something for everyone in these categories.`}
+>
+	<Blog>
+		<div slot="header" class="mb-4 @container">
+			<h1
+				class="text-title max-w-2xl text-pretty font-title text-2xl font-light @md:text-3xl @2xl:text-4xl"
+			>
+				Categories
+			</h1>
+			<p class="prose mt-4">
+				This blog has total number of <b>{categories.length} categories</b>.
+				<br />
+				From beginners to experts, there's something for everyone in each of them.
+			</p>
+		</div>
+
+		<div slot="body" class="grid grid-cols-3">
+			{
+				categories.map((category) => {
+					return (
+						<Link
+							transition:name={`category-${category}`}
+							aria-label={`View posts in category ${category}`}
+							href={`/categories/${category}`}
+							class:list={[
+								"flex h-20 items-center justify-center px-8 py-4",
+								"rounded-btn bg-accent text-center text-xl font-bold text-accent-content",
+							]}
+						>
+							{category}
+						</Link>
+					);
+				})
+			}
+		</div>
+
+		<div slot="aside" class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-1">
+			<MostViewedPosts />
+		</div>
+	</Blog>
+</Root>

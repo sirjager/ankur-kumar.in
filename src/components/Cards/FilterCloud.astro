@@ -33,6 +33,7 @@ const categories = getCategories(posts);
 
 	<div slot="body" class="tabs tabs-lifted m-2 mt-4">
 		<input
+			id="tags-tab"
 			checked
 			type="radio"
 			name="filter_tabs"
@@ -40,53 +41,62 @@ const categories = getCategories(posts);
 			class="tab checked:text-accent"
 		/>
 		<div class="tab-content rounded-box border-base-200 p-4">
-			<ul class="flex flex-wrap gap-2">
-				{
-					tags.map((tag) => (
-						<li>
-							<Link
-								aria-label={tag}
-								href={`/tags/${tag}`}
-								class:list={[
-									"rounded-btn p-2 text-sm hover:text-accent",
-									"border-2 border-transparent hover:border-accent",
-									"transition duration-100 ease-in-out",
-								]}
-							>
-								<span transition:name={`tag-${tag}`}>#{tag}</span>
-							</Link>
-						</li>
-					))
-				}
-			</ul>
+			{
+				tags.length === 0 ? (
+					<div class="text-sm text-base-content/50">There are currently no tags</div>
+				) : (
+					<ul class="flex flex-wrap gap-2">
+						{tags.map((tag) => (
+							<li>
+								<Link
+									aria-label={tag}
+									href={`/tags/${tag}`}
+									class:list={[
+										"rounded-btn p-2 text-sm hover:text-accent",
+										"border-2 border-transparent hover:border-accent",
+										"transition duration-100 ease-in-out",
+									]}
+								>
+									#{tag}
+								</Link>
+							</li>
+						))}
+					</ul>
+				)
+			}
 		</div>
 
 		<input
+			id="cats-tab"
 			type="radio"
 			name="filter_tabs"
 			class="tab checked:text-accent"
 			aria-label="Categories"
 		/>
 		<div class="tab-content rounded-box border-base-200 p-4">
-			<ul class="flex flex-wrap gap-2">
-				{
-					categories.map((category) => (
-						<li>
-							<Link
-								aria-label={category}
-								href={`/categories/${category}`}
-								class:list={[
-									"rounded-btn p-2 text-sm hover:text-accent",
-									"border-2 border-transparent hover:border-accent",
-									"transition duration-100 ease-in-out",
-								]}
-							>
-								<span transition:name={`category-${category}`}>{category}</span>
-							</Link>
-						</li>
-					))
-				}
-			</ul>
+			{
+				categories.length === 0 ? (
+					<div class="text-sm text-base-content/50">There are currently no categories</div>
+				) : (
+					<ul class="flex flex-wrap gap-2">
+						{categories.map((category) => (
+							<li>
+								<Link
+									aria-label={category}
+									href={`/categories/${category}`}
+									class:list={[
+										"rounded-btn p-2 text-sm hover:text-accent",
+										"border-2 border-transparent hover:border-accent",
+										"transition duration-100 ease-in-out",
+									]}
+								>
+									{category}
+								</Link>
+							</li>
+						))}
+					</ul>
+				)
+			}
 		</div>
 	</div>
 </Container>
