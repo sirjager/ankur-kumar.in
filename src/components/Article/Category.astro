@@ -1,14 +1,14 @@
 ---
 import Link from "@/components/Link.astro";
 interface Props {
-	category: string;
+	categories: string[];
 }
-const {category} = Astro.props;
+const {categories} = Astro.props;
 ---
 
 <Link
-	href={`/categories/${category}`}
-	aria-label={`View all posts in ${category}`}
+	href={`/categories/${categories}`}
+	aria-label={`View all posts in ${categories}`}
 	class="flex items-center gap-1 rounded-badge p-2"
 >
 	<svg
@@ -27,6 +27,6 @@ const {category} = Astro.props;
 		<path d="M7 7m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
 	</svg>
 	<div>
-		{category}
+		{categories}
 	</div>
 </Link>

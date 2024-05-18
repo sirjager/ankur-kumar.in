@@ -2,11 +2,10 @@
 import {site} from "@/lib/constants";
 import type {APIRoute} from "astro";
 
-import {getCategories} from "@/content";
-import {getMatters, type Post} from "@/content";
+import {getCategories, getMatters} from "@/content";
 
 const blog: any = import.meta.glob("../../content/blog/*.md?(x)", {eager: true});
-const posts: Post[] = getMatters<Post>(Object.values(blog));
+const posts = getMatters(Object.values(blog));
 
 export const getStaticPaths = async () => {
 	const cats = getCategories(posts);

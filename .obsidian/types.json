@@ -24,6 +24,7 @@
     "modifided": "datetime",
     "published": "datetime",
     "excalidraw-export-embed-scene": "checkbox",
-    "excalidraw-open-md": "checkbox"
+    "excalidraw-open-md": "checkbox",
+    "layout": "multitext"
   }
 }

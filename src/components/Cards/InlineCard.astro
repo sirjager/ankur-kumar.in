@@ -1,0 +1,35 @@
+---
+import Container from "./Container.astro";
+import Link from "@/components/Link.astro";
+
+interface Props {
+	title: string;
+	label?: string;
+	href?: string;
+	class_?: string;
+}
+
+const {title, label = "Also Read", href, class_} = Astro.props;
+---
+
+<Container class_={class_}>
+	<div slot="header" class="w-fit select-none">
+		<div class="relative ml-4 bg-base-100 px-2 text-sm uppercase group-hover:text-accent">
+			{label}
+		</div>
+	</div>
+
+	<div slot="body" class="p-4 font-title text-lg font-light">
+		{
+			href ? (
+				<Link href={href} aria-label={title} class="no-underline prose-a:no-underline">
+					{title}
+				</Link>
+			) : (
+				<span>{title}</span>
+			)
+		}
+
+		<slot />
+	</div>
+</Container>

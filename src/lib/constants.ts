@@ -21,7 +21,8 @@ export const site = {
 		fullName: "Ankur Kumar",
 		email: "contact@ankur-kumar.in",
 		twitter: "@sirjager",
-		image: "ankur.png",
+		image: "https://i.imgur.com/1db7aTn.png",
+		avatar: "https://i.imgur.com/KjdD5Ys.png",
 		programming: [
 			"JavaScript",
 			"TypeScript",
@@ -61,7 +62,7 @@ export const site = {
 	},
 	links: {
 		rssfeed: "/rss.xml",
-		giscus: "sirjager/portfolio-discussions",
+		giscus: "sirjager/ankur-kumar.in-discussions",
 		sitemap: "/sitemap-index.xml",
 		domain: "ankur-kumar.in",
 		website: "https://ankur-kumar.in",

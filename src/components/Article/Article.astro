@@ -1,17 +1,19 @@
 ---
-import {Picture} from "astro:assets";
 import type {Post} from "@/content";
-import ReadTime from "./ReadTime.astro";
+import {Picture} from "astro:assets";
 import Category from "./Category.astro";
 import DatePublished from "./DatePublished.astro";
-import ViewsCounter from "./ViewsCounter.svelte";
+import ReadTime from "./ReadTime.astro";
 import TableOfContent from "./TableOfContent.astro";
+import ViewsCounter from "./ViewsCounter.svelte";
 
 interface Props {
 	post: Post;
 }
 
 const {post} = Astro.props;
+
+const ogimage = `${Astro.url.origin}/blog/${post.slug}/og.png`;
 ---
 
 <article
@@ -28,6 +30,7 @@ const {post} = Astro.props;
 >
 	<div class="col-span-3 lg:!col-end-5">
 		<h1
+			transition:name="title"
 			role="heading"
 			data-weight="50"
 			data-pagefind-meta="title"
@@ -41,7 +44,7 @@ const {post} = Astro.props;
 	<div class:list={["col-span-3 flex flex-wrap items-center gap-x-2"]}>
 		<DatePublished published={post.published} />
 		<ReadTime readtime={post.readtime} />
-		<Category category={post.category} />
+		<Category categories={post.categories} />
 		<ViewsCounter slug={post.slug} client:idle />
 	</div>
 
@@ -52,6 +55,7 @@ const {post} = Astro.props;
 	</div>
 
 	<figure
+		transition:name="image"
 		class:list={[
 			"relative col-span-3 h-[33vw] w-full max-w-full lg:!col-end-5 lg:h-[400px]",
 			"fade-bottom hover:fade-none overflow-clip rounded-box",
@@ -62,23 +66,40 @@ const {post} = Astro.props;
 			quality="high"
 			width={1153}
 			height={400}
-			src={post.banner}
-			formats={["avif", "webp", "jpg"]}
+			src={post.banner ?? ogimage}
 			fallbackFormat="jpg"
-			sizes={"(max-width: 360px) 240px, (max-width: 480px) 360px, (max-width: 768px) 480px, (max-width: 1024px) 768px, (max-width: 1280px) 1024px, (max-width: 1920px) 1280px"}
+			formats={["avif", "webp", "jpg"]}
 			style={{top: `-${post.banner_y * 86.5}%`}}
+			sizes={"(max-width: 360px) 240px, (max-width: 480px) 360px, (max-width: 768px) 480px, (max-width: 1024px) 768px, (max-width: 1280px) 1024px, (max-width: 1920px) 1280px"}
 			class="absolute left-0 rounded-box transition-all duration-1000 ease-in-out hover:scale-105"
 		/>
 	</figure>
 
-	<div class="sticky top-2 col-span-3 space-y-4 lg:!col-start-4 lg:!col-end-5">
-		<div class="sticky top-2 z-50 w-full space-y-8 bg-base-100">
-			<TableOfContent headings={post.headings} />
-		</div>
-
-		<!-- <span class="hidden space-y-4 @6xl:block"> -->
-		<!--  -->
-		<!-- </span> -->
+	<div
+		class:list={[
+			"col-span-3 space-y-4 lg:!col-start-4 lg:!col-end-5",
+			{
+				"sticky top-2": !post.options?.includes("toc-sticky-disable"),
+			},
+		]}
+	>
+		{
+			!post.options?.includes("toc-disable") && (
+				<div
+					class:list={[
+						"z-50 w-full space-y-8 bg-base-100",
+						{
+							"sticky top-2": !post.options?.includes("toc-sticky-disable"),
+						},
+					]}
+				>
+					<TableOfContent
+						isOpened={post.options?.includes("toc-opened")}
+						headings={post.headings}
+					/>
+				</div>
+			)
+		}
 	</div>
 
 	<div

@@ -1,10 +1,10 @@
 import {site} from "@/lib/constants";
-import type {APIRoute} from "astro";
 import rss from "@astrojs/rss";
+import type {APIRoute} from "astro";
 
-import {getMatters, type Post} from "@/content";
+import {getMatters} from "@/content";
 const blog: any = import.meta.glob("../../content/blog/*.md?(x)", {eager: true});
-const posts: Post[] = getMatters<Post>(blog, "import");
+const posts = getMatters(blog, {method: "import", type: ["blog"]});
 
 export const GET: APIRoute = async (context) => {
 	return rss({
@@ -15,8 +15,8 @@ export const GET: APIRoute = async (context) => {
 		customData: "<language>en-us</language>",
 		items: posts.map((post) => {
 			const taxonomies = new Set<string>();
-			taxonomies.add(post.category);
 			post.tags.forEach((tag) => taxonomies.add(tag));
+			post.categories.forEach((cat) => taxonomies.add(cat));
 
 			return {
 				title: post.title,

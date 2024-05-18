@@ -1,9 +1,10 @@
 ---
 interface Props {
 	watchScroll?: boolean;
+	class_?: string;
 }
 
-const {watchScroll} = Astro.props;
+const {watchScroll, class_} = Astro.props;
 ---
 
 <style>
@@ -25,6 +26,7 @@ const {watchScroll} = Astro.props;
 		"group relative rounded-box",
 		"border-2 border-base-200 hover:border-accent",
 		"transition-all duration-500 ease-in-out",
+		class_,
 	]}
 >
 	<div class="relative mt-4 w-full font-title">

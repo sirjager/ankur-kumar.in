@@ -15,7 +15,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const pageTitle = title ? `${title} | ${site.title}` : site.title;
 const pageDesc = description ? description : site.description;
-const ogImage = image ? image : `${Astro.site}${site.ogimage}`;
+const ogImage = image ? image : `${Astro.url.origin}/${site.ogimage}`;
 const authorName = author ? author : site.author.fullName;
 ---
 
@@ -120,7 +120,7 @@ const authorName = author ? author : site.author.fullName;
 	};
 	__theming__();
 	// for darkmode when using view transition api
-	// document.addEventListener("astro:after-swap", __theming__);
+	document.addEventListener("astro:after-swap", __theming__);
 </script>
 
 <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>

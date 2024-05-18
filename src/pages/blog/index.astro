@@ -1,19 +1,19 @@
 ---
 import {site} from "@/lib/constants";
 
-import Root from "@/layouts/Root.astro";
 import Link from "@/components/Link.astro";
+import Root from "@/layouts/Root.astro";
 
 import PostsGrid from "@/components/Blog/PostsGrid.astro";
 import FilterCloud from "@/components/Cards/FilterCloud.astro";
 import MostViewedPosts from "@/components/Cards/MostViewedPosts.astro";
 
-import Blog from "@/layouts/Blog.astro";
 import ReadMore from "@/components/ReadMore.astro";
+import Blog from "@/layouts/Blog.astro";
 
-import {getMatters, type Post} from "@/content";
+import {getMatters} from "@/content";
 const blog = await Astro.glob("../../content/blog/*.md?(x)");
-const posts = getMatters<Post>(blog);
+const posts = getMatters(blog, {method: "astro", type: ["blog"]});
 ---
 
 <Root title="Blog" description={site.blog.description}>

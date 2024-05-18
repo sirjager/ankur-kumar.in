@@ -1,12 +1,11 @@
 ---
-import Container from "./Container.astro";
 import Link from "@/components/Link.astro";
+import Container from "./Container.astro";
 
-import {getCategories, getTags} from "@/content";
-import {getMatters, type Post} from "@/content";
+import {getCategories, getMatters, getTags} from "@/content";
 
 const blog = await Astro.glob("../../content/blog/*.md?(x)");
-const posts: Post[] = getMatters<Post>(blog);
+const posts = getMatters(blog, {method: "astro", type: ["blog"]});
 const tags = getTags(posts);
 const categories = getCategories(posts);
 ---
@@ -54,7 +53,7 @@ const categories = getCategories(posts);
 									"transition duration-100 ease-in-out",
 								]}
 							>
-								#{tag}
+								<span transition:name={`tag-${tag}`}>#{tag}</span>
 							</Link>
 						</li>
 					))
@@ -71,18 +70,18 @@ const categories = getCategories(posts);
 		<div class="tab-content rounded-box border-base-200 p-4">
 			<ul class="flex flex-wrap gap-2">
 				{
-					categories.map((cat) => (
+					categories.map((category) => (
 						<li>
 							<Link
-								aria-label={cat}
-								href={`/categories/${cat}`}
+								aria-label={category}
+								href={`/categories/${category}`}
 								class:list={[
 									"rounded-btn p-2 text-sm hover:text-accent",
 									"border-2 border-transparent hover:border-accent",
 									"transition duration-100 ease-in-out",
 								]}
 							>
-								{cat}
+								<span transition:name={`category-${category}`}>{category}</span>
 							</Link>
 						</li>
 					))

@@ -11,13 +11,15 @@ interface Props {
 }
 const {post, loading} = Astro.props;
 const date = parseDate(post.published.toISOString());
+
+const image = post.banner || `${Astro.url.origin}/blog/${post.slug}/og.png`;
 ---
 
 <div class="group relative">
 	<Link aria-label={`Read "${post.title}"`} href={`/blog/${post.slug}`} class="block">
-		<figure class="mt-4 aspect-video overflow-clip rounded-box">
+		<figure transition:name="image" class="mt-4 aspect-video overflow-clip rounded-box">
 			<Picture
-				src={post.banner}
+				src={image}
 				alt={post.title}
 				height={412}
 				width={640}
@@ -36,6 +38,7 @@ const date = parseDate(post.published.toISOString());
 
 	<Link aria-label={`Read "${post.title}"`} href={`/blog/${post.slug}`} class="block">
 		<h2
+			transition:name="title"
 			class:list={[
 				"mt-3 font-title font-semibold transition-colors duration-300 ease-in-out group-hover:text-accent",
 			]}

@@ -7,6 +7,7 @@ import robots from "astro-robots-txt";
 import webmanifest from "astro-webmanifest";
 import {defineConfig} from "astro/config";
 import {astroImageTools} from "astro-imagetools";
+import {fileURLToPath, URL} from "node:url";
 
 // adapters
 import node from "@astrojs/node";
@@ -22,7 +23,7 @@ import {site} from "./src/lib/constants";
 
 // https://astro.build/config
 export default defineConfig({
-	site: site.links.website,
+	site: process.env.NODE_ENV === "development" ? "http://localhost:4321" : site.links.website,
 	trailingSlash: "ignore",
 	devToolbar: {enabled: false},
 	integrations: [
@@ -86,6 +87,13 @@ export default defineConfig({
 		process.env.NODE_ENV !== "development"
 			? vercel({maxDuration: 60, webAnalytics: {enabled: true}})
 			: node({mode: "standalone"}),
+	vite: {
+		resolve: {
+			alias: {
+				"@": fileURLToPath(new URL("./src", import.meta.url)),
+			},
+		},
+	},
 });
 
 function readtime() {

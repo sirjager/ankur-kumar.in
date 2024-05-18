@@ -2,10 +2,9 @@
 import {site} from "@/lib/constants";
 import type {APIRoute} from "astro";
 
-import {getMatters, type Post} from "@/content";
-
+import {getMatters} from "@/content";
 const blog: any = import.meta.glob("../../content/blog/*.md?(x)", {eager: true});
-const posts: Post[] = getMatters<Post>(blog, "import");
+const posts = getMatters(blog, {method: "import", type: ["blog"]});
 
 export const getStaticPaths = async () => {
 	const limit = site.sitemapSize;

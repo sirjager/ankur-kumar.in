@@ -1,5 +1,7 @@
 ---
 import Container from "./Container.astro";
+
+const blog = await Astro.glob("../../content/blog/*.md?(x)");
 ---
 
 <script>
@@ -7,7 +9,7 @@ import Container from "./Container.astro";
 	import {toPosts, type Post} from "@/content";
 	const collection = await getCollection("blog");
 	const posts = toPosts(collection);
-	const res = await fetch("/api/views");
+	const res = await fetch(`/api/views?date=${new Date().getTime()}`);
 	const all = await res.json();
 	const sorted = all.data.sort((a: any, b: any) => b.views - a.views).slice(0, 4);
 	const popular: Post[] = sorted.map((views: any) => posts.find((p: any) => p.slug === views.path));
@@ -73,12 +75,12 @@ import Container from "./Container.astro";
 
 		<ul id="most-viewed-posts" class="flex flex-col px-4 pb-4">
 			{
-				Array.from({length: 4}).map(() => {
+				Array.from({length: blog.length}).map(() => {
 					return (
 						<li class="border border-transparent py-2">
 							<div class="skeleton h-4 w-full" />
-							<div class="skeleton my-1.5 h-4 w-3/4" />
-							<div class="skeleton h-4 w-1/2" />
+							{/* <div class="skeleton my-1.5 h-4 w-3/4" /> */}
+							{/* <div class="skeleton h-4 w-1/2" /> */}
 						</li>
 					);
 				})

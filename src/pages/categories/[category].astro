@@ -1,22 +1,21 @@
 ---
-import Root from "@/layouts/Root.astro";
 import Blog from "@/layouts/Blog.astro";
+import Root from "@/layouts/Root.astro";
 
 import PostsGrid from "@/components/Blog/PostsGrid.astro";
 import FilterCloud from "@/components/Cards/FilterCloud.astro";
 import MostViewedPosts from "@/components/Cards/MostViewedPosts.astro";
 
-import {getCategories} from "@/content";
-import {getMatters, type Post} from "@/content";
+import {getCategories, getMatters} from "@/content";
 
 export async function getStaticPaths() {
 	const blog = await Astro.glob("../../content/blog/*.md?(x)");
-	const posts: Post[] = getMatters<Post>(blog);
+	const posts = getMatters(blog, {method: "astro", type: ["blog"]});
 	const cateogires = getCategories(posts);
 	return cateogires.map((category) => ({
 		params: {category},
 		props: {
-			posts: posts.filter((post) => post.category === category),
+			posts: posts.filter((post) => post.categories.includes(category)),
 		},
 	}));
 }
@@ -34,7 +33,10 @@ const {posts} = Astro.props;
 			<h1
 				class="text-title max-w-2xl text-pretty font-title text-2xl font-light @md:text-3xl @2xl:text-4xl"
 			>
-				Articles in category <span class="capitalize text-accent">{category}</span>
+				Articles in category <span
+					transition:name={`category-${category}`}
+					class="capitalize text-accent">{category}</span
+				>
 			</h1>
 			<p class="prose mt-4">
 				Dive into collection of articles in category <b class="capitalize">{category}</b>. There are

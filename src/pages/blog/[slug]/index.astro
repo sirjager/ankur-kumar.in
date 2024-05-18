@@ -1,15 +1,15 @@
 ---
+import Article from "@/components/Article/Article.astro";
+import Discussions from "@/components/Article/Discussions.astro";
+import {toPost} from "@/content";
 import Root from "@/layouts/Root.astro";
 import {getEntry} from "astro:content";
-import Article from "@/components/Article/Article.astro";
-import {toPost} from "@/content";
-import Discussions from "@/components/Article/Discussions.astro";
 
-import {getMatters, type Post} from "@/content";
+import {getMatters} from "@/content";
 
 export async function getStaticPaths() {
-	const blog = await Astro.glob("../../content/blog/*.md?(x)");
-	const posts: Post[] = getMatters<Post>(blog);
+	const blog = await Astro.glob("../../../content/blog/*.md?(x)");
+	const posts = getMatters(blog, {method: "astro", type: ["blog"]});
 	return posts.map((post) => ({params: {slug: post.slug}}));
 }
 
@@ -18,9 +18,11 @@ const entry = await getEntry("blog", slug);
 if (!entry) return Astro.redirect("/404");
 const {Content, ...rest} = await entry.render();
 const post = toPost(entry, rest);
+
+const ogimage = `${Astro.url.origin}/blog/${post.slug}/og.png`;
 ---
 
-<Root title={post.title} description={post.description} image={post.banner}>
+<Root title={post.title} description={post.description} image={ogimage}>
 	<Article post={post}>
 		<Content />
 	</Article>
@@ -33,8 +35,12 @@ const post = toPost(entry, rest);
 			"[&>*]:col-start-1 lg:[&>*]:col-start-2",
 		]}
 	>
-		<div class="col-span-3 lg:!col-end-5">
-			<Discussions />
-		</div>
+		{
+			!post.options?.includes("comments-disable") && (
+				<div class="col-span-3 lg:!col-end-5">
+					<Discussions />
+				</div>
+			)
+		}
 	</div>
 </Root>

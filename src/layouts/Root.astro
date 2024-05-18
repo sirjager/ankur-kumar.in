@@ -2,27 +2,31 @@
 import "@/styles/global.css";
 import type {Props as HeadProps} from "./Head.astro";
 
-import Head from "@/layouts/Head.astro";
+import {ViewTransitions} from "astro:transitions";
+
 import Footer from "@/components/Footer/Footer.astro";
 import Navbar from "@/components/Navbar/Navbar.astro";
+import Head from "@/layouts/Head.astro";
 import SpeedInsights from "@vercel/speed-insights/astro";
 
-import ScrollToTop from "@/components/ScrollToTop.astro";
-import Breadcrumbs from "@/layouts/BreadCrumbs.astro";
 import NoiseFilter from "@/components/NoiseFilter.astro";
+import ScrollToTop from "@/components/ScrollToTop.astro";
 import ScrollWatcher from "@/components/ScrollWatcher.astro";
+import Breadcrumbs from "@/layouts/BreadCrumbs.astro";
 
 interface Props extends HeadProps {
 	nocrumbs?: boolean;
+	viewTransition?: boolean;
 }
 
-const {nocrumbs, ...props} = Astro.props;
+const {nocrumbs, viewTransition = true, ...props} = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<Head {...props} />
+		{viewTransition && <ViewTransitions />}
 	</head>
 	<body class="font-body antialiased">
 		<NoiseFilter />

@@ -1,7 +1,8 @@
-import type {Post, status} from "./schema";
+import type {Post, contentType, status} from "./schema";
 
 export interface filterOpts {
 	posts?: Post[];
+	type?: contentType[];
 	slugs?: string[];
 	status?: status[];
 	categories?: string[];
@@ -16,7 +17,8 @@ export function filterPosts(opts?: filterOpts): Post[] {
 	const posts: Post[] = opts?.posts || [];
 	if (posts.length < 2) return posts;
 
-	const status = opts?.status || [];
+	const type = opts?.type || ["blog"];
+	const status = opts?.status || ["published"];
 	const {limit, page} = opts || {};
 	const {randomize = false, sortby = "published"} = opts || {};
 
@@ -27,6 +29,8 @@ export function filterPosts(opts?: filterOpts): Post[] {
 	// Filter posts based on the specified criteria
 	let filtered: Post[] = posts;
 
+	filtered = filtered.filter((post) => type.includes(post.type));
+
 	if (status.length > 0) {
 		filtered = filtered.filter((post) => status.includes(post.status));
 	}
@@ -35,8 +39,8 @@ export function filterPosts(opts?: filterOpts): Post[] {
 		filtered = filtered.filter((post) => slugs.includes(post.slug));
 	}
 
-	if (categories.length > 0) {
-		filtered = filtered.filter((post) => categories.includes(post.category));
+	if (tags.length > 0) {
+		filtered = filtered.filter((post) => post.categories.some((slug) => categories.includes(slug)));
 	}
 
 	if (tags.length > 0) {

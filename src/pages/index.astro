@@ -1,17 +1,17 @@
 ---
-import Root from "@/layouts/Root.astro";
 import PageFind from "@/components/PageFind.astro";
+import Root from "@/layouts/Root.astro";
 
 import ScrollListScript from "@/components/Scripts/ScrollList.astro";
 import SmoothScrollScript from "@/components/Scripts/SmoothScroll.astro";
 
-import TechStackSection from "@/components/Sections/TechStack.astro";
 import LatestUpdates from "@/components/Sections/LatestUpdates.astro";
 import ProfileSection from "@/components/Sections/ProfileSection.astro";
+import TechStackSection from "@/components/Sections/TechStack.astro";
 
-import {getMatters, type Post} from "@/content";
+import {getMatters} from "@/content";
 const blog = await Astro.glob("../content/blog/*.md?(x)");
-const posts = getMatters<Post>(blog);
+const posts = getMatters(blog, {method: "astro", type: ["blog"]});
 ---
 
 <Root title="Homes" nocrumbs>

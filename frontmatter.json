@@ -1,0 +1,167 @@
+{
+	"$schema": "https://frontmatter.codes/frontmatter.schema.json",
+	"frontMatter.framework.id": "astro",
+	"frontMatter.git.enabled": false,
+	"frontMatter.telemetry.disable": true,
+	"frontMatter.content.fmHighlight": false,
+	"frontMatter.dashboard.openOnStart": false,
+	"frontMatter.content.autoUpdateDate": true,
+	"frontMatter.dashboard.content.pagination": 4,
+	"frontMatter.dashboard.content.cardTags": "tags",
+	"frontMatter.preview.host": "http://localhost:4321",
+	"frontMatter.file.preserveCasing": true,
+	"frontMatter.framework.startCommand": "pnpm dev",
+	"frontMatter.git.commitMessage": "sync:  🔄 Synced by Front Matter CMS {{hour24}}:{{minute}}",
+	"frontMatter.content.pageFolders": [
+		{
+			"title": "blog",
+			"filePrefix": "",
+			"path": "[[workspace]]/src/content/blog"
+		}
+	],
+	"frontMatter.content.publicFolder": {
+		"path": "src/assets",
+		"relative": true
+	},
+	"frontMatter.content.draftField": {
+		"name": "status",
+		"type": "choice",
+		"choices": ["draft", "published", "archived", "obsolete"]
+	},
+	"frontMatter.taxonomy.contentTypes": [
+		{
+			"name": "blog",
+			"pageBundle": false,
+			"fileType": "mdx",
+			"fields": [
+				{
+					"title": "Content Type",
+					"name": "type",
+					"type": "choice",
+					"required": true,
+					"single": true,
+					"default": "blog",
+					"editable": false,
+					"choices": ["blog"]
+				},
+				{
+					"title": "Status",
+					"name": "status",
+					"type": "choice",
+					"required": true,
+					"single": true,
+					"default": "draft",
+					"choices": ["draft", "published", "archived", "obsolete"]
+				},
+				{
+					"title": "Date Published",
+					"name": "published",
+					"type": "datetime",
+					"default": "{{now}}",
+					"required": true,
+					"isPublishDate": true
+				},
+				{
+					"title": "Last Modified",
+					"name": "modifided",
+					"type": "datetime",
+					"editable": false,
+					"isModifiedDate": true
+				},
+				{
+					"name": "type",
+					"type": "divider"
+				},
+				{
+					"title": "Title",
+					"name": "title",
+					"type": "string",
+					"default": "{{title}}",
+					"required": true,
+					"description": "The optimal length of a meta title is around 50-60 characters. A well-written meta title can improve click-through rates and search engine rankings. It should accurately describe the content of the webpage while including relevant keywords."
+				},
+				{
+					"title": "Description",
+					"name": "description",
+					"type": "string",
+					"required": true,
+					"default": "Description for {{title}}",
+					"description": "The optimal length for a meta description is around 155-160 characters, and it should include relevant keywords and a clear call-to-action. A well-crafted meta description can improve click-through rates and encourage users to visit the webpage by providing an enticing and accurate summary of the content"
+				},
+				{
+					"name": "type",
+					"type": "divider"
+				},
+				{
+					"title": "Banner Iamge",
+					"name": "banner",
+					"type": "image",
+					"default": "https://images.pexels.com/photos/147411/italy-mountains-dawn-daybreak-147411.jpeg?w=1920&h=1080"
+				},
+				{
+					"title": "banner_icon",
+					"name": "banner_icon",
+					"type": "string"
+				},
+				{
+					"title": "banner_lock",
+					"name": "banner_lock",
+					"type": "boolean"
+				},
+				{
+					"title": "Banner Horizontal Adjust",
+					"name": "banner_x",
+					"type": "number",
+					"default": 0.5
+				},
+				{
+					"title": "Banner Vertical Adujst",
+					"name": "banner_y",
+					"type": "number",
+					"default": 0.83933
+				},
+				{
+					"name": "type",
+					"type": "divider"
+				},
+				{
+					"title": "Keywords",
+					"name": "keywords",
+					"type": "list",
+					"description": "Categories are like broad folders on a website that group together related content, making it easier for users to navigate and find information."
+				},
+				{
+					"title": "Tags",
+					"name": "tags",
+					"type": "tags",
+					"description": "Tags are like descriptive labels that are attached to specific content on a website, helping users quickly identify related information and find what they are looking for."
+				},
+				{
+					"title": "Category",
+					"name": "categories",
+					"type": "categories",
+					"description": "Categories are like broad folders on a website that group together related content, making it easier for users to navigate and find information."
+				},
+				{
+					"name": "type",
+					"type": "divider"
+				},
+				{
+					"title": "Article Options",
+					"name": "options",
+					"type": "list",
+					"default": []
+				}
+			]
+		}
+	],
+	"frontMatter.custom.scripts": [
+		{
+			"type": "content",
+			"command": "bash",
+			"title": "Generate Thumbnail",
+			"script": "./scripts/generate-thumbnail.js",
+			"nodeBin": "/mnt/storage/programs/pnpm/node"
+		}
+	]
+}

@@ -6,11 +6,11 @@
     "emojiStyle": "native",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "TiTemplate",
       "TiNotes",
       "TiFiles",
       "TiSmartHome",
-      "TiNotebook",
-      "TiPencil"
+      "TiNotebook"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -32,7 +32,8 @@
     "debugMode": false,
     "iconInTitlePosition": "above"
   },
-  "templates": "TiTemplate",
   "blog": "TiNotes",
-  "src/assets": "TiFiles"
+  "src/assets": "TiFiles",
+  "templates": "TiTemplate",
+  "src/content": "TiNotebook"
 }

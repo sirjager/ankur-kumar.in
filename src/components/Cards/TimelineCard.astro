@@ -1,6 +1,6 @@
 ---
-import Link from "@/components/Link.astro";
 import Image from "@/components/Image/QwikImage";
+import Link from "@/components/Link.astro";
 import type {Post} from "@/content";
 
 interface Props {
@@ -12,6 +12,8 @@ const {post, invert} = Astro.props;
 
 const postedOn = new Date().toDateString();
 const published = postedOn.split(" ");
+
+const image = post.banner || `${Astro.url.origin}/blog/${post.slug}/og.png`;
 ---
 
 <div class="@container">
@@ -50,7 +52,8 @@ const published = postedOn.split(" ");
 				class:list={["relative overflow-clip rounded-box"]}
 			>
 				<Image
-					src={post.banner}
+					transition:name="image"
+					src={image}
 					alt={post.title}
 					class:list={[
 						"w-full rounded-box @sm:w-52 @sm:min-w-52 @sm:max-w-52",
@@ -62,16 +65,15 @@ const published = postedOn.split(" ");
 			<div class="max-w-7xl flex-1 @sm:min-w-32">
 				<Link
 					aria-label={`Read "${post.title}"`}
+					transition:name="title"
 					href={`/blog/${post.slug}`}
-					class:list={[
-						"line-clamp-4 font-title text-sm font-light font-semibold text-accent @4xl:text-base",
-					]}
+					class:list={["line-clamp-4 font-title text-sm font-light text-accent @4xl:text-base"]}
 				>
 					{post.title}
 				</Link>
 
 				<div class="mt-2 text-pretty text-sm">
-					<p class="line-clamp-3">
+					<p class="line-clamp-5">
 						{post.description}
 					</p>
 				</div>

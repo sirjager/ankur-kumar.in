@@ -1,17 +1,16 @@
 ---
-import Root from "@/layouts/Root.astro";
 import Blog from "@/layouts/Blog.astro";
+import Root from "@/layouts/Root.astro";
 
 import PostsGrid from "@/components/Blog/PostsGrid.astro";
 import FilterCloud from "@/components/Cards/FilterCloud.astro";
 import MostViewedPosts from "@/components/Cards/MostViewedPosts.astro";
 
-import {getTags} from "@/content";
-import {getMatters, type Post} from "@/content";
+import {getMatters, getTags} from "@/content";
 
 export async function getStaticPaths() {
 	const blog = await Astro.glob("../../content/blog/*.md?(x)");
-	const posts: Post[] = getMatters<Post>(blog);
+	const posts = getMatters(blog, {method: "astro", type: ["blog"]});
 	const tags = getTags(posts);
 	return tags.map((tag) => ({
 		params: {tag},
@@ -34,7 +33,7 @@ const {posts} = Astro.props;
 			<h1
 				class="text-title max-w-2xl text-pretty font-title text-2xl font-light @md:text-3xl @2xl:text-4xl"
 			>
-				Articles tagged with <span class="text-accent">#{tag}</span>
+				Articles tagged with <span transition:name={`tag-${tag}`} class="text-accent">#{tag}</span>
 			</h1>
 			<p class="prose mt-4">
 				Dive into collection of articles tagged with <b>{tag}</b>. There are total number of <b>
