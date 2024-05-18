@@ -4,18 +4,18 @@
     "type": "split",
     "children": [
       {
-        "id": "b059dc7f00fa683d",
+        "id": "44eba32bdd8e6a33",
         "type": "tabs",
         "children": [
           {
-            "id": "1730952596ec31af",
+            "id": "9f7c95fc7db3f952",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "src/content/blog/welcome-to-my-website.md",
                 "mode": "preview",
-                "source": false
+                "source": true
               }
             }
           }
@@ -196,31 +196,30 @@
       "edit-mdx:New .mdx file": false
     }
   },
-  "active": "c2e02f9349b6b7d0",
+  "active": "9f7c95fc7db3f952",
   "lastOpenFiles": [
-    "dist/client/blog/sitemap-1.xml",
-    "dist/client/blog",
-    "dist/client/about/index.html",
-    "dist/client/about",
-    "dist/server/chunks/_@astrojs-manifest_DgqFW1DR.mjs",
-    "dist/client/_astro/core.min.Bdw5Tt0u.js",
-    "dist/client/qwik-prefetch-service-worker.js",
-    "dist/client/q-manifest.json",
-    "dist/client/build/q-bundle-graph-e5aged.json",
-    "dist/client/build",
-    "dist/client/_astro/welcome-to-my-website.pn1mB7Cj.js",
-    "dist/client/images/siteog.jpg",
-    "dist/client/images/ogbg.jpg",
-    "dist/client/images/ankur.png",
-    "dist/client/icons/favicon-32x32.png",
-    "dist/client/icons/favicon-16x16.png",
-    "dist/client/icons/apple-touch-icon.png",
-    "dist/client/icons/android-chrome-512x512.png",
-    "dist/client/icons/android-chrome-192x192.png",
-    "tmp-f4mpk21kp7j/icons/favicon-32x32.png",
-    "tmp-f4mpk21kp7j/icons/favicon-16x16.png",
-    "src/content/blog/welcome-to-my-website.md",
     "templates/post.md",
+    "dist/client/_pagefind/pagefind-modular-ui.js",
+    "dist/client/_pagefind/pagefind-entry.json",
+    "dist/client/_pagefind/wasm.unknown.pagefind",
+    "dist/client/_pagefind/pagefind-modular-ui.css",
+    "dist/client/_pagefind/pagefind-ui.css",
+    "dist/client/_pagefind/pagefind-ui.js",
+    "dist/client/_pagefind/pagefind-highlight.js",
+    "dist/client/_pagefind/pagefind.js",
+    "dist/client/_pagefind/fragment/en_55e0bec.pf_fragment",
+    "dist/client/_pagefind/index/en_e8f3807.pf_index",
+    "dist/client/public/icons/android-chrome-512x512.png",
+    "dist/client/public/icons/android-chrome-192x192.png",
+    "dist/client/public/icons/apple-touch-icon.png",
+    "dist/client/public/icons/favicon-32x32.png",
+    "dist/client/public/icons/favicon-16x16.png",
+    "dist/client/favicon-32x32.png",
+    "dist/client/_astro/NxnPMSI@480w.74a6df29.avif",
+    "dist/client/_astro/NxnPMSI@300w.5f816de1.avif",
+    "dist/client/_astro/NxnPMSI@400w.dc05605d.avif",
+    "dist/client/_astro/sirjager@60w.b79eca6f.png",
+    "src/content/blog/welcome-to-my-website.md",
     "src/content/page/about.md",
     "src/content/blog/second-post.md",
     "src/content/blog/Welcome to my website.md",

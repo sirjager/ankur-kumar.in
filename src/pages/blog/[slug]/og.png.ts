@@ -11,9 +11,11 @@ export async function getStaticPaths() {
 	return posts.map((post) => ({params: {slug: post.slug}, props: {post}}));
 }
 
-export const GET: APIRoute = async ({props, url}) => {
-	const post: Post = props.post;
+const backgroundURL = "https://i.imgur.com/hxMDIFD.jpeg";
+const avatarURL = "https://i.imgur.com/MlFSSy7.png";
 
+export const GET: APIRoute = async ({props}) => {
+	const post: Post = props.post;
 	const date = parseDate(post.published.toISOString());
 
 	// Astro doesn't support tsx endpoints so usign React-element objects
@@ -101,7 +103,7 @@ export const GET: APIRoute = async ({props, url}) => {
 										{
 											type: "img",
 											props: {
-												src: `${url.origin}/images/ankur.png`,
+												src: avatarURL,
 											},
 										},
 									],
@@ -135,7 +137,7 @@ export const GET: APIRoute = async ({props, url}) => {
 			],
 			tw: "w-full h-full flex flex-col items-start justify-center relative p-20",
 			style: {
-				backgroundImage: `url('${url.origin}/images/ogbg.jpg')`,
+				backgroundImage: `url('${backgroundURL}')`,
 				gap: "1rem",
 			},
 		},

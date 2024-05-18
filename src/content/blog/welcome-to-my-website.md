@@ -1,10 +1,10 @@
 ---
 type: blog
 banner_icon: 🌄
-banner: "https://imgur.com/NxnPMSI.png"
+banner: https://i.imgur.com/roFgE4v.png
 banner_x: 0.5
-banner_y: 0
-banner_lock: false
+banner_y: 0.5
+banner_lock: true
 status: published
 published: 2024-05-16T16:24:37.177Z
 modifided: 2024-05-17T09:58:40.743Z
