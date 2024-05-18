@@ -1,7 +1,7 @@
 ---
 type: blog
 banner_icon: 🌄
-banner:
+banner: "https://imgur.com/NxnPMSI.png"
 banner_x: 0.5
 banner_y: 0
 banner_lock: false

@@ -2,7 +2,6 @@ export const site = {
 	title: "Ankur Kumar",
 	description:
 		"Welcome to my personal developer portfolio! Here, I dive deep into various aspects of software development, sharing my experiences and insights along the way. From exploring system design, web development, and backend server creation to prioritizing security and delving into Linux customization and open-source software, I'm excited to share my journey with you. Join me as we uncover the power of scripting, automation, and workflows, where every line of code brings us closer to crafting secure, innovative solutions and shaping the digital landscape of tomorrow.",
-	ogimage: "images/ogimage.png",
 	blog: {
 		title:
 			"Articles on my journey through software development, scripting, Linux, and tech in general.",

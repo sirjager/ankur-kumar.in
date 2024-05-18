@@ -11,7 +11,7 @@ export async function getStaticPaths() {
 	return posts.map((post) => ({params: {slug: post.slug}, props: {post}}));
 }
 
-export const GET: APIRoute = async ({props}) => {
+export const GET: APIRoute = async ({props, url}) => {
 	const post: Post = props.post;
 
 	const date = parseDate(post.published.toISOString());
@@ -90,18 +90,18 @@ export const GET: APIRoute = async ({props}) => {
 				{
 					type: "div",
 					props: {
-						tw: "flex items-center absolute bottom-24 left-24 justify-center",
+						tw: "flex items-center max-w-4xl mx-auto w-full justify-start",
 						children: [
 							{
 								type: "div",
 								props: {
 									// using tailwind
-									tw: "w-14 h-14 mr-4 flex rounded-full shadow-xl overflow-hidden",
+									tw: "w-36 h-36 mr-4 flex rounded-full shadow-xl overflow-hidden",
 									children: [
 										{
 											type: "img",
 											props: {
-												src: site.author.avatar,
+												src: `${url.origin}/images/ankur.png`,
 											},
 										},
 									],
@@ -115,14 +115,14 @@ export const GET: APIRoute = async ({props}) => {
 										{
 											type: "div",
 											props: {
-												tw: "text-xl text-center text-center font-light text-white",
+												tw: "text-3xl text-center text-center font-light text-white",
 												children: site.author.fullName,
 											},
 										},
 										{
 											type: "div",
 											props: {
-												tw: "text-xl font-bold text-center text-center font-light text-white",
+												tw: "text-3xl font-bold text-center text-center font-light text-white",
 												children: site.links.website,
 											},
 										},
@@ -132,16 +132,10 @@ export const GET: APIRoute = async ({props}) => {
 						],
 					},
 				},
-				{
-					type: "div",
-					props: {
-						tw: "h-10",
-					},
-				},
 			],
 			tw: "w-full h-full flex flex-col items-start justify-center relative p-20",
 			style: {
-				backgroundImage: "url('https://i.imgur.com/zYOgiiI.png')",
+				backgroundImage: `url('${url.origin}/images/ogbg.jpg')`,
 				gap: "1rem",
 			},
 		},
