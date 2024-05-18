@@ -98,7 +98,7 @@ export const GET: APIRoute = async ({props}) => {
 								type: "div",
 								props: {
 									// using tailwind
-									tw: "w-36 h-36 mr-4 flex rounded-full shadow-xl overflow-hidden",
+									tw: "w-28 h-28 mr-4 flex rounded-full shadow-xl overflow-hidden",
 									children: [
 										{
 											type: "img",

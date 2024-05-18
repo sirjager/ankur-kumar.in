@@ -38,7 +38,7 @@ const image = post.banner || `${Astro.url.origin}/blog/${post.slug}/og.png`;
 
 	<Link aria-label={`Read "${post.title}"`} href={`/blog/${post.slug}`} class="block">
 		<h2
-			transition:name="title"
+			transition:name={`article-${post.slug}`}
 			class:list={[
 				"mt-3 font-title font-semibold transition-colors duration-300 ease-in-out group-hover:text-accent",
 			]}

@@ -6,11 +6,7 @@ interface Props {
 const {categories} = Astro.props;
 ---
 
-<Link
-	href={`/categories/${categories}`}
-	aria-label={`View all posts in ${categories}`}
-	class="flex items-center gap-1 rounded-badge p-2"
->
+<div class="flex items-center gap-1 rounded-badge p-2">
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 24 24"
@@ -26,7 +22,22 @@ const {categories} = Astro.props;
 		<path d="M17 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
 		<path d="M7 7m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
 	</svg>
-	<div>
-		{categories}
-	</div>
-</Link>
+	<ul class="flex items-center gap-1 text-sm">
+		{
+			categories.map((category) => {
+				return (
+					<li class="px-1">
+						<Link
+							aria-label={`Read articles in ${category}`}
+							href={`/categories/${category}`}
+							transition:name={`category-${category}`}
+							class:list={["text-sm"]}
+						>
+							{category}
+						</Link>
+					</li>
+				);
+			})
+		}
+	</ul>
+</div>

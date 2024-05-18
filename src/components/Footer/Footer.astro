@@ -9,8 +9,8 @@ const sections = [
 		items: [
 			{name: "Home", url: "/"},
 			{name: "Blog", url: "/blog"},
-			{name: "Projects", url: "/projects"},
-			{name: "About", url: "/about"},
+			// {name: "Projects", url: "/projects"},
+			// {name: "About", url: "/about"},
 			// {name: "Contact", url: "/contact"},
 		],
 	},
@@ -18,9 +18,9 @@ const sections = [
 		name: "Specifics",
 		items: [
 			// {name: "Sponsors", url: "/sponsors"},
-			{name: "My Journey", url: "/blog/my-journey"},
-			{name: "Hire Me", url: "/hire-me"},
-			{name: "Resume", url: "/resume"},
+			// {name: "My Journey", url: "/blog/my-journey"},
+			// {name: "Hire Me", url: "/hire-me"},
+			{name: "Resume", url: "/resume/pdf.pdf", newtab: true},
 			{name: "Dotfiles", url: site.links.dotfiles},
 		],
 	},
@@ -30,8 +30,8 @@ const sections = [
 			{name: "RSS", url: site.links.rssfeed},
 			{name: "Sitemap", url: site.links.sitemap},
 			// {name: "Newsletter", url: "/newsletter"},
-			{name: "Privacy Policy", url: "/privacy-policy"},
-			{name: "Terms of Service", url: "/terms-of-service"},
+			// {name: "Privacy Policy", url: "/privacy-policy"},
+			// {name: "Terms of Service", url: "/terms-of-service"},
 		],
 	},
 ];
@@ -64,6 +64,7 @@ const sections = [
 												aria-label={item.name}
 												href={item.url}
 												class:list={["block rounded-btn p-1", "group-hover/link:text-accent"]}
+												target={item.newtab ? "_blank" : "_self"}
 											>
 												{item.name}
 											</Link>
@@ -137,6 +138,7 @@ const sections = [
 		<div class="w-full max-w-56 px-2">
 			<Copyright />
 		</div>
+		<div class="text-base-content/40">Site is currently in development.</div>
 		<SocialIcons />
 	</div>
 </div>

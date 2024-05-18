@@ -12,7 +12,6 @@ title: Welcome to my website
 description: Welcome! This first post is about introducing myself and share my journey. I'll talk about  learning experiences, and insights I've gained along the way.
 categories:
   - Personal
-  - Blog
 tags:
   - personal
 keywords:

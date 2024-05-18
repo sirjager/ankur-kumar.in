@@ -30,11 +30,11 @@ const ogimage = `${Astro.url.origin}/blog/${post.slug}/og.png`;
 >
 	<div class="col-span-3 lg:!col-end-5">
 		<h1
-			transition:name="title"
 			role="heading"
 			data-weight="50"
 			data-pagefind-meta="title"
 			data-pagefind-sort="weight[data-weight]"
+			transition:name={`article-${post.slug}`}
 			class="font-title text-2xl font-light @xs:text-3xl @md:text-4xl @4xl:text-5xl"
 		>
 			{post.title}
