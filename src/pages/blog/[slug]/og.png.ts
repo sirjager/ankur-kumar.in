@@ -31,7 +31,7 @@ export const GET: APIRoute = async ({props}) => {
 							{
 								type: "div",
 								props: {
-									tw: "text-6xl font-bold text-white",
+									tw: "text-5xl font-bold text-white",
 									children: post.title,
 								},
 							},
