@@ -11,7 +11,7 @@ import "@/styles/pagefind.css";
 <script is:inline src="/_pagefind/pagefind-ui.js"></script>
 
 <script is:inline>
-	window.addEventListener("DOMContentLoaded", (_) => {
+	window.addEventListener("astro:after-swap", (_) => {
 		new PagefindUI({
 			element: "#searchui",
 			resetStyles: false,

@@ -8,37 +8,41 @@ const blog = await Astro.glob("../../content/blog/*.md?(x)");
 	import {getCollection} from "astro:content";
 	import {toPosts, type Post} from "@/content";
 	const collection = await getCollection("blog");
-	const posts = toPosts(collection);
-	const res = await fetch(`/api/views?date=${new Date().getTime()}`);
-	const all = await res.json();
-	const sorted = all.data.sort((a: any, b: any) => b.views - a.views).slice(0, 4);
-	const popular: Post[] = sorted.map((views: any) => posts.find((p: any) => p.slug === views.path));
+	async function rankPosts() {
+		const posts = toPosts(collection);
+		const res = await fetch(`/api/views?date=${new Date().getTime()}`);
+		const all = await res.json();
+		const sorted = all.data.sort((a: any, b: any) => b.views - a.views).slice(0, 4);
+		const popular: Post[] = sorted.map((views: any) =>
+			posts.find((p: any) => p.slug === views.path)
+		);
+		const ele = document.getElementById("most-viewed-posts");
+		if (ele) {
+			while (ele.firstChild) {
+				ele.removeChild(ele.firstChild);
+			}
+			popular.forEach((post) => {
+				const li = document.createElement("li");
+				const link = document.createElement("a");
+				link.href = `/blog/${post.slug}`;
+				link.textContent = post.title;
+				link.classList.add(
+					"p-2",
+					"text-sm",
+					"block",
+					"font-title",
+					"rounded-btn",
+					"text-neutral-content",
+					"hover:text-base-content"
+				);
 
-	const ele = document.getElementById("most-viewed-posts");
-	if (ele) {
-		while (ele.firstChild) {
-			ele.removeChild(ele.firstChild);
+				li.appendChild(link);
+				ele.appendChild(li);
+			});
 		}
-
-		popular.forEach((post) => {
-			const li = document.createElement("li");
-			const link = document.createElement("a");
-			link.href = `/blog/${post.slug}`;
-			link.textContent = post.title;
-			link.classList.add(
-				"p-2",
-				"text-sm",
-				"block",
-				"font-title",
-				"rounded-btn",
-				"text-neutral-content",
-				"hover:text-base-content"
-			);
-
-			li.appendChild(link);
-			ele.appendChild(li);
-		});
 	}
+	await rankPosts();
+	document.addEventListener("astro:after-swap", rankPosts);
 </script>
 
 <Container>
