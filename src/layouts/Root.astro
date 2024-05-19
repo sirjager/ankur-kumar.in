@@ -9,7 +9,7 @@ import Navbar from "@/components/Navbar/Navbar.astro";
 import Head from "@/layouts/Head.astro";
 import SpeedInsights from "@vercel/speed-insights/astro";
 
-import NoiseFilter from "@/components/NoiseFilter.astro";
+// import NoiseFilter from "@/components/NoiseFilter.astro";
 import ScrollToTop from "@/components/ScrollToTop.astro";
 import ScrollWatcher from "@/components/ScrollWatcher.astro";
 import Breadcrumbs from "@/layouts/BreadCrumbs.astro";
@@ -29,7 +29,7 @@ const {nocrumbs, viewTransition = true, ...props} = Astro.props;
 		{viewTransition && <ViewTransitions />}
 	</head>
 	<body class="font-body antialiased">
-		<NoiseFilter />
+		<!-- <NoiseFilter /> -->
 		<ScrollWatcher />
 		<Navbar />
 		{!nocrumbs && <Breadcrumbs />}
