@@ -2,57 +2,30 @@ import {themeMode, themes} from "@/lib/themes";
 import {$, component$} from "@builder.io/qwik";
 
 export default component$(() => {
-	const changeTheme = $(() => {
-		function apply(value: string) {
-			try {
-				const theme = value.split("@")[0];
-				const mode = themeMode(theme);
-				document.documentElement.setAttribute("data-theme", theme);
-				document.documentElement.setAttribute("data-theme-mode", mode);
-				if (mode === "dark") document.documentElement.classList.add("dark");
-				else document.documentElement.classList.remove("dark");
-				localStorage.setItem("theme", `${theme}@${mode}`);
-				// eslint-disable-next-line quotes
-				let emt = document.querySelector('meta[name="theme-color"]');
-				if (emt) emt.setAttribute("content", "#4285f4");
-				else {
-					emt = document.createElement("meta");
-					emt.setAttribute("name", "theme-color");
-					emt.setAttribute("content", "#4285f4");
-				}
-				const img: any = document.getElementById("github-contri");
-				if (img) {
-					let src =
-						"https://raw.githubusercontent.com/sirjager/SirJager/output/github-contribution-grid-snake.svg";
-					if (mode === "dark") src = src.replace("snake.svg", "snake-dark.svg");
-					img.setAttribute("src", src);
-				}
-				const giscuss = document.querySelector("script[src=\"https://giscus.app/client.js\"]");
-				giscuss?.setAttribute("data-theme", mode === "dark" ? "dark_dimmed" : "light");
-				const giscusFrame = document.querySelector("iframe.giscus-frame");
-				const giscusFrameURL = new URL(giscusFrame?.getAttribute("src") || "");
-				giscusFrameURL.searchParams.set("theme", mode === "dark" ? "transparent_dark" : "light");
-				giscusFrame?.setAttribute("src", giscusFrameURL.toString());
-			} catch (_) {
-				//
-			}
-		}
+	const switchTheme = $(() => {
 		const theme = document.documentElement.getAttribute("data-theme");
 		if (!theme) {
 			const _stored = localStorage.getItem("theme");
-			if (_stored) apply(_stored);
-			else apply(themes[0]);
+			// @ts-ignore : already initialized in Head.astro
+			if (_stored) _applyTheme(_stored.split("@"));
+			// @ts-ignore
+			else _applyTheme(themes[0], themeMode(themes[0]));
 		} else {
-			const currentIndex = themes.indexOf(theme);
-			if (currentIndex === -1) apply(themes[0]);
-			else apply(themes[(currentIndex + 1) % themes.length]);
+			const index = themes.indexOf(theme);
+			// @ts-ignore
+			if (index === -1) _applyTheme(themes[0], themeMode(themes[0]));
+			else {
+				const _selected = themes[(index + 1) % themes.length];
+				// @ts-ignore
+				_applyTheme(_selected, themeMode(_selected));
+			}
 		}
 	});
 
 	return (
 		<button
-			aria-label="Change Theme"
-			onClick$={changeTheme}
+			aria-label="switch themes"
+			onClick$={switchTheme}
 			class={[
 				"btn-square px-3 py-2",
 				"transition-all duration-300 ease-in-out",
