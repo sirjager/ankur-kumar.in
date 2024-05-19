@@ -7,7 +7,6 @@ import {ViewTransitions} from "astro:transitions";
 import Footer from "@/components/Footer/Footer.astro";
 import Navbar from "@/components/Navbar/Navbar.astro";
 import Head from "@/layouts/Head.astro";
-import SpeedInsights from "@vercel/speed-insights/astro";
 
 // import NoiseFilter from "@/components/NoiseFilter.astro";
 import ScrollToTop from "@/components/ScrollToTop.astro";
@@ -37,6 +36,5 @@ const {nocrumbs, viewTransition = true, ...props} = Astro.props;
 		<Footer />
 		<slot name="scripts" />
 		<ScrollToTop />
-		<SpeedInsights />
 	</body>
 </html>

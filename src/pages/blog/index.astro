@@ -6,7 +6,6 @@ import Root from "@/layouts/Root.astro";
 
 import PostsGrid from "@/components/Blog/PostsGrid.astro";
 import FilterCloud from "@/components/Cards/FilterCloud.astro";
-import MostViewedPosts from "@/components/Cards/MostViewedPosts.astro";
 
 import ReadMore from "@/components/ReadMore.astro";
 import Blog from "@/layouts/Blog.astro";
@@ -33,8 +32,6 @@ const posts = getMatters(blog, {method: "astro", type: ["blog"]});
 		</div>
 		<PostsGrid slot="body" posts={posts} />
 		<FilterCloud slot="aside" />
-		<div slot="aside" class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-1">
-			<MostViewedPosts />
-		</div>
+		<!-- <div slot="aside" class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-1"></div> -->
 	</Blog>
 </Root>

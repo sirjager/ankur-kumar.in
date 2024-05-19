@@ -2,7 +2,6 @@
 import Blog from "@/layouts/Blog.astro";
 import Root from "@/layouts/Root.astro";
 
-import MostViewedPosts from "@/components/Cards/MostViewedPosts.astro";
 import {getCategories, getMatters} from "@/content";
 import Link from "@/components/Link.astro";
 const blog = await Astro.glob("../../content/blog/*.md?(x)");
@@ -49,8 +48,6 @@ const categories = getCategories(posts);
 			}
 		</div>
 
-		<div slot="aside" class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-1">
-			<MostViewedPosts />
-		</div>
+		<!-- <div slot="aside" class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-1"></div> -->
 	</Blog>
 </Root>
