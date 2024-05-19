@@ -4,10 +4,11 @@ import {site} from "@/lib/constants";
 import type {APIRoute} from "astro";
 
 import {getMatters} from "@/content";
-const blog: any = import.meta.glob("../../content/blog/*.md?(x)", {eager: true});
-const posts = getMatters(blog, {method: "import", type: ["blog"]});
 
 export const GET: APIRoute = async (req) => {
+	const blog: any = import.meta.glob("../content/blog/*.md?(x)", {eager: true});
+	const posts = getMatters(blog, {method: "import", type: ["blog"]});
+
 	const baseURL = req.url.origin;
 	const sitemaps: string[] = [];
 	sitemaps.push(`<?xml version="1.0" encoding="UTF-8"?>`);
@@ -37,6 +38,9 @@ export const GET: APIRoute = async (req) => {
 	}
 
 	// Tags Sitemap
+	sitemaps.push(
+		`<sitemap><loc>${baseURL}/tags</loc><lastmod>${new Date().toISOString()}</lastmod></sitemap>`
+	);
 	const tags = getTags(posts);
 	const tagsPages = Math.ceil(tags.length / limit);
 	for (let i = 1; i <= tagsPages; i++) {
@@ -47,6 +51,9 @@ export const GET: APIRoute = async (req) => {
 	}
 
 	// Categories Sitemap
+	sitemaps.push(
+		`<sitemap><loc>${baseURL}/categories</loc><lastmod>${new Date().toISOString()}</lastmod></sitemap>`
+	);
 	const categories = getCategories(posts);
 	const categoriesPages = Math.ceil(categories.length / limit);
 	for (let i = 1; i <= categoriesPages; i++) {
