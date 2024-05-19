@@ -27,10 +27,8 @@ const posts = getMatters(blog, {method: "astro", type: ["blog"]});
 				<ReadMore text={site.blog.description} readmore={site.blog.readmore} />
 			</div>
 
-			<p class="tet-pretty prose-sm mt-2 @md:prose prose-a:text-accent">
-				Subscribe to the <Link aria-label="RSS" href={site.links.rssfeed} class="text-accent"
-					>RSS Feed</Link
-				> to stay updated.
+			<p class="tet-pretty prose-sm mt-2 @md:prose prose-a:font-normal prose-a:text-accent">
+				Subscribe to the <Link aria-label="RSS" href={site.links.rssfeed}>RSS Feed</Link> to stay updated.
 			</p>
 		</div>
 		<PostsGrid slot="body" posts={posts} />

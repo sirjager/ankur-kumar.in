@@ -94,33 +94,37 @@ const authorName = author ? author : site.author.fullName;
 <script is:inline lang="js">
 	// @ts-ignore @ts-nocheck : used to set giscuss theme
 	let theme, themeMode;
-	const __apply__ = (th, mo) => {
+	const _applyTheme = (th, mo) => {
 		document.documentElement.setAttribute("data-theme", th);
 		document.documentElement.setAttribute("data-theme-mode", mo);
 		if (mo === "dark") document.documentElement.classList.add("dark");
 		else document.documentElement.classList.remove("dark");
-		var emt = document.querySelector('meta[name="theme-color"]');
-		if (emt) emt.setAttribute("content", "#4285f4");
+		var _c = document.querySelector('meta[name="theme-color"]');
+		if (_c) _c.setAttribute("content", "#4285f4");
 		else {
-			emt = document.createElement("meta");
-			emt?.setAttribute("name", "theme-color");
-			emt.setAttribute("content", "#4285f4");
+			_c = document.createElement("meta");
+			_c?.setAttribute("name", "theme-color");
+			_c.setAttribute("content", "#4285f4");
 		}
 	};
-	const __theming__ = () => {
+	const _restoreTheme = () => {
 		const _s = localStorage.getItem("theme");
 		let [th, mo] = ["light", "light"];
 		if (typeof localStorage !== "undefined") {
-			if (_s) [th, mo] = _s.split("@");
+			if (!_s && window.matchMedia("(prefers-color-scheme: dark)").matches)
+				[th, mo] = ["dark", "dark"];
+			else if (_s) [th, mo] = _s.split("@");
 			else localStorage.setItem("theme", `${th}@${mo}`);
 		}
 		theme = th;
 		themeMode = mo;
-		__apply__(th, mo);
+		try {
+			_applyTheme(th, mo);
+		} catch (_) {}
 	};
-	__theming__();
+	_restoreTheme();
 	// for darkmode when using view transition api
-	document.addEventListener("astro:after-swap", __theming__);
+	document.addEventListener("astro:after-swap", _restoreTheme);
 </script>
 
 <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>

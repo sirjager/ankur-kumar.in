@@ -7,11 +7,11 @@ import "@/styles/pagefind.css";
 </div>
 
 <link href="/_pagefind/pagefind-ui.css" rel="stylesheet" />
+<script is:inline data-astro-rerun src="/_pagefind/pagefind-ui.js"></script>
 
-<script is:inline src="/_pagefind/pagefind-ui.js"></script>
-
-<script is:inline>
-	window.addEventListener("astro:after-swap", (_) => {
+<script>
+	// @ts-nocheck
+	function _pagefind() {
 		new PagefindUI({
 			element: "#searchui",
 			resetStyles: false,
@@ -19,5 +19,6 @@ import "@/styles/pagefind.css";
 			showImages: true,
 			showEmptyFilters: true,
 		});
-	});
+	}
+	window.addEventListener("astro:after-swap", (_) => _pagefind);
 </script>

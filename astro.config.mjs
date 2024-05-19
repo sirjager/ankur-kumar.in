@@ -75,7 +75,7 @@ export default defineConfig({
 			],
 		}),
 	],
-	prefetch: {defaultStrategy: "viewport"},
+	prefetch: {defaultStrategy: "hover"},
 	image: {
 		remotePatterns: [{protocol: "https"}, {protocol: "http"}],
 	},

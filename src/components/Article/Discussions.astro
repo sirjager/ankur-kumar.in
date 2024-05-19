@@ -21,7 +21,7 @@ import {site} from "@/lib/constants";
 	crossorigin="anonymous"
 	async></script>
 
-<script is:inline>
+<script is:inline data-astro-rerun>
 	document
 		.querySelector('script[src="https://giscus.app/client.js"]')
 		?.setAttribute("data-theme", themeMode === "dark" ? "transparent_dark" : "light");

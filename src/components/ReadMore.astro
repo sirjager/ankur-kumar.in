@@ -2,6 +2,7 @@
 import {generateRandomID} from "@/lib/utils";
 
 interface Props {
+	id?: string;
 	text: string;
 	readmore?: string[];
 	labelReadmore?: string;
@@ -9,14 +10,12 @@ interface Props {
 	class_?: string;
 }
 
-const {text, readmore = [], class_} = Astro.props;
+const {id = generateRandomID(8), text, readmore = [], class_} = Astro.props;
 const {labelReadmore = "Read more", labelHide = "Hide"} = Astro.props;
-
-const randomID = generateRandomID(8);
 ---
 
 <p class:list={["prose-sm leading-relaxed @md:prose", class_]}>
-	<input id={randomID} type="checkbox" class="peer hidden" />
+	<input id={id} type="checkbox" class="peer hidden" />
 	{text}
 	<span class="hidden peer-checked:inline">
 		{
@@ -32,12 +31,12 @@ const randomID = generateRandomID(8);
 		}
 	</span>
 	<label
-		for={randomID}
+		for={id}
 		class="cursor-pointer text-accent hover:underline focus:outline-none peer-checked:hidden"
 		>{labelReadmore}</label
 	>
 	<label
-		for={randomID}
+		for={id}
 		class="hidden cursor-pointer text-accent hover:underline focus:outline-none peer-checked:inline"
 		>{labelHide}</label
 	>
