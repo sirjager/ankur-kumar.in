@@ -97,15 +97,14 @@ const authorName = author ? author : site.author.fullName;
 		document.documentElement.setAttribute("data-theme-mode", mo);
 		if (mo === "dark") document.documentElement.classList.add("dark");
 		else document.documentElement.classList.remove("dark");
-		var _c = document.querySelector('meta[name="theme-color"]');
-		if (_c) _c.setAttribute("content", "#4285f4");
-		else {
+		let _c = document.querySelector('meta[name="theme-color"]');
+		if (!_c) {
 			_c = document.createElement("meta");
 			_c?.setAttribute("name", "theme-color");
-			_c.setAttribute("content", "#4285f4");
 		}
 		window.theme = th;
 		window.themeMode = mo;
+		_c.setAttribute("content", mo === "dark" ? "#111827" : "#FFFFFF");
 		localStorage.setItem("theme", `${th}@${mo}`);
 	};
 	const _restoreTheme = () => {
@@ -122,7 +121,6 @@ const authorName = author ? author : site.author.fullName;
 		} catch (_) {}
 	};
 	_restoreTheme();
-	// for darkmode when using view transition api
 	document.addEventListener("astro:after-swap", _restoreTheme);
 </script>
 
@@ -130,7 +128,6 @@ const authorName = author ? author : site.author.fullName;
 	defer
 	is:inline
 	src="https://cloud.umami.is/script.js"
-	data-domains={site.links.domain}
 	data-website-id="fb992e03-a7be-48ed-b176-c6fe7cd472cf"></script>
 
 <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
