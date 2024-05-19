@@ -49,15 +49,9 @@ importers:
       "@unpic/qwik":
         specifier: ^0.0.44
         version: 0.0.44(@builder.io/qwik@1.5.1(@types/node@20.11.25)(lightningcss@1.24.1)(terser@5.31.0)(undici@6.7.1))
-      "@vercel/analytics":
-        specifier: ^1.2.2
-        version: 1.2.2
       "@vercel/og":
         specifier: ^0.6.2
         version: 0.6.2
-      "@vercel/speed-insights":
-        specifier: ^1.0.10
-        version: 1.0.10(svelte@4.2.15)
       astro:
         specifier: ^4.8.4
         version: 4.8.4(@types/node@20.11.25)(lightningcss@1.24.1)(terser@5.31.0)(typescript@5.4.2)
@@ -73,12 +67,6 @@ importers:
       astro-imagetools:
         specifier: 0.9.0
         version: 0.9.0(astro@4.8.4(@types/node@20.11.25)(lightningcss@1.24.1)(terser@5.31.0)(typescript@5.4.2))
-      astro-og-canvas:
-        specifier: ^0.5.0
-        version: 0.5.0(astro@4.8.4(@types/node@20.11.25)(lightningcss@1.24.1)(terser@5.31.0)(typescript@5.4.2))
-      canvaskit-wasm:
-        specifier: ^0.39.1
-        version: 0.39.1
       daisyui:
         specifier: ^4.7.3
         version: 4.7.3(postcss@8.4.38)
@@ -3086,32 +3074,6 @@ packages:
       }
     engines: {node: ">=16"}
 
-  "@vercel/speed-insights@1.0.10":
-    resolution:
-      {
-        integrity: sha512-4uzdKB0RW6Ff2FkzshzjZ+RlJfLPxgm/00i0XXgxfMPhwnnsk92YgtqsxT9OcPLdJUyVU1DqFlSWWjIQMPkh0g==,
-      }
-    peerDependencies:
-      "@sveltejs/kit": ^1 || ^2
-      next: ">= 13"
-      react: ^18 || ^19
-      svelte: ^4
-      vue: ^3
-      vue-router: ^4
-    peerDependenciesMeta:
-      "@sveltejs/kit":
-        optional: true
-      next:
-        optional: true
-      react:
-        optional: true
-      svelte:
-        optional: true
-      vue:
-        optional: true
-      vue-router:
-        optional: true
-
   "@volar/kit@2.2.4":
     resolution:
       {
@@ -3172,12 +3134,6 @@ packages:
     resolution:
       {
         integrity: sha512-KYSIHVmslkaCDyw013pphY+d7x1qV8IZupYfeIfzNA+nsaWHbn5uPuQRvdRFsa9zFzGeudPuoGoZ1Op4jrJXIQ==,
-      }
-
-  "@webgpu/types@0.1.21":
-    resolution:
-      {
-        integrity: sha512-pUrWq3V5PiSGFLeLxoGqReTZmiiXwY3jRkIG5sLLKjyqNxrwm/04b4nw7LSmGWJcKk59XOM/YRTUwOzo4MMlow==,
       }
 
   JSONStream@1.3.5:
@@ -3472,15 +3428,6 @@ packages:
     peerDependencies:
       astro: ^4.0.0
 
-  astro-og-canvas@0.5.0:
-    resolution:
-      {
-        integrity: sha512-nrwZpFL9d6tVJRKV5OLZa3xSSh+Cbaaoay/R9jAgHCrJ79WNyN2rgRT/+wtP1O/bCQ+wVP3GC3mBQN7vogImvg==,
-      }
-    engines: {node: ">=18.14.1"}
-    peerDependencies:
-      astro: ^3.0.0 || ^4.0.0
-
   astro-robots-txt@1.0.0:
     resolution:
       {
@@ -3749,12 +3696,6 @@ packages:
     resolution:
       {
         integrity: sha512-zpkZ+kEr6We7w63ORkoJ2pOfBwBkY/bJrG/UZ90qNb45Isblu8wzDgevEOrRL1r9dWayHjYiiyCMEXPn4DweGQ==,
-      }
-
-  canvaskit-wasm@0.39.1:
-    resolution:
-      {
-        integrity: sha512-Gy3lCmhUdKq+8bvDrs9t8+qf7RvcjuQn+we7vTVVyqgOVO1UVfHpsnBxkTZw+R4ApEJ3D5fKySl9TU11hmjl/A==,
       }
 
   ccount@2.0.1:
@@ -11714,10 +11655,6 @@ snapshots:
       satori: 0.10.9
       yoga-wasm-web: 0.3.3
 
-  "@vercel/speed-insights@1.0.10(svelte@4.2.15)":
-    optionalDependencies:
-      svelte: 4.2.15
-
   "@volar/kit@2.2.4(typescript@5.4.2)":
     dependencies:
       "@volar/language-service": 2.2.4
@@ -11777,8 +11714,6 @@ snapshots:
   "@vscode/l10n@0.0.16": {}
 
   "@vscode/l10n@0.0.18": {}
-
-  "@webgpu/types@0.1.21": {}
 
   JSONStream@1.3.5:
     dependencies:
@@ -11968,13 +11903,6 @@ snapshots:
     dependencies:
       astro: 4.8.4(@types/node@20.11.25)(lightningcss@1.24.1)(terser@5.31.0)(typescript@5.4.2)
       pathe: 1.1.2
-
-  astro-og-canvas@0.5.0(astro@4.8.4(@types/node@20.11.25)(lightningcss@1.24.1)(terser@5.31.0)(typescript@5.4.2)):
-    dependencies:
-      astro: 4.8.4(@types/node@20.11.25)(lightningcss@1.24.1)(terser@5.31.0)(typescript@5.4.2)
-      canvaskit-wasm: 0.39.1
-      deterministic-object-hash: 2.0.2
-      entities: 4.5.0
 
   astro-robots-txt@1.0.0:
     dependencies:
@@ -12207,10 +12135,6 @@ snapshots:
   camelize@1.0.1: {}
 
   caniuse-lite@1.0.30001596: {}
-
-  canvaskit-wasm@0.39.1:
-    dependencies:
-      "@webgpu/types": 0.1.21
 
   ccount@2.0.1: {}
 
