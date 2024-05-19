@@ -92,10 +92,7 @@ const authorName = author ? author : site.author.fullName;
 
 <!-- This needs to be inlinded to avoid FOUC (Flash of unstyled content) -->
 <script is:inline lang="js">
-	// @ts-ignore @ts-nocheck : used to set giscuss theme
-	let theme, themeMode;
 	const _applyTheme = (th = "light", mo = "light") => {
-		console.log(`Applying theme ${th}@${mo}`);
 		document.documentElement.setAttribute("data-theme", th);
 		document.documentElement.setAttribute("data-theme-mode", mo);
 		if (mo === "dark") document.documentElement.classList.add("dark");
@@ -107,8 +104,8 @@ const authorName = author ? author : site.author.fullName;
 			_c?.setAttribute("name", "theme-color");
 			_c.setAttribute("content", "#4285f4");
 		}
-		theme = th;
-		themeMode = mo;
+		window.theme = th;
+		window.themeMode = mo;
 		localStorage.setItem("theme", `${th}@${mo}`);
 	};
 	const _restoreTheme = () => {
