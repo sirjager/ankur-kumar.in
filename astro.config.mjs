@@ -44,7 +44,7 @@ export default defineConfig({
 			},
 		}),
 		robots({
-			sitemap: `${site.links.website}/${site.links.sitemap}`,
+			sitemap: `${site.links.website}${site.links.sitemap}`,
 			policy: [{userAgent: "*", disallow: ["/admin", "/api"]}],
 		}),
 		webmanifest({
