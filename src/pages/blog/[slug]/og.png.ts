@@ -12,7 +12,7 @@ export async function getStaticPaths() {
 }
 
 const backgroundURL = "https://i.imgur.com/hxMDIFD.jpeg";
-const avatarURL = "https://i.imgur.com/MlFSSy7.png";
+const avatarURL = site.author.image;
 
 export const GET: APIRoute = async ({props}) => {
 	const post: Post = props.post;
