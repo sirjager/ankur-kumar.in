@@ -20,14 +20,14 @@ const sections = [
 			// {name: "Sponsors", url: "/sponsors"},
 			// {name: "My Journey", url: "/blog/my-journey"},
 			// {name: "Hire Me", url: "/hire-me"},
-			{name: "Resume", url: "/pdfs/ankur-kumar-resume.pdf", newtab: true},
-			{name: "Dotfiles", url: site.links.dotfiles},
+			{name: "Resume", url: "/pdfs/ankur-kumar-resume.pdf", newtab: true, event: "clicked-resume"},
+			{name: "Dotfiles", url: site.links.dotfiles, newtab: true, event: "clicked-dotfiles"},
 		],
 	},
 	{
 		name: "Extras",
 		items: [
-			{name: "RSS", url: site.links.rssfeed},
+			{name: "RSS", url: site.links.rssfeed, newtab: true, event: "clicked-rss"},
 			{name: "Sitemap", url: site.links.sitemap},
 			// {name: "Newsletter", url: "/newsletter"},
 			// {name: "Privacy Policy", url: "/privacy-policy"},
@@ -61,10 +61,11 @@ const sections = [
 									return (
 										<li class="group/link relative w-full">
 											<Link
-												aria-label={item.name}
 												href={item.url}
-												class:list={["block rounded-btn p-1", "group-hover/link:text-accent"]}
+												aria-label={item.name}
+												data-umami-event={item.event}
 												target={item.newtab ? "_blank" : "_self"}
+												class:list={["block rounded-btn p-1", "group-hover/link:text-accent"]}
 											>
 												{item.name}
 											</Link>

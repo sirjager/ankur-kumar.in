@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "44eba32bdd8e6a33",
+        "id": "75f30d21cc2b55f8",
         "type": "tabs",
         "children": [
           {
-            "id": "9f7c95fc7db3f952",
+            "id": "71e743da5303b2ac",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "src/content/blog/welcome-to-my-website.md",
-                "mode": "preview",
-                "source": true
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
