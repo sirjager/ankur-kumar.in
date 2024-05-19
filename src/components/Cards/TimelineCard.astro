@@ -2,6 +2,7 @@
 import Image from "@/components/Image/QwikImage";
 import Link from "@/components/Link.astro";
 import type {Post} from "@/content";
+import {parseDate} from "@/lib/utils";
 
 interface Props {
 	post: Post;
@@ -10,8 +11,7 @@ interface Props {
 
 const {post, invert} = Astro.props;
 
-const postedOn = new Date().toDateString();
-const published = postedOn.split(" ");
+const published = parseDate(post.published.toISOString());
 
 const image = post.banner || `${Astro.url.origin}/blog/${post.slug}/og.png`;
 ---
@@ -31,9 +31,9 @@ const image = post.banner || `${Astro.url.origin}/blog/${post.slug}/og.png`;
 				"p-4 text-lg @3xl:text-2xl @4xl:text-4xl",
 			]}
 		>
-			<span class="text-accent">{published[2]}</span>
-			{published[1]}{" "}
-			{published[3]}
+			<span class="text-accent">{published?.date}</span>
+			{published?.month}{" "}
+			{published?.year}
 		</div>
 
 		<div class:list={["mx-auto h-10 w-0.5 bg-base-content/15", "sm:h-0.5 sm:flex-1"]}></div>
