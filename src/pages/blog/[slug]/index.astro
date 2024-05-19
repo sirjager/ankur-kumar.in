@@ -1,5 +1,6 @@
 ---
 import Article from "@/components/Article/Article.astro";
+import ArticleSchema from "@/components/Article/ArticleSchema.astro";
 import Discussions from "@/components/Article/Discussions.astro";
 import {toPost} from "@/content";
 import Root from "@/layouts/Root.astro";
@@ -23,9 +24,12 @@ const ogimage = `${Astro.url.origin}/blog/${post.slug}/og.png`;
 ---
 
 <Root title={post.title} description={post.description} image={ogimage}>
+	<ArticleSchema slot="head" post={post} />
+
 	<Article post={post}>
 		<Content />
 	</Article>
+
 	<div
 		class:list={[
 			"relative isolate mt-28 grid @container",

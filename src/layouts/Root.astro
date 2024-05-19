@@ -25,6 +25,7 @@ const {nocrumbs, viewTransition = true, ...props} = Astro.props;
 <html lang="en">
 	<head>
 		<Head {...props} />
+		<slot name="head" />
 		{viewTransition && <ViewTransitions />}
 	</head>
 	<body class="font-body antialiased">

@@ -1,0 +1,41 @@
+---
+import type {Post} from "@/content";
+import {site} from "@/lib/constants";
+
+interface Props {
+	post: Post;
+}
+
+const {post} = Astro.props;
+
+const taxonomies = new Set<string>();
+post.tags.forEach((tag) => taxonomies.add(tag.toLowerCase()));
+post.categories.forEach((cat) => taxonomies.add(cat.toLowerCase()));
+const ogimage = `${Astro.url.origin}/blog/${post.slug}/og.png`;
+let schema: Record<string, unknown> = {
+	"@context": "https://schema.org",
+	"@type": "BlogPosting",
+	headline: post.title,
+	description: post.description,
+	keywords: Array.from(taxonomies),
+	wordcount: post.readtime?.words,
+	image: post.banner ?? ogimage,
+	genre: post.categories,
+	author: {
+		"@type": "Person",
+		name: site.author.fullName,
+		url: site.links.website,
+		image: site.author.image,
+	},
+	/* the schema expects Date or DateTime using ISO 8601 format. For Date that is yyyy-MM-dd */
+	datePublished: post.published.toISOString().substring(0, 10),
+	dateModified: post.modifided.toISOString().substring(0, 10),
+};
+
+// omit null and undefied
+schema = Object.fromEntries(
+	Object.entries(schema).filter(([_, v]) => v !== null && v !== undefined)
+);
+---
+
+<script slot="head" type="application/ld+json" set:html={JSON.stringify(schema)} />

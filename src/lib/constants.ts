@@ -19,8 +19,7 @@ export const site = {
 		fullName: "Ankur Kumar",
 		email: "contact@ankur-kumar.in",
 		twitter: "@sirjager",
-		image: "https://i.imgur.com/1db7aTn.png",
-		avatar: "https://i.imgur.com/KjdD5Ys.png",
+		image: "https://i.imgur.com/MlFSSy7.png",
 		programming: [
 			"JavaScript",
 			"TypeScript",
