@@ -12,7 +12,6 @@ export const site = {
 			"Alongside my coding endeavors, I'll offer insights into my transition from a Windows user to Linux aficionado. Join me as I navigate the intricacies of tiling window managers and delve into various Linux customizations.",
 		],
 	},
-	sitemapSize: 1000,
 	lang: "en-US",
 	author: {
 		firstName: "Ankur",

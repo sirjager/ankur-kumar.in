@@ -4,6 +4,7 @@ import svelte from "@astrojs/svelte";
 import qwik from "@qwikdev/astro";
 import tailwind from "@astrojs/tailwind";
 import robots from "astro-robots-txt";
+import sitemap from "@astrojs/sitemap";
 import webmanifest from "astro-webmanifest";
 import {defineConfig} from "astro/config";
 import {astroImageTools} from "astro-imagetools";
@@ -42,6 +43,15 @@ export default defineConfig({
 			config: {
 				forward: ["dataLayer.push"],
 			},
+		}),
+		sitemap({
+			entryLimit: 10000,
+			priority: 0.7,
+			changefreq: "weekly",
+			lastmod: new Date(),
+			filter: (page) =>
+				!page.includes(`${site.links.website}/admin`) &&
+				!page.includes(`${site.links.website}/api`),
 		}),
 		robots({
 			sitemap: `${site.links.website}${site.links.sitemap}`,
