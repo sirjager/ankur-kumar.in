@@ -14,7 +14,7 @@ const blog = await Astro.glob("../content/blog/*.md?(x)");
 const posts = getMatters(blog, {method: "astro", type: ["blog"]});
 ---
 
-<Root title="Homes" nocrumbs>
+<Root title="Home" nocrumbs>
 	<ProfileSection />
 
 	<TechStackSection />
