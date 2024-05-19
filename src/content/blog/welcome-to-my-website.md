@@ -3,19 +3,19 @@ type: blog
 banner_icon: 🌄
 banner: https://i.imgur.com/roFgE4v.png
 banner_x: 0.5
-banner_y: 0.51
-banner_lock: false
+banner_y: 0.5
+banner_lock: true
 status: published
 published: 2024-05-16T16:24:37.177Z
-modifided: 2024-05-17T09:58:40.743Z
+modifided: 2024-05-19T03:58:43.404Z
 title: Welcome to my website
 description: Welcome! This first post is about introducing myself and share my journey. I'll talk about  learning experiences, and insights I've gained along the way.
 categories:
   - Personal
 tags:
   - personal
-keywords:
-options:
+keywords: null
+options: null
 ---
 
 Greetings, fellow voyagers of the cyber cosmos! 🌌
