@@ -7,7 +7,7 @@ banner_y: 0.51
 banner_lock: false
 status: published
 published: 2024-05-16T16:24:37.177Z
-modifided: 2024-05-19T03:58:43.404Z
+modifided: 2024-05-20T16:57:08.005Z
 title: Welcome to my website
 description: Welcome! This first post is about introducing myself and share my journey. I'll talk about  learning experiences, and insights I've gained along the way.
 categories:
@@ -64,7 +64,7 @@ There are several reasons driving my decision to start a blog, each stemming fro
 
 ---
 
-## What To Expect From This Blog ?
+## What To Expect From This Blog?
 
 ### Mobile Application Development using Flutter
 
