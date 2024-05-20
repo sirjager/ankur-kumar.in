@@ -89,9 +89,6 @@ importers:
       "@iconify-json/cib":
         specifier: ^1.1.8
         version: 1.1.8
-      "@iconify-json/fluent":
-        specifier: ^1.1.55
-        version: 1.1.55
       "@iconify-json/la":
         specifier: ^1.1.8
         version: 1.1.8
@@ -1485,12 +1482,6 @@ packages:
     resolution:
       {
         integrity: sha512-wL7uxAq8pC9la11dRSHUrz4g4cNLhoR8VC/rnmTcswER/vICNgUYt7vNs0VVaGjC6G1dTY+iyKS4ooRCXChsqw==,
-      }
-
-  "@iconify-json/fluent@1.1.55":
-    resolution:
-      {
-        integrity: sha512-YMN/6c0deR0XlU2LR4MDJS/PERAwvvZssfEcDYZ/KFBa6RVJSHWxb02DCwxjgrmeO3Pex1TI9nRig/IMvW7zhQ==,
       }
 
   "@iconify-json/la@1.1.8":
@@ -10725,10 +10716,6 @@ snapshots:
   "@humanwhocodes/object-schema@2.0.2": {}
 
   "@iconify-json/cib@1.1.8":
-    dependencies:
-      "@iconify/types": 2.0.0
-
-  "@iconify-json/fluent@1.1.55":
     dependencies:
       "@iconify/types": 2.0.0
 
