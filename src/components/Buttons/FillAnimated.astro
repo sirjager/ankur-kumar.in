@@ -6,10 +6,10 @@ interface Props {
 const {class_ = ""} = Astro.props;
 ---
 
-<button
+<div
 	aria-label="change theme"
 	class:list={[
-		"group/tgthm relative overflow-clip px-5 py-3",
+		"group/tgthm relative overflow-clip px-5 py-3 text-center",
 		"text-base-content hover:text-base-200",
 		"transition-all duration-300 ease-in-out",
 		"border-2 border-base-200",
@@ -23,4 +23,4 @@ const {class_ = ""} = Astro.props;
 	<span class="relative z-[1]">
 		<slot>Button</slot>
 	</span>
-</button>
+</div>

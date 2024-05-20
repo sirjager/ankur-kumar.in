@@ -1,0 +1,165 @@
+---
+import Link from "@/components/Link.astro";
+import type {Post} from "@/content";
+import {site} from "@/lib/constants";
+import {Icon} from "astro-icon/components";
+import TableOfContentModal from "@/components/Article/TableOfContentModal.astro";
+
+interface Props {
+	post?: Post;
+}
+
+const {post} = Astro.props;
+
+const {pathname} = new URL(Astro.request.url);
+
+const articleURL = encodeURIComponent(`${site.links.website}/blog/${post?.slug}`);
+const encodedTitle = encodeURIComponent(post?.title || "");
+
+const shares = {
+	hackernews: {
+		href: `https://news.ycombinator.com/submitlink?u=${articleURL}&t=${encodedTitle}`,
+		icon: "la:hacker-news-square",
+		label: "Share on HackerNews",
+		color: "#FF4500",
+	},
+	reddit: {
+		href: `https://reddit.com/submit?url=${articleURL}`,
+		icon: "tabler:brand-reddit",
+		label: "Share on Reddit",
+		color: "#FF4500",
+	},
+	linkedin: {
+		href: `https://www.linkedin.com/shareArticle?url=${articleURL}`,
+		icon: "tabler:brand-linkedin",
+		label: "Share on LinkedIn",
+		color: "#0077B5",
+	},
+	twitter: {
+		href: `https://twitter.com/intent/tweet?url=${articleURL}`,
+		icon: "tabler:brand-twitter",
+		label: "Share on Twitter",
+		color: "#1DA1F2",
+	},
+	whatsapp: {
+		href: `https://api.whatsapp.com/send?text=${articleURL}`,
+		icon: "tabler:brand-whatsapp",
+		label: "Share on WhatsApp",
+		color: "#25D366",
+	},
+};
+---
+
+<div
+	id="bottom-navbar"
+	style={{bottom: 0}}
+	class:list={[
+		"transition-all duration-500 ease-in-out",
+		"fixed z-[99999999999] w-full px-10 py-4 md:hidden",
+	]}
+>
+	<TableOfContentModal post={post} />
+	<div
+		class:list={["w-full rounded-full border border-base-300 bg-base-100/10 py-3 backdrop-blur-md"]}
+	>
+		<ul class="flex items-center justify-evenly gap-2">
+			<li class="group p-1">
+				<Link nofocus aria-label="Visit Home" href="/">
+					<Icon
+						name="tabler:smart-home"
+						size={24}
+						class:list={[
+							"group-hover:text-accent",
+							{
+								"text-accent": pathname === "/",
+							},
+						]}
+					/>
+				</Link>
+			</li>
+
+			<li class="group p-1">
+				<Link nofocus aria-label="About Me" href="/about">
+					<Icon
+						name="cib:about-me"
+						size={24}
+						class:list={[
+							"group-hover:text-primary",
+							{
+								"text-primary": pathname.includes("/about"),
+							},
+						]}
+					/>
+				</Link>
+			</li>
+
+			<li class="group p-1">
+				<Link nofocus aria-label="Visit Blog" href="/blog">
+					<Icon
+						name="tabler:brand-blogger"
+						size={24}
+						class:list={[
+							"group-hover:text-[#FFA105]",
+							{"text-[#FFA105]": pathname.includes("/blog")},
+						]}
+					/>
+				</Link>
+			</li>
+
+			{
+				post && (
+					<li class="group p-1">
+						<input type="checkbox" id="toc-modal" class="modal-toggle" />
+						<label for="toc-modal">
+							<Icon name="tabler:list-tree" size={24} class="group-hover:text-lime-700" />
+						</label>
+					</li>
+				)
+			}
+
+			{
+				post && (
+					<li class="group/share dropdown dropdown-end dropdown-top">
+						<div tabindex="0" role="button">
+							<Icon name="tabler:share-3" size={24} class="group-hover/share:text-teal-400" />
+						</div>
+						<ul
+							tabindex="0"
+							class="menu dropdown-content z-[1] w-52 rounded-box border-2 border-base-300 bg-base-100 p-2"
+						>
+							{Object.values(shares).map((share) => (
+								<li class="group">
+									<Link nofocus target="_blank" aria-label={share.label} href={share.href}>
+										<Icon
+											size={20}
+											name={share.icon}
+											style={{color: share.color}}
+											class="grayscale group-hover:grayscale-0"
+										/>
+										<span class="text-xs">{share.label}</span>
+									</Link>
+								</li>
+							))}
+						</ul>
+					</li>
+				)
+			}
+		</ul>
+	</div>
+</div>
+
+<script is:inline data-astro-rerun>
+	(function () {
+		const bnav = document.getElementById("bottom-navbar");
+		let lastScrollTop = 0;
+		window.addEventListener("scroll", function () {
+			let scrollTop = window.scrollY || document.documentElement.scrollTop;
+			if (scrollTop > lastScrollTop) {
+				bnav?.style.setProperty("bottom", "-5rem");
+			} else {
+				bnav?.style.setProperty("bottom", "0");
+			}
+			lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+		});
+	})();
+</script>

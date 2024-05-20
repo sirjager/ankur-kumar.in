@@ -22,7 +22,9 @@ import {site} from "@/lib/constants";
 	async></script>
 
 <script is:inline data-astro-rerun>
-	document
-		.querySelector('script[src="https://giscus.app/client.js"]')
-		?.setAttribute("data-theme", window.themeMode === "dark" ? "transparent_dark" : "light");
+	(function () {
+		document
+			.querySelector('script[src="https://giscus.app/client.js"]')
+			?.setAttribute("data-theme", window.thememode === "dark" ? "transparent_dark" : "light");
+	})();
 </script>

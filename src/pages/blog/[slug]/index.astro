@@ -23,7 +23,7 @@ const post = toPost(entry, rest);
 const ogimage = `${Astro.url.origin}/blog/${post.slug}/og.png`;
 ---
 
-<Root title={post.title} description={post.description} image={ogimage}>
+<Root title={post.title} description={post.description} image={ogimage} post={post}>
 	<ArticleSchema slot="head" post={post} />
 
 	<Article post={post}>

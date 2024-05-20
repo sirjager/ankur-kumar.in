@@ -3,22 +3,18 @@ import {Img as Picture} from "astro-imagetools/components";
 import Link from "@/components/Link.astro";
 ---
 
-<div class="flex w-full items-center gap-2">
-	<Link
-		aria-label="Go to homepage"
-		href="/"
-		class="z-50 grid w-10 min-w-10 place-items-center rounded-btn p-2 @sm:w-16 @sm:min-w-16"
-	>
-		<Picture
-			src="/src/assets/sirjager.png"
-			height={60}
-			width={60}
-			quality="ultra"
-			placeholder="blurred"
-			alt="Ankur Logo"
-		/>
-	</Link>
-	<Link href="/" aria-label="Go to homepage" nofocus class="z-[99999999] rounded-btn">
-		<div class="font-title @xs:text-lg @sm:text-xl @md:text-2xl @lg:text-3xl">Ankur Kumar</div>
-	</Link>
-</div>
+<Link href="/" aria-label="Go to Home">
+	<div class="flex w-fit items-center gap-4">
+		<figure class="w-12 max-w-12">
+			<Picture
+				src="/src/assets/sirjager.png"
+				height={60}
+				width={60}
+				quality="100"
+				placeholder="blurred"
+				alt="Ankur Logo"
+			/>
+		</figure>
+		<span class="font-rocksalt tracking-wider @xs:text-lg @sm:text-xl">Ankur Kumar</span>
+	</div>
+</Link>

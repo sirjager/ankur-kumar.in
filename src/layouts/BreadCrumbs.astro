@@ -4,7 +4,10 @@ import {Breadcrumbs} from "astro-breadcrumbs";
 import "astro-breadcrumbs/breadcrumbs.css";
 ---
 
-<div transition:name="breadcrumbs" class:list={["mx-auto max-w-7xl overflow-clip px-6 pt-6"]}>
+<div
+	transition:name="breadcrumbs"
+	class:list={["mx-auto max-w-6xl overflow-clip px-6 pt-6 xl:px-0"]}
+>
 	<Breadcrumbs>
 		<svg
 			slot="separator"

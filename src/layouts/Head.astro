@@ -91,23 +91,29 @@ const authorName = author ? author : site.author.fullName;
 />
 
 <!-- This needs to be inlinded to avoid FOUC (Flash of unstyled content) -->
-<script is:inline lang="js">
-	const _applyTheme = (th = "light", mo = "light") => {
-		document.documentElement.setAttribute("data-theme", th);
-		document.documentElement.setAttribute("data-theme-mode", mo);
-		if (mo === "dark") document.documentElement.classList.add("dark");
-		else document.documentElement.classList.remove("dark");
+<script is:inline data-astro-rerun lang="js">
+	window._applyTheme = (th = "light", mo = "light") => {
 		let _c = document.querySelector('meta[name="theme-color"]');
 		if (!_c) {
 			_c = document.createElement("meta");
 			_c?.setAttribute("name", "theme-color");
 		}
-		window.theme = th;
-		window.themeMode = mo;
 		_c.setAttribute("content", mo === "dark" ? "#111827" : "#FFFFFF");
+		document.documentElement.setAttribute("data-theme", th);
+		document.documentElement.setAttribute("data-thememode", mo);
+		if (mo === "dark") document.documentElement.classList.add("dark");
+		else document.documentElement.classList.remove("dark");
+		window.theme = th;
+		window.thememode = mo;
 		localStorage.setItem("theme", `${th}@${mo}`);
+		const giscuss = document.querySelector('script[src="https://giscus.app/client.js"]');
+		giscuss?.setAttribute("data-theme", mo === "dark" ? "transparent_dark" : "light");
+		const giscusFrame = document.querySelector("iframe.giscus-frame");
+		const giscusFrameURL = new URL(giscusFrame?.getAttribute("src") || "");
+		giscusFrameURL.searchParams.set("theme", mo === "dark" ? "transparent_dark" : "light");
+		giscusFrame?.setAttribute("src", giscusFrameURL.toString());
 	};
-	const _restoreTheme = () => {
+	window._restoreTheme = () => {
 		const _s = localStorage.getItem("theme");
 		let [th, mo] = ["light", "light"];
 		if (typeof localStorage !== "undefined") {
@@ -117,17 +123,8 @@ const authorName = author ? author : site.author.fullName;
 			else localStorage.setItem("theme", `${th}@${mo}`);
 		}
 		try {
-			_applyTheme(th, mo);
+			window._applyTheme(th, mo);
 		} catch (_) {}
 	};
-	_restoreTheme();
-	document.addEventListener("astro:after-swap", _restoreTheme);
+	window._restoreTheme();
 </script>
-
-<script
-	defer
-	is:inline
-	src="https://cloud.umami.is/script.js"
-	data-website-id="fb992e03-a7be-48ed-b176-c6fe7cd472cf"></script>
-
-<script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>

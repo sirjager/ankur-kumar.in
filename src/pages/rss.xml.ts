@@ -17,9 +17,8 @@ export const GET: APIRoute = async (context) => {
 		customData: "<language>en-us</language>",
 		items: posts.map((post) => {
 			const taxonomies = new Set<string>();
-			post.tags.forEach((tag) => taxonomies.add(tag));
+			post.tags.forEach((tag) => taxonomies.add(`#${tag}`));
 			post.categories.forEach((cat) => taxonomies.add(cat));
-
 			return {
 				title: post.title,
 				description: post.description,

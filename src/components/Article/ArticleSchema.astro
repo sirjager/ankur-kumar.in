@@ -38,4 +38,10 @@ schema = Object.fromEntries(
 );
 ---
 
-<script slot="head" type="application/ld+json" set:html={JSON.stringify(schema)} />
+<script
+	is:inline
+	data-astro-rerun
+	slot="head"
+	type="application/ld+json"
+	set:html={JSON.stringify(schema)}
+/>

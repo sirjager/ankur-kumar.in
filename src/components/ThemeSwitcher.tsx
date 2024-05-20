@@ -3,21 +3,23 @@ import {$, component$} from "@builder.io/qwik";
 
 export default component$(() => {
 	const switchTheme = $(() => {
+		// @ts-ignore : already initialized in Head.astro
+		if (typeof window._applyTheme !== "function") return;
 		const theme = document.documentElement.getAttribute("data-theme");
 		if (!theme) {
 			const _stored = localStorage.getItem("theme");
-			// @ts-ignore : already initialized in Head.astro
-			if (_stored) _applyTheme(_stored.split("@"));
 			// @ts-ignore
-			else _applyTheme(themes[0], themeMode(themes[0]));
+			if (_stored) window._applyTheme(_stored.split("@"));
+			// @ts-ignore
+			else window._applyTheme(themes[0], themeMode(themes[0]));
 		} else {
 			const index = themes.indexOf(theme);
 			// @ts-ignore
-			if (index === -1) _applyTheme(themes[0], themeMode(themes[0]));
+			if (index === -1) window._applyTheme(themes[0], themeMode(themes[0]));
 			else {
 				const _selected = themes[(index + 1) % themes.length];
 				// @ts-ignore
-				_applyTheme(_selected, themeMode(_selected));
+				window._applyTheme(_selected, themeMode(_selected));
 			}
 		}
 	});
@@ -27,7 +29,7 @@ export default component$(() => {
 			aria-label="switch themes"
 			onClick$={switchTheme}
 			class={[
-				"btn-square px-3 py-2",
+				"btn-square",
 				"transition-all duration-300 ease-in-out",
 				"group/tgthm border-base-300",
 				"relative grid place-items-center overflow-clip rounded-btn p-0",

@@ -9,6 +9,7 @@ import webmanifest from "astro-webmanifest";
 import {defineConfig} from "astro/config";
 import {astroImageTools} from "astro-imagetools";
 import compressor from "astro-compressor";
+import astroIcon from "astro-icon";
 
 // adapters
 import node from "@astrojs/node";
@@ -37,6 +38,7 @@ export default defineConfig({
 		}),
 		qwik(),
 		svelte(),
+		astroIcon(),
 		astroImageTools,
 		tailwind(),
 		partytown({
@@ -63,8 +65,6 @@ export default defineConfig({
 			start_url: "/",
 			description: site.description,
 			display: "standalone",
-			theme_color: "#FFFFFF",
-			background_color: "#FFFFFF",
 			icon: "./public/icons/android-chrome-512x512.png",
 			icons: [
 				{src: "./public/icons/favicon-16x16.png", sizes: "16x16", type: "image/png"},
@@ -76,7 +76,7 @@ export default defineConfig({
 		}),
 		compressor({brotli: true}),
 	],
-	prefetch: {defaultStrategy: "hover"},
+	prefetch: {defaultStrategy: "viewport"},
 	image: {
 		remotePatterns: [{protocol: "https"}, {protocol: "http"}],
 	},
@@ -89,7 +89,6 @@ export default defineConfig({
 		remarkPlugins: [readtime, remarkToc],
 		rehypePlugins: [
 			[rehypeAutolinkHeadings, {behavior: "wrap", properties: {className: [""]}}],
-			// pretty code highlight
 			[rehypePrettyCode, rehypePrettyCodeOptions],
 		],
 	},
@@ -98,7 +97,8 @@ export default defineConfig({
 		process.env.NODE_ENV !== "development" ? vercel({maxDuration: 60}) : node({mode: "standalone"}),
 	build: {
 		// https://docs.astro.build/en/reference/configuration-reference
-		inlineStylesheets: "always",
+		inlineStylesheets: "never",
+		assets: "_assets",
 	},
 });
 

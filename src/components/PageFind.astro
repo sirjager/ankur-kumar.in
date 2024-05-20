@@ -2,23 +2,23 @@
 import "@/styles/pagefind.css";
 ---
 
-<div class:list={["mx-auto h-full min-h-20 max-w-6xl"]}>
-	<div id="searchui" class:list={["relative min-h-20 w-full"]}></div>
+<div class:list={["mx-auto h-full min-h-8 max-w-6xl"]}>
+	<div id="searchui" class:list={["relative min-h-12 w-full"]}></div>
 </div>
 
 <link href="/_pagefind/pagefind-ui.css" rel="stylesheet" />
-<script is:inline data-astro-rerun src="/_pagefind/pagefind-ui.js"></script>
 
-<script>
-	// @ts-nocheck
-	function _pagefind() {
-		new PagefindUI({
-			element: "#searchui",
-			resetStyles: false,
-			debounceTimeoutMs: 50,
-			showImages: true,
-			showEmptyFilters: true,
-		});
-	}
-	window.addEventListener("astro:after-swap", (_) => _pagefind);
+<script is:inline data-astro-rerun>
+	(function () {
+		try {
+			// @ts-nocheck
+			new PagefindUI({
+				element: "#searchui",
+				resetStyles: false,
+				debounceTimeoutMs: 50,
+				showImages: true,
+				showEmptyFilters: true,
+			});
+		} catch (_) {}
+	})();
 </script>

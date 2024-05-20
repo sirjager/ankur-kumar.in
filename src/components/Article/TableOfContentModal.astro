@@ -1,0 +1,75 @@
+---
+import type {Post} from "@/content";
+import {Icon} from "astro-icon/components";
+
+interface Props {
+	post?: Post;
+}
+
+const {post} = Astro.props;
+---
+
+<div>
+	{
+		post && (
+			<div class="insert-0 absolute">
+				<input type="checkbox" id="toc-modal" class="modal-toggle" />
+				<div role="dialog" class="modal">
+					<div class="modal-box border-2 border-base-300 bg-base-100">
+						<h3 class="font-title font-light text-accent">{post.title}</h3>
+						<h4 class="mt-2 font-title text-sm font-light">
+							Table of Contents{" "}
+							<span>
+								<Icon
+									name="tabler:circle-dot-filled"
+									size={10}
+									class="mx-4 inline text-base-content brightness-75"
+								/>
+								{post.readtime?.text}
+							</span>
+						</h4>
+
+						<ul
+							id="modal-toc"
+							class:list={[
+								"h-full max-h-[calc(100vh-200px)] overflow-x-hidden lg:overflow-y-auto",
+								"fade-top-bottom pb-12 pt-10 transition-all duration-300 ease-in-out",
+							]}
+						>
+							{post.headings.map((heading) => {
+								return (
+									<li
+										id={`tocli-${heading.slug}`}
+										class:list={[
+											"group/hblock tocli relative mr-4 flex flex-wrap items-center py-0.5",
+										]}
+									>
+										<a
+											href={`#${heading.slug}`}
+											class:list={[
+												"block w-full rounded-none p-1 text-left text-sm hover:bg-transparent",
+												"text-neutral-content hover:text-base-content",
+												"border-l-4 border-transparent hover:border-accent",
+												"bg-gradient-to-r hover:from-accent/20 hover:via-accent/10 hover:to-base-100",
+												{
+													"ml-3": heading.depth === 2,
+													"ml-5": heading.depth === 3,
+													"ml-7": heading.depth === 4,
+													"ml-8": heading.depth === 5,
+													"ml-10": heading.depth === 6,
+												},
+											]}
+										>
+											{heading.text}
+										</a>
+									</li>
+								);
+							})}
+						</ul>
+					</div>
+					<label for="toc-modal" class="modal-backdrop" />
+				</div>
+			</div>
+		)
+	}
+</div>

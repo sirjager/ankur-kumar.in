@@ -2,19 +2,20 @@
 
 ---
 
-<script>
-	const ele = document.getElementById("scroll-to-top");
-	window.addEventListener("scroll", () => {
-		const scrollY = window.scrollY;
-		const isHidden = ele?.classList.contains("hidden");
-		if (scrollY > 200 && isHidden) {
-			ele?.classList.remove("hidden");
-		} else if (scrollY <= 200 && !isHidden) {
-			ele?.classList.add("hidden");
-		}
-	});
-
-	ele?.addEventListener("click", () => window.scrollTo({top: 0, behavior: "smooth"}));
+<script is:inline data-astro-rerun>
+	(function () {
+		const ele = document.getElementById("scroll-to-top");
+		window.addEventListener("scroll", () => {
+			const scrollY = window.scrollY;
+			const isHidden = ele?.classList.contains("hidden");
+			if (scrollY > 200 && isHidden) {
+				ele?.classList.remove("hidden");
+			} else if (scrollY <= 200 && !isHidden) {
+				ele?.classList.add("hidden");
+			}
+		});
+		ele?.addEventListener("click", () => window.scrollTo({top: 0, behavior: "smooth"}));
+	})();
 </script>
 
 <button

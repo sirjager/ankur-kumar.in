@@ -17,7 +17,7 @@ const posts = getMatters(blog, {method: "astro", type: ["blog"]});
 
 <Root title="Blog" description={site.blog.description}>
 	<Blog>
-		<div slot="header" class="mb-4 @container">
+		<div slot="header" class="@container">
 			<h1 class="max-w-3xl text-pretty font-title text-xl font-light @md:text-4xl">
 				{site.blog.title}
 			</h1>
@@ -30,6 +30,7 @@ const posts = getMatters(blog, {method: "astro", type: ["blog"]});
 				Subscribe to the <Link aria-label="RSS" href={site.links.rssfeed}>RSS Feed</Link> to stay updated.
 			</p>
 		</div>
+
 		<PostsGrid slot="body" posts={posts} />
 		<FilterCloud slot="aside" />
 		<!-- <div slot="aside" class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-1"></div> -->

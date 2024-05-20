@@ -1,9 +1,21 @@
 ---
-import {site} from "@/lib/constants";
+import {analyticsEvents, site} from "@/lib/constants";
 import Link from "@/components/Link.astro";
-import Copyright from "./Copyright";
+import Copyright from "./Copyright.astro";
 import SocialIcons from "./SocialIcons.astro";
-const sections = [
+
+interface Section {
+	name: string;
+	items: {
+		id?: string;
+		name: string;
+		url: string;
+		newtab?: boolean;
+		event?: string;
+	}[];
+}
+
+const sections: Section[] = [
 	{
 		name: "General",
 		items: [
@@ -20,30 +32,49 @@ const sections = [
 			// {name: "Sponsors", url: "/sponsors"},
 			// {name: "My Journey", url: "/blog/my-journey"},
 			// {name: "Hire Me", url: "/hire-me"},
-			{name: "Resume", url: "/pdfs/ankur-kumar-resume.pdf", newtab: true, event: "clicked-resume"},
-			{name: "Dotfiles", url: site.links.dotfiles, newtab: true, event: "clicked-dotfiles"},
+			{
+				id: "footer-resume",
+				name: "Resume",
+				url: "/pdfs/ankur-kumar-resume.pdf",
+				newtab: true,
+				event: analyticsEvents.clickedResume,
+			},
+			{
+				id: "footer-dotfiles",
+				name: "Dotfiles",
+				url: site.links.dotfiles,
+				newtab: true,
+				event: "clicked-dotfiles",
+			},
 		],
 	},
 	{
 		name: "Extras",
 		items: [
-			{name: "RSS", url: site.links.rssfeed, newtab: true, event: "clicked-rss"},
-			{name: "Sitemap", url: site.links.sitemap},
+			{
+				id: "footer-rss",
+				name: "RSS",
+				newtab: true,
+				url: site.links.rssfeed,
+				event: analyticsEvents.clickedRssFeed,
+			},
+			{
+				id: "footer-sitemap",
+				name: "Sitemap",
+				newtab: true,
+				url: site.links.sitemap,
+				event: analyticsEvents.clickedSitemap,
+			},
 			// {name: "Newsletter", url: "/newsletter"},
 			// {name: "Privacy Policy", url: "/privacy-policy"},
 			// {name: "Terms of Service", url: "/terms-of-service"},
 		],
 	},
-];
+] as const;
 ---
 
-<div>
-	<div
-		class:list={[
-			"mx-auto mt-48 w-full max-w-7xl px-4 @container",
-			"border-t border-base-200 pt-12",
-		]}
-	>
+<div class="mb-20 mt-32 md:mb-0">
+	<div class:list={["mx-auto w-full max-w-7xl px-4 @container", "border-t border-base-200 pt-12"]}>
 		<div class:list={["grid grid-cols-2 py-8 @lg:grid-cols-3 @4xl:grid-cols-6"]}>
 			{
 				sections.map((section) => {
@@ -61,6 +92,7 @@ const sections = [
 									return (
 										<li class="group/link relative w-full">
 											<Link
+												id={item.id}
 												href={item.url}
 												aria-label={item.name}
 												data-umami-event={item.event}
@@ -136,10 +168,7 @@ const sections = [
 			"flex flex-col items-center gap-4 sm:flex-row sm:justify-between",
 		]}
 	>
-		<div class="w-full max-w-56 px-2">
-			<Copyright />
-		</div>
-		<div class="text-neutral-content">Site is currently in development.</div>
+		<Copyright />
 		<SocialIcons />
 	</div>
 </div>

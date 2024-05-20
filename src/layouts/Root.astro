@@ -4,21 +4,23 @@ import type {Props as HeadProps} from "./Head.astro";
 
 import {ViewTransitions} from "astro:transitions";
 
+import type {Post} from "@/content";
 import Footer from "@/components/Footer/Footer.astro";
 import Navbar from "@/components/Navbar/Navbar.astro";
+import BottomNavbar from "@/components/Navbar/BottomNavbar.astro";
 import Head from "@/layouts/Head.astro";
 
-// import NoiseFilter from "@/components/NoiseFilter.astro";
 import ScrollToTop from "@/components/ScrollToTop.astro";
 import ScrollWatcher from "@/components/ScrollWatcher.astro";
 import Breadcrumbs from "@/layouts/BreadCrumbs.astro";
 
 interface Props extends HeadProps {
+	post?: Post;
 	nocrumbs?: boolean;
 	viewTransition?: boolean;
 }
 
-const {nocrumbs, viewTransition = true, ...props} = Astro.props;
+const {post, nocrumbs, viewTransition = true, ...props} = Astro.props;
 ---
 
 <!doctype html>
@@ -26,12 +28,19 @@ const {nocrumbs, viewTransition = true, ...props} = Astro.props;
 	<head>
 		<Head {...props} />
 		<slot name="head" />
+		<script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
+		<script is:inline data-astro-rerun src="/_pagefind/pagefind-ui.js"></script>
 		{viewTransition && <ViewTransitions />}
+		<script
+			defer
+			is:inline
+			src="https://cloud.umami.is/script.js"
+			data-website-id="fb992e03-a7be-48ed-b176-c6fe7cd472cf"></script>
 	</head>
 	<body class="font-body antialiased">
-		<!-- <NoiseFilter /> -->
 		<ScrollWatcher />
 		<Navbar />
+		<BottomNavbar post={post} />
 		{!nocrumbs && <Breadcrumbs />}
 		<slot />
 		<Footer />
