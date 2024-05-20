@@ -60,4 +60,28 @@ export const parseDate = (toISOString?: string | null) => {
 	}
 };
 
+export function getRelativeTime(_date: any) {
+	const now = new Date();
+	const date = new Date(_date);
+	const diffInMilliseconds = now.getTime() - date.getTime();
+	// Calculate the differences in seconds, minutes, hours, and days
+	const seconds = Math.floor(diffInMilliseconds / 1000);
+	const minutes = Math.floor(seconds / 60);
+	const hours = Math.floor(minutes / 60);
+	const days = Math.floor(hours / 24);
+	const rtf = new Intl.RelativeTimeFormat("en", {numeric: "auto", style: "long"});
+	if (seconds < 60) {
+		return rtf.format(-seconds, "second");
+	} else if (minutes < 60) {
+		return rtf.format(-minutes, "minute");
+	} else if (hours < 24) {
+		return rtf.format(-hours, "hour");
+	} else if (days < 7) {
+		return rtf.format(-days, "day");
+	} else {
+		const weeks = Math.floor(days / 7);
+		return rtf.format(-weeks, "week");
+	}
+}
+
 export default parseDate;

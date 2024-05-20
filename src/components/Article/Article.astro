@@ -1,7 +1,8 @@
 ---
 import type {Post} from "@/content";
 import {Picture} from "astro:assets";
-import Category from "./Category.astro";
+import Categories from "./Categories.astro";
+import Tags from "./Tags.astro";
 import DatePublished from "./DatePublished.astro";
 import ReadTime from "./ReadTime.astro";
 import TableOfContent from "./TableOfContent.astro";
@@ -44,7 +45,7 @@ const ogimage = `${Astro.url.origin}/blog/${post.slug}/og.png`;
 	<div class:list={["col-span-3 flex flex-wrap items-center gap-x-2 text-sm sm:text-base"]}>
 		<DatePublished published={post.published} />
 		<ReadTime readtime={post.readtime} />
-		<Category categories={post.categories} />
+		{post.categories.length > 0 && <Categories categories={post.categories} />}
 		<ViewsCounter slug={post.slug} client:idle />
 	</div>
 
@@ -105,7 +106,7 @@ const ogimage = `${Astro.url.origin}/blog/${post.slug}/og.png`;
 	<div
 		id="article-content"
 		class:list={[
-			"col-span-3  max-w-full @6xl:max-w-full lg:!col-end-4 lg:!row-start-5 lg:max-w-[620px] xl:max-w-full",
+			"col-span-3 max-w-full py-6 @6xl:max-w-full lg:!col-end-4 lg:!row-start-5 lg:max-w-[620px] xl:max-w-full",
 			"typograhy",
 			"prose sm:prose-base",
 			"prose-a:text-accent prose-a:underline",
@@ -120,4 +121,12 @@ const ogimage = `${Astro.url.origin}/blog/${post.slug}/og.png`;
 	>
 		<slot>content not found</slot>
 	</div>
+
+	{
+		post.tags.length > 0 && (
+			<div class="col-span-3 border-t-2 border-base-200 pt-12 lg:!col-end-5">
+				<Tags tags={post.tags} />
+			</div>
+		)
+	}
 </article>

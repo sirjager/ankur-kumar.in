@@ -1,0 +1,37 @@
+---
+import Link from "@/components/Link.astro";
+interface Props {
+	tags: string[];
+}
+const {tags} = Astro.props;
+---
+
+<div class="flex items-center gap-4">
+	<h4 class="prose text-2xl">Tags</h4>
+	<ul class="flex flex-wrap items-center gap-3">
+		{
+			tags.map((tag) => {
+				return (
+					<li>
+						<Link
+							href={`/tags/${tag}`}
+							aria-label={`View posts tagged with ${tag}`}
+							data-pagefind-filter="tag"
+							data-pagefind-meta="tag"
+							transition:name={`tag-${tag}`}
+							class:list={[
+								"group/tag relative font-semibold transition-colors ease-in-out before:content-['#'] hover:text-accent",
+							]}
+						>
+							<span
+								aria-hidden="true"
+								class="absolute -bottom-0.5 left-0 inline h-0.5 w-0 bg-accent transition-all duration-500 ease-in-out group-hover/tag:w-full group-hover/tag:duration-300"
+							/>
+							{tag}
+						</Link>
+					</li>
+				);
+			})
+		}
+	</ul>
+</div>

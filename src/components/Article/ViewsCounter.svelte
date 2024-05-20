@@ -42,7 +42,7 @@
 		<span class="loading loading-ring"></span>
 	{:then}
 		<div>
-		 Views <span class="">{$views}</span>
+		 Views <span>{$views}</span>
 		</div>
 	{:catch}
 		<div>error</div>

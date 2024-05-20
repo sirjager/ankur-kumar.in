@@ -1,8 +1,9 @@
 ---
 import Link from "@/components/Link.astro";
 import type {Post} from "@/content";
-import {parseDate} from "@/lib/utils";
+import {getRelativeTime, parseDate} from "@/lib/utils";
 import {Img as Picture} from "astro-imagetools/components";
+import {Icon} from "astro-icon/components";
 
 interface Props {
 	post: Post;
@@ -10,7 +11,8 @@ interface Props {
 	loading?: string;
 }
 const {post, loading} = Astro.props;
-const date = parseDate(post.published.toISOString());
+const relativeDate = getRelativeTime(post.published);
+const acurateDate = parseDate(post.published.toISOString());
 
 const image = post.banner || `${Astro.url.origin}/blog/${post.slug}/og.png`;
 ---
@@ -65,55 +67,28 @@ const image = post.banner || `${Astro.url.origin}/blog/${post.slug}/og.png`;
 	<p class="prose-sm line-clamp-3 text-neutral-content">{post.description}</p>
 
 	<div class="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1">
-		<div class="flex items-center gap-1">
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				viewBox="0 0 24 24"
-				stroke-width="1.5"
-				fill="none"
-				stroke-linecap="round"
-				stroke-linejoin="round"
-				class="h-5 w-5 stroke-base-content transition-colors duration-300 ease-in-out group-hover:stroke-accent"
-			>
-				<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-				<path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z"
-				></path>
-				<path d="M16 3v4"></path>
-				<path d="M8 3v4"></path>
-				<path d="M4 11h16"></path>
-				<path d="M7 14h.013"></path>
-				<path d="M10.01 14h.005"></path>
-				<path d="M13.01 14h.005"></path>
-				<path d="M16.015 14h.005"></path>
-				<path d="M13.015 17h.005"></path>
-				<path d="M7.01 17h.005"></path>
-				<path d="M10.01 17h.005"></path>
-			</svg>
-
+		<div
+			class="flex items-center gap-1"
+			title={`Published on ${acurateDate?.date} ${acurateDate?.month} ${acurateDate?.year}`}
+		>
+			<Icon
+				size={22}
+				name="tabler:calendar-month"
+				class="text-base-content/70 group-hover:text-accent"
+			/>
 			<p class="prose">
-				{date?.date}
-				{date?.month.slice(0, 3)}
-				{date?.year}
+				{relativeDate}
 			</p>
 		</div>
 
 		{
 			post.tags.length !== 0 && (
 				<div class="group/tags flex flex-wrap items-center">
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						viewBox="0 0 24 24"
-						stroke-width="1.5"
-						fill="none"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						class="mr-2 h-5 w-5 stroke-base-content stroke-2 transition-colors duration-300 ease-in-out group-hover:stroke-accent"
-					>
-						<path stroke="none" d="M0 0h24v24H0z" fill="none" />
-						<path d="M7.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
-						<path d="M3 6v5.172a2 2 0 0 0 .586 1.414l7.71 7.71a2.41 2.41 0 0 0 3.408 0l5.592 -5.592a2.41 2.41 0 0 0 0 -3.408l-7.71 -7.71a2 2 0 0 0 -1.414 -.586h-5.172a3 3 0 0 0 -3 3z" />
-					</svg>
-
+					<Icon
+						size={22}
+						name={post.tags.length < 2 ? "tabler:tag" : "tabler:tags"}
+						class="mx-1 text-base-content/70 group-hover:text-accent"
+					/>
 					{post.tags.map((tag) => {
 						return (
 							<Link

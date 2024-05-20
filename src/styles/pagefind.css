@@ -70,4 +70,8 @@
 	.pagefind-ui__filter-name {
 		@apply px-2 py-3;
 	}
+
+	.pagefind-ui__result-tag {
+		@apply rounded-btn bg-base-200 px-3 text-base-content;
+	}
 }

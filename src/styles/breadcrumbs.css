@@ -8,7 +8,7 @@
 		/* li list item */
 		.c-breadcrumbs__link {
 			/* a link */
-			@apply rounded-btn px-2 py-1 text-sm font-medium text-base-content outline-none ring-offset-white focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 dark:focus:ring-offset-black;
+			@apply mx-1 rounded-btn px-2 py-1 text-sm font-medium text-base-content outline-none ring-offset-white focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 dark:focus:ring-offset-black;
 		}
 
 		.is-current {
