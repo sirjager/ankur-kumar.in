@@ -20,8 +20,8 @@ export function themeMode(theme: string | undefined): "dark" | "light" {
 }
 
 export const themes = [
-	"light",
 	"dark",
+	"light",
 	// "cupcake",
 	// "business",
 	// "business",
