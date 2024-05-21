@@ -21,9 +21,10 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePrettyCode from "rehype-pretty-code";
 import remarkToc from "remark-toc";
 import {rehypePrettyCodeOptions} from "./rehype-prettycode-opts";
-import {links,site} from "./src/lib/constants";
+import {links, site} from "./src/lib/constants";
 
-const siteURL = process.env.NODE_ENV === "development" ? "http://localhost:4321" : links.website.href;
+const siteURL =
+	process.env.NODE_ENV === "development" ? "http://localhost:4321" : links.website.href;
 
 // https://astro.build/config
 export default defineConfig({
@@ -53,9 +54,7 @@ export default defineConfig({
 			entryLimit: 10000,
 			changefreq: "weekly",
 			lastmod: new Date(),
-			filter: (page) =>
-				!page.includes(`${siteURL}/admin`) &&
-				!page.includes(`${siteURL}/api`),
+			filter: (page) => !page.includes(`${siteURL}/admin`) && !page.includes(`${siteURL}/api`),
 		}),
 		robots({
 			sitemap: `${siteURL}${links.sitemap.href}`,
