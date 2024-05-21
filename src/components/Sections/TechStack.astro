@@ -1,5 +1,5 @@
 ---
-import {site} from "@/lib/constants";
+import {authors} from "@/lib/constants";
 import SectionHeading from "./SectionHeading.astro";
 import ScrollList from "@/components/ScrollList.astro";
 ---
@@ -12,9 +12,9 @@ import ScrollList from "@/components/ScrollList.astro";
 	/>
 
 	<div class="mx-auto mt-32 max-w-[1366px] space-y-2 px-1">
-		<ScrollList items={site.author.programming} />
-		<ScrollList direction="right" items={site.author.databases} />
-		<ScrollList items={site.author.technologies} />
-		<ScrollList direction="right" items={site.author.frameworks} />
+		<ScrollList items={authors.ankur.programming} />
+		<ScrollList direction="right" items={authors.ankur.databases} />
+		<ScrollList items={authors.ankur.technologies} />
+		<ScrollList direction="right" items={authors.ankur.frameworks} />
 	</div>
 </section>

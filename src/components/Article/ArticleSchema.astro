@@ -1,6 +1,6 @@
 ---
 import type {Post} from "@/content";
-import {site} from "@/lib/constants";
+import {authors, links} from "@/lib/constants";
 
 interface Props {
 	post: Post;
@@ -23,9 +23,9 @@ let schema: Record<string, unknown> = {
 	genre: post.categories,
 	author: {
 		"@type": "Person",
-		name: site.author.fullName,
-		url: site.links.website,
-		image: site.author.image,
+		name: authors.ankur.fullName,
+		image: authors.ankur.image,
+		url: links.website.href,
 	},
 	/* the schema expects Date or DateTime using ISO 8601 format. For Date that is yyyy-MM-dd */
 	datePublished: post.published.toISOString().substring(0, 10),

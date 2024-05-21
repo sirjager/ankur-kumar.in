@@ -1,7 +1,7 @@
 ---
 import Link from "@/components/Link.astro";
 import type {Post} from "@/content";
-import {site} from "@/lib/constants";
+import {links} from "@/lib/constants";
 import {Icon} from "astro-icon/components";
 import TableOfContentModal from "@/components/Article/TableOfContentModal.astro";
 
@@ -13,23 +13,8 @@ const {post} = Astro.props;
 
 const {pathname} = new URL(Astro.request.url);
 
-const articleURL = encodeURIComponent(`${site.links.website}/blog/${post?.slug}`);
+const articleURL = encodeURIComponent(`${links.website.href}/blog/${post?.slug}`);
 const encodedTitle = encodeURIComponent(post?.title || "");
-
-// <li class="group p-1">
-// 	<Link nofocus aria-label="About Me" href="/about">
-// 		<Icon
-// 			name="cib:about-me"
-// 			size={24}
-// 			class:list={[
-// 				"group-hover:text-primary",
-// 				{
-// 					"text-primary": pathname.includes("/about"),
-// 				},
-// 			]}
-// 		/>
-// 	</Link>
-// </li>
 
 const shares = {
 	hackernews: {
@@ -79,9 +64,9 @@ const shares = {
 	>
 		<ul class="flex items-center justify-evenly gap-2">
 			<li class="group p-1">
-				<Link nofocus aria-label="Visit Home" href="/">
+				<Link nofocus aria-label={links.home.label} href={links.home.href}>
 					<Icon
-						name="tabler:smart-home"
+						name={links.home.icon}
 						size={24}
 						class:list={[
 							"group-hover:text-accent",
@@ -94,13 +79,33 @@ const shares = {
 			</li>
 
 			<li class="group p-1">
-				<Link nofocus aria-label="Visit Blog" href="/blog">
+				<Link nofocus aria-label={links.blog.label} href={links.blog.href}>
 					<Icon
-						name="tabler:brand-blogger"
+						name={links.blog.icon}
 						size={24}
 						class:list={[
 							"group-hover:text-[#FFA105]",
 							{"text-[#FFA105]": pathname.includes("/blog")},
+						]}
+					/>
+				</Link>
+			</li>
+
+			<li class="group p-1">
+				<Link
+					nofocus
+					href={links.about.href}
+					aria-label={links.about.label}
+					data-umami-event={links.about.event}
+				>
+					<Icon
+						name={links.about.icon}
+						size={24}
+						class:list={[
+							"group-hover:text-primary",
+							{
+								"text-primary": pathname.includes("/about"),
+							},
 						]}
 					/>
 				</Link>

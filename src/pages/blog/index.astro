@@ -1,5 +1,5 @@
 ---
-import {site} from "@/lib/constants";
+import {site, links} from "@/lib/constants";
 
 import Link from "@/components/Link.astro";
 import Root from "@/layouts/Root.astro";
@@ -27,7 +27,7 @@ const posts = getMatters(blog, {method: "astro", type: ["blog"]});
 			</div>
 
 			<p class="tet-pretty prose-sm mt-2 @md:prose prose-a:font-normal prose-a:text-accent">
-				Subscribe to the <Link aria-label="RSS" href={site.links.rssfeed}>RSS Feed</Link> to stay updated.
+				Subscribe to the <Link aria-label="RSS" href={links.rss.href}>RSS Feed</Link> to stay updated.
 			</p>
 		</div>
 

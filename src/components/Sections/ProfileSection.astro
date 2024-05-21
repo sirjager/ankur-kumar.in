@@ -1,5 +1,5 @@
 ---
-import {site} from "@/lib/constants";
+import {links, authors} from "@/lib/constants";
 import Link from "@/components/Link.astro";
 import FillAnimatedButton from "@/components/Buttons/FillAnimated.astro";
 ---
@@ -36,7 +36,7 @@ import FillAnimatedButton from "@/components/Buttons/FillAnimated.astro";
 					"mt-4 font-rocksalt text-4xl font-light tracking-wide sm:text-5xl md:text-6xl",
 				]}
 			>
-				{site.author.fullName}
+				{authors.ankur.fullName}
 			</h1>
 
 			<p class:list={["mt-8 text-lg sm:max-w-2xl sm:text-xl"]}>
@@ -51,10 +51,10 @@ import FillAnimatedButton from "@/components/Buttons/FillAnimated.astro";
 
 				<Link
 					id="cta-resume"
-					target="_blank"
-					aria-label="View Resume"
-					href="/pdfs/ankur-kumar-resume.pdf"
-					data-umami-event="clicked-resume"
+					target={links.resume.target}
+					href={links.resume.href}
+					aria-label={links.resume.label}
+					data-umami-event={links.resume.event}
 					class="flex-grow"
 				>
 					<FillAnimatedButton class_="w-full text-white dark:text-black bg-accent btn-accent">

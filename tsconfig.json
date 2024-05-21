@@ -23,6 +23,7 @@
 		"**/*.jsx",
 		"**/*.mjs",
 		"**/*.cjs",
+		"**/*.d.ts",
 		".astro/types.d.ts"
 	]
 }

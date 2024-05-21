@@ -15,6 +15,7 @@ const links = getMyLinks("twitter,linkedin,instagram,github,email,rss");
 					title={link.name}
 					aria-label={link.label}
 					href={link.href}
+					data-umami-event={link.event}
 					class="grayscale hover:grayscale-0"
 				>
 					<Icon size={26} name={link.icon} style={{color: link.color}} />

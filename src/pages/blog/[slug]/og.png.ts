@@ -1,7 +1,7 @@
 import {getMatters, type Post} from "@/content";
 import type {APIRoute} from "astro";
 
-import {site} from "@/lib/constants";
+import {authors, links} from "@/lib/constants";
 import {parseDate} from "@/lib/utils";
 import {ImageResponse} from "@vercel/og";
 
@@ -12,7 +12,7 @@ export async function getStaticPaths() {
 }
 
 const backgroundURL = "https://i.imgur.com/hxMDIFD.jpeg";
-const avatarURL = site.author.image;
+const avatarURL = authors.ankur.image;
 
 export const GET: APIRoute = async ({props}) => {
 	const post: Post = props.post;
@@ -83,7 +83,7 @@ export const GET: APIRoute = async ({props}) => {
 								type: "div",
 								props: {
 									tw: "shadow-xl text-lg  bg-[#111827]/20 rounded-3xl px-3 py-1 font-bold text-white",
-									children: `${site.links.website}/blog/${post.slug}`,
+									children: `${links.website.href}/blog/${post.slug}`,
 								},
 							},
 						],
@@ -118,14 +118,14 @@ export const GET: APIRoute = async ({props}) => {
 											type: "div",
 											props: {
 												tw: "text-3xl text-center text-center font-light text-white",
-												children: site.author.fullName,
+												children: authors.ankur.fullName,
 											},
 										},
 										{
 											type: "div",
 											props: {
 												tw: "text-3xl font-bold text-center text-center font-light text-white",
-												children: site.links.website,
+												children: links.website.href,
 											},
 										},
 									],

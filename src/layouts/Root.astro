@@ -12,7 +12,6 @@ import BottomNavbar from "@/components/Navbar/BottomNavbar.astro";
 import Head from "@/layouts/Head.astro";
 
 import ScrollToTop from "@/components/ScrollToTop.astro";
-import ScrollWatcher from "@/components/ScrollWatcher.astro";
 import Breadcrumbs from "@/layouts/BreadCrumbs.astro";
 
 interface Props extends HeadProps {
@@ -22,30 +21,43 @@ interface Props extends HeadProps {
 }
 
 const {post, nocrumbs, viewTransition = true, ...props} = Astro.props;
+
+import {links} from "@/lib/constants";
+const scriptURL = import.meta.env.UMAMI_SCRIPT_URL;
+const websiteID = import.meta.env.UMAMI_WEBSITE_ID;
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<Head {...props} />
+
 		<slot name="head" />
-		<script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
-		<script is:inline data-astro-rerun src="/_pagefind/pagefind-ui.js"></script>
-		{viewTransition && <ViewTransitions />}
+
 		<script
 			defer
 			is:inline
-			src="https://cloud.umami.is/script.js"
-			data-website-id="fb992e03-a7be-48ed-b176-c6fe7cd472cf"></script>
+			src={scriptURL}
+			data-domains={links.domain.href}
+			data-website-id={websiteID}></script>
+
+		{viewTransition && <ViewTransitions />}
+
+		<script is:inline data-astro-rerun src="/_pagefind/pagefind-ui.js"></script>
 	</head>
+
 	<body class="font-body antialiased">
-		<ScrollWatcher />
 		<Navbar />
 		<BottomNavbar post={post} />
+
 		{!nocrumbs && <Breadcrumbs />}
+
 		<slot />
+
 		<Footer />
+
 		<slot name="scripts" />
+
 		<ScrollToTop />
 	</body>
 </html>

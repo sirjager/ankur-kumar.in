@@ -1,12 +1,12 @@
 ---
-import {site} from "@/lib/constants";
+
 ---
 
 <script
 	id="giscus-comments"
 	is:inline
 	src="https://giscus.app/client.js"
-	data-repo={site.links.giscus}
+	data-repo="sirjager/ankur-kumar.in-discussions"
 	data-repo-id="R_kgDOL9L3-g"
 	data-category="Comments"
 	data-category-id="DIC_kwDOL9L3-s4CfcfO"
@@ -20,11 +20,3 @@ import {site} from "@/lib/constants";
 	data-loading="lazy"
 	crossorigin="anonymous"
 	async></script>
-
-<script is:inline data-astro-rerun>
-	(function () {
-		document
-			.querySelector('script[src="https://giscus.app/client.js"]')
-			?.setAttribute("data-theme", window.thememode === "dark" ? "transparent_dark" : "light");
-	})();
-</script>

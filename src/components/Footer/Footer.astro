@@ -1,21 +1,10 @@
 ---
-import {analyticsEvents, site} from "@/lib/constants";
+import {links} from "@/lib/constants";
 import Link from "@/components/Link.astro";
 import Copyright from "./Copyright.astro";
 import SocialIcons from "./SocialIcons.astro";
 
-interface Section {
-	name: string;
-	items: {
-		id?: string;
-		name: string;
-		url: string;
-		newtab?: boolean;
-		event?: string;
-	}[];
-}
-
-const sections: Section[] = [
+const sections: {name: string; items: Item[]}[] = [
 	{
 		name: "General",
 		items: [
@@ -33,18 +22,18 @@ const sections: Section[] = [
 			// {name: "My Journey", url: "/blog/my-journey"},
 			// {name: "Hire Me", url: "/hire-me"},
 			{
+				target: "_blank",
 				id: "footer-resume",
-				name: "Resume",
-				url: "/pdfs/ankur-kumar-resume.pdf",
-				newtab: true,
-				event: analyticsEvents.clickedResume,
+				name: links.resume.name,
+				url: links.resume.href,
+				event: links.resume.event,
 			},
 			{
+				target: "_blank",
 				id: "footer-dotfiles",
-				name: "Dotfiles",
-				url: site.links.dotfiles,
-				newtab: true,
-				event: "clicked-dotfiles",
+				name: links.dotfiles.name,
+				url: links.dotfiles.href,
+				event: links.dotfiles.event,
 			},
 		],
 	},
@@ -52,18 +41,18 @@ const sections: Section[] = [
 		name: "Extras",
 		items: [
 			{
+				target: "_blank",
 				id: "footer-rss",
-				name: "RSS",
-				newtab: true,
-				url: site.links.rssfeed,
-				event: analyticsEvents.clickedRssFeed,
+				name: links.rss.name,
+				url: links.rss.href,
+				event: links.rss.event,
 			},
 			{
+				target: "_blank",
 				id: "footer-sitemap",
-				name: "Sitemap",
-				newtab: true,
-				url: site.links.sitemap,
-				event: analyticsEvents.clickedSitemap,
+				name: links.sitemap.name,
+				url: links.sitemap.href,
+				event: links.sitemap.event,
 			},
 			// {name: "Newsletter", url: "/newsletter"},
 			// {name: "Privacy Policy", url: "/privacy-policy"},
@@ -71,6 +60,14 @@ const sections: Section[] = [
 		],
 	},
 ] as const;
+
+type Item = {
+	id?: string;
+	name: string;
+	url: string;
+	event?: string;
+	target?: string;
+};
 ---
 
 <div class="mb-20 mt-32 md:mb-0">
@@ -96,7 +93,7 @@ const sections: Section[] = [
 												href={item.url}
 												aria-label={item.name}
 												data-umami-event={item.event}
-												target={item.newtab ? "_blank" : "_self"}
+												target={item.target}
 												class:list={["block rounded-btn p-1", "group-hover/link:text-accent"]}
 											>
 												{item.name}

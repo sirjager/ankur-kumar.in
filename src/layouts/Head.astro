@@ -1,5 +1,5 @@
 ---
-import {site} from "@/lib/constants";
+import {authors, site} from "@/lib/constants";
 import {AstroFont} from "astro-font";
 
 export interface Props {
@@ -16,7 +16,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const pageTitle = title ? `${title} | ${site.title}` : site.title;
 const pageDesc = description ? description : site.description;
 const ogImage = image ? image : `${Astro.url.origin}/images/siteog.jpg`;
-const authorName = author ? author : site.author.fullName;
+const authorName = author ? author : authors.ankur.fullName;
 ---
 
 <!-- Global Metadata -->
@@ -58,7 +58,7 @@ const authorName = author ? author : site.author.fullName;
 <meta property="twitter:title" content={pageTitle} />
 <meta property="twitter:description" content={pageDesc} />
 <meta name="twitter:image" content={ogImage} />
-<meta name="twitter:site" content={site.author.twitter} />
+<meta name="twitter:site" content={authors.ankur.twitter} />
 
 <AstroFont
 	config={[
@@ -90,41 +90,48 @@ const authorName = author ? author : site.author.fullName;
 	]}
 />
 
-<!-- This needs to be inlinded to avoid FOUC (Flash of unstyled content) -->
-<script is:inline data-astro-rerun lang="js">
-	window._applyTheme = (th = "light", mo = "light") => {
-		let _c = document.querySelector('meta[name="theme-color"]');
-		if (!_c) {
-			_c = document.createElement("meta");
-			_c?.setAttribute("name", "theme-color");
+<script is:inline data-astro-rerun>
+	window._disableTransitionWhileExecuting = (_function) => {
+		document.documentElement.classList.add("[&_*]:!transition-none");
+		try {
+			_function();
+		} catch (_) {
+		} finally {
+			window.setTimeout(() => {
+				document.documentElement.classList.remove("[&_*]:!transition-none");
+			}, 20);
 		}
-		_c.setAttribute("content", mo === "dark" ? "#111827" : "#FFFFFF");
-		document.documentElement.setAttribute("data-theme", th);
-		document.documentElement.setAttribute("data-thememode", mo);
-		if (mo === "dark") document.documentElement.classList.add("dark");
-		else document.documentElement.classList.remove("dark");
-		window.theme = th;
-		window.thememode = mo;
-		localStorage.setItem("theme", `${th}@${mo}`);
-		const giscuss = document.querySelector('script[src="https://giscus.app/client.js"]');
-		giscuss?.setAttribute("data-theme", mo === "dark" ? "transparent_dark" : "light");
-		const giscusFrame = document.querySelector("iframe.giscus-frame");
-		const giscusFrameURL = new URL(giscusFrame?.getAttribute("src") || "");
-		giscusFrameURL.searchParams.set("theme", mo === "dark" ? "transparent_dark" : "light");
-		giscusFrame?.setAttribute("src", giscusFrameURL.toString());
+	};
+	window._applyTheme = (theme = "light", mode = "light") => {
+		window._disableTransitionWhileExecuting(() => {
+			document.documentElement.setAttribute("data-theme", theme);
+			document.documentElement.setAttribute("data-theme-mode", mode);
+			if (mode === "dark") document.documentElement.classList.add("dark");
+			else document.documentElement.classList.remove("dark");
+			localStorage.setItem("theme", `${theme}@${mode}`);
+			try {
+				let _mtc = document.querySelector('meta[name="theme-color"]');
+				if (!_mtc) _mtc = document.createElement("meta");
+				_mtc.setAttribute("name", "theme-color");
+				_mtc.setAttribute("content", mode === "dark" ? "#111827" : "#FFFFFF");
+				const _g = document.querySelector('script[src="https://giscus.app/client.js"]');
+				_g?.setAttribute("data-theme", mode === "dark" ? "transparent_dark" : "light");
+				const _gf = document.querySelector("iframe.giscus-frame");
+				const _gfu = new URL(_gf?.getAttribute("src") || "");
+				_gfu.searchParams.set("theme", mode === "dark" ? "transparent_dark" : "light");
+				_gf?.setAttribute("src", _gfu.toString());
+				const preferredMode = mode === "dark" ? "preferredDarkMode" : "preferredLightMode";
+				umami.track(preferredMode, {theme: theme, mode: mode});
+			} catch (_) {}
+		});
 	};
 	window._restoreTheme = () => {
-		const _s = localStorage.getItem("theme");
 		let [th, mo] = ["light", "light"];
-		if (typeof localStorage !== "undefined") {
-			if (!_s && window.matchMedia("(prefers-color-scheme: dark)").matches)
-				[th, mo] = ["dark", "dark"];
-			else if (_s) [th, mo] = _s.split("@");
-			else localStorage.setItem("theme", `${th}@${mo}`);
-		}
-		try {
-			window._applyTheme(th, mo);
-		} catch (_) {}
+		const _stored = localStorage.getItem("theme");
+		if (!_stored && window.matchMedia("(prefers-color-scheme: dark)").matches)
+			[th, mo] = ["dark", "dark"];
+		if (_stored) [th, mo] = _stored.split("@");
+		window._applyTheme(th, mo);
 	};
 	window._restoreTheme();
 </script>
