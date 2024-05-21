@@ -16,6 +16,26 @@ const {pathname} = new URL(Astro.request.url);
 const articleURL = encodeURIComponent(`${links.website.href}/blog/${post?.slug}`);
 const encodedTitle = encodeURIComponent(post?.title || "");
 
+// <li class="group p-1">
+// 	<Link
+// 		nofocus
+// 		href={links.about.href}
+// 		aria-label={links.about.label}
+// 		data-umami-event={links.about.event}
+// 	>
+// 		<Icon
+// 			name={links.about.icon}
+// 			size={24}
+// 			class:list={[
+// 				"group-hover:text-primary",
+// 				{
+// 					"text-primary": pathname.includes("/about"),
+// 				},
+// 			]}
+// 		/>
+// 	</Link>
+// </li>
+
 const shares = {
 	hackernews: {
 		href: `https://news.ycombinator.com/submitlink?u=${articleURL}&t=${encodedTitle}`,
@@ -86,26 +106,6 @@ const shares = {
 						class:list={[
 							"group-hover:text-[#FFA105]",
 							{"text-[#FFA105]": pathname.includes("/blog")},
-						]}
-					/>
-				</Link>
-			</li>
-
-			<li class="group p-1">
-				<Link
-					nofocus
-					href={links.about.href}
-					aria-label={links.about.label}
-					data-umami-event={links.about.event}
-				>
-					<Icon
-						name={links.about.icon}
-						size={24}
-						class:list={[
-							"group-hover:text-primary",
-							{
-								"text-primary": pathname.includes("/about"),
-							},
 						]}
 					/>
 				</Link>
