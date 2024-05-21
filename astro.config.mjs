@@ -10,6 +10,7 @@ import {defineConfig} from "astro/config";
 import {astroImageTools} from "astro-imagetools";
 import compressor from "astro-compressor";
 import astroIcon from "astro-icon";
+import {defaultTheme, themeMode} from "./src/lib/themes";
 
 // adapters
 import node from "@astrojs/node";
@@ -66,6 +67,8 @@ export default defineConfig({
 			start_url: "/",
 			description: site.description,
 			display: "standalone",
+			theme_color: themeMode(defaultTheme) === "dark" ? "#111827" : "#FFFFFF",
+			background_color: themeMode(defaultTheme) === "dark" ? "#111827" : "#FFFFFF",
 			icon: "./public/icons/android-chrome-512x512.png",
 			icons: [
 				{src: "./public/icons/favicon-16x16.png", sizes: "16x16", type: "image/png"},
