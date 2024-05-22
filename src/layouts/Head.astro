@@ -14,7 +14,7 @@ const {title, description, image, robots, author} = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const pageTitle = title ? `${title} | ${site.title}` : site.title;
-const pageDesc = description ? description : site.description;
+const pageDesc = description ? description : site.metaDescription;
 const ogImage = image ? image : `${Astro.url.origin}/images/siteog.jpg`;
 const authorName = author ? author : authors.ankur.fullName;
 ---

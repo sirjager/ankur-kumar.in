@@ -1,11 +1,15 @@
 export const site = {
 	lang: "en-US",
 	title: "Ankur Kumar",
+	metaDescription:
+		"Welcome to my Personal Developer Portfolio! Here, I dive deep into various aspects of software development, sharing my experiences and insights along the way.",
 	description:
 		"Welcome to my personal developer portfolio! Here, I dive deep into various aspects of software development, sharing my experiences and insights along the way. From exploring system design, web development, and backend server creation to prioritizing security and delving into Linux customization and open-source software, I'm excited to share my journey with you. Join me as we uncover the power of scripting, automation, and workflows, where every line of code brings us closer to crafting secure, innovative solutions and shaping the digital landscape of tomorrow.",
 	blog: {
 		title:
 			"Articles on my journey through software development, scripting, Linux, and tech in general.",
+		metaDescription:
+			"Here, I dive into various aspects of software development, sharing my experiences and insights. From web development, mastering backend  to prioritizing security and speed.",
 		description:
 			"Embark on a journey through the ever-evolving landscape of programming with me. From my humble beginnings in 2019, I've delved into the complexities of software development and Linux mastery, discovering new realms of code and system environments.",
 		readmore: [
