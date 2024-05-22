@@ -1,7 +1,7 @@
 ---
 import Link from "@/components/Link.astro";
 import type {Post} from "@/content";
-import {getRelativeTime, parseDate} from "@/lib/utils";
+import {parseDate} from "@/lib/utils";
 import {Img as Picture} from "astro-imagetools/components";
 import {Icon} from "astro-icon/components";
 
@@ -11,8 +11,7 @@ interface Props {
 	loading?: string;
 }
 const {post, loading} = Astro.props;
-const relativeDate = getRelativeTime(post.published);
-const acurateDate = parseDate(post.published.toISOString());
+const date = parseDate(post.published.toISOString());
 
 const image = post.banner || `${Astro.url.origin}/blog/${post.slug}/og.png`;
 ---
@@ -67,17 +66,16 @@ const image = post.banner || `${Astro.url.origin}/blog/${post.slug}/og.png`;
 	<p class="prose-sm line-clamp-3 text-neutral-content">{post.description}</p>
 
 	<div class="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1">
-		<div
-			class="flex items-center gap-1"
-			title={`Published on ${acurateDate?.date} ${acurateDate?.month} ${acurateDate?.year}`}
-		>
+		<div class="flex items-center gap-1" title={"Published on"}>
 			<Icon
 				size={22}
 				name="tabler:calendar-month"
 				class="text-base-content/70 group-hover:text-accent"
 			/>
 			<p class="prose">
-				{relativeDate}
+				{date?.date}
+				{date?.month}
+				{date?.year}
 			</p>
 		</div>
 
