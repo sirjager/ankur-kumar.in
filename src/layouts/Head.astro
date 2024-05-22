@@ -120,9 +120,9 @@ const authorName = author ? author : authors.ankur.fullName;
 				const _gfu = new URL(_gf?.getAttribute("src") || "");
 				_gfu.searchParams.set("theme", mode === "dark" ? "transparent_dark" : "light");
 				_gf?.setAttribute("src", _gfu.toString());
-				const preferredMode = mode === "dark" ? "preferred-darkmode" : "preferred-lightmode";
-				umami.track(preferredMode, {theme: theme, mode: mode});
 			} catch (_) {}
+			const preferredMode = mode === "dark" ? "preferred-darkmode" : "preferred-lightmode";
+			umami.track(preferredMode, {theme: theme, mode: mode});
 		});
 	};
 	window._restoreTheme = () => {
