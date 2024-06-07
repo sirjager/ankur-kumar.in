@@ -1,7 +1,7 @@
 ---
 type: blog
 banner_icon: 🌄
-banner: https://i.imgur.com/roFgE4v.png
+banner: "https://i.imgur.com/roFgE4v.png"
 banner_x: 0.5
 banner_y: 0.51
 banner_lock: false

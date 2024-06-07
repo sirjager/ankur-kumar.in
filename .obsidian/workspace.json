@@ -4,15 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "75f30d21cc2b55f8",
+        "id": "ba0bac57e020112b",
         "type": "tabs",
         "children": [
           {
-            "id": "71e743da5303b2ac",
+            "id": "8c23246c922c6626",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "src/content/blog/welcome-to-my-website.md",
+                "mode": "preview",
+                "source": false
+              }
             }
           }
         ]
@@ -185,36 +189,36 @@
       "canvas:Create new canvas": false,
       "command-palette:Open command palette": false,
       "table-editor-obsidian:Advanced Tables Toolbar": false,
-      "homepage:Open homepage": false,
-      "obsidian-trash-explorer:Open trash explorer": false,
-      "templater-obsidian:Templater": false,
       "obsidian-excalidraw-plugin:Create new drawing": false,
-      "edit-mdx:New .mdx file": false
+      "templater-obsidian:Templater": false,
+      "homepage:Open homepage": false,
+      "edit-mdx:New .mdx file": false,
+      "obsidian-trash-explorer:Open trash explorer": false
     }
   },
-  "active": "65184c489bc76a14",
+  "active": "8c23246c922c6626",
   "lastOpenFiles": [
+    "assets/pagefind-search.png",
+    "assets/240607_11h18m38s_screenshot.png",
+    "assets/mobile-share.png",
+    "assets/Screenshot_20240607-111352_Chrome.png",
+    "assets/Screenshot_20240607-111352_Chrome.png.crdownload",
+    "assets/Screenshot_20240607-110032_Chrome.png",
+    "assets/Screenshot_20240607-110032_Chrome.png.crdownload",
+    "assets/mobile-toc.png",
+    "assets/Screenshot_20240607-110007_Chrome.png",
+    "assets/Screenshot_20240607-110007_Chrome.png.crdownload",
+    "assets/mobile-article.png",
+    "assets/Screenshot_20240607-110003_Chrome.png",
+    "assets/Screenshot_20240607-110003_Chrome.png.crdownload",
+    "assets/mobile-blog.png",
+    "assets/Screenshot_20240607-110011_Chrome.png",
+    "assets/Screenshot_20240607-110011_Chrome.png.crdownload",
+    "assets/Screenshot_20240607-110053_Chrome.png.crdownload",
+    "assets/Screenshot_20240607-105855_Brave.png.crdownload",
+    "assets/Screenshot_20240607-110024_Chrome.png.crdownload",
+    "assets",
     "dist/client/_pagefind/pagefind-entry.json",
-    "dist/client/_pagefind/wasm.unknown.pagefind",
-    "dist/client/_pagefind/pagefind-modular-ui.css",
-    "dist/client/_pagefind/pagefind-ui.css",
-    "dist/client/_pagefind/pagefind-modular-ui.js",
-    "dist/client/_pagefind/pagefind-ui.js",
-    "dist/client/_pagefind/pagefind-highlight.js",
-    "dist/client/_pagefind/pagefind.js",
-    "dist/client/_pagefind/index/en_f9e1fac.pf_index",
-    "dist/client/_pagefind/fragment/en_5e1a689.pf_fragment",
-    "dist/client/_pagefind/wasm.en.pagefind",
-    "dist/client/public/icons/android-chrome-512x512.png",
-    "dist/client/public/icons/android-chrome-192x192.png",
-    "dist/client/public/icons/apple-touch-icon.png",
-    "dist/client/public/icons/favicon-32x32.png",
-    "dist/client/public/icons/favicon-16x16.png",
-    "dist/client/favicon-32x32.png",
-    "dist/client/_astro/roFgE4v@400w.e6990058.avif",
-    "dist/client/_astro/roFgE4v@300w.360842cd.avif",
-    "dist/client/_astro/roFgE4v@480w.d3933dd7.avif",
-    "dist/client/_astro/sirjager@60w.b79eca6f.png",
     "templates/post.md",
     "src/content/blog/welcome-to-my-website.md",
     "src/content/page/about.md",
